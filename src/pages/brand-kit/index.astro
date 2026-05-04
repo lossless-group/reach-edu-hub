@@ -42,44 +42,44 @@ import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
       <h3 class="text-xl font-semibold mb-4">Named Tokens (Tier 1) — Reach Brand</h3>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
         <div class="border rounded p-4" style="border-color: var(--color-border);">
-          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #1f1646;" onclick="copyColor('#1f1646')" title="Click to copy"></div>
+          <div class="color-swatch w-full h-24 rounded mb-3 cursor-pointer" style="background: #1f1646;" data-color="#1f1646" title="Click to copy"></div>
           <code class="text-sm block mb-1">--color__reach-purple</code>
-          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#1f1646')">
+          <button class="copy-btn text-xs px-2 py-1 rounded cursor-pointer" style="background: var(--color-surface); border: 1px solid var(--color-border);" data-color="#1f1646">
             #1f1646 📋
           </button>
         </div>
         <div class="border rounded p-4" style="border-color: var(--color-border);">
-          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #218099;" onclick="copyColor('#218099')" title="Click to copy"></div>
+          <div class="color-swatch w-full h-24 rounded mb-3 cursor-pointer" style="background: #218099;" data-color="#218099" title="Click to copy"></div>
           <code class="text-sm block mb-1">--color__reach-teal</code>
-          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#218099')">
+          <button class="copy-btn text-xs px-2 py-1 rounded cursor-pointer" style="background: var(--color-surface); border: 1px solid var(--color-border);" data-color="#218099">
             #218099 📋
           </button>
         </div>
         <div class="border rounded p-4" style="border-color: var(--color-border);">
-          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #ff8300;" onclick="copyColor('#ff8300')" title="Click to copy"></div>
+          <div class="color-swatch w-full h-24 rounded mb-3 cursor-pointer" style="background: #ff8300;" data-color="#ff8300" title="Click to copy"></div>
           <code class="text-sm block mb-1">--color__reach-orange</code>
-          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#ff8300')">
+          <button class="copy-btn text-xs px-2 py-1 rounded cursor-pointer" style="background: var(--color-surface); border: 1px solid var(--color-border);" data-color="#ff8300">
             #ff8300 📋
           </button>
         </div>
         <div class="border rounded p-4" style="border-color: var(--color-border);">
-          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #5c5578;" onclick="copyColor('#5c5578')" title="Click to copy"></div>
+          <div class="color-swatch w-full h-24 rounded mb-3 cursor-pointer" style="background: #5c5578;" data-color="#5c5578" title="Click to copy"></div>
           <code class="text-sm block mb-1">--color__purple-gray</code>
-          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#5c5578')">
+          <button class="copy-btn text-xs px-2 py-1 rounded cursor-pointer" style="background: var(--color-surface); border: 1px solid var(--color-border);" data-color="#5c5578">
             #5c5578 📋
           </button>
         </div>
         <div class="border rounded p-4" style="border-color: var(--color-border);">
-          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #473e6e;" onclick="copyColor('#473e6e')" title="Click to copy"></div>
+          <div class="color-swatch w-full h-24 rounded mb-3 cursor-pointer" style="background: #473e6e;" data-color="#473e6e" title="Click to copy"></div>
           <code class="text-sm block mb-1">--color__dark-purple</code>
-          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#473e6e')">
+          <button class="copy-btn text-xs px-2 py-1 rounded cursor-pointer" style="background: var(--color-surface); border: 1px solid var(--color-border);" data-color="#473e6e">
             #473e6e 📋
           </button>
         </div>
         <div class="border rounded p-4" style="border-color: var(--color-border);">
-          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #00001e;" onclick="copyColor('#00001e')" title="Click to copy"></div>
+          <div class="color-swatch w-full h-24 rounded mb-3 cursor-pointer" style="background: #00001e;" data-color="#00001e" title="Click to copy"></div>
           <code class="text-sm block mb-1">--color__near-black</code>
-          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#00001e')">
+          <button class="copy-btn text-xs px-2 py-1 rounded cursor-pointer" style="background: var(--color-surface); border: 1px solid var(--color-border);" data-color="#00001e">
             #00001e 📋
           </button>
         </div>
@@ -195,48 +195,106 @@ import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
     </p>
   </div>
 
-  <script>
-    // Copy color to clipboard
-    function copyColor(hex) {
-      navigator.clipboard.writeText(hex).then(() => {
-        // Show feedback
-        const feedback = document.createElement('div');
-        feedback.textContent = `Copied ${hex}`;
-        feedback.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--color-primary); color: white; padding: 12px 20px; border-radius: 8px; font-size: 14px; z-index: 9999; animation: slideIn 0.3s ease;';
-        document.body.appendChild(feedback);
-        setTimeout(() => feedback.remove(), 2000);
-      }).catch(err => {
-        console.error('Failed to copy:', err);
-      });
-    }
+  <script is:inline>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add slide-in animation for toast
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes slideIn {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        .copy-btn:hover {
+          opacity: 0.8;
+        }
+        .color-swatch:hover {
+          opacity: 0.9;
+        }
+      `;
+      document.head.appendChild(style);
 
-    // Display current effect token values
-    function updateEffectValues() {
-      const root = document.documentElement;
-      const glowOpacity = getComputedStyle(root).getPropertyValue('--fx-glow-opacity').trim();
-      const shadowOpacity = getComputedStyle(root).getPropertyValue('--fx-shadow-opacity').trim();
-      
-      const glowEl = document.getElementById('glow-opacity');
-      const shadowEl = document.getElementById('shadow-opacity');
-      
-      if (glowEl) glowEl.textContent = glowOpacity;
-      if (shadowEl) shadowEl.textContent = shadowOpacity;
-    }
-
-    // Update on load
-    updateEffectValues();
-    
-    // Update when mode changes
-    window.addEventListener('mode-change', updateEffectValues);
-
-    // Add slide-in animation
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes slideIn {
-        from { transform: translateX(100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
+      // Copy color to clipboard function
+      function copyColor(hex) {
+        // Use the Clipboard API
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(hex).then(function() {
+            showToast(hex);
+          }).catch(function(err) {
+            console.error('Failed to copy:', err);
+            // Fallback
+            fallbackCopy(hex);
+          });
+        } else {
+          // Fallback for older browsers
+          fallbackCopy(hex);
+        }
       }
-    `;
-    document.head.appendChild(style);
+
+      // Fallback copy method using textarea
+      function fallbackCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          showToast(text);
+        } catch (err) {
+          console.error('Fallback copy failed:', err);
+        }
+        document.body.removeChild(textarea);
+      }
+
+      // Show toast notification
+      function showToast(hex) {
+        const feedback = document.createElement('div');
+        feedback.textContent = 'Copied ' + hex;
+        feedback.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #1f1646; color: white; padding: 12px 20px; border-radius: 8px; font-size: 14px; z-index: 9999; animation: slideIn 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
+        document.body.appendChild(feedback);
+        setTimeout(function() {
+          feedback.remove();
+        }, 2000);
+      }
+
+      // Attach click listeners to all color swatches
+      const swatches = document.querySelectorAll('.color-swatch');
+      swatches.forEach(function(swatch) {
+        swatch.addEventListener('click', function() {
+          const color = this.getAttribute('data-color');
+          copyColor(color);
+        });
+      });
+
+      // Attach click listeners to all copy buttons
+      const copyBtns = document.querySelectorAll('.copy-btn');
+      copyBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const color = this.getAttribute('data-color');
+          copyColor(color);
+        });
+      });
+
+      // Display current effect token values
+      function updateEffectValues() {
+        const root = document.documentElement;
+        const glowOpacity = getComputedStyle(root).getPropertyValue('--fx-glow-opacity').trim();
+        const shadowOpacity = getComputedStyle(root).getPropertyValue('--fx-shadow-opacity').trim();
+        
+        const glowEl = document.getElementById('glow-opacity');
+        const shadowEl = document.getElementById('shadow-opacity');
+        
+        if (glowEl) glowEl.textContent = glowOpacity;
+        if (shadowEl) shadowEl.textContent = shadowOpacity;
+      }
+
+      // Update on load
+      updateEffectValues();
+      
+      // Update when mode changes
+      window.addEventListener('mode-change', updateEffectValues);
+    });
   </script>
 </BaseThemeLayout>
