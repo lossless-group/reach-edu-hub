@@ -1,0 +1,167 @@
+/* ============================================================================
+   Reach Education Hub — Theme Tokens
+   Two-tier system per blueprint: Maintain-Themes-Mode-Across-CSS-Tailwind.md §2.1
+   - Tier 1 (named tokens, --color__*, --font__*) at the top of this file
+   - Tier 2 (semantic tokens, --color-*, --font-*) inside theme + mode blocks
+   Components and Tailwind utilities only ever read Tier 2.
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   TIER 1 — Named tokens (raw values, private to the theme).
+   ========================================================================
+   # Fetched Brand, Starting Point
+   Extracted from https://reach.edu/ on 2026-05-04
+   Colors by frequency analysis, fonts from @font-face declarations
+   
+   Renamed for intuitive recognition:
+   - Color name first (purple, orange, teal, etc.)
+   - BEM-ish modifier after __ separator describes the shade/character
+   ---------------------------------------------------------------------------- */
+
+:root {
+  /* Reach University brand colors — renamed for intuitive use */
+  --color__purple-midnight: #1f1646;       /* 34 occurrences - deep purple, primary brand */
+  --color__teal-ocean: #218099;            /* 11 occurrences - blue-green secondary */
+  --color__orange-saccharine: #ff8300;     /* 9 occurrences - bright orange accent */
+  --color__purple-muted: #5c5578;          /* 7 occurrences - gray-purple for muted text */
+  --color__purple-dusk: #473e6e;           /* 7 occurrences - darker purple variant */
+  --color__black-ink: #00001e;             /* 7 occurrences - near-black for dark backgrounds */
+  
+  /* Complementary colors for mode system (improvised) */
+  --color__teal-bright: #49a8c1;           /* lighter teal for dark mode */
+  --color__slate-950: #020617;
+  --color__slate-900: #0f172a;
+  --color__slate-800: #1e293b;
+  --color__white-pure: #ffffff;
+  --color__black-pure: #000000;
+  
+  /* Reach University fonts */
+  --font__soleil: 'Soleil', system-ui, -apple-system, sans-serif;
+  --font__playfair: 'Playfair Display', serif;
+  --font__cormorant: 'Cormorant Garamond', serif;
+  --font__open-sans: 'Open Sans', system-ui, sans-serif;
+  --font__mono: 'Courier New', monospace;
+}
+
+/* ----------------------------------------------------------------------------
+   TIER 2 — Semantic tokens, base / theme layer.
+   These are what Tailwind utilities and components read.
+   ---------------------------------------------------------------------------- */
+
+.theme-default {
+  /* Wire Reach brand colors to semantic roles */
+  --color-primary: var(--color__purple-midnight);
+  --color-primary-500: var(--color__purple-midnight);
+  --color-primary-700: var(--color__purple-dusk);
+  --color-secondary: var(--color__teal-ocean);
+  --color-accent: var(--color__orange-saccharine);
+  
+  /* Reach fonts: Soleil for body, Playfair for headings */
+  --font-body: var(--font__soleil);
+  --font-heading: var(--font__playfair);
+  --font-mono: var(--font__mono);
+}
+
+/* ----------------------------------------------------------------------------
+   MODE: light — clean, minimal (uses Reach brand directly)
+   ---------------------------------------------------------------------------- */
+
+[data-mode="light"] {
+  --color-background: var(--color__white-pure);
+  --color-surface: #fbf8f5;                           /* warm off-white */
+  --color-text: var(--color__purple-midnight);        /* Reach brand purple for text */
+  --color-text-muted: var(--color__purple-muted);     /* muted purple-gray */
+  --color-border: #e5e0dc;
+  
+  /* Effect tokens — minimal in light mode */
+  --fx-glow-opacity: 0.06;
+  --fx-glow-spread: 8px;
+  --fx-card-shadow: 0 1px 3px rgba(31, 22, 70, 0.06), 0 1px 2px rgba(31, 22, 70, 0.04);
+  --fx-card-shadow-hover: 0 4px 12px rgba(31, 22, 70, 0.08);
+  --fx-headline-gradient: linear-gradient(120deg, var(--color__purple-midnight) 0%, var(--color__teal-ocean) 100%);
+}
+
+/* ----------------------------------------------------------------------------
+   MODE: dark — code-editor feel (Reach purple/teal palette)
+   ---------------------------------------------------------------------------- */
+
+[data-mode="dark"] {
+  --color-background: var(--color__black-ink);        /* Reach's near-black background */
+  --color-surface: var(--color__purple-dusk);         /* dark purple surface */
+  --color-text: var(--color__white-pure);
+  --color-text-muted: var(--color__purple-muted);
+  --color-border: var(--color__purple-midnight);
+  
+  /* Effect tokens — moderate in dark mode */
+  --fx-glow-opacity: 0.22;
+  --fx-glow-spread: 24px;
+  --fx-card-shadow: 0 0 0 1px var(--color__purple-midnight), 0 4px 14px rgba(0, 0, 0, 0.35);
+  --fx-card-shadow-hover: 0 0 0 1px var(--color__teal-ocean), 0 8px 24px rgba(33, 128, 153, 0.25);
+  --fx-headline-gradient: linear-gradient(135deg, var(--color__teal-ocean), var(--color__teal-bright));
+}
+
+/* ----------------------------------------------------------------------------
+   MODE: vibrant — neon energy with Reach brand palette
+   ---------------------------------------------------------------------------- */
+
+[data-mode="vibrant"] {
+  --color-background: var(--color__black-pure);
+  --color-surface: color-mix(in srgb, var(--color__purple-midnight) 25%, var(--color__black-pure));
+  --color-text: var(--color__white-pure);
+  --color-text-muted: color-mix(in srgb, var(--color__teal-ocean) 70%, var(--color__white-pure));
+  --color-border: var(--color__teal-ocean);           /* neon teal border */
+  
+  /* Effect tokens — maximum impact */
+  --fx-glow-opacity: 0.55;
+  --fx-glow-spread: 48px;
+  --fx-card-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color__teal-ocean) 50%, transparent),
+    0 0 24px color-mix(in srgb, var(--color__teal-ocean) 30%, transparent);
+  --fx-card-shadow-hover:
+    0 0 0 1px var(--color__orange-saccharine),
+    0 0 36px color-mix(in srgb, var(--color__orange-saccharine) 50%, transparent);
+  --fx-headline-gradient: linear-gradient(
+    120deg,
+    var(--color__orange-saccharine) 0%,
+    var(--color__teal-ocean) 40%,
+    var(--color__teal-bright) 70%,
+    var(--color__purple-midnight) 100%
+  );
+}
+
+/* ----------------------------------------------------------------------------
+   Tailwind v4 @theme — semantic tokens that Tailwind exposes as utilities.
+   Only kebab-case --color-* tokens here. Mode-dependent values come from
+   data-mode blocks above and propagate via var().
+   ---------------------------------------------------------------------------- */
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-700: var(--color-primary-700);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-border: var(--color-border);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+  --font-mono: var(--font-mono);
+}
+
+/* ----------------------------------------------------------------------------
+   Smooth transitions on theme/mode changes (added by switcher after first paint
+   to avoid flash of unstyled transition).
+   ---------------------------------------------------------------------------- */
+
+.theme-transition,
+.theme-transition * {
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}

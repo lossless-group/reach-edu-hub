@@ -1,0 +1,127 @@
+{
+  "client": "Reach University",
+  "sourceUrl": "https://reach.edu/",
+  "extractedDate": "2026-05-04",
+  "method": "curl + CSS frequency analysis",
+  "colors": {
+    "purple-midnight": {
+      "hex": "#1f1646",
+      "cssVar": "--color__purple-midnight",
+      "occurrences": 34,
+      "role": "primary brand",
+      "description": "Deep midnight purple, most prominent brand color"
+    },
+    "teal-ocean": {
+      "hex": "#218099",
+      "cssVar": "--color__teal-ocean",
+      "occurrences": 11,
+      "role": "secondary",
+      "description": "Blue-green ocean teal, secondary brand color"
+    },
+    "orange-saccharine": {
+      "hex": "#ff8300",
+      "cssVar": "--color__orange-saccharine",
+      "occurrences": 9,
+      "role": "accent",
+      "description": "Bright sweet orange, energetic accent"
+    },
+    "purple-muted": {
+      "hex": "#5c5578",
+      "cssVar": "--color__purple-muted",
+      "occurrences": 7,
+      "role": "muted text",
+      "description": "Gray-purple for subdued text"
+    },
+    "purple-dusk": {
+      "hex": "#473e6e",
+      "cssVar": "--color__purple-dusk",
+      "occurrences": 7,
+      "role": "darker variant",
+      "description": "Darker purple for depth and variation"
+    },
+    "black-ink": {
+      "hex": "#00001e",
+      "cssVar": "--color__black-ink",
+      "occurrences": 7,
+      "role": "dark backgrounds",
+      "description": "Near-black with subtle blue tint, used for dark mode backgrounds"
+    }
+  },
+  "complementaryColors": {
+    "teal-bright": {
+      "hex": "#49a8c1",
+      "cssVar": "--color__teal-bright",
+      "role": "improvised",
+      "description": "Lighter teal for dark mode, complements ocean teal"
+    }
+  },
+  "fonts": {
+    "body": {
+      "name": "Soleil",
+      "cssVar": "--font__soleil",
+      "weights": [300, 500, 600, 700],
+      "type": "custom",
+      "fallback": "system-ui, -apple-system, sans-serif"
+    },
+    "heading": {
+      "name": "Playfair Display",
+      "cssVar": "--font__playfair",
+      "type": "serif",
+      "source": "Google Fonts"
+    },
+    "display": {
+      "name": "Cormorant Garamond",
+      "cssVar": "--font__cormorant",
+      "type": "serif",
+      "source": "Google Fonts"
+    },
+    "fallback": {
+      "name": "Open Sans",
+      "cssVar": "--font__open-sans",
+      "type": "sans-serif",
+      "source": "Google Fonts"
+    }
+  },
+  "namingConvention": {
+    "pattern": "color__<intuitive-name>-<bem-modifier>",
+    "separator": "__",
+    "philosophy": "Color name first (purple, orange, teal) for intuitive recognition, followed by BEM-ish modifier describing the shade or character",
+    "examples": [
+      "purple-midnight (deep, primary)",
+      "orange-saccharine (bright, sweet)",
+      "teal-ocean (blue-green, natural)"
+    ]
+  },
+  "modeStrategy": {
+    "light": {
+      "background": "#ffffff",
+      "surface": "#fbf8f5",
+      "text": "purple-midnight",
+      "approach": "Uses Reach brand colors directly"
+    },
+    "dark": {
+      "background": "black-ink",
+      "surface": "purple-dusk",
+      "text": "#ffffff",
+      "approach": "Dark background with purple tones, maintains brand feel"
+    },
+    "vibrant": {
+      "background": "#000000",
+      "surface": "purple-midnight 25% + black (color-mix)",
+      "border": "teal-ocean (neon)",
+      "gradient": "orange-saccharine → teal-ocean → teal-bright → purple-midnight",
+      "approach": "Neon energy, glassmorphic surfaces, multi-color gradients"
+    }
+  },
+  "assets": {
+    "favicon": "public/reach-favicon.png",
+    "logoLight": "public/reach-logo.svg",
+    "logoDark": "public/reach-logo-white.svg"
+  },
+  "notes": [
+    "These colors are a starting point, not strict rules",
+    "Client may request adjustments as the site develops",
+    "Soleil font requires licensing - currently using system fallback",
+    "Playfair Display and Cormorant Garamond available via Google Fonts"
+  ]
+}

@@ -1,122 +1,17 @@
 @import "tailwindcss";
+@import "./theme.css";
 
-/* ==========================================================================
-   Two-Tier Token System
-   Tier 1: Named tokens (raw values, BEM-ish __ syntax)
-   Tier 2: Semantic tokens (kebab-case, what Tailwind/components consume)
-   ========================================================================== */
+/* Base resets that apply across all themes/modes */
 
-/* TIER 1: Named Tokens (raw values) */
-:root {
-  /* ========================================================================
-     # Fetched Brand, Starting Point
-     Extracted from https://reach.edu/ on 2026-05-04
-     Colors by frequency analysis, fonts from @font-face declarations
-     ======================================================================== */
-  
-  /* Reach University brand colors */
-  --color__reach-purple: #1f1646;      /* 34 occurrences - primary brand */
-  --color__reach-teal: #218099;        /* 11 occurrences - secondary */
-  --color__reach-orange: #ff8300;      /* 9 occurrences - accent */
-  --color__purple-gray: #5c5578;       /* 7 occurrences - muted text */
-  --color__dark-purple: #473e6e;       /* 7 occurrences - darker variant */
-  --color__near-black: #00001e;        /* 7 occurrences - dark backgrounds */
-  
-  /* Complementary colors for mode system (improvised) */
-  --color__teal-bright: #49a8c1;       /* lighter teal for dark mode */
-  --color__slate-950: #020617;
-  --color__slate-900: #0f172a;
-  --color__slate-800: #1e293b;
-  --color__white: #ffffff;
-  --color__black: #000000;
-  
-  /* Reach University fonts */
-  --font__soleil: 'Soleil', system-ui, -apple-system, sans-serif;
-  --font__playfair: 'Playfair Display', serif;
-  --font__cormorant: 'Cormorant Garamond', serif;
-  --font__open-sans: 'Open Sans', system-ui, sans-serif;
-  --font__mono: 'Courier New', monospace;
-}
-
-/* TIER 2: Semantic Tokens (base theme layer) */
-.theme-default {
-  /* Wire Reach brand colors to semantic roles */
-  --color-primary: var(--color__reach-purple);
-  --color-primary-500: var(--color__reach-purple);
-  --color-primary-700: var(--color__dark-purple);
-  --color-secondary: var(--color__reach-teal);
-  --color-accent: var(--color__reach-orange);
-  
-  /* Reach fonts: Soleil for body, Playfair for headings */
-  --font-body: var(--font__soleil);
-  --font-heading: var(--font__playfair);
-  --font-mono: var(--font__mono);
-}
-
-/* MODE: light — clean, minimal (uses Reach brand directly) */
-[data-mode="light"] {
-  --color-background: var(--color__white);
-  --color-surface: #fbf8f5;                        /* warm off-white */
-  --color-text: var(--color__reach-purple);        /* Reach brand purple for text */
-  --color-text-muted: var(--color__purple-gray);   /* muted purple-gray */
-  --color-border: #e5e0dc;
-  
-  /* Effect tokens — minimal in light mode */
-  --fx-glow-opacity: 0.06;
-  --fx-glow-spread: 8px;
-  --fx-card-shadow: 0 1px 3px rgba(31, 22, 70, 0.06), 0 1px 2px rgba(31, 22, 70, 0.04);
-  --fx-card-shadow-hover: 0 4px 12px rgba(31, 22, 70, 0.08);
-  --fx-headline-gradient: linear-gradient(120deg, var(--color__reach-purple) 0%, var(--color__reach-teal) 100%);
-}
-
-/* MODE: dark — code-editor feel (Reach purple/teal palette) */
-[data-mode="dark"] {
-  --color-background: var(--color__near-black);    /* Reach's dark background */
-  --color-surface: var(--color__dark-purple);      /* dark purple surface */
-  --color-text: var(--color__white);
-  --color-text-muted: var(--color__purple-gray);
-  --color-border: var(--color__reach-purple);
-  
-  /* Effect tokens — moderate in dark mode */
-  --fx-glow-opacity: 0.22;
-  --fx-glow-spread: 24px;
-  --fx-card-shadow: 0 0 0 1px var(--color__reach-purple), 0 4px 14px rgba(0, 0, 0, 0.35);
-  --fx-card-shadow-hover: 0 0 0 1px var(--color__reach-teal), 0 8px 24px rgba(33, 128, 153, 0.25);
-  --fx-headline-gradient: linear-gradient(135deg, var(--color__reach-teal), var(--color__teal-bright));
-}
-
-/* MODE: vibrant — neon energy with Reach brand palette */
-[data-mode="vibrant"] {
-  --color-background: var(--color__black);
-  --color-surface: color-mix(in srgb, var(--color__reach-purple) 25%, var(--color__black));
-  --color-text: var(--color__white);
-  --color-text-muted: color-mix(in srgb, var(--color__reach-teal) 70%, var(--color__white));
-  --color-border: var(--color__reach-teal);        /* neon teal border */
-  
-  /* Effect tokens — maximum impact */
-  --fx-glow-opacity: 0.55;
-  --fx-glow-spread: 48px;
-  --fx-card-shadow:
-    0 0 0 1px color-mix(in srgb, var(--color__reach-teal) 50%, transparent),
-    0 0 24px color-mix(in srgb, var(--color__reach-teal) 30%, transparent);
-  --fx-card-shadow-hover:
-    0 0 0 1px var(--color__reach-orange),
-    0 0 36px color-mix(in srgb, var(--color__reach-orange) 50%, transparent);
-  --fx-headline-gradient: linear-gradient(
-    120deg,
-    var(--color__reach-orange) 0%,
-    var(--color__reach-teal) 40%,
-    var(--color__teal-bright) 70%,
-    var(--color__reach-purple) 100%
-  );
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background: var(--color-surface);
+html {
+  background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-body);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
 }
