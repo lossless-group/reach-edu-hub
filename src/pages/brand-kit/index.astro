@@ -8,9 +8,31 @@ import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
   <div class="container mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold mb-8">Brand Kit</h1>
     
-    <p class="text-lg mb-12 text-gray-600 dark:text-gray-400">
+    <p class="text-lg mb-4">
       Internal reference for Reach Education Hub brand elements. Toggle between Light / Dark / Vibrant modes using the button in the header.
     </p>
+    
+    <!-- Mode Comparison Demo -->
+    <div class="mb-12 p-6 rounded-lg" style="background: var(--color-surface); border: 2px solid var(--color-border);">
+      <p class="text-sm font-semibold mb-2">Current Mode Demo:</p>
+      <div class="space-y-2">
+        <div class="flex items-center gap-4">
+          <span class="text-sm font-mono">Background:</span>
+          <div class="w-24 h-8 rounded border" style="background: var(--color-background); border-color: var(--color-border);"></div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-sm font-mono">Surface:</span>
+          <div class="w-24 h-8 rounded border" style="background: var(--color-surface); border-color: var(--color-border);"></div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-sm font-mono">Border:</span>
+          <div class="w-24 h-8 rounded" style="border: 2px solid var(--color-border);"></div>
+        </div>
+      </div>
+      <p class="text-xs mt-4 opacity-70">
+        Vibrant mode should be visibly different from light — darker background, neon borders, higher contrast.
+      </p>
+    </div>
 
     <!-- Section 1: Color Tokens -->
     <section class="mb-16">
@@ -81,7 +103,23 @@ import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
       </p>
     </section>
 
-    <!-- Section 4: Effect Tokens (Mode-Adaptive) -->
+    <!-- Section 4: Headline Gradient (Mode-Specific) -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6">Headline Gradient</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+        Each mode has a distinct gradient. Toggle modes to see the difference.
+      </p>
+      <h1 class="text-6xl font-bold mb-4" style="background: var(--fx-headline-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        Reach Education Hub
+      </h1>
+      <div class="text-sm font-mono opacity-70">
+        <p>Light: black → blue-azure</p>
+        <p>Dark: blue-azure → cyan-bright (diagonal)</p>
+        <p>Vibrant: lime → cyan → blue → violet (multi-stop neon)</p>
+      </div>
+    </section>
+
+    <!-- Section 5: Effect Tokens (Mode-Adaptive) -->
     <section class="mb-16">
       <h2 class="text-3xl font-bold mb-6">Effect Tokens</h2>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">

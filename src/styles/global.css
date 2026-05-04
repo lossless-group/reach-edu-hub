@@ -10,7 +10,13 @@
 :root {
   /* Colors - temporary defaults until Reach brand fetch */
   --color__blue-azure: #2563eb;
+  --color__cyan-bright: #06b6d4;
+  --color__violet-deep: #7c3aed;
+  --color__lime-terminal: #84cc16;
   --color__slate-gray: #64748b;
+  --color__slate-950: #020617;
+  --color__slate-900: #0f172a;
+  --color__slate-800: #1e293b;
   --color__white: #ffffff;
   --color__black: #000000;
   
@@ -19,37 +25,74 @@
   --font__mono: 'Courier New', monospace;
 }
 
-/* TIER 2: Semantic Tokens */
+/* TIER 2: Semantic Tokens (base theme layer) */
 .theme-default {
   --color-primary: var(--color__blue-azure);
   --color-primary-500: var(--color__blue-azure);
-  --color-surface: var(--color__white);
-  --color-text: var(--color__black);
-  --color-text-muted: var(--color__slate-gray);
+  --color-secondary: var(--color__cyan-bright);
+  --color-accent: var(--color__lime-terminal);
   
   --font-body: var(--font__sans);
   --font-heading: var(--font__sans);
   --font-mono: var(--font__mono);
-  
-  /* Effect tokens for mode-adaptive intensity */
-  --fx-glow-opacity: 0.1;
-  --fx-shadow-opacity: 0.2;
 }
 
-/* Dark Mode Overrides */
+/* MODE: light — clean, minimal */
+[data-mode="light"] {
+  --color-background: var(--color__white);
+  --color-surface: #f8fafc;
+  --color-text: var(--color__black);
+  --color-text-muted: var(--color__slate-gray);
+  --color-border: #e2e8f0;
+  
+  /* Effect tokens — minimal in light mode */
+  --fx-glow-opacity: 0.06;
+  --fx-glow-spread: 8px;
+  --fx-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --fx-card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --fx-headline-gradient: linear-gradient(120deg, var(--color__black) 0%, var(--color__blue-azure) 100%);
+}
+
+/* MODE: dark — code-editor feel */
 [data-mode="dark"] {
-  --color-surface: #0f172a;
+  --color-background: var(--color__slate-950);
+  --color-surface: var(--color__slate-900);
   --color-text: var(--color__white);
   --color-text-muted: #94a3b8;
-  --fx-glow-opacity: 0.3;
-  --fx-shadow-opacity: 0.5;
+  --color-border: var(--color__slate-800);
+  
+  /* Effect tokens — moderate in dark mode */
+  --fx-glow-opacity: 0.22;
+  --fx-glow-spread: 24px;
+  --fx-card-shadow: 0 0 0 1px var(--color__slate-800), 0 4px 14px rgba(0, 0, 0, 0.35);
+  --fx-card-shadow-hover: 0 0 0 1px var(--color__blue-azure), 0 8px 24px rgba(37, 99, 235, 0.18);
+  --fx-headline-gradient: linear-gradient(135deg, var(--color__blue-azure), var(--color__cyan-bright));
 }
 
-/* Vibrant Mode Overrides */
+/* MODE: vibrant — neon energy. Loud gradients, glows, glassmorphic. */
 [data-mode="vibrant"] {
-  --color-primary: #3b82f6;
-  --fx-glow-opacity: 0.5;
-  --fx-shadow-opacity: 0.3;
+  --color-background: var(--color__black);
+  --color-surface: color-mix(in srgb, var(--color__violet-deep) 20%, var(--color__slate-950));
+  --color-text: var(--color__white);
+  --color-text-muted: color-mix(in srgb, var(--color__cyan-bright) 60%, var(--color__white));
+  --color-border: var(--color__blue-azure);
+  
+  /* Effect tokens — maximum impact */
+  --fx-glow-opacity: 0.55;
+  --fx-glow-spread: 48px;
+  --fx-card-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color__blue-azure) 50%, transparent),
+    0 0 24px color-mix(in srgb, var(--color__blue-azure) 30%, transparent);
+  --fx-card-shadow-hover:
+    0 0 0 1px var(--color__lime-terminal),
+    0 0 36px color-mix(in srgb, var(--color__lime-terminal) 50%, transparent);
+  --fx-headline-gradient: linear-gradient(
+    120deg,
+    var(--color__lime-terminal) 0%,
+    var(--color__cyan-bright) 40%,
+    var(--color__blue-azure) 70%,
+    var(--color__violet-deep) 100%
+  );
 }
 
 html,
