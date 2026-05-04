@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Two-Tier Token System
+   Tier 1: Named tokens (raw values, BEM-ish __ syntax)
+   Tier 2: Semantic tokens (kebab-case, what Tailwind/components consume)
+   ========================================================================== */
+
+/* TIER 1: Named Tokens (raw values) */
+:root {
+  /* Colors - temporary defaults until Reach brand fetch */
+  --color__blue-azure: #2563eb;
+  --color__slate-gray: #64748b;
+  --color__white: #ffffff;
+  --color__black: #000000;
+  
+  /* Fonts - system defaults for now */
+  --font__sans: system-ui, -apple-system, sans-serif;
+  --font__mono: 'Courier New', monospace;
+}
+
+/* TIER 2: Semantic Tokens */
+.theme-default {
+  --color-primary: var(--color__blue-azure);
+  --color-primary-500: var(--color__blue-azure);
+  --color-surface: var(--color__white);
+  --color-text: var(--color__black);
+  --color-text-muted: var(--color__slate-gray);
+  
+  --font-body: var(--font__sans);
+  --font-heading: var(--font__sans);
+  --font-mono: var(--font__mono);
+  
+  /* Effect tokens for mode-adaptive intensity */
+  --fx-glow-opacity: 0.1;
+  --fx-shadow-opacity: 0.2;
+}
+
+/* Dark Mode Overrides */
+[data-mode="dark"] {
+  --color-surface: #0f172a;
+  --color-text: var(--color__white);
+  --color-text-muted: #94a3b8;
+  --fx-glow-opacity: 0.3;
+  --fx-shadow-opacity: 0.5;
+}
+
+/* Vibrant Mode Overrides */
+[data-mode="vibrant"] {
+  --color-primary: #3b82f6;
+  --fx-glow-opacity: 0.5;
+  --fx-shadow-opacity: 0.3;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

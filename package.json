@@ -1,0 +1,26 @@
+{
+  "name": "reach-edu-hub",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Client hub for Reach University materials and content",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "author": "The Lossless Group",
+  "license": "UNLICENSED",
+  "private": true,
+  "packageManager": "pnpm@10.15.0",
+  "dependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/vercel": "^10.0.6",
+    "@lossless-group/lfm": "^0.2.1",
+    "@tailwindcss/vite": "^4.2.4",
+    "astro": "^6.2.2",
+    "mdast-util-to-string": "^4.0.0",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,32 @@
+---
+import BoilerPlateHTML from './BoilerPlateHTML.astro';
+import Header from '../components/basics/Header.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  themeClass?: string;
+}
+
+const { 
+  title = "Reach Education Hub", 
+  description = "Client hub for Reach University materials and content",
+  themeClass = "theme-default"
+} = Astro.props;
+---
+
+<BoilerPlateHTML title={title} description={description} themeClass={themeClass}>
+  <div class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <!-- Footer will go here -->
+  </div>
+  
+  <script>
+    import '../utils/theme-switcher.js';
+    import '../utils/mode-switcher.js';
+  </script>
+</BoilerPlateHTML>

@@ -1,0 +1,18 @@
+---
+import ModeToggle from '../ui/ModeToggle.astro';
+---
+
+<header class="border-b border-gray-200 dark:border-gray-800">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-8">
+      <a href="/" class="text-xl font-bold hover:opacity-80 transition-opacity">
+        Reach Education Hub
+      </a>
+      <nav class="hidden md:flex gap-6">
+        <a href="/materials" class="hover:opacity-80 transition-opacity">Materials</a>
+        <a href="/changelog" class="hover:opacity-80 transition-opacity">Changelog</a>
+      </nav>
+    </div>
+    <ModeToggle />
+  </div>
+</header>

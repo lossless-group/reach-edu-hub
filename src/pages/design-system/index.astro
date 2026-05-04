@@ -1,0 +1,91 @@
+---
+import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
+import Header from '../../components/basics/Header.astro';
+---
+
+<BaseThemeLayout title="Design System - Reach Education Hub">
+  <meta name="robots" content="noindex, nofollow" slot="head" />
+  
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">Design System</h1>
+    
+    <p class="text-lg mb-12 text-gray-600 dark:text-gray-400">
+      Component catalog for developers and AI assistants. Every component introduced to this site must have an entry here.
+    </p>
+
+    <!-- Component: Header -->
+    <section class="mb-16 border border-gray-300 dark:border-gray-700 rounded-lg p-6">
+      <h2 class="text-2xl font-bold mb-4">Header</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">
+        Site header with logo, navigation, and mode toggle.
+      </p>
+      
+      <h3 class="text-lg font-semibold mb-2">Live Render</h3>
+      <div class="border border-gray-200 dark:border-gray-800 rounded mb-4">
+        <Header />
+      </div>
+      
+      <h3 class="text-lg font-semibold mb-2">Usage</h3>
+      <pre class="bg-gray-100 dark:bg-gray-900 p-4 rounded text-sm overflow-x-auto"><code>---
+import Header from '../components/basics/Header.astro';
+---
+
+&lt;Header /&gt;</code></pre>
+      
+      <h3 class="text-lg font-semibold mb-2 mt-4">CSS Contract</h3>
+      <ul class="list-disc list-inside text-sm">
+        <li>Reads <code>--color-surface</code> for background</li>
+        <li>Reads <code>--color-text</code> for text color</li>
+        <li>Uses Tailwind utilities for borders and spacing</li>
+      </ul>
+    </section>
+
+    <!-- Component: ModeToggle -->
+    <section class="mb-16 border border-gray-300 dark:border-gray-700 rounded-lg p-6">
+      <h2 class="text-2xl font-bold mb-4">ModeToggle</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">
+        Three-mode toggle button (Light / Dark / Vibrant). Cycles through modes on click.
+      </p>
+      
+      <h3 class="text-lg font-semibold mb-2">Props</h3>
+      <table class="w-full text-sm">
+        <thead class="border-b border-gray-300 dark:border-gray-700">
+          <tr>
+            <th class="text-left py-2">Prop</th>
+            <th class="text-left py-2">Type</th>
+            <th class="text-left py-2">Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="py-2">None</td>
+            <td class="py-2">-</td>
+            <td class="py-2">-</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="text-lg font-semibold mb-2 mt-4">Usage</h3>
+      <pre class="bg-gray-100 dark:bg-gray-900 p-4 rounded text-sm overflow-x-auto"><code>---
+import ModeToggle from '../components/ui/ModeToggle.astro';
+---
+
+&lt;ModeToggle /&gt;</code></pre>
+      
+      <h3 class="text-lg font-semibold mb-2 mt-4">Behavior</h3>
+      <ul class="list-disc list-inside text-sm">
+        <li>Reads <code>window.modeSwitcher</code> (initialized by <code>mode-switcher.js</code>)</li>
+        <li>Persists selection to <code>localStorage.mode</code></li>
+        <li>Emits <code>mode-change</code> event on <code>window</code></li>
+        <li>Updates <code>data-mode</code> attribute on <code>&lt;html&gt;</code></li>
+      </ul>
+    </section>
+
+    <!-- More components will be added as they're built -->
+    <section class="mt-16 p-6 bg-gray-50 dark:bg-gray-900 rounded">
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        <strong>Maintenance note:</strong> Every new component must be documented here in the same PR that introduces it. This is not optional.
+      </p>
+    </section>
+  </div>
+</BaseThemeLayout>

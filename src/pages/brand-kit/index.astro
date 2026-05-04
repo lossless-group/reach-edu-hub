@@ -1,0 +1,127 @@
+---
+import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
+---
+
+<BaseThemeLayout title="Brand Kit - Reach Education Hub">
+  <meta name="robots" content="noindex, nofollow" slot="head" />
+  
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">Brand Kit</h1>
+    
+    <p class="text-lg mb-12 text-gray-600 dark:text-gray-400">
+      Internal reference for Reach Education Hub brand elements. Toggle between Light / Dark / Vibrant modes using the button in the header.
+    </p>
+
+    <!-- Section 1: Color Tokens -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6">Color Tokens</h2>
+      
+      <h3 class="text-xl font-semibold mb-4">Named Tokens (Tier 1)</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div class="border border-gray-300 dark:border-gray-700 rounded p-4">
+          <div class="w-full h-24 rounded mb-2" style="background: var(--color__blue-azure);"></div>
+          <code class="text-sm">--color__blue-azure</code>
+        </div>
+        <div class="border border-gray-300 dark:border-gray-700 rounded p-4">
+          <div class="w-full h-24 rounded mb-2" style="background: var(--color__slate-gray);"></div>
+          <code class="text-sm">--color__slate-gray</code>
+        </div>
+      </div>
+
+      <h3 class="text-xl font-semibold mb-4">Semantic Tokens (Tier 2)</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="border border-gray-300 dark:border-gray-700 rounded p-4">
+          <div class="w-full h-24 rounded mb-2" style="background: var(--color-primary);"></div>
+          <code class="text-sm">--color-primary</code>
+        </div>
+        <div class="border border-gray-300 dark:border-gray-700 rounded p-4">
+          <div class="w-full h-24 rounded mb-2" style="background: var(--color-surface);"></div>
+          <code class="text-sm">--color-surface</code>
+        </div>
+        <div class="border border-gray-300 dark:border-gray-700 rounded p-4">
+          <div class="w-full h-24 rounded mb-2" style="background: var(--color-text);"></div>
+          <code class="text-sm">--color-text</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Typography -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6">Typography</h2>
+      <div class="space-y-4">
+        <div>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Body Font</p>
+          <p class="text-xl" style="font-family: var(--font-body);">
+            The quick brown fox jumps over the lazy dog
+          </p>
+          <code class="text-sm">--font-body</code>
+        </div>
+        <div>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Heading Font</p>
+          <p class="text-2xl font-bold" style="font-family: var(--font-heading);">
+            The quick brown fox jumps over the lazy dog
+          </p>
+          <code class="text-sm">--font-heading</code>
+        </div>
+        <div>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Monospace Font</p>
+          <p class="text-lg" style="font-family: var(--font-mono);">
+            const code = 'example';
+          </p>
+          <code class="text-sm">--font-mono</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Brand Marks -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6">Brand Marks</h2>
+      <p class="text-gray-600 dark:text-gray-400">
+        Brand marks will be added after fetching Reach University brand assets.
+      </p>
+    </section>
+
+    <!-- Section 4: Effect Tokens (Mode-Adaptive) -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6">Effect Tokens</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+        These values change automatically with mode. Toggle modes to see the difference.
+      </p>
+      <div class="space-y-2">
+        <div class="flex gap-4">
+          <code class="text-sm">--fx-glow-opacity:</code>
+          <span id="glow-opacity"></span>
+        </div>
+        <div class="flex gap-4">
+          <code class="text-sm">--fx-shadow-opacity:</code>
+          <span id="shadow-opacity"></span>
+        </div>
+      </div>
+    </section>
+
+    <p class="text-sm text-gray-500 dark:text-gray-600 mt-12">
+      Note: Reach University brand colors and typography will be integrated after API fetch in future phase.
+    </p>
+  </div>
+
+  <script>
+    // Display current effect token values
+    function updateEffectValues() {
+      const root = document.documentElement;
+      const glowOpacity = getComputedStyle(root).getPropertyValue('--fx-glow-opacity').trim();
+      const shadowOpacity = getComputedStyle(root).getPropertyValue('--fx-shadow-opacity').trim();
+      
+      const glowEl = document.getElementById('glow-opacity');
+      const shadowEl = document.getElementById('shadow-opacity');
+      
+      if (glowEl) glowEl.textContent = glowOpacity;
+      if (shadowEl) shadowEl.textContent = shadowOpacity;
+    }
+
+    // Update on load
+    updateEffectValues();
+    
+    // Update when mode changes
+    window.addEventListener('mode-change', updateEffectValues);
+  </script>
+</BaseThemeLayout>
