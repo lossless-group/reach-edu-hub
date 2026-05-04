@@ -37,32 +37,85 @@ import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
     <!-- Section 1: Color Tokens -->
     <section class="mb-16">
       <h2 class="text-3xl font-bold mb-6">Color Tokens</h2>
+      <p class="text-sm mb-6 opacity-70">Fetched from reach.edu, May 2026. Click hex value to copy.</p>
       
-      <h3 class="text-xl font-semibold mb-4">Named Tokens (Tier 1)</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <div class="border border-gray-300 dark:border-gray-700 rounded p-4">
-          <div class="w-full h-24 rounded mb-2" style="background: var(--color__blue-azure);"></div>
-          <code class="text-sm">--color__blue-azure</code>
+      <h3 class="text-xl font-semibold mb-4">Named Tokens (Tier 1) — Reach Brand</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #1f1646;" onclick="copyColor('#1f1646')" title="Click to copy"></div>
+          <code class="text-sm block mb-1">--color__reach-purple</code>
+          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#1f1646')">
+            #1f1646 📋
+          </button>
         </div>
-        <div class="border border-gray-300 dark:border-gray-700 rounded p-4">
-          <div class="w-full h-24 rounded mb-2" style="background: var(--color__slate-gray);"></div>
-          <code class="text-sm">--color__slate-gray</code>
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #218099;" onclick="copyColor('#218099')" title="Click to copy"></div>
+          <code class="text-sm block mb-1">--color__reach-teal</code>
+          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#218099')">
+            #218099 📋
+          </button>
+        </div>
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #ff8300;" onclick="copyColor('#ff8300')" title="Click to copy"></div>
+          <code class="text-sm block mb-1">--color__reach-orange</code>
+          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#ff8300')">
+            #ff8300 📋
+          </button>
+        </div>
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #5c5578;" onclick="copyColor('#5c5578')" title="Click to copy"></div>
+          <code class="text-sm block mb-1">--color__purple-gray</code>
+          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#5c5578')">
+            #5c5578 📋
+          </button>
+        </div>
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #473e6e;" onclick="copyColor('#473e6e')" title="Click to copy"></div>
+          <code class="text-sm block mb-1">--color__dark-purple</code>
+          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#473e6e')">
+            #473e6e 📋
+          </button>
+        </div>
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3 cursor-pointer" style="background: #00001e;" onclick="copyColor('#00001e')" title="Click to copy"></div>
+          <code class="text-sm block mb-1">--color__near-black</code>
+          <button class="text-xs px-2 py-1 rounded" style="background: var(--color-surface); border: 1px solid var(--color-border);" onclick="copyColor('#00001e')">
+            #00001e 📋
+          </button>
         </div>
       </div>
 
-      <h3 class="text-xl font-semibold mb-4">Semantic Tokens (Tier 2)</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="border border-gray-300 dark:border-gray-700 rounded p-4">
-          <div class="w-full h-24 rounded mb-2" style="background: var(--color-primary);"></div>
-          <code class="text-sm">--color-primary</code>
+      <h3 class="text-xl font-semibold mb-4">Semantic Tokens (Tier 2) — Mode Adaptive</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3" style="background: var(--color-primary);"></div>
+          <code class="text-sm block mb-1">--color-primary</code>
+          <p class="text-xs opacity-70">Changes per mode</p>
         </div>
-        <div class="border border-gray-300 dark:border-gray-700 rounded p-4">
-          <div class="w-full h-24 rounded mb-2" style="background: var(--color-surface);"></div>
-          <code class="text-sm">--color-surface</code>
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3" style="background: var(--color-secondary);"></div>
+          <code class="text-sm block mb-1">--color-secondary</code>
+          <p class="text-xs opacity-70">Reach teal</p>
         </div>
-        <div class="border border-gray-300 dark:border-gray-700 rounded p-4">
-          <div class="w-full h-24 rounded mb-2" style="background: var(--color-text);"></div>
-          <code class="text-sm">--color-text</code>
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3" style="background: var(--color-accent);"></div>
+          <code class="text-sm block mb-1">--color-accent</code>
+          <p class="text-xs opacity-70">Reach orange</p>
+        </div>
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3" style="background: var(--color-surface);"></div>
+          <code class="text-sm block mb-1">--color-surface</code>
+          <p class="text-xs opacity-70">Changes per mode</p>
+        </div>
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3" style="background: var(--color-text);"></div>
+          <code class="text-sm block mb-1">--color-text</code>
+          <p class="text-xs opacity-70">Changes per mode</p>
+        </div>
+        <div class="border rounded p-4" style="border-color: var(--color-border);">
+          <div class="w-full h-24 rounded mb-3" style="background: var(--color-border); border: 2px solid var(--color-text);"></div>
+          <code class="text-sm block mb-1">--color-border</code>
+          <p class="text-xs opacity-70">Changes per mode</p>
         </div>
       </div>
     </section>
@@ -143,6 +196,20 @@ import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
   </div>
 
   <script>
+    // Copy color to clipboard
+    function copyColor(hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        // Show feedback
+        const feedback = document.createElement('div');
+        feedback.textContent = `Copied ${hex}`;
+        feedback.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--color-primary); color: white; padding: 12px 20px; border-radius: 8px; font-size: 14px; z-index: 9999; animation: slideIn 0.3s ease;';
+        document.body.appendChild(feedback);
+        setTimeout(() => feedback.remove(), 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+      });
+    }
+
     // Display current effect token values
     function updateEffectValues() {
       const root = document.documentElement;
@@ -161,5 +228,15 @@ import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
     
     // Update when mode changes
     window.addEventListener('mode-change', updateEffectValues);
+
+    // Add slide-in animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </BaseThemeLayout>
