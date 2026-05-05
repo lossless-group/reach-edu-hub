@@ -7,6 +7,8 @@
  * tokens only, no JavaScript. Source content lives in src/content/messages/.
  */
 import '../../styles/global.css';
+import '../../styles/theme.css';
+import PageAsDeckWrapper from '../../layouts/PageAsDeckWrapper.astro';
 
 import T01ApprenticeshipDegree from '../../layouts/sections/story/T01-ApprenticeshipDegree.astro';
 import T02EquityMission        from '../../layouts/sections/story/T02-EquityMission.astro';
@@ -33,7 +35,7 @@ import T09Healthcare           from '../../layouts/sections/story/T09-Healthcare
       ← Hub
     </a>
 
-    <main class="snap-y snap-mandatory h-screen overflow-y-scroll">
+    <PageAsDeckWrapper enableScrollSnap={true} showNavigationHints={true}>
       <T01ApprenticeshipDegree />
       <T02EquityMission />
       <T03ReachMethod />
@@ -43,6 +45,6 @@ import T09Healthcare           from '../../layouts/sections/story/T09-Healthcare
       <T07Partnerships />
       <T08ScaleTraction />
       <T09Healthcare />
-    </main>
+    </PageAsDeckWrapper>
   </body>
 </html>
