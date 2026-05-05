@@ -12,6 +12,7 @@
  * BaseThemeLayout and render their own minimal chrome.
  */
 import ModeToggle from '../ui/ModeToggle.astro';
+import { getScrollDeckCycle } from '../../lib/scroll-decks';
 
 const path = Astro.url.pathname;
 const onStory        = path.startsWith('/story');
@@ -19,13 +20,16 @@ const onBrandKit     = path.startsWith('/brand-kit');
 const onDesignSystem = path.startsWith('/design-system');
 const onHome         = !onStory && !onBrandKit && !onDesignSystem;
 
+const scrollCycle = getScrollDeckCycle(path);
+
 const linkBase     = 'no-underline transition-colors hover:text-indigo-950 dark:hover:text-stone-50 vibrant:hover:text-orange-500';
 const linkActive   = 'text-indigo-950 dark:text-stone-50 vibrant:text-orange-500 font-medium';
 const linkInactive = 'text-slate-500 dark:text-slate-400 vibrant:text-cyan-300';
 const sep          = 'text-slate-300 dark:text-slate-700 vibrant:text-orange-500/40';
+const arrowBtn     = 'inline-flex h-5 w-5 items-center justify-center rounded-full text-slate-500 dark:text-slate-400 vibrant:text-cyan-300 hover:bg-slate-100 dark:hover:bg-stone-50/10 vibrant:hover:bg-orange-500/15 hover:text-indigo-950 dark:hover:text-stone-50 vibrant:hover:text-orange-500 no-underline tracking-normal transition-colors';
 ---
 
-<header class="h-12 shrink-0 grid grid-cols-3 items-center px-6 border-b bg-white dark:bg-indigo-950 vibrant:bg-black border-slate-200 dark:border-stone-50/15 vibrant:border-orange-500/40">
+<header class="sticky top-0 z-50 h-12 shrink-0 grid grid-cols-3 items-center px-6 border-b bg-white dark:bg-indigo-950 vibrant:bg-black border-slate-200 dark:border-stone-50/15 vibrant:border-orange-500/40">
   <a
     href="/"
     class="justify-self-start text-sm font-light tracking-[0.25em] uppercase no-underline text-indigo-950 dark:text-stone-50 vibrant:text-orange-500 hover:text-cyan-700 dark:hover:text-cyan-400 vibrant:hover:text-stone-50 transition-colors"
@@ -38,6 +42,32 @@ const sep          = 'text-slate-300 dark:text-slate-700 vibrant:text-orange-500
     <span class={sep} aria-hidden="true">·</span>
     <a href="/story"         class:list={[linkBase, onStory        ? linkActive : linkInactive]}>Story</a>
     <span class={sep} aria-hidden="true">·</span>
+
+    {scrollCycle && (
+      <>
+        <span
+          class="inline-flex items-center gap-1 rounded-full border border-slate-200 dark:border-stone-50/20 vibrant:border-orange-500/40 bg-white/80 dark:bg-indigo-950/80 vibrant:bg-black/80 backdrop-blur-sm pl-1 pr-1 py-0.5"
+          aria-label="Switch story variant"
+        >
+          <a
+            href={scrollCycle.prev}
+            aria-label="Previous story variant"
+            class={arrowBtn}
+          >‹</a>
+          <span class="text-[10px] tracking-[0.2em] tabular-nums text-indigo-950 dark:text-stone-50 vibrant:text-orange-500 whitespace-nowrap px-2">
+            {scrollCycle.current.label}
+            <span class="text-slate-400 dark:text-slate-500 vibrant:text-cyan-300/60 normal-case ml-1.5">({scrollCycle.index}/{scrollCycle.total})</span>
+          </span>
+          <a
+            href={scrollCycle.next}
+            aria-label="Next story variant"
+            class={arrowBtn}
+          >›</a>
+        </span>
+        <span class={sep} aria-hidden="true">·</span>
+      </>
+    )}
+
     <a href="/brand-kit"     class:list={[linkBase, onBrandKit     ? linkActive : linkInactive]}>Brand Kit</a>
     <span class={sep} aria-hidden="true">·</span>
     <a href="/design-system" class:list={[linkBase, onDesignSystem ? linkActive : linkInactive]}>Design System</a>
