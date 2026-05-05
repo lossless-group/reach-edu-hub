@@ -1,0 +1,135 @@
+---
+/**
+ * MetaTags — comprehensive <head> metadata for a single page.
+ *
+ * Pattern stolen from sites/calmstorm-decks/src/components/basics/MetaTags.astro,
+ * retokenized for the Reach hub. Differences:
+ *   - Default `noindex` is FALSE (the hub is public; opt in to noindex per page).
+ *   - Default OG image is /og_image__Reach-goes-Lossless.png (1200×630).
+ *   - Site name and title suffix come from src/lib/seo.ts.
+ *
+ * Emits, in order:
+ *   - <title>
+ *   - <meta name="description">
+ *   - <meta name="robots">
+ *   - <link rel="canonical">
+ *   - OpenGraph: og:type, og:site_name, og:title, og:description, og:url,
+ *     og:image (+ width, height, alt, secure_url)
+ *   - Twitter: card, title, description, image, image:alt
+ *
+ * Use it as the FIRST child of <head> in every user-facing page, OR let
+ * BoilerPlateHTML render it for you (it does, when passed an `seo` prop).
+ */
+import {
+  SITE_NAME,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_OG_IMAGE_WIDTH,
+  DEFAULT_OG_IMAGE_HEIGHT,
+  DEFAULT_OG_IMAGE_ALT,
+  CHAR_LIMITS,
+  buildPageTitle,
+  truncate,
+} from '../../lib/seo';
+
+interface Props {
+  /** Bare title — the suffix " — Reach goes Lossless" is appended automatically. */
+  title: string;
+  /** Meta description, also used as og:description and twitter:description. */
+  description: string;
+  /** Override the OG image. Path (e.g. "/og.png") or absolute URL. */
+  ogImage?: string;
+  /** Pixel width of the OG image. Override only if ogImage is also overridden. */
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  ogImageAlt?: string;
+  /** "website" (default), "article", etc. */
+  ogType?: string;
+  /** Defaults to false — the hub is public. Set true on private/internal pages. */
+  noindex?: boolean;
+  /** Override the canonical URL. Defaults to the current page's absolute URL. */
+  canonical?: string;
+  /** Article-only fields — emitted only when ogType === "article". */
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  tags?: string[];
+}
+
+const {
+  title,
+  description,
+  ogImage = DEFAULT_OG_IMAGE,
+  ogImageWidth = DEFAULT_OG_IMAGE_WIDTH,
+  ogImageHeight = DEFAULT_OG_IMAGE_HEIGHT,
+  ogImageAlt = DEFAULT_OG_IMAGE_ALT,
+  ogType = 'website',
+  noindex = false,
+  canonical,
+  publishedTime,
+  modifiedTime,
+  author,
+  tags,
+} = Astro.props;
+
+// Resolve absolute URLs. Astro.site is configured in astro.config.mjs;
+// fall back to Astro.url.origin if it's somehow missing.
+const siteUrl = (Astro.site?.toString() ?? Astro.url.origin).replace(/\/$/, '');
+const canonicalUrl = canonical ?? `${siteUrl}${Astro.url.pathname}`;
+
+const absoluteOgImage = ogImage.startsWith('http')
+  ? ogImage
+  : `${siteUrl}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`;
+
+const ogImageType = absoluteOgImage.toLowerCase().endsWith('.jpg') ||
+                    absoluteOgImage.toLowerCase().endsWith('.jpeg')
+  ? 'image/jpeg'
+  : absoluteOgImage.toLowerCase().endsWith('.webp')
+  ? 'image/webp'
+  : 'image/png';
+
+const fullTitle = buildPageTitle(truncate(title, CHAR_LIMITS.title));
+const truncatedDescription = truncate(description, CHAR_LIMITS.description);
+
+const robotsContent = noindex
+  ? 'noindex, nofollow, noarchive, nosnippet'
+  : 'index, follow';
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={truncatedDescription} />
+<meta name="robots" content={robotsContent} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- OpenGraph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={truncatedDescription} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={absoluteOgImage} />
+<meta property="og:image:secure_url" content={absoluteOgImage} />
+<meta property="og:image:type" content={ogImageType} />
+<meta property="og:image:width" content={String(ogImageWidth)} />
+<meta property="og:image:height" content={String(ogImageHeight)} />
+<meta property="og:image:alt" content={ogImageAlt} />
+
+<!-- Article-only fields -->
+{ogType === 'article' && publishedTime && (
+  <meta property="article:published_time" content={publishedTime} />
+)}
+{ogType === 'article' && modifiedTime && (
+  <meta property="article:modified_time" content={modifiedTime} />
+)}
+{ogType === 'article' && author && (
+  <meta property="article:author" content={author} />
+)}
+{ogType === 'article' && tags && tags.length > 0 && tags.map((t) => (
+  <meta property="article:tag" content={t} />
+))}
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={truncatedDescription} />
+<meta name="twitter:image" content={absoluteOgImage} />
+<meta name="twitter:image:alt" content={ogImageAlt} />

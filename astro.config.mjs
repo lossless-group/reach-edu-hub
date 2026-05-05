@@ -7,7 +7,14 @@ import path from 'path';
 export default defineConfig({
   output: 'static',
   adapter: vercel(),
-  site: 'https://reach-edu-hub.vercel.app',
+  // Site URL — used by Astro to resolve absolute URLs for canonical links,
+  // OpenGraph image paths, and feeds. Override in Vercel's env panel
+  // (SITE_URL) when the site moves to a custom domain.
+  // NOTE: uses the public reach-edu-hub.vercel.app alias rather than the
+  // reach-edu-hub-colearn-labs.vercel.app subdomain, which has Vercel
+  // deployment protection (password gate) and returns 401 to social
+  // unfurlers — breaking every share preview.
+  site: process.env.SITE_URL ?? 'https://reach-edu-hub.vercel.app',
   base: '/',
   trailingSlash: 'ignore',
 

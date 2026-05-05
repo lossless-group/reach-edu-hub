@@ -1,18 +1,48 @@
 ---
+/**
+ * BoilerPlateHTML — bare HTML shell with no-flash mode boot script and
+ * full SEO/OG meta delegated to MetaTags.
+ *
+ * Use this directly only when bypassing BaseThemeLayout (e.g., the deck
+ * pages that need a non-standard body layout). Most pages should use
+ * BaseThemeLayout, which wraps this with Header + Footer.
+ */
+import MetaTags from '../components/basics/MetaTags.astro';
+
 export interface Props {
   title?: string;
   description?: string;
   themeClass?: string;
   mode?: string;
   favicon?: string;
+  /** OG image override — path under /public or absolute URL. */
+  ogImage?: string;
+  ogImageAlt?: string;
+  /** "website" (default), "article", etc. */
+  ogType?: string;
+  /** Defaults to false — the hub is public. Set true for internal/private pages. */
+  noindex?: boolean;
+  /** Article-only fields, emitted only when ogType === "article". */
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  tags?: string[];
 }
 
 const {
-  title = "Reach goes Lossless",
-  description = "Client hub for Reach University materials and content",
-  themeClass = "theme-default",
-  mode = "light",
-  favicon = "/favicon.svg",
+  title = 'Reach goes Lossless',
+  description = 'A working hub for Reach University × The Lossless Group.',
+  themeClass = 'theme-default',
+  mode = 'light',
+  favicon = '/reach-favicon.png',
+  ogImage,
+  ogImageAlt,
+  ogType,
+  noindex,
+  publishedTime,
+  modifiedTime,
+  author,
+  tags,
 } = Astro.props;
 ---
 
@@ -21,9 +51,20 @@ const {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
   <link rel="icon" href={favicon} />
+
+  <MetaTags
+    title={title}
+    description={description}
+    ogImage={ogImage}
+    ogImageAlt={ogImageAlt}
+    ogType={ogType}
+    noindex={noindex}
+    publishedTime={publishedTime}
+    modifiedTime={modifiedTime}
+    author={author}
+    tags={tags}
+  />
 
   {/* No-flash mode boot — runs before first paint, syncs <html> with localStorage
       ahead of the mode-switcher.js module load. Must stay inline + synchronous. */}

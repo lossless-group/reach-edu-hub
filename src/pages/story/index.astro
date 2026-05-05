@@ -9,7 +9,11 @@
 import '../../styles/global.css';
 import '../../styles/theme.css';
 import Header from '../../components/basics/Header.astro';
+import MetaTags from '../../components/basics/MetaTags.astro';
 import PageAsDeckWrapper from '../../layouts/PageAsDeckWrapper.astro';
+import { SCROLL_DECK_SEO } from '../../lib/seo';
+
+const seo = SCROLL_DECK_SEO['/story']!;
 
 import T01ApprenticeshipDegree from '../../layouts/sections/story/T01-ApprenticeshipDegree.astro';
 import T02EquityMission        from '../../layouts/sections/story/T02-EquityMission.astro';
@@ -28,8 +32,9 @@ import T09Healthcare           from '../../layouts/sections/story/T09-Healthcare
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>The Reach Story · Reach goes Lossless</title>
-    <meta name="description" content="Nine sections introducing Reach University — the Apprenticeship Degree, the equity mission, the method, affordability, faculty, the teacher-shortage proof point, partnerships, scale and traction, and the healthcare expansion." />
+    <link rel="icon" href="/reach-favicon.png" />
+
+    <MetaTags title={seo.title} description={seo.description} ogImage={seo.ogImage} />
 
     <script is:inline>
       (function () {

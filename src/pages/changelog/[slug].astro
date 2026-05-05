@@ -38,8 +38,13 @@ const fmtDate = (d: Date) =>
 ---
 
 <BaseThemeLayout
-  title={`${fm.title} · Changelog · Reach goes Lossless`}
+  title={`${fm.title} · Changelog`}
   description={fm.lede}
+  ogType="article"
+  publishedTime={fm.date_authored_initial_draft.toISOString()}
+  modifiedTime={(fm.date_last_updated ?? fm.date_authored_current_draft ?? fm.date_authored_initial_draft).toISOString()}
+  author={fm.authors[0]}
+  tags={fm.tags}
 >
   <article class="px-8 md:px-16 lg:px-24 py-16 md:py-20 bg-white dark:bg-slate-950 vibrant:bg-indigo-950">
     <div class="mx-auto md:max-w-[70vw]">

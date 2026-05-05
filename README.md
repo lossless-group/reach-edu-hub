@@ -2,7 +2,7 @@
 
 > A working hub for the **Reach University × The Lossless Group** partnership. Booting up systems for Lossless Collaboration.
 
-Live at: <https://reach-edu-hub-colearn-labs.vercel.app>
+Live at: <https://reach-edu-hub.vercel.app>
 
 The audience is Reach University senior leadership. The hub gathers the work-in-progress for the partnership — presentation iterations for the current fundraise, and the systems we're booting up next. Single point of contact: **Michael Staton** (text or WhatsApp; email is overload).
 

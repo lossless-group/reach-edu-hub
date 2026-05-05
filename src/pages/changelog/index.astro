@@ -9,6 +9,7 @@
  */
 import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
 import { getCollection } from 'astro:content';
+import { STATIC_SEO } from '../../lib/seo';
 
 const all = await getCollection('changelog', ({ data }) => data.publish === true);
 
@@ -23,8 +24,8 @@ const fmtDate = (d: Date) =>
 ---
 
 <BaseThemeLayout
-  title="Changelog · Reach goes Lossless"
-  description="Build notes from the Reach × Lossless hub — newest first. What shipped, why it matters, what it enables next."
+  title={STATIC_SEO.changelogIndex.title}
+  description={STATIC_SEO.changelogIndex.description}
 >
   <section class="px-8 md:px-16 lg:px-24 py-20 md:py-28 bg-white dark:bg-slate-950 vibrant:bg-indigo-950">
     <div class="mx-auto md:max-w-[70vw]">

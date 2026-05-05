@@ -8,16 +8,48 @@ export interface Props {
   title?: string;
   description?: string;
   themeClass?: string;
+  /** OG image override — path under /public or absolute URL. */
+  ogImage?: string;
+  ogImageAlt?: string;
+  /** "website" (default), "article", etc. */
+  ogType?: string;
+  /** Defaults to false — the hub is public. Set true for internal/private pages. */
+  noindex?: boolean;
+  /** Article-only fields, emitted only when ogType === "article". */
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  tags?: string[];
 }
 
-const { 
-  title = "Reach goes Lossless",
-  description = "Client hub for Reach University materials and content",
-  themeClass = "theme-default"
+const {
+  title = 'Reach goes Lossless',
+  description = 'A working hub for Reach University × The Lossless Group.',
+  themeClass = 'theme-default',
+  ogImage,
+  ogImageAlt,
+  ogType,
+  noindex,
+  publishedTime,
+  modifiedTime,
+  author,
+  tags,
 } = Astro.props;
 ---
 
-<BoilerPlateHTML title={title} description={description} themeClass={themeClass}>
+<BoilerPlateHTML
+  title={title}
+  description={description}
+  themeClass={themeClass}
+  ogImage={ogImage}
+  ogImageAlt={ogImageAlt}
+  ogType={ogType}
+  noindex={noindex}
+  publishedTime={publishedTime}
+  modifiedTime={modifiedTime}
+  author={author}
+  tags={tags}
+>
   <div class="min-h-screen flex flex-col">
     <Header />
     <main class="flex-1">
@@ -25,7 +57,7 @@ const {
     </main>
     <Footer />
   </div>
-  
+
   <script>
     import '../utils/theme-switcher.js';
     import '../utils/mode-switcher.js';
