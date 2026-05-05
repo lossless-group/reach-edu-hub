@@ -28,8 +28,22 @@ export const SITE_NAME = 'Reach goes Lossless';
 export const SITE_TAGLINE =
   'Reach University × The Lossless Group · Booting up systems for Lossless Collaboration';
 
-/** Path (relative to /public) of the default OG image used by every page. */
-export const DEFAULT_OG_IMAGE = '/ogimage__Default.png';
+/**
+ * Default OG image used by every page.
+ *
+ * Hosted on ImageKit (the Lossless Group's image CDN) rather than the
+ * Vercel-served /public path. Reasons:
+ *   - ImageKit URLs are stable across Vercel deploys and domain changes.
+ *   - ImageKit serves with permissive CORS and high uptime — social
+ *     unfurlers (LinkedIn, WhatsApp, iMessage) cache cleanly against it.
+ *   - No risk of Git LFS pointer regressions or Vercel deployment-protection
+ *     subdomains breaking unfurls (both happened during early reach-edu-hub
+ *     deploys; see changelog 2026-05-04_03 + the LFS fix in 4efa52c).
+ *
+ * Source PNG also lives at /public/ogimage__Default.png as a fallback.
+ */
+export const DEFAULT_OG_IMAGE =
+  'https://ik.imagekit.io/xvpgfijuw/Reach-Edu-Embeds/ogimage__Default.png';
 
 /** Real pixel dimensions of DEFAULT_OG_IMAGE. */
 export const DEFAULT_OG_IMAGE_WIDTH = 1408;
