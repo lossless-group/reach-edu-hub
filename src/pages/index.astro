@@ -189,16 +189,23 @@ import BaseThemeLayout from '../layouts/BaseThemeLayout.astro';
 
   <!-- Friendly nod / contact -->
   <section class="px-8 md:px-16 lg:px-24 py-20 md:py-24 bg-white dark:bg-slate-950 vibrant:bg-indigo-950">
-    <div class="mx-auto md:max-w-[70vw]">
-      <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-6">
-        Friendly nod
-      </p>
-      <p class="font-serif text-xl md:text-3xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-snug">
-        You've got my number. <em class="not-italic text-orange-500">Text or WhatsApp beats email</em> — I don't really check email.
-      </p>
-      <p class="mt-6 font-serif italic text-base text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/85">
-        — Michael Staton, single point of contact for the Lossless Group <span class="text-orange-500">×</span> Reach University collaboration.
-      </p>
+    <div class="mx-auto md:max-w-[70vw] flex flex-col md:flex-row md:items-start gap-8 md:gap-10">
+      <img
+        src="/headshots/headshotOf__Michael-Staton.jpeg"
+        alt="Michael Staton"
+        class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover shrink-0 ring-2 ring-orange-500/60 shadow-md"
+      />
+      <div class="flex-1 min-w-0">
+        <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-6">
+          Friendly nod
+        </p>
+        <p class="font-serif text-xl md:text-3xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-snug">
+          You've got my number. <em class="not-italic text-orange-500">Text or WhatsApp beats email</em> — I don't really check email.
+        </p>
+        <p class="mt-6 font-serif italic text-base text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/85">
+          — Michael Staton, single point of contact for the Lossless Group <span class="text-orange-500">×</span> Reach University collaboration.
+        </p>
+      </div>
     </div>
   </section>
 </BaseThemeLayout>
