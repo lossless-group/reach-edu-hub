@@ -1,0 +1,61 @@
+---
+/**
+ * Slide 03 · the-reach-method — five non-negotiable principles, numbered grid.
+ * Source: src/content/messages/the-reach-method.md
+ */
+const id = 'reach-method';
+
+const principles = [
+  {
+    n: '01',
+    title: 'Efficiency',
+    body: '50% of learning happens through on-the-job work the candidate is already doing.',
+  },
+  {
+    n: '02',
+    title: 'Flexibility',
+    body: 'Live seminars run evenings and weekends, designed around full-time work.',
+  },
+  {
+    n: '03',
+    title: 'Relevance',
+    body: '100% job-embedded curriculum — theory connects to a practice the candidate performs that week.',
+  },
+  {
+    n: '04',
+    title: 'Affordability',
+    body: 'Candidates are paid while studying and graduate with zero student debt.',
+  },
+  {
+    n: '05',
+    title: 'Professional Capital',
+    body: 'Graduates advance inside the employer who sponsored them — retention deepens on both sides.',
+  },
+];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-white snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest text-gray-400 font-mono">03 / 09</span>
+
+  <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4">The Method</p>
+  <h2 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight max-w-4xl mb-4">
+    Five non-negotiables.
+  </h2>
+  <p class="text-lg text-gray-600 max-w-3xl mb-12">
+    Together, they define what "fully job-embedded" actually means — and they are the standard NCAD is pushing other institutions to adopt.
+  </p>
+
+  <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px bg-gray-200 border border-gray-200 rounded-sm overflow-hidden">
+    {principles.map((p) => (
+      <li class="bg-white p-6 flex flex-col">
+        <span class="text-xs font-mono text-gray-400 mb-3">{p.n}</span>
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">{p.title}</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">{p.body}</p>
+      </li>
+    ))}
+  </ol>
+
+  <p class="mt-12 text-sm text-gray-500 max-w-3xl italic">
+    "Efficient, flexible, relevant, affordable, and grounded in conferring professional capital." — President Joe E. Ross
+  </p>
+</section>

@@ -1,0 +1,50 @@
+---
+/**
+ * Slide 07 · employer-and-district-partnerships — 550+ schools across 10 states.
+ * Source: src/content/messages/employer-and-district-partnerships.md
+ */
+const id = 'partnerships';
+
+const states = ['CA', 'AL', 'AR', 'GA', 'LA', 'CO', 'MS', 'TX', 'TN', 'WA'];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-white snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest text-gray-400 font-mono">07 / 09</span>
+
+  <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-6">Partnerships</p>
+
+  <h2 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight max-w-4xl mb-12">
+    Hundreds of employers grow specialized talent from inside their own workforce.
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mb-16">
+    <div class="border-l-4 border-blue-700 pl-6">
+      <p class="text-7xl md:text-8xl font-bold text-gray-900 leading-none">550<span class="text-blue-700">+</span></p>
+      <p class="text-base text-gray-600 mt-3">school partners</p>
+    </div>
+    <div class="border-l-4 border-gray-300 pl-6">
+      <p class="text-7xl md:text-8xl font-bold text-gray-900 leading-none">10</p>
+      <p class="text-base text-gray-600 mt-3">states</p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {states.map((s) => (
+          <span class="text-xs font-mono uppercase tracking-wider text-gray-700 px-2 py-1 border border-gray-200 rounded-sm bg-gray-50">{s}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl border-t border-gray-200 pt-8">
+    <div>
+      <p class="text-xs uppercase tracking-wider text-gray-500 mb-2">Three operating regions</p>
+      <p class="text-base text-gray-700 leading-relaxed">California, the Southeast, and a dedicated Behavioral Health region — each with its own VP of Impact.</p>
+    </div>
+    <div>
+      <p class="text-xs uppercase tracking-wider text-gray-500 mb-2">The partner ask is light</p>
+      <p class="text-base text-gray-700 leading-relaxed">Post materials, host info sessions, allow 15 hrs/week of academic-classroom time, designate a liaison.</p>
+    </div>
+    <div>
+      <p class="text-xs uppercase tracking-wider text-gray-500 mb-2">Productivity rises during the degree</p>
+      <p class="text-base text-gray-700 leading-relaxed">Candidates apply learning to the workplace the same week they study it — not after graduation.</p>
+    </div>
+  </div>
+</section>

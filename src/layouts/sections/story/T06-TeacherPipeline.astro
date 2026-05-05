@@ -1,0 +1,75 @@
+---
+/**
+ * Slide 06 · teacher-pipeline-solution — proof point #1, district names + press.
+ * Source: src/content/messages/teacher-pipeline-solution.md
+ */
+const id = 'teacher-pipeline';
+
+const districts = [
+  { name: 'Jefferson Parish Schools', state: 'LA', note: 'Reduced teacher vacancies by half' },
+  { name: 'Russellville City Schools', state: 'AL', note: '' },
+  { name: 'Pine Bluff School District', state: 'AR', note: '' },
+  { name: 'Albertville City Schools', state: 'AL', note: '' },
+  { name: 'NorthWest Arkansas Community College', state: 'AR', note: '' },
+];
+
+const programs = [
+  'B.A. in Liberal Studies',
+  'B.A. in Global Education',
+  'M.A.T.',
+  'M.Ed. in Instructional Leadership',
+  'CA administrative credentials (PASC, CASC)',
+];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-gray-50 snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest text-gray-400 font-mono">06 / 09</span>
+
+  <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-6">Proof Point · The Teacher Shortage</p>
+
+  <h2 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight max-w-4xl mb-6">
+    Built from the staff already in the school.
+  </h2>
+  <p class="text-lg text-gray-700 max-w-3xl mb-12 leading-relaxed">
+    Partner districts use Reach to convert classified staff into credentialed teachers without losing them to traditional college.
+  </p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl">
+    <div>
+      <p class="text-xs uppercase tracking-wider text-gray-500 mb-4">District partners</p>
+      <ul class="divide-y divide-gray-200 border-y border-gray-200">
+        {districts.map((d) => (
+          <li class="py-3 flex items-baseline justify-between gap-4">
+            <span class="text-base text-gray-900">
+              {d.name} <span class="text-gray-400 text-sm">· {d.state}</span>
+            </span>
+            {d.note && <span class="text-xs text-blue-700 font-semibold whitespace-nowrap">{d.note}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-xs uppercase tracking-wider text-gray-500 mb-4">The Reach Teachers College</p>
+      <ul class="space-y-2 text-base text-gray-700">
+        {programs.map((p) => (
+          <li class="flex items-baseline gap-3">
+            <span class="text-gray-300">—</span>
+            <span>{p}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-6 text-sm text-gray-500">
+        Graduates of the B.A. in Global Education earn a Recommendation for Teacher Certification at completion.
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-12 max-w-4xl border-t border-gray-300 pt-8">
+    <p class="text-xs uppercase tracking-wider text-gray-500 mb-3">In the press</p>
+    <p class="text-lg italic text-gray-800 mb-3">
+      "To solve teacher shortages, schools turn to custodians, bus drivers and aides."
+    </p>
+    <p class="text-sm text-gray-500">USA Today · also covered by CNN and ABC News</p>
+  </div>
+</section>

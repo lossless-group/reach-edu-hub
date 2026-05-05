@@ -1,0 +1,48 @@
+---
+/**
+ * The Reach Story — single-page Astro scroll deck.
+ *
+ * Phase 1 of the deck-iteration-workflow skill: whole-narrative composition,
+ * each slide a section component. Inline Tailwind utilities only, built-in
+ * tokens only, no JavaScript. Source content lives in src/content/messages/.
+ */
+import '../../styles/global.css';
+
+import T01ApprenticeshipDegree from '../../layouts/sections/story/T01-ApprenticeshipDegree.astro';
+import T02EquityMission        from '../../layouts/sections/story/T02-EquityMission.astro';
+import T03ReachMethod          from '../../layouts/sections/story/T03-ReachMethod.astro';
+import T04Affordability        from '../../layouts/sections/story/T04-Affordability.astro';
+import T05Faculty              from '../../layouts/sections/story/T05-Faculty.astro';
+import T06TeacherPipeline      from '../../layouts/sections/story/T06-TeacherPipeline.astro';
+import T07Partnerships         from '../../layouts/sections/story/T07-Partnerships.astro';
+import T08ScaleTraction        from '../../layouts/sections/story/T08-ScaleTraction.astro';
+import T09Healthcare           from '../../layouts/sections/story/T09-Healthcare.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>The Reach Story · Reach Education Hub</title>
+    <meta name="description" content="Nine sections introducing Reach University — the Apprenticeship Degree, the equity mission, the method, affordability, faculty, the teacher-shortage proof point, partnerships, scale and traction, and the healthcare expansion." />
+  </head>
+  <body class="bg-white text-gray-900 antialiased">
+    <a href="/" class="fixed top-4 left-4 z-50 text-xs uppercase tracking-widest text-gray-400 hover:text-gray-700 px-3 py-2 bg-white/80 backdrop-blur-sm rounded-sm border border-gray-200">
+      ← Hub
+    </a>
+
+    <main class="snap-y snap-mandatory h-screen overflow-y-scroll">
+      <T01ApprenticeshipDegree />
+      <T02EquityMission />
+      <T03ReachMethod />
+      <T04Affordability />
+      <T05Faculty />
+      <T06TeacherPipeline />
+      <T07Partnerships />
+      <T08ScaleTraction />
+      <T09Healthcare />
+    </main>
+  </body>
+</html>
