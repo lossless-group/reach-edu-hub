@@ -1,6 +1,9 @@
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.jpeg filter=lfs diff=lfs merge=lfs -text
-*.webp filter=lfs diff=lfs merge=lfs -text
+# Git LFS — only for genuinely large media that doesn't belong in git's
+# regular object storage. Images stay OUT of LFS because Vercel does not
+# pull LFS objects during build (it would deploy 131-byte pointer files
+# in place of the real PNGs/JPEGs, breaking OG previews and on-page assets).
+#
+# Add a pattern back to LFS only if the assets are >5MB and rarely change.
+# OG images, favicons, headshots, screenshots — keep as regular git blobs.
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.mov filter=lfs diff=lfs merge=lfs -text
