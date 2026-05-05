@@ -8,6 +8,7 @@
  */
 import '../../styles/global.css';
 import '../../styles/theme.css';
+import Header from '../../components/basics/Header.astro';
 import PageAsDeckWrapper from '../../layouts/PageAsDeckWrapper.astro';
 
 import T01ApprenticeshipDegree from '../../layouts/sections/story/T01-ApprenticeshipDegree.astro';
@@ -29,11 +30,24 @@ import T09Healthcare           from '../../layouts/sections/story/T09-Healthcare
     <meta name="generator" content={Astro.generator} />
     <title>The Reach Story · Reach Education Hub</title>
     <meta name="description" content="Nine sections introducing Reach University — the Apprenticeship Degree, the equity mission, the method, affordability, faculty, the teacher-shortage proof point, partnerships, scale and traction, and the healthcare expansion." />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mode');
+          var valid = ['light', 'dark', 'vibrant'];
+          var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          var mode = valid.indexOf(stored) !== -1 ? stored : (sysLight ? 'light' : 'dark');
+          var html = document.documentElement;
+          html.setAttribute('data-mode', mode);
+          if (mode === 'dark' || mode === 'vibrant') html.classList.add('dark');
+          else html.classList.remove('dark');
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body class="bg-white text-gray-900 antialiased">
-    <a href="/" class="fixed top-4 left-4 z-50 text-xs uppercase tracking-widest text-gray-400 hover:text-gray-700 px-3 py-2 bg-white/80 backdrop-blur-sm rounded-sm border border-gray-200">
-      ← Hub
-    </a>
+  <body class="bg-white text-gray-900 antialiased" style="--deck-height: calc(100vh - 3rem);">
+    <Header />
 
     <PageAsDeckWrapper enableScrollSnap={true} showNavigationHints={true}>
       <T01ApprenticeshipDegree />
@@ -46,5 +60,9 @@ import T09Healthcare           from '../../layouts/sections/story/T09-Healthcare
       <T08ScaleTraction />
       <T09Healthcare />
     </PageAsDeckWrapper>
+
+    <script>
+      import '../../utils/mode-switcher.js';
+    </script>
   </body>
 </html>

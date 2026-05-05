@@ -1,0 +1,52 @@
+---
+/**
+ * Slide 07 v2 · Partnerships. Bold typography, "550+" hero, italic state list.
+ */
+const id = 'partnerships';
+
+const states = ['CA', 'AL', 'AR', 'GA', 'LA', 'CO', 'MS', 'TX', 'TN', 'WA'];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-stone-50 dark:bg-indigo-950 vibrant:bg-black snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest font-mono text-slate-400 dark:text-slate-500 vibrant:text-orange-500">07 / 09</span>
+
+  <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-8">Partnerships</p>
+
+  <h2 class="font-serif text-4xl md:text-6xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-[1.05] tracking-tight max-w-4xl mb-16">
+    Hundreds of employers grow specialized talent <em class="not-italic text-orange-500">from inside their own workforce.</em>
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-6xl mb-16 items-end">
+    <div class="md:col-span-5">
+      <p class="font-serif text-[8rem] md:text-[12rem] leading-[0.85] text-orange-500">550<span class="text-cyan-700 dark:text-cyan-400 vibrant:text-stone-50">+</span></p>
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-slate-600 dark:text-slate-400 vibrant:text-cyan-300 mt-3">school partners</p>
+    </div>
+    <div class="md:col-span-7 md:pl-8 md:border-l md:border-indigo-950/15 dark:md:border-stone-50/15 vibrant:md:border-orange-500/30">
+      <p class="font-serif text-7xl md:text-8xl text-indigo-950 dark:text-stone-50 vibrant:text-orange-500 leading-none">10</p>
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-slate-600 dark:text-slate-400 vibrant:text-cyan-300 mt-3 mb-5">states</p>
+      <p class="font-serif italic text-2xl md:text-3xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-snug">
+        {states.map((s, i) => (
+          <span>
+            <span class="not-italic">{s}</span>
+            {i < states.length - 1 && <span class="text-orange-500"> · </span>}
+          </span>
+        ))}
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl border-t border-indigo-950/15 dark:border-stone-50/15 vibrant:border-orange-500/30 pt-8">
+    <div>
+      <p class="font-mono text-xs uppercase tracking-widest text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-3">Three regions</p>
+      <p class="font-serif text-base italic text-slate-700 dark:text-slate-300 vibrant:text-stone-50/85 leading-relaxed">California, the Southeast, and a dedicated Behavioral Health region — each with its own VP of Impact.</p>
+    </div>
+    <div>
+      <p class="font-mono text-xs uppercase tracking-widest text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-3">A light partner ask</p>
+      <p class="font-serif text-base italic text-slate-700 dark:text-slate-300 vibrant:text-stone-50/85 leading-relaxed">Post materials, host info sessions, allow 15 hrs/week of academic-classroom time, designate a liaison.</p>
+    </div>
+    <div>
+      <p class="font-mono text-xs uppercase tracking-widest text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-3">Productivity rises during the degree</p>
+      <p class="font-serif text-base italic text-slate-700 dark:text-slate-300 vibrant:text-stone-50/85 leading-relaxed">Candidates apply learning to the workplace the same week they study it — not after graduation.</p>
+    </div>
+  </div>
+</section>

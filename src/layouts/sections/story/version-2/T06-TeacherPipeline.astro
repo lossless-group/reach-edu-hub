@@ -1,0 +1,76 @@
+---
+/**
+ * Slide 06 v2 · Teacher pipeline. Newspaper-column feel; press deck-byline.
+ */
+const id = 'teacher-pipeline';
+
+const districts = [
+  { name: 'Jefferson Parish Schools',                  state: 'LA', note: 'Reduced teacher vacancies by half' },
+  { name: 'Russellville City Schools',                 state: 'AL', note: '' },
+  { name: 'Pine Bluff School District',                state: 'AR', note: '' },
+  { name: 'Albertville City Schools',                  state: 'AL', note: '' },
+  { name: 'NorthWest Arkansas Community College',      state: 'AR', note: '' },
+];
+
+const programs = [
+  'B.A. in Liberal Studies',
+  'B.A. in Global Education',
+  'M.A.T.',
+  'M.Ed. in Instructional Leadership',
+  'CA admin credentials (PASC, CASC)',
+];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-white dark:bg-slate-950 vibrant:bg-indigo-950 snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest font-mono text-slate-400 dark:text-slate-600 vibrant:text-orange-500">06 / 09</span>
+
+  <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-6">Proof Point · The Teacher Shortage</p>
+
+  <h2 class="font-serif text-4xl md:text-6xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-[1.05] tracking-tight max-w-4xl mb-6">
+    Built from the staff <em class="not-italic text-orange-500">already in the school.</em>
+  </h2>
+  <p class="font-serif italic text-lg text-slate-700 dark:text-slate-300 vibrant:text-cyan-300 max-w-3xl leading-relaxed mb-12">
+    Partner districts use Reach to convert classified staff into credentialed teachers without losing them to traditional college.
+  </p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mb-12">
+    <div>
+      <p class="font-mono text-xs uppercase tracking-widest text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-5">District partners</p>
+      <ul class="divide-y divide-indigo-950/15 dark:divide-stone-50/15 vibrant:divide-orange-500/30 border-y border-indigo-950/15 dark:border-stone-50/15 vibrant:border-orange-500/30">
+        {districts.map((d) => (
+          <li class="py-3 flex items-baseline justify-between gap-4">
+            <span class="font-serif text-base text-indigo-950 dark:text-stone-50 vibrant:text-stone-50">
+              {d.name} <span class="text-slate-400 dark:text-slate-500 vibrant:text-cyan-300/70 italic text-sm">· {d.state}</span>
+            </span>
+            {d.note && <span class="font-mono text-xs uppercase tracking-widest text-orange-500 whitespace-nowrap">{d.note}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <p class="font-mono text-xs uppercase tracking-widest text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-5">Reach Teachers College</p>
+      <ul class="space-y-2.5">
+        {programs.map((p) => (
+          <li class="flex items-baseline gap-3">
+            <span class="font-serif text-orange-500">·</span>
+            <span class="font-serif text-base text-slate-700 dark:text-slate-300 vibrant:text-stone-50/85">{p}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-6 font-serif italic text-sm text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/80 leading-relaxed">
+        Graduates of the B.A. in Global Education earn a Recommendation for Teacher Certification at completion.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl border-t-2 border-orange-500 pt-6">
+    <p class="font-mono text-xs uppercase tracking-[0.3em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-3">In the press</p>
+    <p class="font-serif text-2xl md:text-3xl italic text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-snug mb-3">
+      "To solve teacher shortages, schools turn to custodians, bus drivers and aides."
+    </p>
+    <p class="font-mono text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 vibrant:text-cyan-300/80">
+      USA Today · also covered by CNN · ABC News
+    </p>
+  </div>
+</section>
