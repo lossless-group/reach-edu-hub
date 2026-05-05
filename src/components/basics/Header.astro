@@ -1,18 +1,49 @@
 ---
+/**
+ * Header — site chrome. Thin 3-column grid:
+ *   wordmark (links to /)  ·  centered nav with active state  ·  ModeToggle
+ *
+ * Pattern stolen from sites/calmstorm-decks/src/components/basics/DeckHeader.astro,
+ * adapted to use Tailwind built-in tokens with the dark: and vibrant: variants
+ * wired in src/styles/global.css. No var(--theme-*) references — palette is
+ * hardcoded so the header reads correctly in all three modes.
+ *
+ * Used by BaseThemeLayout. Deck pages (/story, /story/version-2) bypass
+ * BaseThemeLayout and render their own minimal chrome.
+ */
 import ModeToggle from '../ui/ModeToggle.astro';
+
+const path = Astro.url.pathname;
+const onStory        = path.startsWith('/story');
+const onBrandKit     = path.startsWith('/brand-kit');
+const onDesignSystem = path.startsWith('/design-system');
+const onHome         = !onStory && !onBrandKit && !onDesignSystem;
+
+const linkBase     = 'no-underline transition-colors hover:text-indigo-950 dark:hover:text-stone-50 vibrant:hover:text-orange-500';
+const linkActive   = 'text-indigo-950 dark:text-stone-50 vibrant:text-orange-500 font-medium';
+const linkInactive = 'text-slate-500 dark:text-slate-400 vibrant:text-cyan-300';
+const sep          = 'text-slate-300 dark:text-slate-700 vibrant:text-orange-500/40';
 ---
 
-<header class="border-b border-gray-200 dark:border-gray-800">
-  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-8">
-      <a href="/" class="text-xl font-bold hover:opacity-80 transition-opacity">
-        Reach Education Hub
-      </a>
-      <nav class="hidden md:flex gap-6">
-        <a href="/materials" class="hover:opacity-80 transition-opacity">Materials</a>
-        <a href="/changelog" class="hover:opacity-80 transition-opacity">Changelog</a>
-      </nav>
-    </div>
+<header class="h-12 shrink-0 grid grid-cols-3 items-center px-6 border-b bg-white dark:bg-indigo-950 vibrant:bg-black border-slate-200 dark:border-stone-50/15 vibrant:border-orange-500/40">
+  <a
+    href="/"
+    class="justify-self-start text-sm font-light tracking-[0.25em] uppercase no-underline text-indigo-950 dark:text-stone-50 vibrant:text-orange-500 hover:text-cyan-700 dark:hover:text-cyan-400 vibrant:hover:text-stone-50 transition-colors"
+  >
+    Reach<span class={`mx-1.5 ${sep}`}>·</span>Hub
+  </a>
+
+  <nav class="justify-self-center flex items-center gap-3 text-[10px] tracking-[0.25em] uppercase" aria-label="Primary">
+    <a href="/"              class:list={[linkBase, onHome         ? linkActive : linkInactive]}>Hub</a>
+    <span class={sep} aria-hidden="true">·</span>
+    <a href="/story"         class:list={[linkBase, onStory        ? linkActive : linkInactive]}>Story</a>
+    <span class={sep} aria-hidden="true">·</span>
+    <a href="/brand-kit"     class:list={[linkBase, onBrandKit     ? linkActive : linkInactive]}>Brand Kit</a>
+    <span class={sep} aria-hidden="true">·</span>
+    <a href="/design-system" class:list={[linkBase, onDesignSystem ? linkActive : linkInactive]}>Design System</a>
+  </nav>
+
+  <div class="justify-self-end">
     <ModeToggle />
   </div>
 </header>

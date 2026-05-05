@@ -1,6 +1,18 @@
 @import "tailwindcss";
 @import "./theme.css";
 
+/* ----------------------------------------------------------------------------
+   Tailwind v4 mode variants — class/data-attribute driven (not media query).
+   - Redefine `dark:` so it follows html.dark (set by src/utils/mode-switcher.js).
+     Both 'dark' and 'vibrant' modes get .dark on <html>, so dark: utilities
+     fire in both. Use `vibrant:` to target only vibrant.
+   - `vibrant:` is a net-new variant keyed on html[data-mode="vibrant"].
+   Spec: context-v/blueprints/Maintain-Themes-Mode-Across-CSS-Tailwind.md
+   ---------------------------------------------------------------------------- */
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant vibrant (&:where([data-mode="vibrant"], [data-mode="vibrant"] *));
+
 /* Base resets that apply across all themes/modes */
 
 html {

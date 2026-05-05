@@ -24,6 +24,26 @@ const {
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="icon" href={favicon} />
+
+  {/* No-flash mode boot — runs before first paint, syncs <html> with localStorage
+      ahead of the mode-switcher.js module load. Must stay inline + synchronous. */}
+  <script is:inline>
+    (function () {
+      try {
+        var stored = localStorage.getItem('mode');
+        var valid = ['light', 'dark', 'vibrant'];
+        var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        var mode = valid.indexOf(stored) !== -1 ? stored : (sysLight ? 'light' : 'dark');
+        var html = document.documentElement;
+        html.setAttribute('data-mode', mode);
+        if (mode === 'dark' || mode === 'vibrant') {
+          html.classList.add('dark');
+        } else {
+          html.classList.remove('dark');
+        }
+      } catch (e) { /* swallow — mode-switcher.js will retry */ }
+    })();
+  </script>
 </head>
 <body>
   <slot />
