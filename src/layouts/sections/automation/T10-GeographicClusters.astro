@@ -1,0 +1,66 @@
+---
+/**
+ * Slide 09 · Geographic Cluster Analysis.
+ *
+ * Where philanthropic dollars are pocketed, where education-giving is
+ * concentrated, and where Reach has under-deployed presence.
+ */
+const id = 'geographic-clusters';
+
+const moves = [
+  {
+    n: 'I',
+    title: 'Map the wealth concentration',
+    body: 'HNWI and SFO density across US regions — and globally where it matters for Reach. The map you don’t get just from a giving database.',
+  },
+  {
+    n: 'II',
+    title: 'Overlay the education-giving map',
+    body: 'Not the same shape as raw wealth. Some regions punch above their weight on education philanthropy specifically — those are the high-yield travel destinations.',
+  },
+  {
+    n: 'III',
+    title: 'Find under-deployed regions',
+    body: 'Where opportunity density is high and Reach presence is low. That delta is the planning input.',
+  },
+  {
+    n: 'IV',
+    title: 'Route the CEO and the travellers',
+    body: 'Trip planning becomes a routing problem. Regional events get seeded where they pay back. Local relationships get warm starts instead of cold ones.',
+  },
+];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-stone-50 dark:bg-indigo-950 vibrant:bg-black snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest font-mono text-slate-400 dark:text-slate-500 vibrant:text-orange-500">10 / 11</span>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 max-w-7xl">
+    <div class="lg:col-span-5">
+      <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-6">Geographic</p>
+
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-[1.05] tracking-tight mb-6">
+        Where philanthropic dollars <em class="not-italic text-orange-500">are pocketed.</em>
+      </h2>
+
+      <p class="font-serif italic text-base md:text-lg text-slate-700 dark:text-slate-300 vibrant:text-cyan-300 leading-relaxed mb-6">
+        The geographic regions and clusters where philanthropic dollars are concentrated — and where education giving is most concentrated — are where Reach can have the greatest impact on the fundraise.
+      </p>
+
+      <p class="font-serif text-sm text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/80 leading-relaxed">
+        Travel and presence are expensive. A map turns "where should the CEO go next quarter" from a guess into a routing problem.
+      </p>
+    </div>
+
+    <ol class="lg:col-span-7 divide-y divide-indigo-950/15 dark:divide-stone-50/15 vibrant:divide-orange-500/30">
+      {moves.map((m) => (
+        <li class="grid grid-cols-12 gap-4 py-5 first:pt-0">
+          <span class="col-span-2 md:col-span-1 font-serif text-xl md:text-2xl text-orange-500 leading-none pt-1">{m.n}</span>
+          <div class="col-span-10 md:col-span-11">
+            <h3 class="font-serif text-xl md:text-2xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 mb-2 leading-tight">{m.title}</h3>
+            <p class="text-sm md:text-base text-slate-700 dark:text-slate-400 vibrant:text-stone-50/80 leading-relaxed">{m.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

@@ -15,29 +15,29 @@ const stats = [
 ];
 ---
 
-<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-gray-50 snap-start">
-  <span class="absolute top-6 right-8 text-xs tracking-widest text-gray-400 font-mono">08 / 09</span>
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-gray-50 dark:bg-slate-800 vibrant:bg-slate-950 snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest text-gray-400 dark:text-slate-500 vibrant:text-orange-500/80 font-mono">08 / 09</span>
 
-  <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-6">Scale &amp; Traction</p>
+  <p class="text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-slate-400 vibrant:text-orange-400 mb-6">Scale &amp; Traction</p>
 
-  <h2 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight max-w-4xl mb-4">
+  <h2 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-slate-50 vibrant:text-stone-50 leading-tight max-w-4xl mb-4">
     Five years in. Proven institutional shape.
   </h2>
-  <p class="text-lg text-gray-700 max-w-3xl mb-12 leading-relaxed">
-    Accredited, growing 20×, funded, and reaching 400+ communities. <span class="font-semibold text-gray-900">2024 WSCUC Reaffirmation of Accreditation.</span>
+  <p class="text-lg text-gray-700 dark:text-slate-300 vibrant:text-stone-200 max-w-3xl mb-12 leading-relaxed">
+    Accredited, growing 20×, funded, and reaching 400+ communities. <span class="font-semibold text-gray-900 dark:text-slate-50 vibrant:text-stone-50">2024 WSCUC Reaffirmation of Accreditation.</span>
   </p>
 
-  <dl class="grid grid-cols-2 md:grid-cols-3 gap-px bg-gray-200 border border-gray-200 rounded-sm overflow-hidden max-w-6xl">
+  <dl class="grid grid-cols-2 md:grid-cols-3 gap-px bg-gray-200 dark:bg-slate-700 vibrant:bg-orange-500/15 border border-gray-200 dark:border-slate-700 vibrant:border-orange-500/30 rounded-sm overflow-hidden max-w-6xl">
     {stats.map((s) => (
-      <div class="bg-white p-6 flex flex-col">
-        <dt class="text-xs uppercase tracking-wider text-gray-500 order-2 mt-3">{s.label}</dt>
-        <dd class="text-4xl md:text-5xl font-bold text-gray-900 leading-none order-1">{s.value}</dd>
-        {s.note && <p class="text-xs text-gray-500 mt-2 order-3">{s.note}</p>}
+      <div class="bg-white dark:bg-slate-900 vibrant:bg-black p-6 flex flex-col">
+        <dt class="text-xs uppercase tracking-wider text-gray-500 dark:text-slate-400 vibrant:text-orange-400 order-2 mt-3">{s.label}</dt>
+        <dd class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-50 vibrant:text-stone-50 leading-none order-1">{s.value}</dd>
+        {s.note && <p class="text-xs text-gray-500 dark:text-slate-400 vibrant:text-orange-400 mt-2 order-3">{s.note}</p>}
       </div>
     ))}
   </dl>
 
-  <p class="mt-12 text-sm text-gray-500 max-w-3xl">
+  <p class="mt-12 text-sm text-gray-500 dark:text-slate-400 vibrant:text-orange-400 max-w-3xl">
     Founder Mallory Dwinal-Palisch (ex-Teach for America, co-founder Oxford Day Academy) remains as Senior Advisor; Joe E. Ross has been President &amp; CEO since January 2021.
   </p>
 </section>

@@ -1,0 +1,77 @@
+---
+/**
+ * Slide 07 · Live Data Sources & Data-as-a-Service Providers.
+ *
+ * Categorical teaser slide — specific provider names are deferred to the
+ * research pass. The slide is honest about that.
+ */
+const id = 'data-sources';
+
+const categories = [
+  {
+    n: 'a',
+    kind: 'Foundation data',
+    body: '990 filings, grant histories, board composition, recipient patterns — who funds what, repeatedly.',
+    status: 'tbd · research',
+  },
+  {
+    n: 'b',
+    kind: 'Higher-ed giving',
+    body: 'Survey-quality datasets on philanthropic giving to colleges and universities — CASE/VSE territory and adjacent providers.',
+    status: 'tbd · research',
+  },
+  {
+    n: 'c',
+    kind: 'Wealth intelligence',
+    body: 'HNWI and SFO wealth-intelligence providers — net worth tiers, liquidity events, advisor networks.',
+    status: 'tbd · research',
+  },
+  {
+    n: 'd',
+    kind: 'Announcement firehoses',
+    body: 'Gift announcements, naming gifts, capital campaigns — the news that signals a donor is in motion.',
+    status: 'tbd · research',
+  },
+  {
+    n: 'e',
+    kind: 'Government & public',
+    body: 'Federal and state grant programs, public foundation registries, regulatory filings.',
+    status: 'tbd · research',
+  },
+];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-stone-50 dark:bg-indigo-950 vibrant:bg-black snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest font-mono text-slate-400 dark:text-slate-500 vibrant:text-orange-500">08 / 11</span>
+
+  <div class="max-w-7xl">
+    <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-6">Live Data Sources</p>
+
+    <h2 class="font-serif text-4xl md:text-6xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-[1.05] tracking-tight max-w-4xl mb-6">
+      Where the <em class="not-italic text-orange-500">fuel</em> comes from.
+    </h2>
+
+    <p class="font-serif italic text-base md:text-lg text-slate-700 dark:text-slate-300 vibrant:text-cyan-300 leading-relaxed max-w-3xl mb-10">
+      The databases and data providers that have near-current, near-comprehensive information on philanthropic giving in education — and especially higher education.
+    </p>
+
+    <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0 border-y border-indigo-950/20 dark:border-stone-50/20 vibrant:border-orange-500/40">
+      {categories.map((c, i) => (
+        <li class:list={[
+          'p-5 flex flex-col',
+          'border-b lg:border-b-0 border-indigo-950/15 dark:border-stone-50/15 vibrant:border-orange-500/30',
+          i < categories.length - 1 ? 'lg:border-r border-indigo-950/15 dark:border-stone-50/15 vibrant:border-orange-500/30' : '',
+        ]}>
+          <span class="font-serif text-3xl text-orange-500 leading-none mb-3">{c.n}</span>
+          <h3 class="text-sm font-semibold uppercase tracking-widest text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 mb-2 leading-tight">{c.kind}</h3>
+          <p class="text-xs text-slate-700 dark:text-slate-300 vibrant:text-stone-50/80 font-serif italic leading-snug mb-4 flex-1">{c.body}</p>
+          <span class="inline-flex items-center self-start px-2 py-0.5 rounded-full text-[9px] uppercase tracking-[0.2em] font-mono border border-cyan-700/40 dark:border-cyan-400/30 vibrant:border-orange-500/40 text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 bg-transparent">{c.status}</span>
+        </li>
+      ))}
+    </ol>
+
+    <p class="mt-10 max-w-3xl font-serif italic text-sm text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/80 border-l-2 border-orange-500 pl-4 leading-relaxed">
+      Specific provider names come back with the research pass. The categories are stable; the picks within each are a working decision, not a permanent one.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+---
+/**
+ * Slide 08 · New Donor & New Grant Opportunity Identification.
+ *
+ * Pivot slide — the aperture widens from "do better with who you have"
+ * to "find who you don't yet know." Sets up T09 (geographic) and
+ * T10 (thematic) as the two views of the same map.
+ */
+const id = 'new-identification';
+
+const ways = [
+  {
+    n: 'I',
+    title: 'Geographic',
+    sub:   'Where the dollars sit.',
+    body:  'Map the concentration of HNWI, SFO, and education-giving foundations across regions. Turn "where should we go next quarter" into a routing problem with an answer.',
+    nextLabel: 'Next · Geographic Cluster Analysis',
+  },
+  {
+    n: 'II',
+    title: 'Thematic',
+    sub:   'What the dollars are about.',
+    body:  'Map which philanthropic themes — workforce, access, AI literacy, rural education, adult learners — are funded most heavily, by whom, and where. Find the leading-edge bets.',
+    nextLabel: 'Next · Theme Mapping',
+  },
+];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-stone-50 dark:bg-indigo-950 vibrant:bg-black snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest font-mono text-slate-400 dark:text-slate-500 vibrant:text-orange-500">09 / 11</span>
+
+  <div class="max-w-7xl">
+    <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-6">Phase Two</p>
+
+    <h2 class="font-serif text-4xl md:text-6xl lg:text-7xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-[1.05] tracking-tight max-w-5xl mb-8">
+      Widen the <em class="not-italic text-orange-500">aperture.</em>
+    </h2>
+
+    <div class="max-w-3xl space-y-3 mb-12">
+      <p class="font-serif italic text-base md:text-lg text-slate-700 dark:text-slate-300 vibrant:text-cyan-300 leading-relaxed">
+        So far: do better with the donors and grant programs Reach already has on the list.
+      </p>
+      <p class="font-serif italic text-base md:text-lg text-slate-700 dark:text-slate-300 vibrant:text-cyan-300 leading-relaxed">
+        Next: find the donors and grant opportunities that <em class="not-italic text-orange-500">aren’t on the list yet</em>.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border-y border-indigo-950/20 dark:border-stone-50/20 vibrant:border-orange-500/40">
+      {ways.map((w, i) => (
+        <div class:list={[
+          'p-8 md:p-10 flex flex-col',
+          i === 0 ? 'md:border-r border-b md:border-b-0 border-indigo-950/15 dark:border-stone-50/15 vibrant:border-orange-500/30' : '',
+        ]}>
+          <span class="font-serif text-2xl text-orange-500 mb-4 leading-none">{w.n}</span>
+          <h3 class="font-serif text-3xl md:text-4xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 mb-1 leading-tight">{w.title}</h3>
+          <p class="font-serif italic text-base text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500/90 mb-4">{w.sub}</p>
+          <p class="text-sm md:text-base text-slate-700 dark:text-slate-300 vibrant:text-stone-50/85 leading-relaxed mb-6 flex-1">{w.body}</p>
+          <p class="text-[10px] uppercase tracking-[0.3em] font-mono text-slate-500 dark:text-slate-500 vibrant:text-cyan-300/70">{w.nextLabel}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-10 max-w-3xl font-serif italic text-sm text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/80 border-l-2 border-orange-500 pl-4 leading-relaxed">
+      These are the two views of the same map. Two slides from now, you’ll see it as one image.
+    </p>
+  </div>
+</section>

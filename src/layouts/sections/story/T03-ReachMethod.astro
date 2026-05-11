@@ -34,28 +34,28 @@ const principles = [
 ];
 ---
 
-<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-white snap-start">
-  <span class="absolute top-6 right-8 text-xs tracking-widest text-gray-400 font-mono">03 / 09</span>
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-white dark:bg-slate-900 vibrant:bg-black snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest text-gray-400 dark:text-slate-500 vibrant:text-orange-500/80 font-mono">03 / 09</span>
 
-  <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4">The Method</p>
-  <h2 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight max-w-4xl mb-4">
+  <p class="text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-slate-400 vibrant:text-orange-400 mb-4">The Method</p>
+  <h2 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-slate-50 vibrant:text-stone-50 leading-tight max-w-4xl mb-4">
     Five non-negotiables.
   </h2>
-  <p class="text-lg text-gray-600 max-w-3xl mb-12">
+  <p class="text-lg text-gray-600 dark:text-slate-400 vibrant:text-stone-300 max-w-3xl mb-12">
     Together, they define what "fully job-embedded" actually means — and they are the standard NCAD is pushing other institutions to adopt.
   </p>
 
-  <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px bg-gray-200 border border-gray-200 rounded-sm overflow-hidden">
+  <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px bg-gray-200 dark:bg-slate-700 vibrant:bg-orange-500/15 border border-gray-200 dark:border-slate-700 vibrant:border-orange-500/30 rounded-sm overflow-hidden">
     {principles.map((p) => (
-      <li class="bg-white p-6 flex flex-col">
-        <span class="text-xs font-mono text-gray-400 mb-3">{p.n}</span>
-        <h3 class="text-xl font-semibold text-gray-900 mb-3">{p.title}</h3>
-        <p class="text-sm text-gray-600 leading-relaxed">{p.body}</p>
+      <li class="bg-white dark:bg-slate-900 vibrant:bg-black p-6 flex flex-col">
+        <span class="text-xs font-mono text-gray-400 dark:text-slate-500 vibrant:text-orange-500/80 mb-3">{p.n}</span>
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-slate-50 vibrant:text-stone-50 mb-3">{p.title}</h3>
+        <p class="text-sm text-gray-600 dark:text-slate-400 vibrant:text-stone-300 leading-relaxed">{p.body}</p>
       </li>
     ))}
   </ol>
 
-  <p class="mt-12 text-sm text-gray-500 max-w-3xl italic">
+  <p class="mt-12 text-sm text-gray-500 dark:text-slate-400 vibrant:text-orange-400 max-w-3xl italic">
     "Efficient, flexible, relevant, affordable, and grounded in conferring professional capital." — President Joe E. Ross
   </p>
 </section>

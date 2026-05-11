@@ -1,0 +1,78 @@
+---
+/**
+ * Slide 06 · The Probable Stack.
+ *
+ * Each layer translated to what it does for Reach, with the tool names
+ * as caption — credibility, not vendor pitch.
+ */
+const id = 'probable-stack';
+
+const layers = [
+  {
+    n: '01',
+    role: 'The institutional memory layer',
+    does: 'Everything Reach has ever read, written, said, or noted about a donor, a foundation, a program, a trip — searchable and retrievable in context.',
+    tools: 'KnowledgeBase AI / vector DB (e.g. ChromaDB) for RAG · relational database app underneath',
+  },
+  {
+    n: '02',
+    role: 'The thinking layer',
+    does: 'The models that read, reason, and write. Accessed through a unified API gateway so the org isn’t locked into one provider.',
+    tools: 'Claude Max · Perplexity Max · API gateway',
+  },
+  {
+    n: '03',
+    role: 'The doing layer',
+    does: 'The workflows that wire the memory and the thinking together. Runs without a developer in the loop for every step.',
+    tools: 'n8n · Dynamiq · Flowise',
+  },
+  {
+    n: '04',
+    role: 'The plumbing layer',
+    does: 'Moves data between the systems Reach already uses and the new ones we’re adding.',
+    tools: 'Next-generation iPaaS such as Bruin',
+  },
+  {
+    n: '05',
+    role: 'The seeing layer',
+    does: 'Dashboards, maps, and reports on top of the institutional memory layer. Where the visualization slides at the end of this deck live.',
+    tools: 'Visualization / analytics surface',
+  },
+];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-stone-50 dark:bg-indigo-950 vibrant:bg-black snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest font-mono text-slate-400 dark:text-slate-500 vibrant:text-orange-500">07 / 11</span>
+
+  <div class="max-w-7xl">
+    <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-6">The Stack</p>
+
+    <h2 class="font-serif text-4xl md:text-6xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-[1.05] tracking-tight max-w-4xl mb-6">
+      The stack that <em class="not-italic text-orange-500">does all this.</em>
+    </h2>
+
+    <p class="font-serif italic text-base md:text-lg text-slate-700 dark:text-slate-300 vibrant:text-cyan-300 leading-relaxed max-w-3xl mb-10">
+      Not vapor. Named layers. Real boundaries. We earn the right to name tools by first having named the work.
+    </p>
+
+    <ol class="divide-y divide-indigo-950/15 dark:divide-stone-50/15 vibrant:divide-orange-500/30 border-y border-indigo-950/20 dark:border-stone-50/20 vibrant:border-orange-500/40">
+      {layers.map((l) => (
+        <li class="grid grid-cols-12 gap-4 py-5">
+          <span class="col-span-2 md:col-span-1 font-mono text-xs text-orange-500 leading-none pt-2 tracking-widest">{l.n}</span>
+          <div class="col-span-10 md:col-span-7">
+            <h3 class="font-serif text-xl md:text-2xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 mb-1.5 leading-tight">{l.role}</h3>
+            <p class="text-sm md:text-base text-slate-700 dark:text-slate-300 vibrant:text-stone-50/85 font-serif italic leading-relaxed">{l.does}</p>
+          </div>
+          <div class="col-span-12 md:col-span-4 md:pl-4 md:border-l border-indigo-950/15 dark:border-stone-50/15 vibrant:border-orange-500/30">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500/90 mb-1 font-medium">Tools</p>
+            <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/80 font-mono leading-relaxed">{l.tools}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <p class="mt-10 max-w-3xl font-serif italic text-sm text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/80 border-l-2 border-orange-500 pl-4 leading-relaxed">
+      Most institutions face a choice between vendor lock-in and DIY pain. This stack is the third path — composable, owned, and replaceable layer by layer.
+    </p>
+  </div>
+</section>

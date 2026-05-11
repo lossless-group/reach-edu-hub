@@ -100,7 +100,7 @@ pnpx vercel --prod --scope colearn-labs     # manual deploy from local
 ## Repository conventions
 
 - **Commits** follow `git-conventions` from `~/.claude/skills/git-conventions/` — structured headers (`feat(scope)`, `fix(scope)`, etc.), paragraph-spaced bodies, "Also included" riders for minor changes.
-- **Changelog** entries land in `src/content/changelog/` as `YYYY-MM-DD_NN.md`. Follow `changelog-conventions` skill — `## Why Care?` first, `## What's New?` second, then the deeper story. Lede must do its job in two seconds.
+- **Changelog** entries land in the repo-root `changelog/` directory as `YYYY-MM-DD_NN.md`, per the org-wide convention. The Astro content collection at `src/content.config.ts` loads from there, so the `/changelog` route renders the same files. Follow `changelog-conventions` skill — `## Why Care?` first, `## What's New?` second, then the deeper story. Lede must do its job in two seconds.
 - **Sitemap and design notes** live in `context-v/sitemap/` (e.g. `Page__Index.md`).
 - **Three-mode rule:** every component must read strong in light, dark, and vibrant. Use the `dark:` and `vibrant:` Tailwind variants — see `src/styles/global.css` for the wiring.
 - **No `var(--theme-*)` references in deck Phase 1/2 work** — Tailwind built-in tokens only; the deck-iteration-workflow skill is explicit. Site chrome (Header, Footer, ModeToggle) is allowed to use semantic tokens.

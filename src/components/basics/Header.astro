@@ -16,10 +16,11 @@ import { getScrollDeckCycle } from '../../lib/scroll-decks';
 
 const path = Astro.url.pathname;
 const onStory        = path.startsWith('/story');
+const onAutomation   = path.startsWith('/automation');
 const onBrandKit     = path.startsWith('/brand-kit');
 const onDesignSystem = path.startsWith('/design-system');
 const onChangelog    = path.startsWith('/changelog');
-const onHome         = !onStory && !onBrandKit && !onDesignSystem && !onChangelog;
+const onHome         = !onStory && !onAutomation && !onBrandKit && !onDesignSystem && !onChangelog;
 
 const scrollCycle = getScrollDeckCycle(path);
 
@@ -75,6 +76,8 @@ const arrowBtn     = 'inline-flex h-5 w-5 items-center justify-center rounded-fu
       </>
     )}
 
+    <a href="/automation"   class:list={[linkBase, onAutomation   ? linkActive : linkInactive]}>Automation</a>
+    <span class={sep} aria-hidden="true">·</span>
     <a href="/brand-kit"     class:list={[linkBase, onBrandKit     ? linkActive : linkInactive]}>Brand Kit</a>
     <span class={sep} aria-hidden="true">·</span>
     <a href="/design-system" class:list={[linkBase, onDesignSystem ? linkActive : linkInactive]}>Design System</a>

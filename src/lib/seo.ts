@@ -89,6 +89,11 @@ export const SCROLL_DECK_SEO: Record<string, SeoEntry> = {
     description:
       'The same nine sections, in an editorial / serif-driven treatment. Mode-aware throughout — light, dark, and vibrant.',
   },
+  '/automation': {
+    title: 'Pipeline Building & Automation',
+    description:
+      'What Lossless will boot up for Reach next. Boost-and-relief for the current fundraise team, then widening the aperture to new donors, new grants, and a map of the philanthropic landscape.',
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────

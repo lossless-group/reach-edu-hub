@@ -1,0 +1,56 @@
+---
+/**
+ * Slide 01 · First things first — relief for the current fundraise team.
+ * Opener. Lead with empathy, not taxonomy.
+ */
+const id = 'first-things-first';
+
+const automations = [
+  { n: 'a', title: 'Email forwarding → CC',           body: 'A capture address that lurks on outbound threads so nothing falls off the radar.' },
+  { n: 'b', title: 'Call transcripts → insight',      body: 'Recordings run through exhaustive processing to surface what was said, agreed, and owed.' },
+  { n: 'c', title: 'Email templates',                 body: 'For the scenarios that recur — intro, follow-up, thank-you, ask-revisit.' },
+  { n: 'd', title: 'Automated email pulls',           body: 'The inbox surfaced as structured data, not a forever-scroll.' },
+  { n: 'e', title: 'Grant opportunity tracking',      body: 'Deadlines and status, owned by the system instead of by a person’s memory.' },
+  { n: 'f', title: 'Automated follow-ups',            body: 'Drafted, queued, and routed for the human touch on send.' },
+  { n: 'g', title: 'Trip planning & outreach',        body: 'Travel laid against the network — who to see, where, in what order.' },
+];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-stone-50 dark:bg-indigo-950 vibrant:bg-black snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest font-mono text-slate-400 dark:text-slate-500 vibrant:text-orange-500">01 / 11</span>
+
+  <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-8">
+    Pipeline Building &amp; Automation · Phase One
+  </p>
+
+  <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-[1.04] tracking-tight max-w-5xl mb-10">
+    Give your fundraisers <em class="not-italic text-orange-500">a boost — and relief.</em>
+  </h1>
+
+  <div class="max-w-3xl space-y-3 mb-16">
+    <p class="font-serif italic text-xl md:text-2xl text-slate-700 dark:text-slate-300 vibrant:text-cyan-300 leading-relaxed">
+      Set up systems to pull in data from various sources and automate routine tasks.
+    </p>
+    <p class="font-serif italic text-xl md:text-2xl text-slate-700 dark:text-slate-300 vibrant:text-cyan-300 leading-relaxed">
+      Enable small nudges to turn into meaningful impact.
+    </p>
+  </div>
+
+  <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-0 max-w-7xl border-y border-indigo-950/20 dark:border-stone-50/20 vibrant:border-orange-500/40">
+    {automations.map((a, i) => (
+      <li class:list={[
+        'p-5 flex flex-col',
+        'border-b md:border-b-0 border-indigo-950/15 dark:border-stone-50/15 vibrant:border-orange-500/30',
+        i < automations.length - 1 ? 'md:border-r border-indigo-950/15 dark:border-stone-50/15 vibrant:border-orange-500/30' : '',
+      ]}>
+        <span class="font-serif text-3xl text-orange-500 leading-none mb-3">{a.n}</span>
+        <h3 class="text-sm font-semibold uppercase tracking-widest text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 mb-2 leading-tight">{a.title}</h3>
+        <p class="text-xs text-slate-700 dark:text-slate-400 vibrant:text-stone-50/75 font-serif italic leading-snug">{a.body}</p>
+      </li>
+    ))}
+  </ol>
+
+  <p class="mt-12 max-w-3xl font-serif text-base text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/80 italic leading-relaxed">
+    None of this replaces the relationship work. All of it gives the people who carry the relationships more room to do them well.
+  </p>
+</section>

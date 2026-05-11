@@ -1,0 +1,115 @@
+---
+/**
+ * Slide 02 · Three Games, One Pipeline.
+ *
+ * The disambiguation slide that silently re-keys everything after it.
+ * Three columns (HNWI / SFO / Institutional), five rows of comparison.
+ */
+const id = 'three-games-one-pipeline';
+
+const columns = [
+  {
+    label: 'Individual HNWI',
+    chip:  'HNWI',
+  },
+  {
+    label: 'SFO · UHNWI',
+    chip:  'SFO',
+  },
+  {
+    label: 'Institutional',
+    chip:  'Inst.',
+  },
+] as const;
+
+type Row = { label: string; cells: [string, string, string] };
+
+const rows: Row[] = [
+  {
+    label: 'How they actually decide',
+    cells: [
+      'Solo. Sometimes family or friends in the room. Often a single introduction, a key meeting, and strong follow-up is the whole game.',
+      'A small team that likes to pretend they have process. Will run things like network-maven events. May put you in a decision pipeline. Rarely runs big grant processes.',
+      'Established teams. Real process. Deadlines, applications, multiple pitches and follow-ups — remote and at HQ. Rarely escaped.',
+    ],
+  },
+  {
+    label: 'What can short-circuit it',
+    cells: [
+      'A baseball game. Golf. A well-placed dinner.',
+      'Bourbon with the principal — who verbally says yes, then doesn’t want to "go over the heads" of the team and routes you back into the process you were trying to skip.',
+      'Almost nothing. The cycle is the cycle.',
+    ],
+  },
+  {
+    label: 'Where the work actually happens',
+    cells: [
+      'Relationship logistics. Travel. Follow-up craft.',
+      'Materials for the team you got routed into. Personalization for the principal and the team.',
+      'Grant discovery → application drafting → tracking → close.',
+    ],
+  },
+  {
+    label: 'Who from Reach plays',
+    cells: [
+      'CEO mostly. VP Development sometimes.',
+      'CEO + VP Development + occasionally one trusted staff.',
+      'Full dev shop: development officers, grant writers, program leads.',
+    ],
+  },
+  {
+    label: 'What automation actually helps',
+    cells: [
+      'Trip planning. Call transcripts → follow-up drafts. Email CC capture.',
+      'All of the HNWI tools + personalized materials for the SFO team. Customized communication schedules.',
+      'The full grant pipeline: discovery, content-mapping, draft generation, deadline tracking.',
+    ],
+  },
+];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-6 md:px-10 lg:px-14 py-10 bg-stone-50 dark:bg-indigo-950 vibrant:bg-black snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest font-mono text-slate-400 dark:text-slate-500 vibrant:text-orange-500">02 / 11</span>
+
+  <div class="w-full max-w-[1500px] mx-auto">
+    <p class="text-[11px] uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-2 text-center">Three Archetypes of Philanthropy</p>
+
+    <h2 class="font-serif text-3xl md:text-5xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-[1.05] tracking-tight mb-3 text-center">
+      Three games. <em class="not-italic text-orange-500">One pipeline.</em>
+    </h2>
+
+    <p class="font-serif italic text-sm md:text-base text-slate-700 dark:text-slate-300 vibrant:text-cyan-300 leading-snug max-w-2xl mx-auto mb-6 text-center">
+      Who shows up from Reach, what closes the deal, and what automation actually helps — all change with the archetype. Same pipeline; different surfaces light up.
+    </p>
+
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[900px] border-collapse text-left">
+        <thead>
+          <tr class="border-b border-indigo-950/30 dark:border-stone-50/25 vibrant:border-orange-500/50">
+            <th class="px-4 py-2.5 w-44 align-bottom text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400 vibrant:text-cyan-300/70 font-normal"></th>
+            {columns.map((c) => (
+              <th class="px-4 py-2.5 align-bottom w-1/3">
+                <span class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-mono border border-orange-500/50 text-orange-500 bg-orange-500/5 mb-2">{c.chip}</span>
+                <div class="font-serif text-2xl md:text-3xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-tight">{c.label}</div>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-indigo-950/15 dark:divide-stone-50/15 vibrant:divide-orange-500/25">
+          {rows.map((row) => (
+            <tr>
+              <td class="px-4 py-3 align-top text-xs uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500/90 font-medium leading-snug">{row.label}</td>
+              {row.cells.map((cell) => (
+                <td class="px-4 py-3 align-top text-base md:text-lg text-slate-700 dark:text-slate-300 vibrant:text-stone-50/85 font-serif italic leading-relaxed">{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-5 max-w-4xl mx-auto font-serif text-sm text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/80 italic border-l-2 border-orange-500 pl-4 leading-snug">
+      The same pipeline serves all three — but which surfaces light up, and who from Reach is in the room, depends on which game is being played.
+    </p>
+  </div>
+</section>

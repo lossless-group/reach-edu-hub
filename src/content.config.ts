@@ -1,9 +1,12 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-// Changelog collection (required per Lossless conventions)
+// Changelog collection (required per Lossless conventions).
+// Source lives at the repo-root `changelog/` per the org-wide changelog
+// directory convention — the content collection loads from there so the
+// /changelog route renders the same files that the org publishes.
 const changelog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/changelog' }),
+  loader: glob({ pattern: '**/*.md', base: './changelog' }),
   schema: z.object({
     title: z.string(),
     lede: z.string(),

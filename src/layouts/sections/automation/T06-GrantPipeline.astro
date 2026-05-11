@@ -1,0 +1,78 @@
+---
+/**
+ * Slide 05 · Augment the Grant Opportunity Pipeline (Institutional).
+ *
+ * The other half of Pillar 1, made operational for the institutional game.
+ */
+const id = 'grant-pipeline';
+
+const stages = [
+  {
+    n: 'I',
+    title: 'AI-powered grant opportunity discovery',
+    body: 'A continuous scan across the sources that matter for higher-ed philanthropy — foundation 990s, news, government databases, social signals.',
+  },
+  {
+    n: 'II',
+    title: 'Automated grant tracking & management',
+    body: 'Deadlines, status, ownership, what’s owed to whom. The cycle owned by the system, not by a calendar in someone’s head.',
+  },
+  {
+    n: 'III',
+    title: 'AI-driven grant writing assistance',
+    body: 'Two layers — alignment first, then a real draft on the page.',
+    subs: [
+      { name: 'Content Mapping', body: 'Align grant requirements with organizational capabilities. What does this funder want, and what do we actually have that fits?' },
+      { name: 'Draft Generation', body: 'Generate initial grant proposals from organizational data, ready for the grant writer to shape.' },
+    ],
+  },
+];
+---
+
+<section id={id} class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 bg-stone-50 dark:bg-indigo-950 vibrant:bg-black snap-start">
+  <span class="absolute top-6 right-8 text-xs tracking-widest font-mono text-slate-400 dark:text-slate-500 vibrant:text-orange-500">06 / 11</span>
+
+  <div class="max-w-7xl">
+    <div class="flex flex-wrap items-baseline gap-3 mb-6">
+      <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500">Raise Better · The Pipeline Side</p>
+      <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-mono border border-orange-500/50 text-orange-500 bg-orange-500/5">Institutional</span>
+    </div>
+
+    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-[1.05] tracking-tight max-w-4xl mb-6">
+      Find more. Track more. Write better. <em class="not-italic text-orange-500">Win more.</em>
+    </h2>
+
+    <p class="font-serif italic text-base md:text-lg text-slate-700 dark:text-slate-300 vibrant:text-cyan-300 leading-relaxed max-w-3xl mb-10">
+      Enhance grant opportunity identification and tracking by leveraging AI to analyze vast amounts of data from multiple sources — government databases, news articles, foundation 990s, social media — to surface relevant opportunities and provide actionable insights.
+    </p>
+
+    <ol class="divide-y divide-indigo-950/15 dark:divide-stone-50/15 vibrant:divide-orange-500/30">
+      {stages.map((s) => (
+        <li class="grid grid-cols-12 gap-4 py-6 first:pt-0">
+          <span class="col-span-2 md:col-span-1 font-serif text-xl md:text-2xl text-orange-500 leading-none pt-1">{s.n}</span>
+          <div class="col-span-10 md:col-span-11">
+            <h3 class="font-serif text-2xl md:text-3xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 mb-2 leading-tight">{s.title}</h3>
+            <p class="text-base text-slate-700 dark:text-slate-400 vibrant:text-stone-50/80 leading-relaxed mb-4">{s.body}</p>
+            {s.subs && (
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-0 mt-2 border-y border-indigo-950/15 dark:border-stone-50/15 vibrant:border-orange-500/30">
+                {s.subs.map((sub, i) => (
+                  <li class:list={[
+                    'py-4 md:py-5 px-1 md:px-5',
+                    i === 0 ? 'md:border-r border-b md:border-b-0 border-indigo-950/15 dark:border-stone-50/15 vibrant:border-orange-500/30' : '',
+                  ]}>
+                    <p class="text-[11px] uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-1.5 font-medium">{sub.name}</p>
+                    <p class="font-serif italic text-sm text-slate-700 dark:text-slate-300 vibrant:text-stone-50/85 leading-relaxed">{sub.body}</p>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <p class="mt-10 max-w-3xl font-serif italic text-sm text-slate-600 dark:text-slate-400 vibrant:text-cyan-300/80 border-l-2 border-orange-500 pl-4 leading-relaxed">
+      Volume × precision. The cycle doesn’t shorten — but you enter more of them, on better-matched terms, with better drafts.
+    </p>
+  </div>
+</section>
