@@ -149,6 +149,26 @@ export const DECKS: Deck[] = [
       },
     ],
   },
+  {
+    // Fourth "strategy" deck — operating doctrine for a small team.
+    // Narrative: context-v/narratives/strategies/agent-workflow-maxxing/README.md
+    slug: "agent-workflow-maxxing",
+    title: "Agent Workflow Maxxing",
+    lede: "Dedicated agents and agent workflows let a small team operate like a much bigger one — reducing overwhelm on the work you already do, and enabling work that wasn't possible at your size, across ABM, travel, events, grants, and social.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-06-29",
+    status: "draft",
+    variants: [
+      {
+        // Globally-unique variant slug (shell keys SLOTS by variant alone).
+        slug: "awm-v1",
+        label: "v1 · Draft",
+        lede: "First Scroll-UI cut from the narrative; vendor/anecdote stats flagged for verification. Token-driven via deck-primitives.",
+        status: "draft",
+        lastUpdated: "2026-06-29",
+      },
+    ],
+  },
 ];
 
 export function getDeck(slug: string): Deck | undefined {

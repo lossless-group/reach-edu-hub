@@ -1,0 +1,51 @@
+---
+/**
+ * Slide 06 · Events & Conferences (Front 03) — the nine-months-ahead game.
+ * Follows the T04-ABM front template.
+ */
+const paid = ["Outreach Meeting Prep", "Apollo", "Instantly", "Read.ai", "Fireflies"];
+const oss = ["Firecrawl", "Apify", "Browse AI", "n8n"];
+---
+
+<section data-slot="06" data-variant="awm-v1" class="deck-section">
+  <span class="deck-kicker">06 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">Front 03 · Events &amp; conferences</p>
+    <h2 class="deck-h2">Start the relationship <span class="deck-gradient">nine months ahead.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-accent);">The bottleneck</span>
+      <p style="color: var(--color-text); font-size: 0.98rem; line-height: 1.55; margin: 0;">
+        Events reward whoever starts absurdly early — CFP and speaker submissions,
+        sponsor and partner outreach, attendee targeting. That long-horizon work
+        is exactly what a busy team drops.
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-secondary);">Agents do</span>
+      <p style="color: var(--color-text); font-size: 0.98rem; line-height: 1.55; margin: 0;">
+        Track event calendars and CFP deadlines, run speaker outreach 9+ months out,
+        scrape attendee and speaker lists, place speaking pitches, set meetings,
+        generate per-meeting prep briefs, and auto-nurture follow-up.
+      </p>
+    </div>
+  </div>
+
+  <div class="flex items-baseline gap-4 flex-wrap mt-1">
+    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">24/7 <span class="deck-verify">VERIFY</span></span>
+    <span class="deck-stat-label" style="max-width: 46ch;">event teams report agents "working 24/7 sending personalized sponsor emails and matching attendees" — vendor-reported</span>
+  </div>
+
+  <div class="flex flex-col gap-2 mt-1">
+    <p class="deck-stat-label">Tools</p>
+    <div class="flex flex-wrap gap-2 items-center">
+      <span class="deck-stat-label" style="color: var(--color-accent);">Paid</span>
+      {paid.map((t) => <span class="deck-chip">{t}</span>)}
+      <span class="deck-stat-label" style="color: var(--color-secondary); margin-left: 0.5rem;">Open</span>
+      {oss.map((t) => <span class="deck-chip">{t}</span>)}
+    </div>
+  </div>
+</section>

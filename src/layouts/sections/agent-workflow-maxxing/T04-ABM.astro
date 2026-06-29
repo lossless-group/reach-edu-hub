@@ -1,0 +1,50 @@
+---
+/**
+ * Slide 04 · ABM / Founder & Account-Manager support — more conversations at once.
+ * This is the TEMPLATE for the five "front" slides (04–08): bottleneck →
+ * agents do → example/stat → tools (paid + OSS).
+ */
+const paid = ["Clay", "Apollo", "11x", "Artisan", "Agentforce"];
+const oss = ["n8n + LLM", "LangGraph / CrewAI"];
+---
+
+<section data-slot="04" data-variant="awm-v1" class="deck-section">
+  <span class="deck-kicker">04 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">Front 01 · ABM &amp; founder support</p>
+    <h2 class="deck-h2">More sales conversations <span class="deck-gradient">at once.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-accent);">The bottleneck</span>
+      <p style="color: var(--color-text); font-size: 0.98rem; line-height: 1.55; margin: 0;">
+        A founder or AM can personally run only so many live conversations — research,
+        list-building, sequencing, and reply-triage eat the day.
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-secondary);">Agents do</span>
+      <p style="color: var(--color-text); font-size: 0.98rem; line-height: 1.55; margin: 0;">
+        Prospect research, list enrichment, personalized sequencing, reply handling,
+        CRM hygiene — an orchestration engine so one person tends many threads.
+      </p>
+    </div>
+  </div>
+
+  <div class="flex items-baseline gap-4 flex-wrap mt-1">
+    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">$1M+ <span class="deck-verify">VERIFY</span></span>
+    <span class="deck-stat-label" style="max-width: 42ch;">pipeline in the first three months (11x · Questex, vendor-reported) — illustrative of AI-SDR leverage</span>
+  </div>
+
+  <div class="flex flex-col gap-2 mt-1">
+    <p class="deck-stat-label">Tools</p>
+    <div class="flex flex-wrap gap-2 items-center">
+      <span class="deck-stat-label" style="color: var(--color-accent);">Paid</span>
+      {paid.map((t) => <span class="deck-chip">{t}</span>)}
+      <span class="deck-stat-label" style="color: var(--color-secondary); margin-left: 0.5rem;">Open</span>
+      {oss.map((t) => <span class="deck-chip">{t}</span>)}
+    </div>
+  </div>
+</section>

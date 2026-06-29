@@ -1,0 +1,35 @@
+---
+/**
+ * Slide 03 · The Shift — the thesis: two effects, not one.
+ */
+const effects = [
+  { k: "Reduce overwhelm", d: "The inbox, the follow-ups, the prep, the CRM hygiene — agents take the load off work the team already does." },
+  { k: "Enable the impossible-at-your-size", d: "Ten outreach threads at once. Conference outreach nine months ahead. A grant corpus that drafts itself. Work you used to triage away." },
+];
+---
+
+<section data-slot="03" data-variant="awm-v1" class="deck-section deck-glow" style="justify-content: center;">
+  <span class="deck-kicker">03 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The shift</p>
+    <h2 class="deck-h1">
+      Agents change the math <span class="deck-gradient">twice over.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-4" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+    {effects.map((e, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat-label" style="color: var(--color-secondary);">{i === 0 ? "Effect 01" : "Effect 02"}</span>
+        <p style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--color-text); margin: 0;">{e.k}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.98rem; line-height: 1.55; margin: 0;">{e.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-4" style="max-width: 70ch;">
+    The win isn't "the same work, faster." It's
+    <span style="color: var(--color-text); font-weight: 600;"> operating like a team several times your size</span> — with humans staying on anything that goes outward.
+  </p>
+</section>

@@ -95,4 +95,19 @@ export const SLOTS: SlotsByVariant = {
     { slot: "09", title: "First Builds", slug: "first-builds" },
     { slot: "10", title: "The Ask", slug: "ask" },
   ],
+
+  // Strategy deck: agent-workflow-maxxing (variant awm-v1). Eleven slots.
+  "awm-v1": [
+    { slot: "01", title: "Agent Workflow Maxxing", slug: "cover" },
+    { slot: "02", title: "The Bottleneck", slug: "bottleneck" },
+    { slot: "03", title: "The Shift", slug: "shift" },
+    { slot: "04", title: "More Conversations at Once", slug: "abm" },
+    { slot: "05", title: "Travel", slug: "travel" },
+    { slot: "06", title: "Events & Conferences", slug: "events" },
+    { slot: "07", title: "Grants", slug: "grants" },
+    { slot: "08", title: "Social Presence", slug: "social" },
+    { slot: "09", title: "Best Practices", slug: "best-practices" },
+    { slot: "10", title: "The Tooling Map", slug: "tooling" },
+    { slot: "11", title: "The Payoff", slug: "payoff" },
+  ],
 };

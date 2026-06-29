@@ -109,6 +109,11 @@ export const SCROLL_DECK_SEO: Record<string, SeoEntry> = {
     description:
       'The Apprenticeship Degree needs a different software stack. With agentic vibe-coding tools, apprenticeship and adult-education domain experts across NCAD can now prototype it themselves — engineers harden what proves out.',
   },
+  '/scroll/agent-workflow-maxxing/awm-v1': {
+    title: 'Agent Workflow Maxxing',
+    description:
+      'How dedicated agents and agent workflows let a small team punch above its weight — across ABM, travel, events, grants, and social — reducing overwhelm and enabling work that was not possible at that size, with human-in-the-loop guardrails.',
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────

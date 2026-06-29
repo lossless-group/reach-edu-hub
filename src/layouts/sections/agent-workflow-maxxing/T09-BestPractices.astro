@@ -1,0 +1,38 @@
+---
+/**
+ * Slide 09 · Best Practices — the guardrails that keep this from backfiring.
+ */
+const rules = [
+  { k: "Humans on anything outward", d: "Send, publish, submit stays human-approved. Agents prepare; people act." },
+  { k: "Start with one bottleneck", d: "Prove it, then expand. Don't agent-ify everything at once." },
+  { k: "Build the corpus once", d: "One source of truth — brand voice + answers — feeds grants, outreach, social, and event copy." },
+  { k: "Keep asset libraries", d: "Snippets, charts, brand visuals the agents pull from, so output stays consistent and on-brand." },
+  { k: "Respect platform ToS", d: "Especially social — monitor and draft, don't auto-act." },
+  { k: "Measure both axes", d: "Time saved AND work newly possible. The second one is the real win." },
+  { k: "Pick the right altitude", d: "No-code glue → custom frameworks → vertical tools, by how deep the need runs." },
+];
+---
+
+<section data-slot="09" data-variant="awm-v1" class="deck-section">
+  <span class="deck-kicker">09 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">Best practices</p>
+    <h2 class="deck-h2">The guardrails that <span class="deck-gradient">keep it honest.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+    {rules.map((r, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat-label" style="color: var(--color-secondary); font-family: var(--font-mono);">{String(i + 1).padStart(2, "0")}</span>
+        <p style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--color-text); margin: 0;">{r.k}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.92rem; line-height: 1.5; margin: 0;">{r.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 70ch;">
+    The discipline is simple:
+    <span style="color: var(--color-text); font-weight: 600;"> augment, don't abdicate.</span>
+  </p>
+</section>

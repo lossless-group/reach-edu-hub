@@ -1,0 +1,54 @@
+---
+/**
+ * Slide 11 · The Payoff — operate like a team several times your size.
+ * The close. The only slide in this deck that carries .deck-glow.
+ */
+const removes = [
+  "The inbox that never empties",
+  "Prep and follow-up glue work",
+  "CRM hygiene and list-building",
+  "Deadlines that sneak up",
+];
+const unlocks = [
+  "Ten outreach threads at once",
+  "Conference outreach nine months ahead",
+  "A grant corpus that drafts itself",
+  "Trips that plan and fill themselves",
+];
+---
+
+<section data-slot="11" data-variant="awm-v1" class="deck-section deck-glow" style="justify-content: center;">
+  <span class="deck-kicker">11 / 11</span>
+
+  <div class="max-w-5xl">
+    <p class="deck-eyebrow mb-5">The payoff</p>
+    <h2 class="deck-h1 mb-8">
+      Operate like a team <span class="deck-gradient">several times your size.</span>
+    </h2>
+
+    <div class="deck-grid mb-8" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      <div class="flex flex-col gap-2">
+        <span class="deck-stat-label" style="color: var(--color-accent);">What it removes · the overwhelm</span>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+          {removes.map((r) => (
+            <li style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.45;">{r}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="deck-stat-label" style="color: var(--color-secondary);">What it unlocks · impossible at your size</span>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+          {unlocks.map((u) => (
+            <li style="color: var(--color-text); font-size: 1rem; line-height: 1.45; font-weight: 600;">{u}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="deck-rule mb-8" style="max-width: 14rem;"></div>
+
+    <p class="deck-lede" style="max-width: 64ch; color: var(--color-text); font-size: clamp(1.2rem, 2vw, 1.7rem);">
+      Don't do the same work faster — <span class="deck-gradient">do the work you never had time for.</span>
+    </p>
+  </div>
+</section>

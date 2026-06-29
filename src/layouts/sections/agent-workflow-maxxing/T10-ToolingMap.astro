@@ -1,0 +1,46 @@
+---
+/**
+ * Slide 10 · The Tooling Map — paid + open source, organized by layer.
+ * A reference / map slide.
+ */
+const layers = [
+  { layer: "No-code glue", note: "wire steps together, no engineering",
+    tools: [{ n: "Zapier", t: "paid" }, { n: "Make", t: "paid" }, { n: "n8n", t: "open" }] },
+  { layer: "Frameworks", note: "build a custom agent",
+    tools: [{ n: "LangGraph", t: "open" }, { n: "CrewAI", t: "open" }, { n: "OpenAI Agents SDK", t: "open" }, { n: "Claude Agent SDK", t: "open" }] },
+  { layer: "Vertical tools", note: "ready-made for one job",
+    tools: [{ n: "11x", t: "paid" }, { n: "Grantable", t: "paid" }, { n: "Outreach", t: "paid" }, { n: "Hootsuite", t: "paid" }] },
+  { layer: "Substrate", note: "the layer everything sits on",
+    tools: [{ n: "Firecrawl · scraping", t: "" }, { n: "Chroma · corpus / memory", t: "" }, { n: "the LLMs", t: "" }] },
+];
+---
+
+<section data-slot="10" data-variant="awm-v1" class="deck-section">
+  <span class="deck-kicker">10 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">The tooling map</p>
+    <h2 class="deck-h2">Paid and open source, <span class="deck-gradient">by layer.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {layers.map((l) => (
+      <div class="deck-card flex flex-col gap-3">
+        <div class="flex flex-col gap-1">
+          <span class="deck-stat-label" style="color: var(--color-secondary); font-family: var(--font-mono);">{l.layer}</span>
+          <span style="color: var(--color-text-muted); font-size: 0.82rem; line-height: 1.4;">{l.note}</span>
+        </div>
+        <div class="flex flex-wrap gap-2 items-center">
+          {l.tools.map((tool) => (
+            <span class="deck-chip">{tool.n}{tool.t && (<> · {tool.t}</>)}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 70ch;">
+    Pick the altitude the job needs —
+    <span style="color: var(--color-text); font-weight: 600;"> glue first, frameworks when it gets real, vertical tools when someone's already solved it.</span>
+  </p>
+</section>

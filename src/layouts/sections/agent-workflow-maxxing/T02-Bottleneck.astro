@@ -1,0 +1,38 @@
+---
+/**
+ * Slide 02 · The Bottleneck — a small team carries the surface area of a big
+ * one, and historically had to triage most of it away. Sets up T03 + the fronts.
+ */
+const fronts = ["Sales / ABM", "Travel", "Events", "Grants", "Social"];
+---
+
+<section data-slot="02" data-variant="awm-v1" class="deck-section" style="justify-content: center;">
+  <span class="deck-kicker">02 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The bottleneck</p>
+    <h2 class="deck-h1">
+      A small team has the <span class="deck-gradient">surface area of a big one.</span>
+    </h2>
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 68ch;">
+    Sales conversations, travel worth taking, conferences worth attending, grant
+    pipelines, stakeholder relationships — the work is there whether or not the
+    headcount is. Historically, the only lever was
+    <span style="color: var(--color-text); font-weight: 600;"> triage: drop most of it on the floor.</span>
+  </p>
+
+  <div class="flex flex-col gap-2 mt-3">
+    <span class="deck-stat-label">Five fronts, all under-served at once</span>
+    <div class="flex flex-wrap gap-2 items-center">
+      {fronts.map((f) => <span class="deck-chip">{f}</span>)}
+    </div>
+  </div>
+
+  <p class="deck-lede mt-3" style="max-width: 64ch;">
+    Overwhelm isn't just stress — it's a
+    <span style="color: var(--color-text); font-weight: 600;"> ceiling on what's possible.</span>
+    The next slide is how agents lift it.
+  </p>
+</section>

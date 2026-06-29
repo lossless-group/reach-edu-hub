@@ -1,0 +1,51 @@
+---
+/**
+ * Slide 07 · Grants (Front 04) — a corpus that drafts itself.
+ * Follows the T04-ABM front template.
+ */
+const paid = ["Grant Assistant", "Grantable", "Instrumentl", "FundRobin"];
+const oss = ["Claude Projects", "Chroma", "Datawrapper", "Flourish"];
+---
+
+<section data-slot="07" data-variant="awm-v1" class="deck-section">
+  <span class="deck-kicker">07 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">Front 04 · Grants</p>
+    <h2 class="deck-h2">A corpus that <span class="deck-gradient">drafts itself.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-accent);">The bottleneck</span>
+      <p style="color: var(--color-text); font-size: 0.98rem; line-height: 1.55; margin: 0;">
+        Every application re-answers the same questions in the funder's format.
+        Deadlines pile up, and the most valuable people are the ones stretched
+        thinnest writing them.
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-secondary);">Agents do</span>
+      <p style="color: var(--color-text); font-size: 0.98rem; line-height: 1.55; margin: 0;">
+        Discover opportunities and track deadlines, build a reusable corpus +
+        brand voice + snippet library, maintain visual and data-viz asset
+        libraries, and draft applications, form fill-outs, and DDQs.
+      </p>
+    </div>
+  </div>
+
+  <div class="flex items-baseline gap-4 flex-wrap mt-1">
+    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">100+ hrs <span class="deck-verify">VERIFY</span></span>
+    <span class="deck-stat-label" style="max-width: 46ch;">practitioners report cutting grant-drafting time dramatically — one anecdote: "100+ hours per grant" down to a fraction</span>
+  </div>
+
+  <div class="flex flex-col gap-2 mt-1">
+    <p class="deck-stat-label">Tools</p>
+    <div class="flex flex-wrap gap-2 items-center">
+      <span class="deck-stat-label" style="color: var(--color-accent);">Paid</span>
+      {paid.map((t) => <span class="deck-chip">{t}</span>)}
+      <span class="deck-stat-label" style="color: var(--color-secondary); margin-left: 0.5rem;">Open</span>
+      {oss.map((t) => <span class="deck-chip">{t}</span>)}
+    </div>
+  </div>
+</section>

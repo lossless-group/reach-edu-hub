@@ -1,0 +1,60 @@
+---
+/**
+ * Slide 08 · Social Presence (Front 05) — watch + draft; a human acts.
+ * Follows the T04-ABM front template, but the load-bearing element is the
+ * accent-bordered ToS caveat (mirrors agentic-product-lab/T09 callout).
+ */
+const paid = ["Hootsuite AI", "Taplio", "Brandwatch", "6sense"];
+const oss = ["n8n monitor → Slack"];
+---
+
+<section data-slot="08" data-variant="awm-v1" class="deck-section">
+  <span class="deck-kicker">08 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">Front 05 · Social presence</p>
+    <h2 class="deck-h2">Watch the room, draft the reply — <span class="deck-gradient">a human posts.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-accent);">The bottleneck</span>
+      <p style="color: var(--color-text); font-size: 0.98rem; line-height: 1.55; margin: 0;">
+        Staying visibly engaged with key stakeholders at funders and partners is
+        high-value relationship work — and it never fits the day.
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-secondary);">Agents do (safely)</span>
+      <p style="color: var(--color-text); font-size: 0.98rem; line-height: 1.55; margin: 0;">
+        Monitor named stakeholders' posts, surface timely engagement opportunities,
+        and draft comments, replies, and shares for a human to approve and post.
+      </p>
+    </div>
+  </div>
+
+  <div class="deck-card mt-1" style="border-left: 3px solid var(--color-accent);">
+    <p class="deck-stat-label" style="color: var(--color-accent); margin-bottom: 0.5rem;">Caveat · load-bearing</p>
+    <p style="color: var(--color-text); font-size: 1.02rem; line-height: 1.6; margin: 0; max-width: 88ch;">
+      Fully automating engagement — auto-like, auto-RT, AI-posted comments —
+      <strong style="font-weight: 700;">risks platform penalties and reads as inauthentic.</strong>
+      LinkedIn explicitly discourages automated engagement. Keep humans on the
+      <strong style="font-weight: 700;">action</strong>; keep agents on the watching and drafting.
+    </p>
+  </div>
+
+  <div class="flex items-baseline gap-4 flex-wrap mt-1">
+    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">89.7% / 5.4% <span class="deck-verify">VERIFY</span></span>
+    <span class="deck-stat-label" style="max-width: 46ch;">of social teams use AI daily, but only 5.4% fully automate (Improvado, 2026) — augment, don't abdicate</span>
+  </div>
+
+  <div class="flex flex-col gap-2 mt-1">
+    <p class="deck-stat-label">Tools</p>
+    <div class="flex flex-wrap gap-2 items-center">
+      <span class="deck-stat-label" style="color: var(--color-accent);">Paid</span>
+      {paid.map((t) => <span class="deck-chip">{t}</span>)}
+      <span class="deck-stat-label" style="color: var(--color-secondary); margin-left: 0.5rem;">Open</span>
+      {oss.map((t) => <span class="deck-chip">{t}</span>)}
+    </div>
+  </div>
+</section>
