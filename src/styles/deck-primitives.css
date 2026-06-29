@@ -91,10 +91,35 @@
   padding: clamp(1.2rem, 2vw, 1.75rem);
   box-shadow: var(--fx-card-shadow);
   transition: box-shadow 200ms ease, transform 200ms ease;
+  /* Re-scope muted text INSIDE cards. The global --color-text-muted is tuned
+     for text on the page background; on a card --color-surface it can drop to
+     near-zero contrast (e.g. dark mode: purple-muted text on purple-dusk
+     surface). Derive muted from the current --color-text instead, so card body
+     text and labels stay legible in light / dark / vibrant. Drag-and-drop:
+     anything inside a card that reads --color-text-muted inherits this. */
+  --color-text-muted: color-mix(in srgb, var(--color-text) 60%, transparent);
 }
 .deck-card:hover {
   box-shadow: var(--fx-card-shadow-hover);
   transform: translateY(-2px);
+}
+
+/* Dark-mode rethink. The global --color-surface in dark is purple-dusk
+   (#473e6e) — a light, saturated mid-purple that, on the near-black page
+   background, muddies card text and swallows the (darker) border token. Light
+   and vibrant relate surface→background correctly, so they keep the base rules;
+   only dark gets re-treated: a de-saturated surface blended toward the
+   background (reads as a subtle lift, not a glowing block), a hairline border
+   derived from the text color, and clearly-legible muted text. */
+[data-mode="dark"] .deck-card {
+  background: color-mix(in srgb, var(--color-surface) 38%, var(--color-background));
+  border-color: color-mix(in srgb, var(--color-text) 14%, transparent);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --color-text-muted: color-mix(in srgb, var(--color-text) 72%, transparent);
+}
+[data-mode="dark"] .deck-card:hover {
+  border-color: color-mix(in srgb, var(--color-secondary) 55%, transparent);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
 .deck-stat {

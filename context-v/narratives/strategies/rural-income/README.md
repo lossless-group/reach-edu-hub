@@ -113,16 +113,16 @@ role:
   Web** (⚠ VERIFY: ~$1M to launch a behavioral-health apprenticeship pathway).
   Reach is actively seeking continued philanthropic funding. [Reach; Workshift]
 - **Regional / state** — state education & workforce agencies, regional
-  foundations, and multi-district consortia that match national dollars to local
+  foundations, and multi-district consortia that match national grants to local
   delivery (e.g. a Delta-Region or state-level anchor). ⚠ Seed list TBD.
 - **Local** — where the income actually lands: the apprentices' employers
   (school districts, health systems), community foundations, and local
   businesses. The local tier is where "grow-your-own" and the income multiplier
-  are most legible — and where co-investment proves demand. ⚠ Seed list TBD.
+  are most legible — and where co-funding proves demand. ⚠ Seed list TBD.
 
 Why it belongs in *this* deck: a rural-income story is most fundable when the
 reader sees money already flowing at the top of the pipeline and a clear on-ramp
-for regional/local co-investment beneath it.
+for regional/local co-funding beneath it.
 
 ## Proposed slide outline (Scroll-UI first, ~11 slots)
 
@@ -145,7 +145,7 @@ for regional/local co-investment beneath it.
 - "Grow-your-own keeps the talent *and the wages* local."
 - "Debt-free is worth more where incomes are lower."
 - "A place-based income engine that also fixes the employer's shortage."
-- "Funded top-down, proven bottom-up: national dollars, regional match, local co-investment."
+- "Funded top-down, proven bottom-up: national grants, regional match, local co-funding."
 
 ## Open questions / to research before deck build
 
