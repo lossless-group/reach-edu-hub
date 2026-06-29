@@ -20,8 +20,8 @@ export interface ScrollDeck {
 }
 
 export const SCROLL_DECKS: ScrollDeck[] = [
-  { href: '/story',           label: 'v1 · baseline',  variantNumber: 1 },
-  { href: '/story/version-2', label: 'v2 · editorial', variantNumber: 2 },
+  { href: '/scroll/story/baseline',  label: 'v1 · baseline',  variantNumber: 1 },
+  { href: '/scroll/story/editorial', label: 'v2 · editorial', variantNumber: 2 },
 ];
 
 /** Default landing for the "Story" header link. */

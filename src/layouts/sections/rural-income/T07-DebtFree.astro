@@ -1,0 +1,35 @@
+---
+/**
+ * Slide 07 · Debt-Free Matters More Here — why the model converts better
+ * in rural / low-income contexts. Statement + supporting points.
+ */
+const points = [
+  { k: "Debt-aversion runs higher", d: "Many rural candidates would never sign for a loan. A no-debt path turns a hard no into a yes." },
+  { k: "Lower baselines, bigger relative lift", d: "Where incomes start lower, the same raise is a larger share of household earnings." },
+  { k: "The raise isn't clawed back", d: "No monthly loan payment skims the gain — net income rises the full amount, and stays risen." },
+];
+---
+
+<section data-slot="07" data-variant="v1" class="deck-section">
+  <span class="deck-kicker">07 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-4">Why it fits rural</p>
+    <h2 class="deck-h2">Debt-free is worth <span class="deck-gradient">more</span> where incomes are lower.</h2>
+  </div>
+
+  <div class="flex flex-col gap-0 mt-2 max-w-4xl">
+    {points.map((p, i) => (
+      <div>
+        <div class="flex items-start gap-5" style="padding: 1.1rem 0;">
+          <span class="deck-stat-label" style="color: var(--color-accent); padding-top: 0.2rem;">0{i + 1}</span>
+          <div class="flex flex-col gap-1">
+            <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-text); margin: 0;">{p.k}</p>
+            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.55; margin: 0;">{p.d}</p>
+          </div>
+        </div>
+        {i < points.length - 1 && <div class="deck-rule"></div>}
+      </div>
+    ))}
+  </div>
+</section>

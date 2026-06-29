@@ -1,0 +1,19 @@
+---
+/**
+ * /stories — menu for the "stories" collection.
+ * The deck-collections menu layer; see context-v/explorations/
+ * Deck-Collections-A-Menu-Layer-Above-Single-Deck-Convergence.md
+ */
+export const prerender = true;
+
+import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
+import DeckCollectionMenu from '../../components/basics/DeckCollectionMenu.astro';
+import { getCollection, getCollectionDecks } from '../../data/collections';
+
+const collection = getCollection('stories')!;
+const decks = getCollectionDecks('stories');
+---
+
+<BaseThemeLayout title={collection.title} description={collection.lede}>
+  <DeckCollectionMenu collection={collection} decks={decks} />
+</BaseThemeLayout>

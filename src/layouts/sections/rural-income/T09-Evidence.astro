@@ -1,0 +1,39 @@
+---
+/**
+ * Slide 09 · The Evidence — proof as attributed cards.
+ * NOTE: deliberately omits the broad DOL "$86k average" figure (not degree-specific).
+ */
+const proof = [
+  {
+    quote: "Earn-and-learn programs “can lead to higher pay, produce little student debt, and increase employee retention.”",
+    source: "— GAO, 2025",
+  },
+  {
+    quote: "The Apprenticeship Degree promotes upward mobility while addressing chronic labor shortages.",
+    source: "— Progressive Policy Institute",
+  },
+  {
+    quote: "Strong grow-your-own pipelines mean districts “no longer need job fairs.”",
+    source: "— District outcome, Reach",
+  },
+];
+---
+
+<section data-slot="09" data-variant="v1" class="deck-section">
+  <span class="deck-kicker">09 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The evidence</p>
+    <h2 class="deck-h2">The pattern is documented — <span class="deck-gradient">pay, debt, retention.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+    {proof.map((p) => (
+      <figure class="deck-card flex flex-col justify-between gap-4" style="margin: 0;">
+        <div class="deck-accent-bar"></div>
+        <blockquote style="font-family: var(--font-heading); font-size: 1.2rem; line-height: 1.4; color: var(--color-text); margin: 0;">{p.quote}</blockquote>
+        <figcaption class="deck-stat-label">{p.source}</figcaption>
+      </figure>
+    ))}
+  </div>
+</section>

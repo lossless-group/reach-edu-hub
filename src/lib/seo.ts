@@ -79,20 +79,25 @@ export interface SeoEntry {
    ────────────────────────────────────────────────────────────────────── */
 
 export const SCROLL_DECK_SEO: Record<string, SeoEntry> = {
-  '/story': {
+  '/scroll/story/baseline': {
     title: 'The Reach Story · v1 Baseline',
     description:
       'Nine sections introducing Reach University — the Apprenticeship Degree, equity mission, method, affordability, faculty, teacher pipeline, partnerships, scale, and the healthcare expansion.',
   },
-  '/story/version-2': {
+  '/scroll/story/editorial': {
     title: 'The Reach Story · v2 Editorial',
     description:
       'The same nine sections, in an editorial / serif-driven treatment. Mode-aware throughout — light, dark, and vibrant.',
   },
-  '/automation': {
+  '/scroll/automation/pipeline': {
     title: 'Pipeline Building & Automation',
     description:
       'What Lossless will boot up for Reach next. Boost-and-relief for the current fundraise team, then widening the aperture to new donors, new grants, and a map of the philanthropic landscape.',
+  },
+  '/scroll/rural-income/v1': {
+    title: 'Rural Income Boosts through Apprenticeship Degrees',
+    description:
+      'A strategic narrative: the Apprenticeship Degree as a rural economic-development engine — start with a paid job, end with a better one, debt-free and in place, so income rises and stays local.',
   },
 };
 

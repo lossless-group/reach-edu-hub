@@ -1,12 +1,46 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
+import dididecksShell from '@dididecks/shell';
 import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'static',
+  // Server output. The shell injects routes whose getStaticPaths run the
+  // registry-loader's esbuild.transform; under 'static' those run inside
+  // Astro's bundled prerender context, which has no __filename and crashes
+  // (`__filename is not defined`). 'server' renders the injected routes
+  // on-demand so esbuild runs at request time in real Node — the same reason
+  // every other client-site (chroma/humain/lossless) uses server output.
+  // The hub stays ungated (no auth/DB); reach's own authored pages opt back
+  // into static HTML via `export const prerender = true`.
+  output: 'server',
   adapter: vercel(),
+
+  integrations: [
+    dididecksShell({
+      client: 'reach-edu-hub',
+      decksRegistryPath: './src/data/decks.ts',
+      slotsRegistryPath: './src/data/slides.ts',
+      auditsPath: './data/audits/slides.json',
+      slidesComponentsRoot: './src/components/slides',
+      // The hub is public per context-v/sitemap (Gating: none).
+      distributionTier: 'shared',
+    }),
+  ],
+
+  // Old bespoke URLs → new shell /scroll/[deck]/[variant] routes. Keeps any
+  // links already shared with Reach alive after the convention migration.
+  // Also redirect bare deck/scroll roots to each deck's canonical variant.
+  redirects: {
+    '/story': '/scroll/story/baseline',
+    '/story/version-2': '/scroll/story/editorial',
+    '/automation': '/scroll/automation/pipeline',
+    '/scroll': '/scroll/story/baseline',
+    '/scroll/story': '/scroll/story/baseline',
+    '/scroll/automation': '/scroll/automation/pipeline',
+  },
+
   // Site URL — used by Astro to resolve absolute URLs for canonical links,
   // OpenGraph image paths, and feeds. Override in Vercel's env panel
   // (SITE_URL) when the site moves to a custom domain.

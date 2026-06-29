@@ -1,0 +1,77 @@
+---
+/**
+ * /scroll/story/baseline/ — The Reach Story, v1 baseline.
+ *
+ * Deck "story", variant "baseline". Single-page scroll deck; each slide a
+ * section component under src/layouts/sections/story/. Migrated onto the shared
+ * @dididecks/shell on 2026-06-29 (was /story) — see
+ * context-v/plans/Integrate-Reach-Edu-Hub-into-Dididecks-Shell.md.
+ */
+import '../../../../styles/global.css';
+import '../../../../styles/theme.css';
+import Header from '../../../../components/basics/Header.astro';
+import MetaTags from '../../../../components/basics/MetaTags.astro';
+import PageAsDeckWrapper from '../../../../layouts/PageAsDeckWrapper.astro';
+import DeckOverlayScrollUI from '@dididecks/shell/components/DeckOverlay--Scroll-UI.astro';
+import { SCROLL_DECK_SEO } from '../../../../lib/seo';
+
+const seo = SCROLL_DECK_SEO['/scroll/story/baseline']!;
+
+import T01ApprenticeshipDegree from '../../../../layouts/sections/story/T01-ApprenticeshipDegree.astro';
+import T02EquityMission        from '../../../../layouts/sections/story/T02-EquityMission.astro';
+import T03ReachMethod          from '../../../../layouts/sections/story/T03-ReachMethod.astro';
+import T04Affordability        from '../../../../layouts/sections/story/T04-Affordability.astro';
+import T05Faculty              from '../../../../layouts/sections/story/T05-Faculty.astro';
+import T06TeacherPipeline      from '../../../../layouts/sections/story/T06-TeacherPipeline.astro';
+import T07Partnerships         from '../../../../layouts/sections/story/T07-Partnerships.astro';
+import T08ScaleTraction        from '../../../../layouts/sections/story/T08-ScaleTraction.astro';
+import T09Healthcare           from '../../../../layouts/sections/story/T09-Healthcare.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/reach-favicon.png" />
+
+    <MetaTags title={seo.title} description={seo.description} ogImage={seo.ogImage} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mode');
+          var valid = ['light', 'dark', 'vibrant'];
+          var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          var mode = valid.indexOf(stored) !== -1 ? stored : (sysLight ? 'light' : 'dark');
+          var html = document.documentElement;
+          html.setAttribute('data-mode', mode);
+          if (mode === 'dark' || mode === 'vibrant') html.classList.add('dark');
+          else html.classList.remove('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-white dark:bg-slate-900 vibrant:bg-black text-gray-900 dark:text-slate-50 vibrant:text-stone-50 antialiased" style="--deck-height: calc(100vh - 3rem);">
+    <Header />
+
+    <PageAsDeckWrapper enableScrollSnap={true} showNavigationHints={true}>
+      <T01ApprenticeshipDegree />
+      <T02EquityMission />
+      <T03ReachMethod />
+      <T04Affordability />
+      <T05Faculty />
+      <T06TeacherPipeline />
+      <T07Partnerships />
+      <T08ScaleTraction />
+      <T09Healthcare />
+    </PageAsDeckWrapper>
+
+    <DeckOverlayScrollUI deckSlug="story" variantSlug="baseline" />
+
+    <script>
+      import '../../../../utils/mode-switcher.js';
+    </script>
+  </body>
+</html>

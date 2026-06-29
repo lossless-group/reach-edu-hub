@@ -1,0 +1,35 @@
+---
+/**
+ * Slide 04 · The Mechanism — start with a job, end with a better one.
+ * Four-step flow: paid throughout → debt-free → role upgrade → retention.
+ */
+const steps = [
+  { k: "Paid throughout", d: "The apprentice is an employee earning wages the whole way — learning while earning, not borrowing to learn." },
+  { k: "Debt-free credential", d: "No tuition debt to service, so the post-credential raise is net income — not partly clawed back by loans." },
+  { k: "The role upgrade", d: "Licensure unlocks a materially higher-paid role — paraprofessional or aide steps up to licensed teacher." },
+  { k: "Retention", d: "Grow-your-own apprentices stay rooted, sustaining the income gain and stabilizing the local pipeline." },
+];
+---
+
+<section data-slot="04" data-variant="v1" class="deck-section">
+  <span class="deck-kicker">04 / 11</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The mechanism</p>
+    <h2 class="deck-h2">Start with a job, <span class="deck-gradient">end with a better one.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {steps.map((step, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.8rem, 3vw, 2.6rem);">{String(i + 1).padStart(2, "0")}</span>
+        <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-text); margin: 0;">{step.k}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">{step.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 70ch;">
+    Each step compounds the last — and none of it requires leaving town or taking on debt.
+  </p>
+</section>

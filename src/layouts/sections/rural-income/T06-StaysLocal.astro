@@ -1,0 +1,54 @@
+---
+/**
+ * Slide 06 · Stays Local — grow-your-own keeps talent AND wages in place.
+ * Contrast: recruit-from-away (leaks) vs grow-your-own (stays + multiplier).
+ */
+const paths = [
+  {
+    label: "Recruit from away",
+    tone: "var(--color-text-muted)",
+    verb: "Leaks",
+    points: [
+      "Outsiders rarely stick — turnover resets the shortage.",
+      "When they leave, their earnings leave with them.",
+      "No compounding: the community keeps paying to re-recruit.",
+    ],
+  },
+  {
+    label: "Grow your own",
+    tone: "var(--color-secondary)",
+    verb: "Stays",
+    points: [
+      "The classroom is the campus — no one has to move.",
+      "Credential and raise both land in the same community.",
+      "Wages recirculate locally as a place-based multiplier.",
+    ],
+  },
+];
+---
+
+<section data-slot="06" data-variant="v1" class="deck-section">
+  <span class="deck-kicker">06 / 11</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">Where the money goes</p>
+    <h2 class="deck-h2">Grow-your-own keeps the talent — <span class="deck-gradient">and the wages</span> — local.</h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+    {paths.map((p) => (
+      <div class="deck-card flex flex-col gap-3">
+        <div class="flex items-center justify-between gap-3">
+          <span class="deck-stat-label" style="color: var(--color-text);">{p.label}</span>
+          <span class="deck-chip" style="color: var(--color-text); border-color: var(--color-border);">{p.verb}</span>
+        </div>
+        <div class="deck-rule"></div>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
+          {p.points.map((pt) => (
+            <li style={`color: var(--color-text-muted); font-size: 0.98rem; line-height: 1.5; border-left: 3px solid ${p.tone}; padding-left: 0.75rem;`}>{pt}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>

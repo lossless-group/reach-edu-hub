@@ -1,0 +1,88 @@
+---
+/**
+ * /scroll/rural-income/v1/ — "Rural Income Boosts through Apprenticeship Degrees"
+ *
+ * First strategy deck in the `strategies` collection. Scroll-UI, v1 draft.
+ * Narrative source: context-v/narratives/strategies/rural-income/README.md
+ * Concept: context-v/explorations/Deck-Collections-A-Menu-Layer-Above-Single-Deck-Convergence.md
+ *
+ * Design: built on the token-driven deck-primitives.css system — every section
+ * reads Tier-2 semantic + fx tokens, so light/dark/vibrant work with no
+ * per-element variant classes. The convergence target for a drag-and-drop deck
+ * design system.
+ *
+ * Figures marked with <span class="deck-verify"> are unverified draft values.
+ */
+import '../../../../styles/global.css';
+import '../../../../styles/theme.css';
+import '../../../../styles/deck-primitives.css';
+import Header from '../../../../components/basics/Header.astro';
+import MetaTags from '../../../../components/basics/MetaTags.astro';
+import PageAsDeckWrapper from '../../../../layouts/PageAsDeckWrapper.astro';
+import DeckOverlayScrollUI from '@dididecks/shell/components/DeckOverlay--Scroll-UI.astro';
+import { SCROLL_DECK_SEO } from '../../../../lib/seo';
+
+const seo = SCROLL_DECK_SEO['/scroll/rural-income/v1']!;
+
+import T01Cover           from '../../../../layouts/sections/rural-income/T01-Cover.astro';
+import T02RuralBind       from '../../../../layouts/sections/rural-income/T02-RuralBind.astro';
+import T03IncomeHinge     from '../../../../layouts/sections/rural-income/T03-IncomeHinge.astro';
+import T04Mechanism       from '../../../../layouts/sections/rural-income/T04-Mechanism.astro';
+import T05TheRaise        from '../../../../layouts/sections/rural-income/T05-TheRaise.astro';
+import T06StaysLocal      from '../../../../layouts/sections/rural-income/T06-StaysLocal.astro';
+import T07DebtFree        from '../../../../layouts/sections/rural-income/T07-DebtFree.astro';
+import T08BeyondTeaching  from '../../../../layouts/sections/rural-income/T08-BeyondTeaching.astro';
+import T09Evidence        from '../../../../layouts/sections/rural-income/T09-Evidence.astro';
+import T10FunderPipeline  from '../../../../layouts/sections/rural-income/T10-FunderPipeline.astro';
+import T11Ask             from '../../../../layouts/sections/rural-income/T11-Ask.astro';
+---
+
+<!doctype html>
+<html lang="en" class="theme-default" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/reach-favicon.png" />
+
+    <MetaTags title={seo.title} description={seo.description} ogImage={seo.ogImage} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mode');
+          var valid = ['light', 'dark', 'vibrant'];
+          var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          var mode = valid.indexOf(stored) !== -1 ? stored : (sysLight ? 'light' : 'dark');
+          var html = document.documentElement;
+          html.setAttribute('data-mode', mode);
+          if (mode === 'dark' || mode === 'vibrant') html.classList.add('dark');
+          else html.classList.remove('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="font-sans" style="--deck-height: calc(100vh - 3rem);">
+    <Header />
+
+    <PageAsDeckWrapper enableScrollSnap={true} showNavigationHints={true}>
+      <T01Cover />
+      <T02RuralBind />
+      <T03IncomeHinge />
+      <T04Mechanism />
+      <T05TheRaise />
+      <T06StaysLocal />
+      <T07DebtFree />
+      <T08BeyondTeaching />
+      <T09Evidence />
+      <T10FunderPipeline />
+      <T11Ask />
+    </PageAsDeckWrapper>
+
+    <DeckOverlayScrollUI deckSlug="rural-income" variantSlug="v1" />
+
+    <script>
+      import '../../../../utils/mode-switcher.js';
+    </script>
+  </body>
+</html>

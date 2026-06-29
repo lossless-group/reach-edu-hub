@@ -1,0 +1,159 @@
+/* ============================================================================
+   deck-primitives.css — reusable, mode-aware scroll-deck building blocks.
+
+   Convergence target: a drag-and-drop section vocabulary shared across strategy
+   decks. Every primitive reads ONLY Tier-2 semantic + fx tokens from theme.css
+   (--color-*, --fx-*, --font-*), so any deck that imports this file is
+   automatically on-brand and responds to light / dark / vibrant with no
+   per-element dark:/vibrant: classes. Improvise per-section with these as the
+   stable base. Lift candidate for @dididecks/shell once the set settles.
+
+   Requires: an ancestor with class `theme-default` (Tier-2 wiring) and a
+   `data-mode` attribute (mode values). Both are set on <html> by the deck page.
+   ============================================================================ */
+
+.deck-section {
+  position: relative;
+  min-height: var(--deck-height, 100vh);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vh, 2rem);
+  padding: clamp(2rem, 5vh, 5rem) clamp(1.5rem, 6vw, 7rem);
+  background: var(--color-background);
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+/* Top-right section marker (NN / total). */
+.deck-kicker {
+  position: absolute;
+  top: clamp(1.1rem, 3vh, 1.9rem);
+  right: clamp(1.5rem, 6vw, 7rem);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--color-text-muted);
+}
+
+.deck-eyebrow {
+  font-family: var(--font-mono);
+  font-size: clamp(0.68rem, 0.9vw, 0.8rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.deck-h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 5.5vw, 5rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 18ch;
+}
+
+.deck-h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0;
+  max-width: 24ch;
+}
+
+/* Gradient-fill text using the mode-aware headline gradient. */
+.deck-gradient {
+  background: var(--fx-headline-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.deck-lede {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.6vw, 1.45rem);
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.deck-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.6rem;
+  padding: clamp(1.2rem, 2vw, 1.75rem);
+  box-shadow: var(--fx-card-shadow);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.deck-card:hover {
+  box-shadow: var(--fx-card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.deck-stat {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 6.5vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--color-accent);
+}
+.deck-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.deck-grid { display: grid; gap: clamp(1rem, 2vw, 1.5rem); }
+.deck-rule { height: 1px; background: var(--color-border); width: 100%; }
+.deck-accent-bar { width: 3rem; height: 3px; border-radius: 2px; background: var(--color-accent); }
+
+/* Tier chip — small labelled token (e.g. NATIONAL / REGIONAL / LOCAL). */
+.deck-chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  background: color-mix(in srgb, var(--color-secondary) 8%, transparent);
+}
+
+/* Soft brand glow — intensity scales with the per-mode --fx-glow-opacity. */
+.deck-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    55% 45% at 82% 18%,
+    color-mix(in srgb, var(--color-secondary) calc(var(--fx-glow-opacity) * 100%), transparent),
+    transparent 70%
+  );
+}
+
+/* "VERIFY" inline flag for draft figures — visible but unobtrusive. */
+.deck-verify {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px dashed var(--color-accent);
+  border-radius: 4px;
+  padding: 0 0.3rem;
+  vertical-align: super;
+  opacity: 0.8;
+}

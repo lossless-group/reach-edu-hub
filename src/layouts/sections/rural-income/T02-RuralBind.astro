@@ -1,0 +1,36 @@
+---
+/**
+ * Slide 02 · The Rural Bind — the self-reinforcing loop.
+ * shortages → can't recruit → talent leaves → income exits → shortages.
+ */
+const loop = [
+  { k: "Shortages", d: "Rural districts and health systems can't fill roles — teachers first, then healthcare and beyond." },
+  { k: "No local pipeline", d: "Degrees mean leaving town; few come back. Recruiting outsiders rarely sticks." },
+  { k: "Brain drain", d: "The few who do credential up take their earnings to a metro — talent and income both exit." },
+  { k: "Lower incomes", d: "Fewer credentialed, higher-paid workers locally — so the shortage deepens." },
+];
+---
+
+<section data-slot="02" data-variant="v1" class="deck-section">
+  <span class="deck-kicker">02 / 11</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The problem</p>
+    <h2 class="deck-h2">Rural communities are caught in a loop that exports their own talent.</h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {loop.map((item, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat-label">Step {i + 1}{i === loop.length - 1 ? " ↺" : " →"}</span>
+        <p style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; color: var(--color-text); margin: 0;">{item.k}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">{item.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 70ch;">
+    Every turn of the loop makes the next worse. Breaking it needs an intervention
+    at the hinge — <span style="color: var(--color-text); font-weight: 600;">income earned and kept locally.</span>
+  </p>
+</section>

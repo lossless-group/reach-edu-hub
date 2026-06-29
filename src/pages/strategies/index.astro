@@ -1,0 +1,19 @@
+---
+/**
+ * /strategies — menu for the "strategies" collection (the critical path).
+ * The deck-collections menu layer; see context-v/explorations/
+ * Deck-Collections-A-Menu-Layer-Above-Single-Deck-Convergence.md
+ */
+export const prerender = true;
+
+import BaseThemeLayout from '../../layouts/BaseThemeLayout.astro';
+import DeckCollectionMenu from '../../components/basics/DeckCollectionMenu.astro';
+import { getCollection, getCollectionDecks } from '../../data/collections';
+
+const collection = getCollection('strategies')!;
+const decks = getCollectionDecks('strategies');
+---
+
+<BaseThemeLayout title={collection.title} description={collection.lede}>
+  <DeckCollectionMenu collection={collection} decks={decks} />
+</BaseThemeLayout>

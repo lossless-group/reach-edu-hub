@@ -1,0 +1,68 @@
+---
+/**
+ * Slide 10 · Supporters & Funder Pipeline — the key slide.
+ * Three geographic tiers reading as a top-down → bottom-up pipeline.
+ */
+const tiers = [
+  {
+    chip: "National",
+    role: "Large philanthropies & policy backers — fund expansion, lend credibility.",
+    items: [
+      { name: "Carnegie Corporation of New York", note: "~$2M · Teachers College, Delta Region", verify: true },
+      { name: "The Goodness Web", note: "~$1M · behavioral-health pathway", verify: true },
+      { name: "Continued philanthropic funding", note: "actively being sought", verify: false },
+    ],
+  },
+  {
+    chip: "Regional / State",
+    role: "Agencies, regional foundations & multi-district consortia that match national dollars to local delivery.",
+    items: [
+      { name: "State education & workforce agencies", note: "seed list TBD", verify: false },
+      { name: "Regional foundations", note: "seed list TBD", verify: false },
+      { name: "Multi-district consortia", note: "seed list TBD", verify: false },
+    ],
+  },
+  {
+    chip: "Local",
+    role: "Where the income lands — and where co-investment proves demand.",
+    items: [
+      { name: "Employers — districts & health systems", note: "seed list TBD", verify: false },
+      { name: "Community foundations", note: "seed list TBD", verify: false },
+      { name: "Local businesses", note: "seed list TBD", verify: false },
+    ],
+  },
+];
+---
+
+<section data-slot="10" data-variant="v1" class="deck-section">
+  <span class="deck-kicker">10 / 11</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">Supporters & funder pipeline</p>
+    <h2 class="deck-h2">Assembled across tiers — <span class="deck-gradient">national down to local.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    {tiers.map((t) => (
+      <div class="deck-card flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <span class="deck-chip">{t.chip}</span>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.45; margin: 0;">{t.role}</p>
+        </div>
+        <div class="deck-rule"></div>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.85rem;">
+          {t.items.map((it) => (
+            <li class="flex flex-col gap-0.5">
+              <span style="font-family: var(--font-heading); font-size: 1.02rem; font-weight: 700; color: var(--color-text);">{it.name}{it.verify && <> <span class="deck-verify">VERIFY</span></>}</span>
+              <span class="deck-stat-label" style="font-size: 0.68rem;">{it.note}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 78ch; color: var(--color-text);">
+    Funded top-down, proven bottom-up: <span class="deck-gradient">national dollars, regional match, local co-investment.</span>
+  </p>
+</section>

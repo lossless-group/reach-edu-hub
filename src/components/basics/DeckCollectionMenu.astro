@@ -1,0 +1,87 @@
+---
+/**
+ * DeckCollectionMenu — the menu surface for one deck collection.
+ *
+ * The NEW menu layer above single-deck convergence: renders a collection's
+ * member decks as cards, each deep-linking to the deck's default variant. Purely
+ * presentational — the page resolves the collection + decks and passes them in.
+ *
+ * Concept: context-v/explorations/
+ *   Deck-Collections-A-Menu-Layer-Above-Single-Deck-Convergence.md
+ *
+ * Local for now; a generic version is a candidate to lift into @dididecks/shell
+ * once the shape settles (cf. chroma's DeckStatsPanel / DeckMatrix gallery).
+ */
+import type { Collection, CollectionDeck } from "../../data/collections";
+
+interface Props {
+  collection: Collection;
+  decks: CollectionDeck[];
+}
+
+const { collection, decks } = Astro.props as Props;
+
+const STATUS_LABEL: Record<string, string> = {
+  stub: "Stub",
+  draft: "Draft",
+  presentable: "Presentable",
+  shipped: "Shipped",
+};
+---
+
+<section class="px-6 md:px-12 lg:px-20 py-16 md:py-24 max-w-6xl mx-auto">
+  <header class="mb-12 max-w-3xl">
+    <p class="font-mono text-xs uppercase tracking-widest text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-4">
+      Collection
+    </p>
+    <h1 class="font-serif text-4xl md:text-6xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-[1.05] tracking-tight mb-5">
+      {collection.title}
+    </h1>
+    <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 vibrant:text-stone-300 leading-relaxed">
+      {collection.lede}
+    </p>
+  </header>
+
+  {decks.length === 0 ? (
+    <div class="border border-dashed border-slate-300 dark:border-stone-50/20 vibrant:border-orange-500/40 rounded-sm p-10 text-center">
+      <p class="text-slate-500 dark:text-slate-400 vibrant:text-stone-300">
+        No {collection.title.toLowerCase()} published yet.
+      </p>
+      <p class="text-sm text-slate-400 dark:text-slate-500 vibrant:text-cyan-300/70 mt-2 font-mono">
+        Drafts live in <code>context-v/narratives/strategies/&lt;name&gt;/</code> — author the narrative, then design the deck.
+      </p>
+    </div>
+  ) : (
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {decks.map((deck) => (
+        <a
+          href={deck.href}
+          class="group block border border-slate-200 dark:border-stone-50/15 vibrant:border-orange-500/40 bg-white dark:bg-slate-950 vibrant:bg-indigo-950/40 p-7 rounded-sm hover:border-orange-500 dark:hover:border-orange-500 vibrant:hover:border-orange-500 transition-colors no-underline"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <p class="font-mono text-xs uppercase tracking-widest text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500">
+              {collection.itemLabel}
+            </p>
+            <span class="font-mono text-[10px] uppercase tracking-wider text-slate-400 dark:text-slate-500 vibrant:text-cyan-300/70 border border-slate-200 dark:border-stone-50/15 vibrant:border-orange-500/30 rounded-full px-2 py-0.5">
+              {STATUS_LABEL[deck.status] ?? deck.status}
+            </span>
+          </div>
+          <h2 class="font-serif text-2xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 leading-snug mb-3 group-hover:text-orange-600 dark:group-hover:text-orange-400 vibrant:group-hover:text-orange-500 transition-colors">
+            {deck.title}
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 vibrant:text-stone-300 leading-relaxed mb-5 line-clamp-4">
+            {deck.lede}
+          </p>
+          <p class="font-mono text-xs uppercase tracking-widest text-slate-400 dark:text-slate-500 vibrant:text-cyan-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 vibrant:group-hover:text-orange-500 transition-colors">
+            Open →
+            {deck.variants.length > 1 && (
+              <span class="normal-case tracking-normal text-slate-300 dark:text-slate-600 vibrant:text-cyan-300/60 ml-2">
+                {deck.variants.length} variants
+              </span>
+            )}
+          </p>
+        </a>
+      ))}
+    </div>
+  )}
+</section>
