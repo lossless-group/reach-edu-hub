@@ -1,0 +1,34 @@
+---
+/**
+ * Slide 06 · The Right Builders — the expertise that knows what the stack
+ * needs lives in practitioners, not a generic software shop. Hands off to T07.
+ */
+const domains = ["Apprenticeship practitioners", "Industry-skills experts", "Adult-education educators"];
+---
+
+<section data-slot="06" data-variant="forge-v1" class="deck-section" style="justify-content: center;">
+  <span class="deck-kicker">06 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">The right builders</p>
+    <h2 class="deck-h2">The people closest to the problem can <span class="deck-gradient">finally build it.</span></h2>
+  </div>
+
+  <p class="deck-lede mt-4" style="max-width: 72ch;">
+    The expertise that actually knows what the apprenticeship stack needs doesn't
+    live in a generic software shop. It lives here:
+  </p>
+
+  <div class="flex items-center gap-3 mt-4" style="flex-wrap: wrap;">
+    {domains.map((d) => (
+      <span class="deck-chip" style="font-size: 1rem; padding: 0.5rem 1rem;">{d}</span>
+    ))}
+  </div>
+
+  <div class="deck-rule mt-8" style="max-width: 14rem;"></div>
+
+  <p class="deck-lede mt-6" style="max-width: 70ch; color: var(--color-text);">
+    For the first time, they can build the thing they understand —
+    <span style="font-weight: 600;"> instead of writing a spec and waiting on a backlog.</span>
+  </p>
+</section>

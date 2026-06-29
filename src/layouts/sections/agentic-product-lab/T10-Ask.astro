@@ -1,0 +1,41 @@
+---
+/**
+ * Slide 10 · The Ask — charter + grant-fund the lab. Closing flourish.
+ * Two-column NCAD/Reach delivers vs. Funders enable. Grant language only.
+ */
+const roles = [
+  { k: "Reach & NCAD deliver", d: "Host the lab, convene the domain-expert builders, and govern it for and through the member network — shared-good prototypes, not a product line." },
+  { k: "Funders enable", d: "Grant-fund a small standing capability: domain-expert builders, part-time engineering, and the tool budget — so the network can build what it understands." },
+];
+---
+
+<section data-slot="10" data-variant="forge-v1" class="deck-section deck-glow" style="justify-content: center;">
+  <span class="deck-kicker">10 / 10</span>
+
+  <div class="max-w-5xl">
+    <p class="deck-eyebrow mb-5" style="font-family: var(--font-mono);">The ask</p>
+    <h2 class="deck-h2 mb-8">Charter and grant-fund <span class="deck-gradient">the shared lab.</span></h2>
+
+    <div class="deck-grid mb-8" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      {roles.map((r) => (
+        <div class="flex flex-col gap-1">
+          <span class="deck-stat-label" style="color: var(--color-secondary);">{r.k}</span>
+          <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.55; margin: 0;">{r.d}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-2 mb-8" style="flex-wrap: wrap;">
+      <span class="deck-chip" style="font-family: var(--font-mono);">Hosted at NCAD</span>
+      <span class="deck-chip" style="font-family: var(--font-mono);">Governed by members</span>
+      <span class="deck-chip" style="font-family: var(--font-mono);">Grant-funded · shared-good</span>
+    </div>
+
+    <div class="deck-rule mb-8" style="max-width: 14rem;"></div>
+
+    <p class="deck-lede" style="max-width: 62ch; color: var(--color-text); font-size: clamp(1.2rem, 2vw, 1.7rem);">
+      The people who understand the problem can finally build it.
+      <span class="deck-gradient"> Let's give them the forge.</span>
+    </p>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+/**
+ * Slide 05 · Engineers Still Matter — the two-column split so this isn't
+ * misread as "no engineers." Domain experts prototype; engineers harden.
+ */
+const columns = [
+  {
+    label: "Domain experts",
+    sub: "Now own",
+    tone: "var(--color-secondary)",
+    points: [
+      "Prototyping — turning a workflow they know into a working version.",
+      "Exploration — trying ten ideas in the time a spec used to take.",
+      "The first working version that real cohorts can actually touch.",
+    ],
+  },
+  {
+    label: "Engineers",
+    sub: "Still own",
+    tone: "var(--color-primary)",
+    points: [
+      "Hardening, scale, and security once a prototype proves out.",
+      "Integration with existing systems of record.",
+      "Accreditation-grade data integrity — the part that must not break.",
+    ],
+  },
+];
+---
+
+<section data-slot="05" data-variant="forge-v1" class="deck-section">
+  <span class="deck-kicker">05 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">Not "no engineers"</p>
+    <h2 class="deck-h2">Prototyping is decoupled from engineering — <span class="deck-gradient">not a replacement for it.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+    {columns.map((c) => (
+      <div class="deck-card flex flex-col gap-3">
+        <div class="flex items-baseline justify-between gap-3">
+          <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--color-text);">{c.label}</span>
+          <span class="deck-chip" style="font-family: var(--font-mono);">{c.sub}</span>
+        </div>
+        <div class="deck-rule"></div>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
+          {c.points.map((pt) => (
+            <li style={`color: var(--color-text-muted); font-size: 0.96rem; line-height: 1.5; border-left: 3px solid ${c.tone}; padding-left: 0.75rem;`}>{pt}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    <span style="color: var(--color-text); font-weight: 600;">Prototype with experts; harden with engineers.</span>
+    Engineering is reserved for what's earned its way there.
+  </p>
+</section>

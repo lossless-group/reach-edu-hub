@@ -1,0 +1,36 @@
+---
+/**
+ * Slide 09 · The Payoff — real gains compound; and it's equity.
+ * Durable income/promotion gains + closes the gap fastest for those below the line.
+ * "raise" here means a WAGE raise — legitimate usage.
+ */
+const payoffs = [
+  { k: "Durable", d: "Because the skill is real, not just credentialed, the gain travels across roles and employers — it doesn't fade." },
+  { k: "Compounding", d: "Stronger foundational skills track with promotions and on-the-job learning, so the income gain grows over the career." },
+  { k: "Equitable", d: "It closes the gap fastest for the frontline workers most likely to be below the line — exactly who Reach serves." },
+];
+---
+
+<section data-slot="09" data-variant="ln-v1" class="deck-section">
+  <span class="deck-kicker">09 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The payoff</p>
+    <h2 class="deck-h2">A real gain <span class="deck-gradient">compounds.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {payoffs.map((p) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat-label" style="color: var(--color-secondary);">{p.k}</span>
+        <div class="deck-rule"></div>
+        <p style="color: var(--color-text-muted); font-size: 0.97rem; line-height: 1.55; margin: 0;">{p.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 76ch;">
+    The pay raise is legitimate because the capability behind it is —
+    <span style="color: var(--color-text); font-weight: 600;"> and it lands hardest for the workers who needed it most.</span>
+  </p>
+</section>

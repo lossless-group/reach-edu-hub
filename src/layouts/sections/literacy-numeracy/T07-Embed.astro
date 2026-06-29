@@ -1,0 +1,35 @@
+---
+/**
+ * Slide 07 · Embed It in the Degree — taught in the flow of work.
+ * Three-step flow: contextualize → teach in the work → reinforce on the job.
+ */
+const flow = [
+  { k: "Contextualize to the role", d: "Anchor the reading and math in the documents, numbers, and tasks the apprentice already handles on the job." },
+  { k: "Teach in the work", d: "Instruction happens inside the apprenticeship — not a separate remedial track bolted on after hours." },
+  { k: "Reinforce on the job", d: "Daily work becomes the practice loop, so the gain sticks and compounds instead of fading after a test." },
+];
+---
+
+<section data-slot="07" data-variant="ln-v1" class="deck-section">
+  <span class="deck-kicker">07 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The vehicle</p>
+    <h2 class="deck-h2">The Apprenticeship Degree is <span class="deck-gradient">already work-embedded.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {flow.map((s, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat-label">Step {i + 1}{i === flow.length - 1 ? "" : " →"}</span>
+        <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-text); margin: 0;">{s.k}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">{s.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    No new infrastructure to build — the degree already teaches in the flow of work.
+    <span style="color: var(--color-text); font-weight: 600;"> Foundational-skills pedagogy slots straight into the model.</span>
+  </p>
+</section>

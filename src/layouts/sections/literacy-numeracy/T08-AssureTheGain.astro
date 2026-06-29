@@ -1,0 +1,44 @@
+---
+/**
+ * Slide 08 · Assure the Gain — pre/post measurement = a capability guarantee.
+ * The differentiator: every cohort's literacy/numeracy gain is made visible.
+ */
+const stages = [
+  { tag: "Pre", label: "Baseline", d: "Measure each apprentice's literacy & numeracy at intake with a validated instrument." },
+  { tag: "Post", label: "Measured gain", d: "Re-assess at completion — the movement is the proof, not the assumption." },
+];
+---
+
+<section data-slot="08" data-variant="ln-v1" class="deck-section">
+  <span class="deck-kicker">08 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The differentiator</p>
+    <h2 class="deck-h2">We don't assume the gain — <span class="deck-gradient">we measure it.</span></h2>
+  </div>
+
+  <div class="flex items-stretch gap-4 mt-2" style="flex-wrap: wrap;">
+    {stages.map((s, i) => (
+      <>
+        <div class="deck-card flex flex-col gap-2" style="flex: 1 1 240px;">
+          <span class="deck-chip">{s.tag}</span>
+          <p style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--color-text); margin: 0;">{s.label}</p>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">{s.d}</p>
+        </div>
+        {i === 0 && (
+          <div class="flex items-center justify-center" style="font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--color-secondary);">→</div>
+        )}
+      </>
+    ))}
+  </div>
+
+  <p class="deck-stat-label mt-1" style="color: var(--color-text-muted);">
+    PIAAC-aligned or a validated adult-ed instrument <span class="deck-verify">VERIFY</span> — instrument choice TBD.
+  </p>
+
+  <p class="deck-lede mt-2" style="max-width: 76ch;">
+    That turns "you earned a degree" into a
+    <span style="color: var(--color-text); font-weight: 600;"> capability guarantee</span> — a
+    skill-level outcome metric sitting upstream of the wage and promotion metric.
+  </p>
+</section>

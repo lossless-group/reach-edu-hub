@@ -1,0 +1,82 @@
+---
+/**
+ * /scroll/literacy-numeracy/ln-v1/ — "Improving Literacy & Numeracy in Working Adults"
+ *
+ * Second strategy deck in the `strategies` collection. Scroll-UI, v1 draft.
+ * Narrative source: context-v/narratives/strategies/literacy-numeracy/README.md
+ *
+ * Token-driven via deck-primitives.css (light/dark/vibrant work with no
+ * per-element variant classes). Figures marked <span class="deck-verify"> are
+ * unverified draft values.
+ */
+import '../../../../styles/global.css';
+import '../../../../styles/theme.css';
+import '../../../../styles/deck-primitives.css';
+import Header from '../../../../components/basics/Header.astro';
+import MetaTags from '../../../../components/basics/MetaTags.astro';
+import PageAsDeckWrapper from '../../../../layouts/PageAsDeckWrapper.astro';
+import DeckOverlayScrollUI from '@dididecks/shell/components/DeckOverlay--Scroll-UI.astro';
+import { SCROLL_DECK_SEO } from '../../../../lib/seo';
+
+const seo = SCROLL_DECK_SEO['/scroll/literacy-numeracy/ln-v1']!;
+
+import T01Cover                from '../../../../layouts/sections/literacy-numeracy/T01-Cover.astro';
+import T02QuietCeiling         from '../../../../layouts/sections/literacy-numeracy/T02-QuietCeiling.astro';
+import T03SkillsPriced         from '../../../../layouts/sections/literacy-numeracy/T03-SkillsPriced.astro';
+import T04BelowTheLine         from '../../../../layouts/sections/literacy-numeracy/T04-BelowTheLine.astro';
+import T05CredentialCapability from '../../../../layouts/sections/literacy-numeracy/T05-CredentialCapability.astro';
+import T06PedagogyReady        from '../../../../layouts/sections/literacy-numeracy/T06-PedagogyReady.astro';
+import T07Embed                from '../../../../layouts/sections/literacy-numeracy/T07-Embed.astro';
+import T08AssureTheGain        from '../../../../layouts/sections/literacy-numeracy/T08-AssureTheGain.astro';
+import T09Payoff               from '../../../../layouts/sections/literacy-numeracy/T09-Payoff.astro';
+import T10Ask                  from '../../../../layouts/sections/literacy-numeracy/T10-Ask.astro';
+---
+
+<!doctype html>
+<html lang="en" class="theme-default" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/reach-favicon.png" />
+
+    <MetaTags title={seo.title} description={seo.description} ogImage={seo.ogImage} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mode');
+          var valid = ['light', 'dark', 'vibrant'];
+          var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          var mode = valid.indexOf(stored) !== -1 ? stored : (sysLight ? 'light' : 'dark');
+          var html = document.documentElement;
+          html.setAttribute('data-mode', mode);
+          if (mode === 'dark' || mode === 'vibrant') html.classList.add('dark');
+          else html.classList.remove('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="font-sans" style="--deck-height: calc(100vh - 3rem);">
+    <Header />
+
+    <PageAsDeckWrapper enableScrollSnap={true} showNavigationHints={true}>
+      <T01Cover />
+      <T02QuietCeiling />
+      <T03SkillsPriced />
+      <T04BelowTheLine />
+      <T05CredentialCapability />
+      <T06PedagogyReady />
+      <T07Embed />
+      <T08AssureTheGain />
+      <T09Payoff />
+      <T10Ask />
+    </PageAsDeckWrapper>
+
+    <DeckOverlayScrollUI deckSlug="literacy-numeracy" variantSlug="ln-v1" />
+
+    <script>
+      import '../../../../utils/mode-switcher.js';
+    </script>
+  </body>
+</html>

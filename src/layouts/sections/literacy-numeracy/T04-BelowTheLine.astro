@@ -1,0 +1,45 @@
+---
+/**
+ * Slide 04 · Who's Below the Line — the scale of the gap, as a stats slide.
+ * All figures VERIFY-flagged (PIAAC 2023 / AIR / 2017 estimates).
+ */
+const cards = [
+  { stat: "~62%", label: "of U.S. service-sector workers have limited literacy · AIR" },
+  { stat: "~74%", label: "of U.S. service-sector workers have limited numeracy · AIR" },
+  { stat: "≈ 48M", label: "U.S. adults with low literacy (2017 estimate)" },
+  { stat: "≈ 69M", label: "U.S. adults with low numeracy (2017 estimate)" },
+];
+---
+
+<section data-slot="04" data-variant="ln-v1" class="deck-section">
+  <span class="deck-kicker">04 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The gap</p>
+    <h2 class="deck-h2">Most working adults are <span class="deck-gradient">below the line.</span></h2>
+  </div>
+
+  <div class="grid gap-8 items-center" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);">
+    <div class="flex flex-col gap-2">
+      <span class="deck-stat">~38% <span class="deck-verify">VERIFY</span></span>
+      <p class="deck-stat-label" style="max-width: 32ch;">
+        of U.S. adults reach Level 3+ in numeracy — so a majority (~62%) sit below ·
+        PIAAC 2023. Literacy is similar at ~44% reaching Level 3+.
+      </p>
+    </div>
+
+    <div class="deck-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+      {cards.map((c) => (
+        <div class="deck-card flex flex-col gap-1">
+          <span style="font-family: var(--font-heading); font-size: 1.9rem; font-weight: 700; color: var(--color-text);">{c.stat} <span class="deck-verify">VERIFY</span></span>
+          <span style="color: var(--color-text-muted); font-size: 0.85rem; line-height: 1.45;">{c.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 76ch;">
+    OECD's latest survey flagged a decline, not gains. And the concentration matters:
+    <span style="color: var(--color-text); font-weight: 600;">the frontline and service workers most affected are exactly the Apprenticeship Degree's core population.</span>
+  </p>
+</section>

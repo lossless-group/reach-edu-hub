@@ -99,6 +99,16 @@ export const SCROLL_DECK_SEO: Record<string, SeoEntry> = {
     description:
       'A strategic narrative: the Apprenticeship Degree as a rural economic-development engine — start with a paid job, end with a better one, debt-free and in place, so income rises and stays local.',
   },
+  '/scroll/literacy-numeracy/ln-v1': {
+    title: 'Improving Literacy & Numeracy in Working Adults',
+    description:
+      'Fold validated foundational-skills pedagogy into the Apprenticeship Degree and measure the gain — durably lifting the literacy and numeracy most tightly linked to wages and promotions, even controlling for education.',
+  },
+  '/scroll/agentic-product-lab/forge-v1': {
+    title: 'NCAD Forge — an agentic product lab for the apprenticeship stack',
+    description:
+      'The Apprenticeship Degree needs a different software stack. With agentic vibe-coding tools, apprenticeship and adult-education domain experts across NCAD can now prototype it themselves — engineers harden what proves out.',
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────

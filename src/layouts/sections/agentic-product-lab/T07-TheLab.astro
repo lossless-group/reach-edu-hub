@@ -1,0 +1,36 @@
+---
+/**
+ * Slide 07 · The Lab — the proposal on one screen (the centerpiece).
+ * The three ingredients combining into NCAD Forge.
+ */
+const ingredients = [
+  { k: "Domain experts", d: "Apprenticeship, industry-skills & adult-education practitioners who know the workflow." },
+  { k: "Agentic tools", d: "Vibe-coding platforms that turn intent into working prototypes in hours, not quarters." },
+  { k: "The NCAD network", d: "Many members, one shared problem — a neutral center to pool what proves out." },
+];
+---
+
+<section data-slot="07" data-variant="forge-v1" class="deck-section deck-glow" style="justify-content: center;">
+  <span class="deck-kicker">07 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The proposal</p>
+    <h2 class="deck-h1">
+      A shared lab where the people who understand the problem <span class="deck-gradient">build the thing.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-4" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {ingredients.map((it, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat-label">{`0${i + 1}`}{i < ingredients.length - 1 ? " +" : " ="}</span>
+        <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-text); margin: 0;">{it.k}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">{it.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-4" style="max-width: 70ch; color: var(--color-text);">
+    = <span style="font-family: var(--font-heading); font-weight: 700;">NCAD Forge</span> — an agentic product lab for the apprenticeship stack.
+  </p>
+</section>

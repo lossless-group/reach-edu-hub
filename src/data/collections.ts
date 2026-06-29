@@ -51,9 +51,9 @@ export const COLLECTIONS: Collection[] = [
     title: "Strategies",
     lede: "One deck per strategic narrative. Each starts as an LLM-assisted narrative in context-v/narratives/strategies/, then becomes a deck.",
     itemLabel: "Strategy",
-    // First strategy: rural-income (deck v1 built 2026-06-29). Narrative source:
-    // context-v/narratives/strategies/rural-income/README.md
-    deckSlugs: ["rural-income"],
+    // Strategy decks (built 2026-06-29). Narratives under
+    // context-v/narratives/strategies/<deck>/README.md
+    deckSlugs: ["rural-income", "literacy-numeracy", "agentic-product-lab"],
   },
 ];
 

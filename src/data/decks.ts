@@ -108,6 +108,47 @@ export const DECKS: Deck[] = [
       },
     ],
   },
+  {
+    // Second "strategy" deck. Narrative source:
+    // context-v/narratives/strategies/literacy-numeracy/README.md
+    slug: "literacy-numeracy",
+    title: "Improving Literacy & Numeracy in Working Adults",
+    lede: "Fold validated foundational-skills pedagogy (science of reading + contextualized numeracy) into the Apprenticeship Degree, and measure the gain — so the degree durably lifts the two skills most tightly linked to wages and promotions.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-06-29",
+    status: "draft",
+    variants: [
+      {
+        // "v1" is taken by rural-income (the shell keys SLOTS by variant slug
+        // alone — see the shell limitation note); use a deck-scoped slug.
+        slug: "ln-v1",
+        label: "v1 · Draft",
+        lede: "First Scroll-UI cut from the narrative; figures flagged for verification. Token-driven via deck-primitives.",
+        status: "draft",
+        lastUpdated: "2026-06-29",
+      },
+    ],
+  },
+  {
+    // Third "strategy" deck — an operating proposal (charter a shared lab).
+    // Narrative: context-v/narratives/strategies/agentic-product-lab/README.md
+    slug: "agentic-product-lab",
+    title: "NCAD Forge",
+    lede: "An agentic product lab for the apprenticeship stack: domain experts across NCAD's member network use vibe-coding tools to prototype the software the Apprenticeship Degree needs — with engineers hardening what proves out.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-06-29",
+    status: "draft",
+    variants: [
+      {
+        // "v1"/"ln-v1" taken (shell keys SLOTS by variant slug alone).
+        slug: "forge-v1",
+        label: "v1 · Draft",
+        lede: "First Scroll-UI cut from the narrative; fast-moving facts flagged for verification. Token-driven via deck-primitives.",
+        status: "draft",
+        lastUpdated: "2026-06-29",
+      },
+    ],
+  },
 ];
 
 export function getDeck(slug: string): Deck | undefined {

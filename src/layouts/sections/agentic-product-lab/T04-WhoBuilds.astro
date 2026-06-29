@@ -1,0 +1,46 @@
+---
+/**
+ * Slide 04 · Who Builds Has Changed — the vibe-coding shift.
+ * Big stat + the roster of agentic tools a non-engineer can ship with.
+ */
+const tools = ["Cursor", "v0", "Lovable", "Bolt", "Replit Agent", "Claude Code"];
+---
+
+<section data-slot="04" data-variant="forge-v1" class="deck-section">
+  <span class="deck-kicker">04 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">The shift</p>
+    <h2 class="deck-h2">Who can build software <span class="deck-gradient">has changed.</span></h2>
+  </div>
+
+  <div class="grid gap-10 items-center mt-2" style="grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);">
+    <div class="flex flex-col gap-2">
+      <span class="deck-stat" style="font-family: var(--font-mono);">2026</span>
+      <p class="deck-stat-label" style="max-width: 30ch;">
+        the year vibe-coding tools matured into something a non-engineer can ship
+        real prototypes with — hours, not quarters <span class="deck-verify">VERIFY</span>
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <p style="margin: 0; color: var(--color-text-muted); font-size: 1rem; line-height: 1.55;">
+        Until recently, turning a domain insight into working software meant hiring
+        an expensive engineering team. "Vibe coding" — building by describing intent
+        to an AI — was named by Andrej Karpathy in early 2025
+        <span class="deck-verify">VERIFY</span>. The tools caught up fast.
+      </p>
+      <div class="flex items-center gap-2" style="flex-wrap: wrap;">
+        {tools.map((t) => (
+          <span class="deck-chip" style="font-family: var(--font-mono);">{t}</span>
+        ))}
+        <span class="deck-verify">VERIFY roster</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    The gate on prototyping moved —
+    <span style="color: var(--color-text); font-weight: 600;"> off the engineering team, onto the person who understands the problem.</span>
+  </p>
+</section>

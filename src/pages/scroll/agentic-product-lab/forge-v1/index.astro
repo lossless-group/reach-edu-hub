@@ -1,0 +1,82 @@
+---
+/**
+ * /scroll/agentic-product-lab/forge-v1/ — "NCAD Forge"
+ *
+ * Third strategy deck in the `strategies` collection — an operating proposal to
+ * charter a shared agentic product lab. Scroll-UI, v1 draft.
+ * Narrative source: context-v/narratives/strategies/agentic-product-lab/README.md
+ *
+ * Token-driven via deck-primitives.css (light/dark/vibrant). Figures marked
+ * <span class="deck-verify"> are unverified draft values.
+ */
+import '../../../../styles/global.css';
+import '../../../../styles/theme.css';
+import '../../../../styles/deck-primitives.css';
+import Header from '../../../../components/basics/Header.astro';
+import MetaTags from '../../../../components/basics/MetaTags.astro';
+import PageAsDeckWrapper from '../../../../layouts/PageAsDeckWrapper.astro';
+import DeckOverlayScrollUI from '@dididecks/shell/components/DeckOverlay--Scroll-UI.astro';
+import { SCROLL_DECK_SEO } from '../../../../lib/seo';
+
+const seo = SCROLL_DECK_SEO['/scroll/agentic-product-lab/forge-v1']!;
+
+import T01Cover           from '../../../../layouts/sections/agentic-product-lab/T01-Cover.astro';
+import T02DifferentStack  from '../../../../layouts/sections/agentic-product-lab/T02-DifferentStack.astro';
+import T03TheGap          from '../../../../layouts/sections/agentic-product-lab/T03-TheGap.astro';
+import T04WhoBuilds       from '../../../../layouts/sections/agentic-product-lab/T04-WhoBuilds.astro';
+import T05Engineers       from '../../../../layouts/sections/agentic-product-lab/T05-EngineersStillMatter.astro';
+import T06RightBuilders   from '../../../../layouts/sections/agentic-product-lab/T06-RightBuilders.astro';
+import T07TheLab          from '../../../../layouts/sections/agentic-product-lab/T07-TheLab.astro';
+import T08HowItWorks      from '../../../../layouts/sections/agentic-product-lab/T08-HowItWorks.astro';
+import T09FirstBuilds     from '../../../../layouts/sections/agentic-product-lab/T09-FirstBuilds.astro';
+import T10Ask             from '../../../../layouts/sections/agentic-product-lab/T10-Ask.astro';
+---
+
+<!doctype html>
+<html lang="en" class="theme-default" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/reach-favicon.png" />
+
+    <MetaTags title={seo.title} description={seo.description} ogImage={seo.ogImage} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mode');
+          var valid = ['light', 'dark', 'vibrant'];
+          var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          var mode = valid.indexOf(stored) !== -1 ? stored : (sysLight ? 'light' : 'dark');
+          var html = document.documentElement;
+          html.setAttribute('data-mode', mode);
+          if (mode === 'dark' || mode === 'vibrant') html.classList.add('dark');
+          else html.classList.remove('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="font-sans" style="--deck-height: calc(100vh - 3rem);">
+    <Header />
+
+    <PageAsDeckWrapper enableScrollSnap={true} showNavigationHints={true}>
+      <T01Cover />
+      <T02DifferentStack />
+      <T03TheGap />
+      <T04WhoBuilds />
+      <T05Engineers />
+      <T06RightBuilders />
+      <T07TheLab />
+      <T08HowItWorks />
+      <T09FirstBuilds />
+      <T10Ask />
+    </PageAsDeckWrapper>
+
+    <DeckOverlayScrollUI deckSlug="agentic-product-lab" variantSlug="forge-v1" />
+
+    <script>
+      import '../../../../utils/mode-switcher.js';
+    </script>
+  </body>
+</html>

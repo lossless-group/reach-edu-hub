@@ -1,0 +1,46 @@
+---
+/**
+ * Slide 10 · Supporters & The Ask — the philanthropic case + close.
+ * Two-column Reach / Funders pattern (mirrors rural-income T11). Grant language only.
+ */
+const roles = [
+  { k: "Reach", d: "Integrates validated foundational-skills pedagogy and pre/post measurement into the Apprenticeship Degree, and reports the gain for every cohort." },
+  { k: "Funders", d: "Co-fund the integration — the curriculum work, the instrument, and the measurement — so the capability guarantee reaches the frontline learners who need it." },
+];
+const candidates = [
+  { name: "Barbara Bush Foundation for Family Literacy", note: "candidate · seed list TBD" },
+  { name: "Dollar General Literacy Foundation", note: "candidate · seed list TBD" },
+  { name: "Adult-education & workforce foundations", note: "seed list TBD" },
+];
+---
+
+<section data-slot="10" data-variant="ln-v1" class="deck-section deck-glow" style="justify-content: center;">
+  <span class="deck-kicker">10 / 10</span>
+
+  <div class="max-w-5xl">
+    <p class="deck-eyebrow mb-5">Supporters & the ask</p>
+    <h2 class="deck-h2 mb-8">Co-fund the integration — <span class="deck-gradient">and assure the gain.</span></h2>
+
+    <div class="deck-grid mb-8" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      {roles.map((r) => (
+        <div class="flex flex-col gap-1">
+          <span class="deck-stat-label" style="color: var(--color-secondary);">{r.k}</span>
+          <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.55; margin: 0;">{r.d}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="deck-rule mb-6" style="max-width: 14rem;"></div>
+
+    <div class="flex items-center gap-2 mb-6" style="flex-wrap: wrap;">
+      <span class="deck-stat-label" style="color: var(--color-text-muted);">Candidate foundational-skills funders:</span>
+      {candidates.map((c) => (
+        <span class="deck-chip">{c.name} <span class="deck-verify">VERIFY</span></span>
+      ))}
+    </div>
+
+    <p class="deck-lede" style="max-width: 62ch; color: var(--color-text); font-size: clamp(1.2rem, 2vw, 1.7rem);">
+      The labor market pays for the skill. <span class="deck-gradient">We make sure the skill is real.</span>
+    </p>
+  </div>
+</section>

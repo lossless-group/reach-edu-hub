@@ -67,4 +67,32 @@ export const SLOTS: SlotsByVariant = {
     { slot: "10", title: "Supporters & Funder Pipeline", slug: "funder-pipeline" },
     { slot: "11", title: "Scale & The Ask", slug: "ask" },
   ],
+
+  // Strategy deck: literacy-numeracy (variant ln-v1). Ten slots.
+  "ln-v1": [
+    { slot: "01", title: "Improving Literacy & Numeracy in Working Adults", slug: "cover" },
+    { slot: "02", title: "The Quiet Ceiling", slug: "quiet-ceiling" },
+    { slot: "03", title: "The Skills Are Priced", slug: "skills-priced" },
+    { slot: "04", title: "Who's Below the Line", slug: "below-the-line" },
+    { slot: "05", title: "Credential ≠ Capability", slug: "credential-capability" },
+    { slot: "06", title: "The Pedagogy Is Ready", slug: "pedagogy-ready" },
+    { slot: "07", title: "Embed It in the Degree", slug: "embed" },
+    { slot: "08", title: "Assure the Gain", slug: "assure-gain" },
+    { slot: "09", title: "The Payoff", slug: "payoff" },
+    { slot: "10", title: "Supporters & The Ask", slug: "ask" },
+  ],
+
+  // Strategy deck: agentic-product-lab "NCAD Forge" (variant forge-v1). Ten slots.
+  "forge-v1": [
+    { slot: "01", title: "NCAD Forge", slug: "cover" },
+    { slot: "02", title: "A Different Stack", slug: "different-stack" },
+    { slot: "03", title: "The Gap Today", slug: "the-gap" },
+    { slot: "04", title: "Who Builds Has Changed", slug: "who-builds" },
+    { slot: "05", title: "Engineers Still Matter", slug: "engineers" },
+    { slot: "06", title: "The Right Builders", slug: "right-builders" },
+    { slot: "07", title: "The Lab", slug: "the-lab" },
+    { slot: "08", title: "How It Works", slug: "how-it-works" },
+    { slot: "09", title: "First Builds", slug: "first-builds" },
+    { slot: "10", title: "The Ask", slug: "ask" },
+  ],
 };

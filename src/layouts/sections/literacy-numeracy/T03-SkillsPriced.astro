@@ -1,0 +1,44 @@
+---
+/**
+ * Slide 03 · The Skills Are Priced — the core evidence slide.
+ * Literacy/numeracy predict wages & promotions, net of education.
+ */
+const proofs = [
+  { k: "Net of education", d: "The premium holds after controlling for years of schooling, credentials, experience, and demographics — it's the skill, not just the diploma." },
+  { k: "Promotions, not just pay", d: "Higher foundational skills track with advancement and on-the-job learning across the career, so the gain compounds." },
+  { k: "Durable & portable", d: "Unlike a one-time credential signal, real reading and math travel with the worker across roles and employers." },
+];
+---
+
+<section data-slot="03" data-variant="ln-v1" class="deck-section deck-glow">
+  <span class="deck-kicker">03 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The evidence</p>
+    <h2 class="deck-h2">The labor market pays for the skill — not just the diploma.</h2>
+  </div>
+
+  <div class="grid gap-8 items-center" style="grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);">
+    <div class="flex flex-col gap-2">
+      <span class="deck-stat">≈ +28% <span class="deck-verify">VERIFY</span></span>
+      <p class="deck-stat-label" style="max-width: 30ch;">
+        higher wages per one standard-deviation gain in numeracy · U.S. · PIAAC
+        (Hanushek et al., 2015) · ≈ +18% across countries
+      </p>
+    </div>
+
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.85rem;">
+      {proofs.map((p) => (
+        <li class="deck-card flex flex-col gap-1">
+          <span style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--color-text);">{p.k}</span>
+          <span style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5;">{p.d}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    Literacy and numeracy are among the most robust predictors of earnings in the
+    economics literature — <span style="color: var(--color-text); font-weight: 600;">independent of the credential.</span>
+  </p>
+</section>

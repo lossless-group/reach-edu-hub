@@ -1,0 +1,40 @@
+---
+/**
+ * Slide 03 · The Gap Today — incumbents each cover only a slice.
+ * Covers / misses contrast across three categories of existing tools.
+ */
+const tools = [
+  { k: "Traditional LMS", covers: "Content delivery & course-taking.", misses: "Work-integrated learning — the job isn't the curriculum." },
+  { k: "University SIS", covers: "Enrollment, records & credit accounting.", misses: "Employers — no place for a supervisor in the model." },
+  { k: "Online-program platforms", covers: "Scale & remote reach.", misses: "Work-based assessment — evidence from real work on the job." },
+];
+---
+
+<section data-slot="03" data-variant="forge-v1" class="deck-section">
+  <span class="deck-kicker">03 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">The gap today</p>
+    <h2 class="deck-h2">Every incumbent covers a slice. <span class="deck-gradient">None covers the whole.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    {tools.map((t) => (
+      <div class="deck-card flex flex-col gap-3">
+        <span style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; color: var(--color-text);">{t.k}</span>
+        <div class="deck-rule"></div>
+        <p style="margin: 0; color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; border-left: 3px solid var(--color-secondary); padding-left: 0.75rem;">
+          <span class="deck-stat-label" style="display: block; color: var(--color-secondary); margin-bottom: 0.2rem;">Covers</span>{t.covers}
+        </p>
+        <p style="margin: 0; color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; border-left: 3px solid var(--color-accent); padding-left: 0.75rem;">
+          <span class="deck-stat-label" style="display: block; color: var(--color-accent); margin-bottom: 0.2rem;">Misses</span>{t.misses}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    Stitch them together and the seams are exactly where the Apprenticeship Degree lives.
+    <span style="color: var(--color-text); font-weight: 600;"> The whole-stack gap is unfilled.</span>
+  </p>
+</section>

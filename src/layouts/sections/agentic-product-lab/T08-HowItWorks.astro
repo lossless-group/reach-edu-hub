@@ -1,0 +1,36 @@
+---
+/**
+ * Slide 08 · How It Works — the operating loop as a numbered flow.
+ * prototype → test → circulate → harden.
+ */
+const steps = [
+  { k: "Prototype", who: "Domain experts", d: "Practitioners describe the workflow they need; agentic tools produce a working prototype in hours and days." },
+  { k: "Test", who: "Real cohorts & employers", d: "Try it inside member programs — the apprentices and supervisors are right there to react." },
+  { k: "Circulate", who: "Across the NCAD network", d: "Working prototypes are shared through NCAD so the network compounds instead of each member duplicating." },
+  { k: "Harden", who: "Engineers", d: "What proves out gets production-grade treatment — security, scale, accreditation-grade data integrity." },
+];
+---
+
+<section data-slot="08" data-variant="forge-v1" class="deck-section">
+  <span class="deck-kicker">08 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">The operating loop</p>
+    <h2 class="deck-h2">Prototype, test, circulate — <span class="deck-gradient">then harden the winners.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {steps.map((s, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat-label" style="font-family: var(--font-mono);">{`0${i + 1}`}{i < steps.length - 1 ? " →" : " ↺"}</span>
+        <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-text); margin: 0;">{s.k}</p>
+        <span class="deck-stat-label" style="color: var(--color-secondary);">{s.who}</span>
+        <p style="color: var(--color-text-muted); font-size: 0.93rem; line-height: 1.5; margin: 0;">{s.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    <span style="color: var(--color-text); font-weight: 600;">One network, one lab</span> — so no member rebuilds what another already proved.
+  </p>
+</section>

@@ -1,0 +1,46 @@
+---
+/**
+ * Slide 06 · The Pedagogy Is Ready — two validated, evidence-based methods.
+ * Science of reading (now for adults) + contextualized/embedded numeracy.
+ */
+const methods = [
+  {
+    chip: "Reading",
+    title: "The science of reading",
+    body: "The validated evidence base — decoding, fluency, vocabulary, and comprehension as connected processes — that reshaped K-12 literacy.",
+    move: "Now being adapted for adult learners (ProLiteracy).",
+  },
+  {
+    chip: "Numeracy",
+    title: "Contextualized, embedded numeracy",
+    body: "Teaching math in the context of real work and life tasks, which outperforms decontextualized drill.",
+    move: "Catalogued in IES adult-education evidence reviews.",
+  },
+];
+---
+
+<section data-slot="06" data-variant="ln-v1" class="deck-section">
+  <span class="deck-kicker">06 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The pedagogy</p>
+    <h2 class="deck-h2">The methods that work <span class="deck-gradient">already exist.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+    {methods.map((m) => (
+      <div class="deck-card flex flex-col gap-3">
+        <span class="deck-chip">{m.chip}</span>
+        <p style="font-family: var(--font-heading); font-size: 1.45rem; font-weight: 700; color: var(--color-text); margin: 0;">{m.title}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.96rem; line-height: 1.5; margin: 0;">{m.body}</p>
+        <div class="deck-rule"></div>
+        <p class="deck-stat-label" style="color: var(--color-secondary);">{m.move} <span class="deck-verify">VERIFY</span></p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    Both are validated. The move isn't inventing a method — it's
+    <span style="color: var(--color-text); font-weight: 600;"> applying what already works to adults, in the flow of their work.</span>
+  </p>
+</section>
