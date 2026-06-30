@@ -93,6 +93,44 @@ DRY, OR to document as named patterns if extraction is premature:
 - **Ask / close** — two-column "Reach / Funders" + glow (rural-income T11,
   literacy-numeracy T10, others).
 
+## Owner-flagged reference treatment — editorial v2 (`/scroll/story/editorial`)
+
+**The owner specifically liked the patterns in the Story v2 "editorial" deck
+(`src/layouts/sections/story/version-2/**`, route `/scroll/story/editorial`),
+and called out its *color uses* in particular.** This is a load-bearing
+reference for the design system's *aesthetic* — capture and preserve it. Note the
+catch: this deck predates deck-primitives and is **hardcoded with Tailwind
+built-in palette classes (not tokens)**, so the job is to *preserve the treatment
+while translating it onto tokens*, then document it (likely as a named
+"editorial" treatment / variant in the design system).
+
+What's distinctive about its color use (from the actual classes):
+
+- **Confident, frequent orange accent** — `text-orange-500` is the most-used
+  color (≈60 hits): the brand orange (`--color-accent` / `orange-saccharine
+  #ff8300`) used *liberally* for eyebrows, emphasis, and rules, not sparingly.
+- **Two-accent interplay (orange + cyan/teal)** — `text-cyan-400/700/300`
+  alongside the orange; the teal (`--color-secondary` / `teal-ocean`,
+  `teal-bright`) plays a real second-accent role rather than being incidental.
+- **Tonal hierarchy via opacity, not extra gray tokens** — light text as
+  `text-stone-50` stepped through `/85 /80 /75 /65 /40`; hairlines as
+  `border-stone-50/15`, `border-orange-500/30`. The muted ramp is *alpha on the
+  text color*, which is exactly the move the dark-mode `.deck-card` rescope
+  already generalizes (`color-mix(... var(--color-text) N%, transparent)`).
+- **Editorial voice paired with color** — `font-serif` + `italic` (Playfair,
+  `--font-heading`) is inseparable from the color feel here; document the pair
+  together.
+- **Indigo/purple ground** — `indigo-950` (`--color-primary` / `purple-midnight`)
+  for grounds and dark surfaces.
+
+Codification implication: these map cleanly onto existing tokens
+(orange→`--color-accent`, cyan→`--color-secondary`, stone-50→text on dark,
+indigo-950→`--color-primary`), so the refactor is a *translation*, not a redesign.
+Preserve: the **accent-forward, two-accent (orange + teal), opacity-ramp-muted,
+serif-italic** editorial treatment — and consider codifying it as a documented
+treatment/variant the design system offers (so other decks can opt into the
+look the owner liked).
+
 ## Inventory C — the token system (theme.css = runtime source of truth)
 
 Already present and the basis for the DESIGN.md frontmatter:
@@ -112,6 +150,8 @@ Already present and the basis for the DESIGN.md frontmatter:
 These predate deck-primitives and hardcode `dark:`/`vibrant:` Tailwind triples
 instead of tokens — they do NOT meet the gating bar:
 - `src/layouts/sections/story/**` and `story/version-2/**` (the original story deck)
+  — NOTE: `story/version-2/**` is the **owner-flagged editorial treatment** above;
+  treat it as preserve-the-look-while-translating-to-tokens, not just "drift."
 - `src/layouts/sections/automation/**`
 - `src/pages/index.astro` (homepage), `src/pages/brand-kit/index.astro`,
   `src/pages/design-system/index.astro`
