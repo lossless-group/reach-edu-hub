@@ -1,0 +1,43 @@
+---
+/**
+ * Slide 08 · What to Build First — the sequencing ask, two-column delivers pattern.
+ */
+const steps = [
+  { n: "01", d: "Lead with the field where Reach has the strongest current employer relationships." },
+  { n: "02", d: "Map each field to specific NCAD member employers who would co-sponsor." },
+  { n: "03", d: "Pilot one cohort, prove the outcomes, then expand to the next field." },
+];
+const delivers = [
+  { k: "Reach", d: "Designs the program backward from the role, delivers the credential, and scales it through NCAD." },
+  { k: "Employers", d: "Co-sponsor, mentor, and hire — naming the roles that anchor each field's curriculum." },
+];
+---
+
+<section data-slot="08" data-variant="fjd-v1" class="deck-section">
+  <span class="deck-kicker">08 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">What to build first</p>
+    <h2 class="deck-h2">Start where the <span class="deck-gradient">employer pull is strongest.</span></h2>
+  </div>
+
+  <div class="flex flex-col gap-2 mt-1">
+    {steps.map((s) => (
+      <div class="flex items-baseline gap-3">
+        <span class="deck-stat-label" style="font-family: var(--font-mono); color: var(--color-accent); min-width: 2rem;">{s.n}</span>
+        <p style="color: var(--color-text); font-size: 1rem; line-height: 1.5; margin: 0;">{s.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="deck-rule mt-2" style="max-width: 14rem;"></div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {delivers.map((d) => (
+      <div class="flex flex-col gap-1">
+        <span class="deck-stat-label" style="color: var(--color-secondary);">{d.k}</span>
+        <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.5; margin: 0;">{d.d}</p>
+      </div>
+    ))}
+  </div>
+</section>

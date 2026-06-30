@@ -1,0 +1,42 @@
+---
+/**
+ * Slide 02 · The Thesis — design backward from the job, not forward from the catalog.
+ * Three tests a frontier field must pass before it earns a program.
+ */
+const tests = [
+  { k: "Demand", d: "A large, unmet need for talent — not a niche, but a shortage employers feel right now." },
+  { k: "Employer pull", d: "Someone is hiring for this today and will co-sponsor, mentor, and place the apprentice." },
+  { k: "Apprenticeship fit", d: "The work itself is the lab — the job teaches the degree better than a classroom could." },
+];
+---
+
+<section data-slot="02" data-variant="fjd-v1" class="deck-section" style="justify-content: center;">
+  <span class="deck-kicker">02 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="color: var(--color-secondary);">The thesis</p>
+    <h2 class="deck-h1">
+      Design backward from <span class="deck-gradient">the job.</span>
+    </h2>
+    <p class="deck-lede mt-6" style="max-width: 70ch;">
+      Don't assemble an apprenticeship-degree program from whatever a course catalog
+      already offers. Bet on fields where the work is going — and let three tests
+      decide which bets clear the bar.
+    </p>
+  </div>
+
+  <div class="deck-grid mt-4" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {tests.map((t, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat-label" style="font-family: var(--font-mono); color: var(--color-accent);">Test 0{i + 1}</span>
+        <p style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--color-text); margin: 0;">{t.k}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.96rem; line-height: 1.55; margin: 0;">{t.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-4" style="max-width: 68ch;">
+    Clear all three and the field earns a program.
+    <span style="color: var(--color-text); font-weight: 600;"> Miss one and it doesn't.</span>
+  </p>
+</section>

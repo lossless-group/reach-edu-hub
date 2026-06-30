@@ -1,0 +1,80 @@
+---
+/**
+ * /scroll/reverse-engineer-funding/ref-v1/ — "Reverse Engineer Available Funding"
+ *
+ * Fifth strategy deck in the `strategies` collection — grant-prospecting doctrine.
+ * Scroll-UI, v1 draft.
+ * Narrative source: context-v/narratives/strategies/reverse-engineer-funding/README.md
+ *
+ * Token-driven via deck-primitives.css (light/dark/vibrant). Figures marked
+ * <span class="deck-verify"> are unverified wealth/philanthropy report values.
+ */
+import '../../../../styles/global.css';
+import '../../../../styles/theme.css';
+import '../../../../styles/deck-primitives.css';
+import Header from '../../../../components/basics/Header.astro';
+import MetaTags from '../../../../components/basics/MetaTags.astro';
+import PageAsDeckWrapper from '../../../../layouts/PageAsDeckWrapper.astro';
+import DeckOverlayScrollUI from '@dididecks/shell/components/DeckOverlay--Scroll-UI.astro';
+import { SCROLL_DECK_SEO } from '../../../../lib/seo';
+
+const seo = SCROLL_DECK_SEO['/scroll/reverse-engineer-funding/ref-v1']!;
+
+import T01Cover       from '../../../../layouts/sections/reverse-engineer-funding/T01-Cover.astro';
+import T02PowerLaw    from '../../../../layouts/sections/reverse-engineer-funding/T02-PowerLaw.astro';
+import T03TwoPools    from '../../../../layouts/sections/reverse-engineer-funding/T03-TwoPools.astro';
+import T04NewMoney    from '../../../../layouts/sections/reverse-engineer-funding/T04-NewMoney.astro';
+import T05Method      from '../../../../layouts/sections/reverse-engineer-funding/T05-Method.astro';
+import T06Pattern     from '../../../../layouts/sections/reverse-engineer-funding/T06-Pattern.astro';
+import T07SweetSpot   from '../../../../layouts/sections/reverse-engineer-funding/T07-SweetSpot.astro';
+import T08Prioritize  from '../../../../layouts/sections/reverse-engineer-funding/T08-Prioritize.astro';
+import T09Engine      from '../../../../layouts/sections/reverse-engineer-funding/T09-Engine.astro';
+---
+
+<!doctype html>
+<html lang="en" class="theme-default" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/reach-favicon.png" />
+
+    <MetaTags title={seo.title} description={seo.description} ogImage={seo.ogImage} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mode');
+          var valid = ['light', 'dark', 'vibrant'];
+          var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          var mode = valid.indexOf(stored) !== -1 ? stored : (sysLight ? 'light' : 'dark');
+          var html = document.documentElement;
+          html.setAttribute('data-mode', mode);
+          if (mode === 'dark' || mode === 'vibrant') html.classList.add('dark');
+          else html.classList.remove('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="font-sans" style="--deck-height: calc(100vh - 3rem);">
+    <Header />
+
+    <PageAsDeckWrapper enableScrollSnap={true} showNavigationHints={true}>
+      <T01Cover />
+      <T02PowerLaw />
+      <T03TwoPools />
+      <T04NewMoney />
+      <T05Method />
+      <T06Pattern />
+      <T07SweetSpot />
+      <T08Prioritize />
+      <T09Engine />
+    </PageAsDeckWrapper>
+
+    <DeckOverlayScrollUI deckSlug="reverse-engineer-funding" variantSlug="ref-v1" />
+
+    <script>
+      import '../../../../utils/mode-switcher.js';
+    </script>
+  </body>
+</html>

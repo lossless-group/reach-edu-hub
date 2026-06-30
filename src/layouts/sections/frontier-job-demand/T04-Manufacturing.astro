@@ -1,0 +1,45 @@
+---
+/**
+ * Slide 04 · Advanced Manufacturing Operations — Field 1.
+ * TEMPLATE for the three field slides (04–06): demand stat → program shape →
+ * apprenticeship fit. Source figures flagged VERIFY.
+ */
+const covers = [
+  "Software-driven production lines",
+  "Robotics & cobots",
+  "Observability — telemetry, monitoring, predictive maintenance",
+];
+---
+
+<section data-slot="04" data-variant="fjd-v1" class="deck-section">
+  <span class="deck-kicker">04 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">Field 01</p>
+    <h2 class="deck-h2">Advanced Manufacturing <span class="deck-gradient">Operations.</span></h2>
+  </div>
+
+  <div class="flex items-baseline gap-4 flex-wrap mt-1">
+    <span class="deck-stat" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">2.1M <span class="deck-verify">VERIFY</span></span>
+    <span class="deck-stat-label" style="max-width: 40ch;">manufacturing jobs could go unfilled by 2030 (Deloitte + The Manufacturing Institute)</span>
+  </div>
+
+  <div class="deck-grid mt-1" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-secondary);">The program</span>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.45rem;">
+        {covers.map((c) => (
+          <li style="color: var(--color-text); font-size: 0.96rem; line-height: 1.45; padding-left: 1rem; border-left: 2px solid var(--color-accent);">{c}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-accent);">Why apprenticeship fits</span>
+      <p style="color: var(--color-text); font-size: 0.96rem; line-height: 1.5; margin: 0;">
+        Already a stronghold — <strong>97,500</strong> <span class="deck-verify">VERIFY</span>
+        registered advanced-manufacturing apprentices in 2025 (+20% over five years).
+        The modern plant floor is learned best on the floor.
+      </p>
+    </div>
+  </div>
+</section>

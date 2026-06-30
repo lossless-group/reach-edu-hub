@@ -1,0 +1,52 @@
+---
+/**
+ * Slide 03 · Why Apprenticeship Fits Frontier — the structural edge in fast fields,
+ * anchored by proven completer outcomes.
+ */
+const reasons = [
+  {
+    k: "Outruns the catalog",
+    d: "Robotics, drones, and applied AI change faster than course revisions. Work-embedded learning stays current by design.",
+    tone: "var(--color-secondary)",
+  },
+  {
+    k: "Employer-pulled",
+    d: "Frontier demand means employers sponsor, mentor, and hire — the pull that makes the model work.",
+    tone: "var(--color-accent)",
+    verify: true,
+    note: "800+ employers created or expanded registered apprenticeships in advanced manufacturing (JFF).",
+  },
+  {
+    k: "Debt-free funnel",
+    d: "Earn-and-learn pulls people into hard technical fields they otherwise can't afford to train for.",
+    tone: "var(--color-primary)",
+  },
+];
+---
+
+<section data-slot="03" data-variant="fjd-v1" class="deck-section">
+  <span class="deck-kicker">03 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">Why apprenticeship fits frontier</p>
+    <h2 class="deck-h2">The curriculum has to <span class="deck-gradient">live in the work.</span></h2>
+  </div>
+
+  <div class="flex flex-col gap-2 mt-1">
+    <span class="deck-stat" style="font-size: clamp(2.4rem, 5.5vw, 4rem);">~93% <span class="deck-verify">VERIFY</span></span>
+    <p class="deck-stat-label" style="max-width: 54ch;">of registered-apprenticeship completers gain employment, at a ~$77,000 average starting wage (NIST) — the outcomes are already proven.</p>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {reasons.map((r) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-text);">{r.k}</span>
+        <div class="deck-rule"></div>
+        <p style={`color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0; border-left: 3px solid ${r.tone}; padding-left: 0.75rem;`}>
+          {r.d}
+          {r.verify && (<><br /><span style="color: var(--color-text);">{r.note}</span> <span class="deck-verify">VERIFY</span></>)}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

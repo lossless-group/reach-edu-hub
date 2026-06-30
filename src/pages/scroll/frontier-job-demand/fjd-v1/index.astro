@@ -1,0 +1,80 @@
+---
+/**
+ * /scroll/frontier-job-demand/fjd-v1/ — "Opinionated Program Design: Frontier Job Demand"
+ *
+ * Sixth strategy deck in the `strategies` collection — program-design doctrine.
+ * Scroll-UI, v1 draft.
+ * Narrative source: context-v/narratives/strategies/frontier-job-demand/README.md
+ *
+ * Token-driven via deck-primitives.css (light/dark/vibrant). Figures marked
+ * <span class="deck-verify"> are unverified industry/labor report values.
+ */
+import '../../../../styles/global.css';
+import '../../../../styles/theme.css';
+import '../../../../styles/deck-primitives.css';
+import Header from '../../../../components/basics/Header.astro';
+import MetaTags from '../../../../components/basics/MetaTags.astro';
+import PageAsDeckWrapper from '../../../../layouts/PageAsDeckWrapper.astro';
+import DeckOverlayScrollUI from '@dididecks/shell/components/DeckOverlay--Scroll-UI.astro';
+import { SCROLL_DECK_SEO } from '../../../../lib/seo';
+
+const seo = SCROLL_DECK_SEO['/scroll/frontier-job-demand/fjd-v1']!;
+
+import T01Cover            from '../../../../layouts/sections/frontier-job-demand/T01-Cover.astro';
+import T02Thesis          from '../../../../layouts/sections/frontier-job-demand/T02-Thesis.astro';
+import T03Fit             from '../../../../layouts/sections/frontier-job-demand/T03-Fit.astro';
+import T04Manufacturing   from '../../../../layouts/sections/frontier-job-demand/T04-Manufacturing.astro';
+import T05Drones          from '../../../../layouts/sections/frontier-job-demand/T05-Drones.astro';
+import T06AIOps           from '../../../../layouts/sections/frontier-job-demand/T06-AIOps.astro';
+import T07DesignPrinciple from '../../../../layouts/sections/frontier-job-demand/T07-DesignPrinciple.astro';
+import T08BuildFirst      from '../../../../layouts/sections/frontier-job-demand/T08-BuildFirst.astro';
+import T09Close           from '../../../../layouts/sections/frontier-job-demand/T09-Close.astro';
+---
+
+<!doctype html>
+<html lang="en" class="theme-default" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/reach-favicon.png" />
+
+    <MetaTags title={seo.title} description={seo.description} ogImage={seo.ogImage} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mode');
+          var valid = ['light', 'dark', 'vibrant'];
+          var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          var mode = valid.indexOf(stored) !== -1 ? stored : (sysLight ? 'light' : 'dark');
+          var html = document.documentElement;
+          html.setAttribute('data-mode', mode);
+          if (mode === 'dark' || mode === 'vibrant') html.classList.add('dark');
+          else html.classList.remove('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="font-sans" style="--deck-height: calc(100vh - 3rem);">
+    <Header />
+
+    <PageAsDeckWrapper enableScrollSnap={true} showNavigationHints={true}>
+      <T01Cover />
+      <T02Thesis />
+      <T03Fit />
+      <T04Manufacturing />
+      <T05Drones />
+      <T06AIOps />
+      <T07DesignPrinciple />
+      <T08BuildFirst />
+      <T09Close />
+    </PageAsDeckWrapper>
+
+    <DeckOverlayScrollUI deckSlug="frontier-job-demand" variantSlug="fjd-v1" />
+
+    <script>
+      import '../../../../utils/mode-switcher.js';
+    </script>
+  </body>
+</html>

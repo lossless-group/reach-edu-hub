@@ -1,0 +1,37 @@
+---
+/**
+ * Slide 05 · The Method — reverse-engineering a funder as a numbered flow.
+ * study footprint → intro call → pattern-match → align the ask. Step 2 is the lever.
+ */
+const steps = [
+  { k: "Study the public footprint", who: "990s · Candid · websites", d: "IRS Form 990s show what they funded — who, how much, how often. For individuals: wealth source, prior gifts, boards, public statements.", lever: false },
+  { k: "Get the intro call", who: "The highest-leverage step", d: "The 990 tells you what; the conversation tells you why — the thesis behind the checks and what they're tired of seeing.", lever: true },
+  { k: "Pattern-recognize", who: "Across their giving", d: "Find the recurring shape — the cause, geography, stage, and outcome they keep paying for.", lever: false },
+  { k: "Align to the sweet spot", who: "Shape the ask", d: "Map Reach's work onto that pattern and size the ask to the largest amount that still fits it.", lever: false },
+];
+---
+
+<section data-slot="05" data-variant="ref-v1" class="deck-section">
+  <span class="deck-kicker">05 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">The method</p>
+    <h2 class="deck-h2">Reverse-engineer a funder in <span class="deck-gradient">four moves.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {steps.map((s, i) => (
+      <div class="deck-card flex flex-col gap-2" style={s.lever ? "border-color: var(--color-secondary);" : ""}>
+        <span class="deck-stat-label" style="font-family: var(--font-mono);">{`0${i + 1}`}{i < steps.length - 1 ? " →" : " ✓"}</span>
+        <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-text); margin: 0;">{s.k}</p>
+        <span class="deck-stat-label" style="color: var(--color-secondary);">{s.who}</span>
+        <p style="color: var(--color-text-muted); font-size: 0.93rem; line-height: 1.5; margin: 0;">{s.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    <span style="color: var(--color-text); font-weight: 600;">The 990 tells you what they funded; the call tells you why.</span>
+    Everything else compounds off that conversation.
+  </p>
+</section>

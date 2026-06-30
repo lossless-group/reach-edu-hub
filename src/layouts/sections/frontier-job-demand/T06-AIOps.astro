@@ -1,0 +1,47 @@
+---
+/**
+ * Slide 06 · AI in Business Operations — Field 03.
+ * Mirrors T04-Manufacturing: demand stat → program shape → apprenticeship fit.
+ * Source figures flagged VERIFY.
+ */
+const covers = [
+  "Workflow automation",
+  "Analysis & decision support",
+  "Agentic tools in the daily workflow",
+  "Not building frontier models — applying AI inside operations",
+];
+---
+
+<section data-slot="06" data-variant="fjd-v1" class="deck-section">
+  <span class="deck-kicker">06 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">Field 03</p>
+    <h2 class="deck-h2">AI in Business <span class="deck-gradient">Operations.</span></h2>
+  </div>
+
+  <div class="flex items-baseline gap-4 flex-wrap mt-1">
+    <span class="deck-stat" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">~90% / ~9% <span class="deck-verify">VERIFY</span></span>
+    <span class="deck-stat-label" style="max-width: 44ch;">of organizations use AI in operations, but only ~9% are "AI-mature" (Gloat) — a vast operationalization gap. BCG: ~50–55% of U.S. jobs reshaped in 2–3 years.</span>
+  </div>
+
+  <div class="deck-grid mt-1" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-secondary);">The program</span>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.45rem;">
+        {covers.map((c) => (
+          <li style="color: var(--color-text); font-size: 0.96rem; line-height: 1.45; padding-left: 1rem; border-left: 2px solid var(--color-accent);">{c}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat-label" style="color: var(--color-accent);">Why apprenticeship fits</span>
+      <p style="color: var(--color-text); font-size: 0.96rem; line-height: 1.5; margin: 0;">
+        Every employer needs this now, and it's learned in the actual workflow.
+        Working adults become the people who make AI deliver — with
+        <strong> ~2× faster role growth and ~42% faster wages</strong>
+        <span class="deck-verify">VERIFY</span> for AI-professionalized work (PwC).
+      </p>
+    </div>
+  </div>
+</section>

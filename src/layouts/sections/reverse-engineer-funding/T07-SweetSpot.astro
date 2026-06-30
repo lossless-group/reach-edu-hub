@@ -1,0 +1,60 @@
+---
+/**
+ * Slide 07 · Size to the Sweet Spot — design the largest ask that still fits.
+ * Contrast: default generic small ask vs. pattern-fit largest-plausible ask.
+ * Deliberately qualitative — no fabricated dollar figures.
+ */
+const columns = [
+  {
+    label: "Default ask",
+    sub: "Generic · small",
+    tone: "var(--color-text-muted)",
+    points: [
+      "A safe, round number picked to feel askable.",
+      "Shaped by our budget, not their pattern.",
+      "Leaves capacity — and conviction — on the table.",
+    ],
+  },
+  {
+    label: "Sweet-spot ask",
+    sub: "Pattern-fit · largest plausible",
+    tone: "var(--color-secondary)",
+    points: [
+      "Sized to the biggest gift that still fits their giving pattern.",
+      "Starts from what they can and want to give.",
+      "Then shapes the program to match — reversing the usual flow.",
+    ],
+  },
+];
+---
+
+<section data-slot="07" data-variant="ref-v1" class="deck-section">
+  <span class="deck-kicker">07 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">Size to the sweet spot</p>
+    <h2 class="deck-h2">Design the <span class="deck-gradient">largest ask</span> that still fits.</h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+    {columns.map((c) => (
+      <div class="deck-card flex flex-col gap-3">
+        <div class="flex items-baseline justify-between gap-3">
+          <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--color-text);">{c.label}</span>
+          <span class="deck-chip">{c.sub}</span>
+        </div>
+        <div class="deck-rule"></div>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
+          {c.points.map((pt) => (
+            <li style={`color: var(--color-text-muted); font-size: 0.96rem; line-height: 1.5; border-left: 3px solid ${c.tone}; padding-left: 0.75rem;`}>{pt}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    <span style="color: var(--color-text); font-weight: 600;">Start from what they can give, then shape the ask.</span>
+    The small default isn't humble — it's a missed match.
+  </p>
+</section>

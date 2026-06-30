@@ -1,0 +1,44 @@
+---
+/**
+ * Slide 08 · Prioritize by Capacity × Alignment — effort follows dollars.
+ * A ranked tier list (CSS-only, no JS charts) from deep-fit top to long tail.
+ */
+const tiers = [
+  { rank: "A", k: "High capacity × high alignment", d: "The few biggest, best-fit funders. Deep research, precise asks, the team's scarce time.", w: "100%", tone: "var(--color-accent)" },
+  { rank: "B", k: "High capacity × partial fit", d: "Worth a tailored case — reshape the pattern-fit before investing the hours.", w: "62%", tone: "var(--color-secondary)" },
+  { rank: "C", k: "Aligned but modest capacity", d: "Keep warm with light touch; don't over-invest relative to the ceiling.", w: "34%", tone: "var(--color-text-muted)" },
+  { rank: "—", k: "The generic long tail", d: "A hundred spray applications that, together, rarely out-raise one tier-A win.", w: "12%", tone: "var(--color-border)" },
+];
+---
+
+<section data-slot="08" data-variant="ref-v1" class="deck-section">
+  <span class="deck-kicker">08 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">Capacity × alignment</p>
+    <h2 class="deck-h2">Spend the scarce hours at the <span class="deck-gradient">top of the list.</span></h2>
+  </div>
+
+  <div class="flex flex-col gap-2 mt-1" style="max-width: 80ch;">
+    {tiers.map((t) => (
+      <div class="deck-card flex items-center gap-4" style="padding: 0.85rem 1.1rem;">
+        <span class="deck-stat" style="font-size: 1.6rem; color: var(--color-secondary); min-width: 1.6rem; text-align: center;">{t.rank}</span>
+        <div class="flex flex-col gap-1" style="flex: 1;">
+          <div class="flex items-center justify-between gap-3">
+            <span style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--color-text);">{t.k}</span>
+            <span class="deck-stat-label">{t.w} effort</span>
+          </div>
+          <div style="height: 6px; border-radius: 3px; background: var(--color-border); overflow: hidden;">
+            <div style={`height: 100%; width: ${t.w}; background: ${t.tone}; border-radius: 3px;`}></div>
+          </div>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.45; margin: 0;">{t.d}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-1" style="max-width: 74ch;">
+    <span style="color: var(--color-text); font-weight: 600;">A few precise asks beat a hundred generic ones.</span>
+    Rank by capacity × alignment, then let effort follow the dollars.
+  </p>
+</section>

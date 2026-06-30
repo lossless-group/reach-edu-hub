@@ -1,0 +1,51 @@
+---
+/**
+ * Slide 06 · Pattern Recognition — scattered gifts collapse into one shape.
+ * A row of chips (the raw grants) resolving into a single pattern statement.
+ */
+const scattered = [
+  "$2M · rural colleges",
+  "$750K · adult learners",
+  "$1.4M · workforce credentials",
+  "$3M · first-gen access",
+  "$900K · apprenticeship pilots",
+  "$2.2M · regional employers",
+];
+const dimensions = [
+  { k: "Cause", v: "Economic mobility through education" },
+  { k: "Geography", v: "Rural & under-served regions" },
+  { k: "Stage", v: "Proven model, ready to scale" },
+  { k: "Outcome", v: "Credentials that lift earnings" },
+];
+---
+
+<section data-slot="06" data-variant="ref-v1" class="deck-section">
+  <span class="deck-kicker">06 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">Pattern recognition</p>
+    <h2 class="deck-h2">Scattered gifts reveal <span class="deck-gradient">one recurring shape.</span></h2>
+  </div>
+
+  <div class="flex flex-wrap gap-2 mt-1" style="max-width: 60ch;">
+    {scattered.map((g) => (
+      <span class="deck-chip" style="color: var(--color-text-muted);">{g}</span>
+    ))}
+  </div>
+
+  <div class="deck-rule mt-1"></div>
+
+  <div class="deck-grid mt-1" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+    {dimensions.map((d) => (
+      <div class="flex flex-col gap-1">
+        <span class="deck-stat-label" style="color: var(--color-secondary);">{d.k}</span>
+        <p style="color: var(--color-text); font-size: 1.02rem; font-weight: 600; line-height: 1.4; margin: 0;">{d.v}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    Once the pattern is named,
+    <span style="color: var(--color-text); font-weight: 600;"> map Reach's work directly onto it</span> — and the fit becomes obvious to the funder, not just to us.
+  </p>
+</section>

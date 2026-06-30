@@ -1,0 +1,35 @@
+---
+/**
+ * Slide 02 · Funding Follows a Power Law — the hero data slide.
+ * Source figures are wealth/philanthropy reports — flagged VERIFY.
+ */
+const stats = [
+  { n: "$592.5B", l: "U.S. charitable giving, 2024 (Giving USA)" },
+  { n: "$84T", l: "great wealth transfer through 2045 — ~$11.9T to charity (Cerulli)" },
+  { n: "~426K", l: "UHNW individuals worldwide, net worth >$30M (Altrata, 2025)" },
+];
+---
+
+<section data-slot="02" data-variant="ref-v1" class="deck-section deck-glow">
+  <span class="deck-kicker">02 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">The shape of the money</p>
+    <h2 class="deck-h2">Funding is a <span class="deck-gradient">power law</span> — not a bell curve.</h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {stats.map((s) => (
+      <div class="deck-card flex flex-col gap-1">
+        <span class="deck-stat" style="font-size: clamp(2rem, 4.5vw, 3.4rem);">{s.n} <span class="deck-verify">VERIFY</span></span>
+        <span class="deck-stat-label" style="line-height: 1.4;">{s.l}</span>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 76ch;">
+    Of ~120,000+ U.S. foundations, a few hundred of the largest move most of the
+    grant dollars <span class="deck-verify">VERIFY</span> — and the new-money tail is
+    growing fast. <span style="color: var(--color-text); font-weight: 600;">Chase the few, not the many.</span>
+  </p>
+</section>

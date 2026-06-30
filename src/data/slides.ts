@@ -110,4 +110,30 @@ export const SLOTS: SlotsByVariant = {
     { slot: "10", title: "The Tooling Map", slug: "tooling" },
     { slot: "11", title: "The Payoff", slug: "payoff" },
   ],
+
+  // Strategy deck: reverse-engineer-funding (variant ref-v1). Nine slots.
+  "ref-v1": [
+    { slot: "01", title: "Reverse Engineer Available Funding", slug: "cover" },
+    { slot: "02", title: "Funding Follows a Power Law", slug: "power-law" },
+    { slot: "03", title: "Two Concentrated Pools", slug: "two-pools" },
+    { slot: "04", title: "Why New Money", slug: "new-money" },
+    { slot: "05", title: "The Method", slug: "method" },
+    { slot: "06", title: "Pattern Recognition", slug: "pattern" },
+    { slot: "07", title: "Size to the Sweet Spot", slug: "sweet-spot" },
+    { slot: "08", title: "Prioritize by Capacity × Alignment", slug: "prioritize" },
+    { slot: "09", title: "The Engine", slug: "engine" },
+  ],
+
+  // Strategy deck: frontier-job-demand (variant fjd-v1). Nine slots.
+  "fjd-v1": [
+    { slot: "01", title: "Opinionated Program Design: Frontier Job Demand", slug: "cover" },
+    { slot: "02", title: "Design Backward from the Job", slug: "thesis" },
+    { slot: "03", title: "Why Apprenticeship Fits Frontier", slug: "fit" },
+    { slot: "04", title: "Advanced Manufacturing Operations", slug: "manufacturing" },
+    { slot: "05", title: "Drone Sciences", slug: "drones" },
+    { slot: "06", title: "AI in Business Operations", slug: "ai-ops" },
+    { slot: "07", title: "The Design Principle", slug: "design-principle" },
+    { slot: "08", title: "What to Build First", slug: "build-first" },
+    { slot: "09", title: "Opinion Is the Product", slug: "close" },
+  ],
 };

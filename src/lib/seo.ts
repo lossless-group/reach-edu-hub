@@ -114,6 +114,16 @@ export const SCROLL_DECK_SEO: Record<string, SeoEntry> = {
     description:
       'How dedicated agents and agent workflows let a small team punch above its weight — across ABM, travel, events, grants, and social — reducing overwhelm and enabling work that was not possible at that size, with human-in-the-loop guardrails.',
   },
+  '/scroll/reverse-engineer-funding/ref-v1': {
+    title: 'Reverse Engineer Available Funding',
+    description:
+      'Grant funding follows a power law. Concentrate where the dollars are: study the biggest aligned funders and new-money UHNWIs, learn their strategy on a call, pattern-match their giving, and size the ask to the largest amount that fits.',
+  },
+  '/scroll/frontier-job-demand/fjd-v1': {
+    title: 'Opinionated Program Design: Frontier Job Demand',
+    description:
+      'Design apprenticeship-degree programs backward from where the jobs are going — Advanced Manufacturing Operations, Drone Sciences, and AI in Business Operations: fields with huge demand, employer pull, and work suited to a work-embedded degree.',
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────

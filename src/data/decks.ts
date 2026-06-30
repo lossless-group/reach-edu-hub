@@ -169,6 +169,46 @@ export const DECKS: Deck[] = [
       },
     ],
   },
+  {
+    // Fifth "strategy" deck — grant-prospecting doctrine.
+    // Narrative: context-v/narratives/strategies/reverse-engineer-funding/README.md
+    slug: "reverse-engineer-funding",
+    title: "Reverse Engineer Available Funding",
+    lede: "Grant funding follows a power law — a few mega-foundations and a wave of new-money UHNWIs hold most discretionary dollars. Study the biggest aligned funders, learn their strategy, pattern-match, and size the ask to their sweet spot.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-06-29",
+    status: "draft",
+    variants: [
+      {
+        // Globally-unique variant slug (shell keys SLOTS by variant alone).
+        slug: "ref-v1",
+        label: "v1 · Draft",
+        lede: "First Scroll-UI cut from the narrative; wealth/philanthropy figures flagged for verification. Token-driven via deck-primitives.",
+        status: "draft",
+        lastUpdated: "2026-06-29",
+      },
+    ],
+  },
+  {
+    // Sixth "strategy" deck — program-design doctrine.
+    // Narrative: context-v/narratives/strategies/frontier-job-demand/README.md
+    slug: "frontier-job-demand",
+    title: "Opinionated Program Design: Frontier Job Demand",
+    lede: "Design apprenticeship-degree programs backward from where the jobs are going — three frontier fields with huge demand, employer pull, and work suited to a work-embedded degree: Advanced Manufacturing Operations, Drone Sciences, and AI in Business Operations.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-06-29",
+    status: "draft",
+    variants: [
+      {
+        // Globally-unique variant slug (shell keys SLOTS by variant alone).
+        slug: "fjd-v1",
+        label: "v1 · Draft",
+        lede: "First Scroll-UI cut from the narrative; industry/labor figures flagged for verification. Token-driven via deck-primitives.",
+        status: "draft",
+        lastUpdated: "2026-06-29",
+      },
+    ],
+  },
 ];
 
 export function getDeck(slug: string): Deck | undefined {

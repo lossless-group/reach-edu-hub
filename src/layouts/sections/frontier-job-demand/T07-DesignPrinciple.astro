@@ -1,0 +1,45 @@
+---
+/**
+ * Slide 07 · The Design Principle — the formula, then the discipline of saying no.
+ */
+const factors = [
+  { k: "Demand", d: "Large, unmet need" },
+  { k: "Employer pull", d: "Hiring now, will co-sponsor" },
+  { k: "Apprenticeship fit", d: "The job is the lab" },
+];
+---
+
+<section data-slot="07" data-variant="fjd-v1" class="deck-section" style="justify-content: center;">
+  <span class="deck-kicker">07 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="color: var(--color-secondary);">The design principle</p>
+    <h2 class="deck-h2">Pick the field, then <span class="deck-gradient">design backward.</span></h2>
+  </div>
+
+  <div class="flex items-stretch gap-3 flex-wrap mt-2">
+    {factors.map((f, i) => (
+      <>
+        <div class="deck-card flex flex-col gap-1" style="flex: 1 1 200px;">
+          <span class="deck-stat-label" style="font-family: var(--font-mono); color: var(--color-accent);">{f.k}</span>
+          <span style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--color-text);">{f.d}</span>
+        </div>
+        {i < factors.length - 1 && (
+          <span style="display: flex; align-items: center; font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--color-text-muted);">×</span>
+        )}
+      </>
+    ))}
+  </div>
+
+  <div class="deck-rule mt-3" style="max-width: 16rem;"></div>
+
+  <p class="deck-lede mt-3" style="max-width: 72ch;">
+    Start with the role an employer is hiring for, derive the competencies, and build
+    the degree around the day-to-day work.
+    <span style="color: var(--color-text); font-weight: 600;"> Say no to fields that don't clear all three bars.</span>
+  </p>
+
+  <p class="deck-lede mt-2" style="max-width: 66ch; color: var(--color-secondary);">
+    Opinion is the point — a program for everyone serves no employer well.
+  </p>
+</section>

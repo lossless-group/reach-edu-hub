@@ -1,0 +1,42 @@
+---
+/**
+ * Slide 09 · The Engine — close. Reverse-engineering is the STRATEGY;
+ * a funder corpus + agents are the ENGINE. The only deck-glow slide besides
+ * the cover/hero. Cross-ref: Agent Workflow Maxxing + augment-it's reach-edu corpus.
+ */
+const engine = [
+  { k: "The funder corpus", d: "Reach's reach-edu corpus under augment-it — dozens of funders, hundreds of documents, already in hand." },
+  { k: "The agents", d: "Agent-assisted research and pattern-matching across many footprints — the Agent Workflow Maxxing grants front." },
+];
+---
+
+<section data-slot="09" data-variant="ref-v1" class="deck-section deck-glow" style="justify-content: center;">
+  <span class="deck-kicker">09 / 09</span>
+
+  <div class="max-w-5xl">
+    <p class="deck-eyebrow mb-5" style="font-family: var(--font-mono);">Strategy → engine</p>
+    <h2 class="deck-h1">
+      Reverse-engineering is the strategy. <span class="deck-gradient">The corpus is the engine.</span>
+    </h2>
+
+    <p class="deck-lede mt-7" style="max-width: 70ch;">
+      Studying many funders' footprints and pattern-matching at scale is only
+      tractable for a small team with the right tooling — a funder corpus plus agents.
+    </p>
+
+    <div class="deck-grid mt-8 mb-8" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+      {engine.map((e) => (
+        <div class="flex flex-col gap-1">
+          <span class="deck-stat-label" style="color: var(--color-secondary);">{e.k}</span>
+          <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.5; margin: 0;">{e.d}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="deck-rule mb-8" style="max-width: 14rem;"></div>
+
+    <p class="deck-lede" style="max-width: 60ch; color: var(--color-text); font-size: clamp(1.2rem, 2vw, 1.7rem);">
+      Chase the few. Learn the why. Size to the sweet spot.
+    </p>
+  </div>
+</section>

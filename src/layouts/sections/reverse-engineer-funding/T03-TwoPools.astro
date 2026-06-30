@@ -1,0 +1,59 @@
+---
+/**
+ * Slide 03 · Two Concentrated Pools — where the grant money actually sits.
+ * Contrast layout: mega-foundations vs. new-money UHNWIs. Figures VERIFY.
+ */
+const pools = [
+  {
+    label: "Mega-foundations",
+    sub: "Structured capital",
+    tone: "var(--color-text-muted)",
+    points: [
+      { t: "The largest few hundred of ~120,000 U.S. foundations move most of the grant dollars.", v: true },
+      { t: "Formal, RFP-driven cycles — big checks, but slower to decide.", v: false },
+      { t: "Predictable and legible: their giving history is on the public record.", v: false },
+    ],
+  },
+  {
+    label: "New-money UHNWIs",
+    sub: "Discretionary capital",
+    tone: "var(--color-secondary)",
+    points: [
+      { t: "~426K ultra-high-net-worth individuals worldwide, net worth >$30M (Altrata, 2025).", v: true },
+      { t: "An $84T great wealth transfer is arriving over the next two decades (Cerulli).", v: true },
+      { t: "Large discretionary capacity — and a real appetite to deploy it.", v: false },
+    ],
+  },
+];
+---
+
+<section data-slot="03" data-variant="ref-v1" class="deck-section">
+  <span class="deck-kicker">03 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3">Where the money concentrates</p>
+    <h2 class="deck-h2">Two pools hold the <span class="deck-gradient">real capacity.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+    {pools.map((p) => (
+      <div class="deck-card flex flex-col gap-3">
+        <div class="flex items-baseline justify-between gap-3">
+          <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--color-text);">{p.label}</span>
+          <span class="deck-chip">{p.sub}</span>
+        </div>
+        <div class="deck-rule"></div>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
+          {p.points.map((pt) => (
+            <li style={`color: var(--color-text-muted); font-size: 0.96rem; line-height: 1.5; border-left: 3px solid ${p.tone}; padding-left: 0.75rem;`}>{pt.t}{pt.v && <> <span class="deck-verify">VERIFY</span></>}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    Different shapes, same lesson —
+    <span style="color: var(--color-text); font-weight: 600;"> both are where the dollars pool, and both reward concentration over spray.</span>
+  </p>
+</section>

@@ -1,0 +1,38 @@
+---
+/**
+ * Slide 04 · Why New Money — what makes newly/self-made wealth distinctive.
+ * Framing is operating doctrine to validate — a small VERIFY on the eyebrow.
+ */
+const edges = [
+  { k: "More discretionary", d: "Capital that isn't locked into legacy structures, boards, or fixed endowment mandates." },
+  { k: "Faster decisions", d: "A single principal can move quickly where a 40-person foundation runs a fixed RFP cycle." },
+  { k: "Identity-driven", d: "Often seeking a cause that expresses their own values — a thing to put their name behind." },
+  { k: "More reachable", d: "Flexible on deal shape and open to a direct conversation, not just a portal submission." },
+];
+---
+
+<section data-slot="04" data-variant="ref-v1" class="deck-section">
+  <span class="deck-kicker">04 / 09</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="font-family: var(--font-mono);">Why new money <span class="deck-verify">VERIFY</span></p>
+    <h2 class="deck-h2">Self-made wealth moves <span class="deck-gradient">differently.</span></h2>
+  </div>
+
+  <div class="deck-grid mt-2 items-stretch" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {edges.map((e) => (
+      <div class="deck-card flex flex-col gap-2">
+        <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-text); margin: 0;">{e.k}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">{e.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="deck-rule mt-2" style="max-width: 18rem;"></div>
+
+  <p class="deck-lede" style="max-width: 76ch;">
+    <span class="deck-stat-label" style="color: var(--color-secondary);">The trade-off —</span>
+    less predictable, relationship-driven, and you have to
+    <span style="color: var(--color-text); font-weight: 600;"> find them before they've formalized their giving.</span>
+  </p>
+</section>
