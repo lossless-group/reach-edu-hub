@@ -42,6 +42,8 @@ export interface Deck {
   lastUpdated: string; // ISO date — most recent variant update
   status: DeckStatus; // rolls up from variants
   variants: VariantRef[]; // ordered; first listed is the canonical default
+  /** True when a one-pager HTML+PDF exists at public/one-pagers/{slug}/. */
+  onePager?: boolean;
 }
 
 export const DECKS: Deck[] = [
@@ -95,6 +97,7 @@ export const DECKS: Deck[] = [
     thumb: "/reach-favicon.png",
     lastUpdated: "2026-06-29",
     status: "draft",
+    onePager: true,
     variants: [
       {
         // NOTE: variant slugs are GLOBALLY unique across this client (the shell
@@ -117,6 +120,7 @@ export const DECKS: Deck[] = [
     thumb: "/reach-favicon.png",
     lastUpdated: "2026-06-29",
     status: "draft",
+    onePager: true,
     variants: [
       {
         // "v1" is taken by rural-income (the shell keys SLOTS by variant slug
@@ -138,6 +142,7 @@ export const DECKS: Deck[] = [
     thumb: "/reach-favicon.png",
     lastUpdated: "2026-06-29",
     status: "draft",
+    onePager: true,
     variants: [
       {
         // "v1"/"ln-v1" taken (shell keys SLOTS by variant slug alone).
@@ -158,6 +163,7 @@ export const DECKS: Deck[] = [
     thumb: "/reach-favicon.png",
     lastUpdated: "2026-06-29",
     status: "draft",
+    onePager: true,
     variants: [
       {
         // Globally-unique variant slug (shell keys SLOTS by variant alone).
@@ -178,6 +184,7 @@ export const DECKS: Deck[] = [
     thumb: "/reach-favicon.png",
     lastUpdated: "2026-06-29",
     status: "draft",
+    onePager: true,
     variants: [
       {
         // Globally-unique variant slug (shell keys SLOTS by variant alone).
@@ -198,6 +205,7 @@ export const DECKS: Deck[] = [
     thumb: "/reach-favicon.png",
     lastUpdated: "2026-06-29",
     status: "draft",
+    onePager: true,
     variants: [
       {
         // Globally-unique variant slug (shell keys SLOTS by variant alone).

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rural Income Boosts through Apprenticeship Degrees — Strategy Brief</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: letter; margin: 0; }
+
+:root {
+  --ink: #1f1646;          /* purple-midnight — primary */
+  --ink-dusk: #473e6e;     /* purple-dusk */
+  --teal: #218099;         /* teal-ocean — secondary */
+  --accent: #ff8300;       /* orange-saccharine — accent */
+  --muted: #5c5578;        /* purple-muted */
+  --surface: #fbf8f5;      /* warm off-white */
+  --border: #e5e0dc;
+  --text: #2a2342;
+  --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --body: 'Soleil', 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  font-family: var(--body);
+  color: var(--text);
+  background: #eceaf0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page-container {
+  width: 8.5in;
+  min-height: 11in;
+  background: #fff;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+@media screen {
+  .page-container { margin: 0.4in auto; box-shadow: 0 2px 24px rgba(31,22,70,0.18); }
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar { width: 2.45in; flex-shrink: 0; background: var(--ink);
+  color: #fff;
+  padding: 0.32in 0.24in 0.4in 0.24in;
+  display: flex;
+  flex-direction: column;
+  gap: 0.17in;
+}
+.brand { display: flex; flex-direction: column; gap: 0.05in; padding-bottom: 0.14in; border-bottom: 1px solid rgba(255,255,255,0.18); }
+.wordmark { font-family: var(--heading); font-weight: 800; font-size: 15.5pt; line-height: 1; letter-spacing: 0.2px; }
+.wordmark em { font-style: normal; color: var(--accent); }
+.brand-sub { font-size: 6.8pt; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.62); font-weight: 700; margin-top: 0.04in; }
+.collection-tag { font-size: 7pt; font-style: italic; color: var(--accent); margin-top: 0.02in; }
+
+.side-block { display: flex; flex-direction: column; gap: 0.1in; }
+.side-block h3 { font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--accent); padding-bottom: 0.04in; }
+.field { display: flex; flex-direction: column; gap: 0.015in; }
+.field-label { font-size: 6.3pt; text-transform: uppercase; letter-spacing: 0.4px; color: rgba(255,255,255,0.55); font-weight: 700; }
+.field-value { font-size: 8pt; font-weight: 600; line-height: 1.32; color: #fff; }
+
+.signals { display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 0.02in; }
+.signal { width: 47%; margin-bottom: 0.06in; display: flex; flex-direction: column; gap: 0.01in; }
+.signal-value { font-family: var(--heading); font-size: 12pt; font-weight: 800; line-height: 1; color: #fff; }
+.signal-value small { font-size: 7.5pt; font-weight: 700; }
+.signal-label { font-size: 6pt; line-height: 1.3; color: rgba(255,255,255,0.66); font-weight: 600; }
+
+.pills { display: flex; flex-wrap: wrap; gap: 0.045in; margin-top: 0.02in; }
+.pill { background: rgba(255,255,255,0.13); padding: 0.025in 0.075in; border-radius: 3px; font-size: 5.9pt; font-weight: 700; letter-spacing: 0.2px; white-space: nowrap; }
+
+.side-foot { margin-top: auto; font-size: 6pt; line-height: 1.4; color: rgba(255,255,255,0.5); border-top: 1px solid rgba(255,255,255,0.14); padding-top: 0.1in; }
+
+/* ---------- Main ---------- */
+.main { flex: 1; min-width: 0; padding: 0.32in 0.3in 0.46in 0.3in; display: flex; flex-direction: column; gap: 0.14in; }
+
+.header { display: flex; flex-direction: column; gap: 0.08in; padding-bottom: 0.13in; border-bottom: 2px solid var(--teal); }
+.eyebrow { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); font-weight: 800; }
+.headline { font-family: var(--heading); font-size: 17pt; font-weight: 800; line-height: 1.12; color: var(--ink); letter-spacing: -0.2px; }
+.subhead { font-size: 8.5pt; font-weight: 400; line-height: 1.45; color: var(--muted); }
+
+.bullets { list-style: none; display: flex; flex-direction: column; gap: 0.05in; margin-top: 0.04in; }
+.bullets li { padding-left: 0.16in; position: relative; font-size: 7.6pt; line-height: 1.4; }
+.bullets li:before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+.bullets strong { color: var(--ink); font-weight: 700; }
+
+.cards { display: flex; flex-wrap: wrap; justify-content: space-between; }
+.card { width: 48.5%; margin-bottom: 0.12in; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+.card-h { background: var(--ink); color: #fff; padding: 0.06in 0.1in; font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 0.06in; }
+.card-h .n { color: var(--accent); font-family: var(--heading); }
+.card-b { padding: 0.09in 0.1in; font-size: 7pt; line-height: 1.46; color: var(--text); }
+.card-b p { margin-bottom: 0.05in; }
+.card-b p:last-child { margin-bottom: 0; }
+.card-b ul { list-style: none; display: flex; flex-direction: column; gap: 0.035in; }
+.card-b ul li { padding-left: 0.12in; position: relative; }
+.card-b ul li:before { content: "•"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+.card-b strong { color: var(--ink); font-weight: 700; }
+.tier { font-weight: 800; color: var(--teal); }
+
+.anchor { background: var(--surface); border: 2px solid var(--accent); border-radius: 5px; padding: 0.1in 0.13in; display: flex; align-items: center; }
+.anchor-badge { background: var(--accent); color: #fff; padding: 0.07in 0.1in; border-radius: 4px; font-family: var(--heading); font-size: 8.5pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; text-align: center; line-height: 1.1; max-width: 1.05in; flex-shrink: 0; margin-right: 0.13in; }
+.anchor-text { flex: 1; font-size: 7.6pt; line-height: 1.42; color: var(--text); }
+.anchor-text strong { color: var(--ink); font-weight: 700; }
+
+.sources { font-size: 5.9pt; color: #8b8597; line-height: 1.42; padding-top: 0.08in; border-top: 1px solid var(--border); }
+.sources strong { color: var(--ink); font-weight: 700; }
+
+.footer { position: absolute; bottom: 0; left: 2.45in; right: 0; padding: 0.07in 0.3in; background: var(--surface); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 6pt; color: var(--muted); }
+.footer .fl { font-family: var(--heading); font-weight: 800; color: var(--ink); font-size: 7pt; }
+strong, b { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="brand">
+      <div class="wordmark">Reach<em>·</em>University</div>
+      <div class="brand-sub">Strategy Brief</div>
+      <div class="collection-tag">Strategies collection · Rural Income</div>
+    </div>
+
+    <div class="side-block">
+      <h3>The Brief</h3>
+      <div class="field"><div class="field-label">Audience</div><div class="field-value">Rural-focused funders, philanthropies &amp; policymakers</div></div>
+      <div class="field"><div class="field-label">Framing</div><div class="field-value">Grant-seeking · place-based income engine</div></div>
+      <div class="field"><div class="field-label">The Reframe</div><div class="field-value">Not a staffing patch — a rural prosperity instrument</div></div>
+      <div class="field"><div class="field-label">The Ask</div><div class="field-value">Fund expansion across a national → regional → local supporter pipeline</div></div>
+    </div>
+
+    <div class="side-block">
+      <h3>Key Signals</h3>
+      <div class="signals">
+        <div class="signal"><div class="signal-value">3M</div><div class="signal-label">NCAD completions target by 2035</div></div>
+        <div class="signal"><div class="signal-value"><small>~$</small>2M</div><div class="signal-label">Carnegie Corp. — Delta Region</div></div>
+        <div class="signal"><div class="signal-value"><small>~$</small>1M</div><div class="signal-label">The Goodness Web — behavioral health</div></div>
+        <div class="signal"><div class="signal-value">$0</div><div class="signal-label">Debt at graduation — paid throughout</div></div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <h3>Threads</h3>
+      <div class="pills">
+        <span class="pill">Economic Mobility</span>
+        <span class="pill">Grow-Your-Own</span>
+        <span class="pill">Teacher Pipeline</span>
+        <span class="pill">Healthcare</span>
+        <span class="pill">Earn-and-Learn</span>
+        <span class="pill">Brain-Drain</span>
+      </div>
+    </div>
+
+    <div class="side-foot">
+      National policy tailwind for learn-while-you-earn (US DOL; GAO 2025). Figures are draft and pending verification against primary Reach / government sources.
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="header">
+      <div class="eyebrow">Opinionated Strategy · Rural Development</div>
+      <div class="headline">The Apprenticeship Degree is a rural income engine, not just a teacher-pipeline fix.</div>
+      <div class="subhead">It starts with a paid job and ends with a better one — debt-free, fully accredited, work-embedded. The raise lands in place, keeps talent and its wages local instead of exporting them, and compounds into a local-economy multiplier — exactly what communities facing workforce shortages and out-migration need.</div>
+      <ul class="bullets">
+        <li><strong>Paid throughout, debt-free.</strong> The learner is an employee earning wages the whole way, so the post-credential raise is <strong>net</strong> income — worth more where baseline incomes are lower (GAO 2025; PPI).</li>
+        <li><strong>The raise is the point.</strong> The terminal step is licensure — paraprofessional/aide → <strong>licensed teacher</strong> — unlocking a materially higher-paid role in the same community (wage delta ⚠ verify).</li>
+        <li><strong>Stays local.</strong> The worksite is the campus, so nobody has to leave to earn the credential — the income gain recirculates instead of relocating to a metro.</li>
+      </ul>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-h"><span class="n">01</span> The Rural Bind</div>
+        <div class="card-b">
+          <p>A self-reinforcing loop: chronic <strong>workforce shortages</strong> (teachers first, then healthcare), limited access to affordable degrees, and steady <strong>out-migration</strong> of anyone who earns a credential — brain drain that exports both talent and the income that talent would have earned and spent locally.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">02</span> Why Income Rises</div>
+        <div class="card-b">
+          <ul>
+            <li><strong>Paid throughout</strong> — wages while studying; higher pay, little debt, better retention (GAO 2025).</li>
+            <li><strong>Debt-free</strong> — no loan payments clawing back the raise (PPI 2025).</li>
+            <li><strong>Role upgrade</strong> — licensure unlocks a higher-wage role.</li>
+            <li><strong>Retention</strong> — grow-your-own apprentices stay; districts "no longer need job fairs."</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">03</span> Why It Fits Rural</div>
+        <div class="card-b">
+          <p><strong>Talent stays in place</strong> — the credential and the raise both land locally. <strong>Debt-aversion is higher and incomes lower</strong>, so a debt-free path converts candidates who'd never take loans. <strong>Employer-embedded</strong> — districts and health systems co-design, so the pipeline is demand-driven. And it's <strong>generalizing</strong> beyond teaching — the Apprenticeship College of Health targets healthcare deserts.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">04</span> Supporter Pipeline</div>
+        <div class="card-b">
+          <ul>
+            <li><span class="tier">National</span> — expansion + credibility. In: Carnegie Corp. (~$2M, Delta), The Goodness Web (~$1M).</li>
+            <li><span class="tier">Regional</span> — state education/workforce agencies &amp; foundations matching national grants to local delivery.</li>
+            <li><span class="tier">Local</span> — where income lands: employers, community foundations, local business co-funding.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="anchor">
+      <div class="anchor-badge">The Raise Is the Point</div>
+      <div class="anchor-text">Fund a <strong>place-based income engine</strong> that lifts household earnings, solves the employer's shortage with grow-your-own talent, and compounds into a local multiplier as raised wages recirculate. Most fundable when the reader sees money already flowing at the top of the pipeline (Carnegie, Goodness Web) and a clear on-ramp for regional and local co-funding beneath it. Anchored by <strong>NCAD</strong> and its goal of <strong>3M Apprenticeship Degree completions by 2035</strong>.</div>
+    </div>
+
+    <div class="sources">
+      <strong>Sources:</strong> Inside Higher Ed, "Rural Opportunity Through Apprenticeship" (2026) • Progressive Policy Institute, "The Apprenticeship Degree" (2025) • GAO-25-107040, "Earn-And-Learn Opportunities" • New America, "Mapping the Landscape of Degree Apprenticeship" • Reach blog (Carnegie $2M; Goodness Web $1M; Apprenticeship College of Health; NCAD 3M by 2035) • AIR, "A New State Solution for Teacher Shortages" — <em>draft narrative; figures pending verification.</em>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="fl">Reach University · Strategies</div>
+    <div>Draft — figures pending verification · 2026</div>
+  </div>
+</div>
+</body>
+</html>

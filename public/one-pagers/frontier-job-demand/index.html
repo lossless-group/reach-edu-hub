@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opinionated Program Design: Frontier Job Demand — Strategy Brief</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: letter; margin: 0; }
+
+:root {
+  --ink: #1f1646; --ink-dusk: #473e6e; --teal: #218099; --accent: #ff8300;
+  --muted: #5c5578; --surface: #fbf8f5; --border: #e5e0dc; --text: #2a2342;
+  --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --body: 'Soleil', 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body { font-family: var(--body); color: var(--text); background: #eceaf0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page-container { width: 8.5in; min-height: 11in; background: #fff; display: flex; overflow: hidden; position: relative; }
+@media screen { .page-container { margin: 0.4in auto; box-shadow: 0 2px 24px rgba(31,22,70,0.18); } }
+
+.sidebar { width: 2.45in; flex-shrink: 0; background: var(--ink); color: #fff; padding: 0.32in 0.24in 0.4in 0.24in; display: flex; flex-direction: column; gap: 0.17in; }
+.brand { display: flex; flex-direction: column; gap: 0.05in; padding-bottom: 0.14in; border-bottom: 1px solid rgba(255,255,255,0.18); }
+.wordmark { font-family: var(--heading); font-weight: 800; font-size: 15.5pt; line-height: 1; letter-spacing: 0.2px; }
+.wordmark em { font-style: normal; color: var(--accent); }
+.brand-sub { font-size: 6.8pt; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.62); font-weight: 700; margin-top: 0.04in; }
+.collection-tag { font-size: 7pt; font-style: italic; color: var(--accent); margin-top: 0.02in; }
+
+.side-block { display: flex; flex-direction: column; gap: 0.1in; }
+.side-block h3 { font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--accent); padding-bottom: 0.04in; }
+.field { display: flex; flex-direction: column; gap: 0.015in; }
+.field-label { font-size: 6.3pt; text-transform: uppercase; letter-spacing: 0.4px; color: rgba(255,255,255,0.55); font-weight: 700; }
+.field-value { font-size: 8pt; font-weight: 600; line-height: 1.32; color: #fff; }
+
+.signals { display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 0.02in; }
+.signal { width: 47%; margin-bottom: 0.06in; display: flex; flex-direction: column; gap: 0.01in; }
+.signal-value { font-family: var(--heading); font-size: 12pt; font-weight: 800; line-height: 1; color: #fff; }
+.signal-value small { font-size: 7.5pt; font-weight: 700; }
+.signal-label { font-size: 6pt; line-height: 1.3; color: rgba(255,255,255,0.66); font-weight: 600; }
+
+.pills { display: flex; flex-wrap: wrap; gap: 0.045in; margin-top: 0.02in; }
+.pill { background: rgba(255,255,255,0.13); padding: 0.025in 0.075in; border-radius: 3px; font-size: 5.9pt; font-weight: 700; letter-spacing: 0.2px; white-space: nowrap; }
+
+.side-foot { margin-top: auto; font-size: 6pt; line-height: 1.4; color: rgba(255,255,255,0.5); border-top: 1px solid rgba(255,255,255,0.14); padding-top: 0.1in; }
+
+.main { flex: 1; min-width: 0; padding: 0.32in 0.3in 0.46in 0.3in; display: flex; flex-direction: column; gap: 0.14in; }
+.header { display: flex; flex-direction: column; gap: 0.08in; padding-bottom: 0.13in; border-bottom: 2px solid var(--teal); }
+.eyebrow { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); font-weight: 800; }
+.headline { font-family: var(--heading); font-size: 17pt; font-weight: 800; line-height: 1.12; color: var(--ink); letter-spacing: -0.2px; }
+.subhead { font-size: 8.5pt; font-weight: 400; line-height: 1.45; color: var(--muted); }
+
+.bullets { list-style: none; display: flex; flex-direction: column; gap: 0.05in; margin-top: 0.04in; }
+.bullets li { padding-left: 0.16in; position: relative; font-size: 7.6pt; line-height: 1.4; }
+.bullets li:before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+.bullets strong { color: var(--ink); font-weight: 700; }
+
+.cards { display: flex; flex-wrap: wrap; justify-content: space-between; }
+.card { width: 48.5%; margin-bottom: 0.12in; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+.card-h { background: var(--ink); color: #fff; padding: 0.06in 0.1in; font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 0.06in; }
+.card-h .n { color: var(--accent); font-family: var(--heading); }
+.card-b { padding: 0.09in 0.1in; font-size: 7pt; line-height: 1.46; color: var(--text); }
+.card-b p { margin-bottom: 0.05in; }
+.card-b p:last-child { margin-bottom: 0; }
+.card-b ul { list-style: none; display: flex; flex-direction: column; gap: 0.035in; }
+.card-b ul li { padding-left: 0.12in; position: relative; }
+.card-b ul li:before { content: "•"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+.card-b strong { color: var(--ink); font-weight: 700; }
+.stat-lead { font-family: var(--heading); font-weight: 800; color: var(--accent); font-size: 9pt; }
+
+.anchor { background: var(--surface); border: 2px solid var(--accent); border-radius: 5px; padding: 0.1in 0.13in; display: flex; align-items: center; }
+.anchor-badge { background: var(--accent); color: #fff; padding: 0.07in 0.1in; border-radius: 4px; font-family: var(--heading); font-size: 8.5pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; text-align: center; line-height: 1.1; max-width: 1.05in; flex-shrink: 0; margin-right: 0.13in; }
+.anchor-text { flex: 1; font-size: 7.6pt; line-height: 1.42; color: var(--text); }
+.anchor-text strong { color: var(--ink); font-weight: 700; }
+
+.sources { font-size: 5.9pt; color: #8b8597; line-height: 1.42; padding-top: 0.08in; border-top: 1px solid var(--border); }
+.sources strong { color: var(--ink); font-weight: 700; }
+
+.footer { position: absolute; bottom: 0; left: 2.45in; right: 0; padding: 0.07in 0.3in; background: var(--surface); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 6pt; color: var(--muted); }
+.footer .fl { font-family: var(--heading); font-weight: 800; color: var(--ink); font-size: 7pt; }
+strong, b { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page-container">
+  <div class="sidebar">
+    <div class="brand">
+      <div class="wordmark">Reach<em>·</em>University</div>
+      <div class="brand-sub">Strategy Brief</div>
+      <div class="collection-tag">Strategies collection · Frontier Job Demand</div>
+    </div>
+
+    <div class="side-block">
+      <h3>The Brief</h3>
+      <div class="field"><div class="field-label">Audience</div><div class="field-value">Funders &amp; employer partners; Reach / NCAD program design</div></div>
+      <div class="field"><div class="field-label">Framing</div><div class="field-value">Program doctrine — design backward from demand</div></div>
+      <div class="field"><div class="field-label">The Reframe</div><div class="field-value">Don't assemble from a catalog — bet opinionatedly on frontier fields</div></div>
+      <div class="field"><div class="field-label">The Ask</div><div class="field-value">Sequence first builds with employer partners in three frontier fields</div></div>
+    </div>
+
+    <div class="side-block">
+      <h3>Key Signals</h3>
+      <div class="signals">
+        <div class="signal"><div class="signal-value">93<small>%</small></div><div class="signal-label">RA completers employed · NIST</div></div>
+        <div class="signal"><div class="signal-value"><small>~$</small>77K</div><div class="signal-label">Avg. starting wage · NIST</div></div>
+        <div class="signal"><div class="signal-value">2.1M</div><div class="signal-label">Mfg jobs unfilled by 2030 · NAM</div></div>
+        <div class="signal"><div class="signal-value"><small>~$</small>164B</div><div class="signal-label">U.S. drone industry by 2030</div></div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <h3>Threads</h3>
+      <div class="pills">
+        <span class="pill">Advanced Mfg</span>
+        <span class="pill">Robotics</span>
+        <span class="pill">Drone Sciences</span>
+        <span class="pill">Applied AI</span>
+        <span class="pill">Earn-and-Learn</span>
+        <span class="pill">Employer Pull</span>
+      </div>
+    </div>
+
+    <div class="side-foot">
+      Figures are from industry / labor reports and flagged for verification against primary sources. Pick 1–2 hero stats per field before presenting.
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div class="eyebrow">Opinionated Strategy · Program Design</div>
+      <div class="headline">Design backward from the job, not forward from the catalog.</div>
+      <div class="subhead">Apprenticeship-degree programs should be designed toward where job demand is actually going — opinionated bets on fields with large unmet demand, real employer pull, and work that suits a work-embedded degree. Three frontier fields score high on all three: Advanced Manufacturing Operations, Drone Sciences, and AI Technology in Business Operations.</div>
+      <ul class="bullets">
+        <li><strong>The field outruns the catalog.</strong> Robotics, drones, and applied AI change faster than course revisions — work-embedded learning stays current by design.</li>
+        <li><strong>Employers are the co-designers.</strong> Frontier demand means employers are desperate for talent now and will sponsor, mentor, and hire — the pull that makes apprenticeship work.</li>
+        <li><strong>Outcomes are already proven.</strong> ~93% of registered-apprenticeship completers gain employment at ~$77K average starting wage (NIST); debt-free earn-and-learn widens the funnel.</li>
+      </ul>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-h"><span class="n">01</span> Advanced Manufacturing</div>
+        <div class="card-b">
+          <ul>
+            <li><span class="stat-lead">2.1M</span> mfg jobs could go unfilled by 2030; ~94% report a skills gap (Deloitte/NAM).</li>
+            <li><span class="stat-lead">97,500</span> advanced-mfg apprentices in 2025, +20% over five years.</li>
+            <li><strong>Shape:</strong> software-driven lines, robotics/cobots, observability.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">02</span> Drone Sciences</div>
+        <div class="card-b">
+          <ul>
+            <li><span class="stat-lead">~$164B</span> U.S. drone industry by 2030 (~13% CAGR); ~650K drone-linked jobs (PwC).</li>
+            <li><strong>Shape:</strong> manufacture, software stack, field deployment, sector applications.</li>
+            <li>Anchored by the FAA Part 107 remote-pilot credential.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">03</span> AI in Business Ops</div>
+        <div class="card-b">
+          <ul>
+            <li><span class="stat-lead">~90% / 9%</span> of orgs use AI but are "AI-mature" — a huge operationalization gap (Gloat).</li>
+            <li>BCG: <strong>50–55% of U.S. jobs reshaped</strong> by AI in 2–3 years.</li>
+            <li><strong>Shape:</strong> applying AI inside operations, not building frontier models.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">04</span> The Design Principle</div>
+        <div class="card-b">
+          <p>Pick fields by <strong>demand signal × employer pull × apprenticeship fit</strong>, then design backward from the job: start with the role an employer is hiring for, work out the competencies, build the degree around the day-to-day work. <strong>Say no</strong> to fields that don't clear all three bars.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="anchor">
+      <div class="anchor-badge">Opinion Is the Product</div>
+      <div class="anchor-text">A program that tries to serve everyone serves no employer well. Point new program design at frontier fields where <strong>earn-and-learn pays off fastest</strong>, map each to specific NCAD member employers who'd co-sponsor, and sequence the first builds with them. <strong>Opinion is the point</strong> — the curriculum lives in the work because the work is where the field stays current.</div>
+    </div>
+
+    <div class="sources">
+      <strong>Sources:</strong> NAM, "2.1 Million Manufacturing Jobs Could Go Unfilled by 2030" • Deloitte, manufacturing skills-gap study • Apprenticeship.gov, "Advanced Manufacturing" (97,500; +20%) • NIST, regional registered-apprenticeship (93% / $77K) • Pilot Institute, drone statistics ($163.6B) • BCG, "AI Will Reshape More Jobs Than It Replaces" • PwC, "AI Jobs Barometer" • Gloat, "AI Skills Demand" — <em>draft narrative; figures pending verification.</em>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="fl">Reach University · Strategies</div>
+    <div>Draft — figures pending verification · 2026</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Improving Literacy &amp; Numeracy in Working Adults — Strategy Brief</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: letter; margin: 0; }
+
+:root {
+  --ink: #1f1646;
+  --ink-dusk: #473e6e;
+  --teal: #218099;
+  --accent: #ff8300;
+  --muted: #5c5578;
+  --surface: #fbf8f5;
+  --border: #e5e0dc;
+  --text: #2a2342;
+  --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --body: 'Soleil', 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body { font-family: var(--body); color: var(--text); background: #eceaf0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.page-container { width: 8.5in; min-height: 11in; background: #fff; display: flex; overflow: hidden; position: relative; }
+@media screen { .page-container { margin: 0.4in auto; box-shadow: 0 2px 24px rgba(31,22,70,0.18); } }
+
+.sidebar { width: 2.45in; flex-shrink: 0; background: var(--ink); color: #fff; padding: 0.32in 0.24in 0.4in 0.24in; display: flex; flex-direction: column; gap: 0.17in; }
+.brand { display: flex; flex-direction: column; gap: 0.05in; padding-bottom: 0.14in; border-bottom: 1px solid rgba(255,255,255,0.18); }
+.wordmark { font-family: var(--heading); font-weight: 800; font-size: 15.5pt; line-height: 1; letter-spacing: 0.2px; }
+.wordmark em { font-style: normal; color: var(--accent); }
+.brand-sub { font-size: 6.8pt; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.62); font-weight: 700; margin-top: 0.04in; }
+.collection-tag { font-size: 7pt; font-style: italic; color: var(--accent); margin-top: 0.02in; }
+
+.side-block { display: flex; flex-direction: column; gap: 0.1in; }
+.side-block h3 { font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--accent); padding-bottom: 0.04in; }
+.field { display: flex; flex-direction: column; gap: 0.015in; }
+.field-label { font-size: 6.3pt; text-transform: uppercase; letter-spacing: 0.4px; color: rgba(255,255,255,0.55); font-weight: 700; }
+.field-value { font-size: 8pt; font-weight: 600; line-height: 1.32; color: #fff; }
+
+.signals { display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 0.02in; }
+.signal { width: 47%; margin-bottom: 0.06in; display: flex; flex-direction: column; gap: 0.01in; }
+.signal-value { font-family: var(--heading); font-size: 12pt; font-weight: 800; line-height: 1; color: #fff; }
+.signal-value small { font-size: 7.5pt; font-weight: 700; }
+.signal-label { font-size: 6pt; line-height: 1.3; color: rgba(255,255,255,0.66); font-weight: 600; }
+
+.pills { display: flex; flex-wrap: wrap; gap: 0.045in; margin-top: 0.02in; }
+.pill { background: rgba(255,255,255,0.13); padding: 0.025in 0.075in; border-radius: 3px; font-size: 5.9pt; font-weight: 700; letter-spacing: 0.2px; white-space: nowrap; }
+
+.side-foot { margin-top: auto; font-size: 6pt; line-height: 1.4; color: rgba(255,255,255,0.5); border-top: 1px solid rgba(255,255,255,0.14); padding-top: 0.1in; }
+
+.main { flex: 1; min-width: 0; padding: 0.32in 0.3in 0.46in 0.3in; display: flex; flex-direction: column; gap: 0.14in; }
+.header { display: flex; flex-direction: column; gap: 0.08in; padding-bottom: 0.13in; border-bottom: 2px solid var(--teal); }
+.eyebrow { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); font-weight: 800; }
+.headline { font-family: var(--heading); font-size: 17pt; font-weight: 800; line-height: 1.12; color: var(--ink); letter-spacing: -0.2px; }
+.subhead { font-size: 8.5pt; font-weight: 400; line-height: 1.45; color: var(--muted); }
+
+.bullets { list-style: none; display: flex; flex-direction: column; gap: 0.05in; margin-top: 0.04in; }
+.bullets li { padding-left: 0.16in; position: relative; font-size: 7.6pt; line-height: 1.4; }
+.bullets li:before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+.bullets strong { color: var(--ink); font-weight: 700; }
+
+.cards { display: flex; flex-wrap: wrap; justify-content: space-between; }
+.card { width: 48.5%; margin-bottom: 0.12in; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+.card-h { background: var(--ink); color: #fff; padding: 0.06in 0.1in; font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 0.06in; }
+.card-h .n { color: var(--accent); font-family: var(--heading); }
+.card-b { padding: 0.09in 0.1in; font-size: 7pt; line-height: 1.46; color: var(--text); }
+.card-b p { margin-bottom: 0.05in; }
+.card-b p:last-child { margin-bottom: 0; }
+.card-b ul { list-style: none; display: flex; flex-direction: column; gap: 0.035in; }
+.card-b ul li { padding-left: 0.12in; position: relative; }
+.card-b ul li:before { content: "•"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+.card-b strong { color: var(--ink); font-weight: 700; }
+.stat-lead { font-family: var(--heading); font-weight: 800; color: var(--accent); font-size: 9pt; }
+
+.anchor { background: var(--surface); border: 2px solid var(--accent); border-radius: 5px; padding: 0.1in 0.13in; display: flex; align-items: center; }
+.anchor-badge { background: var(--accent); color: #fff; padding: 0.07in 0.1in; border-radius: 4px; font-family: var(--heading); font-size: 8.5pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; text-align: center; line-height: 1.1; max-width: 1.05in; flex-shrink: 0; margin-right: 0.13in; }
+.anchor-text { flex: 1; font-size: 7.6pt; line-height: 1.42; color: var(--text); }
+.anchor-text strong { color: var(--ink); font-weight: 700; }
+
+.quote { background: #fff; border-left: 3px solid var(--accent); border-radius: 0 4px 4px 0; padding: 0.07in 0.11in; margin-top: 0.04in; }
+.quote q { font-family: var(--heading); font-style: italic; font-size: 8pt; line-height: 1.4; color: var(--ink); }
+.quote .cite { font-size: 6.3pt; color: var(--muted); margin-top: 0.03in; }
+.quote .cite a { color: var(--teal); text-decoration: none; }
+
+.sources { font-size: 5.9pt; color: #8b8597; line-height: 1.42; padding-top: 0.08in; border-top: 1px solid var(--border); }
+.sources strong { color: var(--ink); font-weight: 700; }
+
+.footer { position: absolute; bottom: 0; left: 2.45in; right: 0; padding: 0.07in 0.3in; background: var(--surface); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 6pt; color: var(--muted); }
+.footer .fl { font-family: var(--heading); font-weight: 800; color: var(--ink); font-size: 7pt; }
+strong, b { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page-container">
+  <div class="sidebar">
+    <div class="brand">
+      <div class="wordmark">Reach<em>·</em>University</div>
+      <div class="brand-sub">Strategy Brief</div>
+      <div class="collection-tag">Strategies collection · Literacy &amp; Numeracy</div>
+    </div>
+
+    <div class="side-block">
+      <h3>The Brief</h3>
+      <div class="field"><div class="field-label">Audience</div><div class="field-value">Philanthropy &amp; foundational-skills grant funders</div></div>
+      <div class="field"><div class="field-label">Framing</div><div class="field-value">Grant-seeking · capability guarantee, not remediation</div></div>
+      <div class="field"><div class="field-label">The Reframe</div><div class="field-value">A degree that durably lifts the skills the labor market pays for</div></div>
+      <div class="field"><div class="field-label">The Ask</div><div class="field-value">Fund validated foundational-skills pedagogy, folded into the degree &amp; measured</div></div>
+    </div>
+
+    <div class="side-block">
+      <h3>Key Signals</h3>
+      <div class="signals">
+        <div class="signal"><div class="signal-value"><small>~+</small>28<small>%</small></div><div class="signal-label">Wages per SD of numeracy · U.S. PIAAC</div></div>
+        <div class="signal"><div class="signal-value"><small>~</small>62<small>%</small></div><div class="signal-label">Service workers w/ limited literacy · AIR</div></div>
+        <div class="signal"><div class="signal-value"><small>~</small>74<small>%</small></div><div class="signal-label">Service workers w/ limited numeracy · AIR</div></div>
+        <div class="signal"><div class="signal-value"><small>~</small>38<small>%</small></div><div class="signal-label">Adults at numeracy Level 3+ · PIAAC 2023</div></div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <h3>Threads</h3>
+      <div class="pills">
+        <span class="pill">Science of Reading</span>
+        <span class="pill">Embedded Numeracy</span>
+        <span class="pill">PIAAC</span>
+        <span class="pill">Economic Mobility</span>
+        <span class="pill">Measured Gains</span>
+      </div>
+    </div>
+
+    <div class="side-foot">
+      Figures came from web snippets and are flagged for verification against primary sources (PIAAC/NCES, Hanushek et al.) before presenting.
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div class="eyebrow">Opinionated Strategy · Foundational Skills</div>
+      <div class="headline">The labor market pays for the skill — not just the diploma.</div>
+      <div class="subhead">Literacy and numeracy independently predict wages and promotions, even controlling for degrees, experience, and demographics. Yet most working adults sit below proficiency, and a credential can be earned without the basics improving. This strategy folds validated foundational-skills pedagogy into the Apprenticeship Degree — and measures the gain — so the degree doesn't just certify, it durably lifts capability.</div>
+      <ul class="bullets">
+        <li><strong>The skills are independently priced.</strong> A sizable earnings premium per standard deviation of numeracy/literacy, robust to controls for education (Hanushek et al., 2015).</li>
+        <li><strong>Most working adults are below the line</strong> — concentrated in exactly the frontline and service-sector workers the Apprenticeship Degree serves.</li>
+        <li><strong>Credential ≠ capability.</strong> Without explicit, measured instruction, the gain is assumed, not assured. We assure it with pre/post measurement.</li>
+      </ul>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-h"><span class="n">01</span> The Quiet Ceiling</div>
+        <div class="card-b">
+          <p>A quiet ceiling caps adult mobility — the two skills underneath every promotion: <strong>literacy and numeracy</strong>. A degree can lift the credential without lifting the ceiling unless the foundational skills move too. Decades of PIAAC evidence show the skill itself is paid for, net of the diploma.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">02</span> The Gap</div>
+        <div class="card-b">
+          <ul>
+            <li><span class="stat-lead">~38%</span> of U.S. adults reach numeracy Level 3+ — a majority below (PIAAC 2023).</li>
+            <li><span class="stat-lead">~62% / 74%</span> of service workers limited in literacy / numeracy (AIR).</li>
+            <li>OECD's latest survey flagged a <strong>decline</strong>, not gains.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">03</span> The Pedagogy Is Ready</div>
+        <div class="card-b">
+          <p>The <strong>science of reading</strong> — the evidence base that reshaped K-12 literacy — is now reaching adult education (ProLiteracy). <strong>Contextualized, embedded numeracy</strong> outperforms decontextualized drill (IES). Both slot into a degree that already teaches <strong>in the flow of work</strong>.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">04</span> Assure the Gain</div>
+        <div class="card-b">
+          <p>The differentiator is <strong>assurance</strong>: pre/post assessment (PIAAC-aligned) so every cohort's gain is visible. That turns the strategy into a fundable, evaluable program — a skill-movement metric sitting upstream of the mobility metric (wage / promotion).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <q>…integrating foundational literacy, numeracy and digital skills directly into workforce training rather than treating them as separate requirements.</q>
+      <div class="cite">— <a href="https://www.luminafoundation.org/news-and-views/a-fragile-foundation-the-skills-gaps-holding-adults-back/">Lumina Foundation</a>, "A fragile foundation: The skills gaps holding adults back," 2026 — a major funder's framing seconds this strategy.</div>
+    </div>
+
+    <div class="anchor">
+      <div class="anchor-badge">Capability Guarantee</div>
+      <div class="anchor-text">Fund the assurance that an Apprenticeship Degree graduate leaves <strong>measurably stronger</strong> in the two skills most tightly linked to lifetime earnings. <strong>Measured gains turn a degree into a capability guarantee</strong> — locking in income and promotion gains and making them real rather than nominal, for the workers most affected.</div>
+    </div>
+
+    <div class="sources">
+      <strong>Sources:</strong> Hanushek, Schwerdt, Wiederhold &amp; Woessmann (2015), "Returns to skills around the world: Evidence from PIAAC" • NCES, "PIAAC Highlights of U.S. National Results" (2023) • AIR, "Do U.S. Adults Have the Skills Needed to Thrive?" • ProLiteracy, "The Science of Reading… in Adult Education" • IES/NCEE, "Adult Education Strategies" • Lumina Foundation (2026) — <em>draft narrative; figures pending verification.</em>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="fl">Reach University · Strategies</div>
+    <div>Draft — figures pending verification · 2026</div>
+  </div>
+</div>
+</body>
+</html>

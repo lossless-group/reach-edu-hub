@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCAD Forge — Agentic Product Development Lab — Strategy Brief</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: letter; margin: 0; }
+
+:root {
+  --ink: #1f1646; --ink-dusk: #473e6e; --teal: #218099; --accent: #ff8300;
+  --muted: #5c5578; --surface: #fbf8f5; --border: #e5e0dc; --text: #2a2342;
+  --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --body: 'Soleil', 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body { font-family: var(--body); color: var(--text); background: #eceaf0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page-container { width: 8.5in; min-height: 11in; background: #fff; display: flex; overflow: hidden; position: relative; }
+@media screen { .page-container { margin: 0.4in auto; box-shadow: 0 2px 24px rgba(31,22,70,0.18); } }
+
+.sidebar { width: 2.45in; flex-shrink: 0; background: var(--ink); color: #fff; padding: 0.32in 0.24in 0.4in 0.24in; display: flex; flex-direction: column; gap: 0.17in; }
+.brand { display: flex; flex-direction: column; gap: 0.05in; padding-bottom: 0.14in; border-bottom: 1px solid rgba(255,255,255,0.18); }
+.wordmark { font-family: var(--heading); font-weight: 800; font-size: 15.5pt; line-height: 1; letter-spacing: 0.2px; }
+.wordmark em { font-style: normal; color: var(--accent); }
+.brand-sub { font-size: 6.8pt; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.62); font-weight: 700; margin-top: 0.04in; }
+.collection-tag { font-size: 7pt; font-style: italic; color: var(--accent); margin-top: 0.02in; }
+
+.side-block { display: flex; flex-direction: column; gap: 0.1in; }
+.side-block h3 { font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--accent); padding-bottom: 0.04in; }
+.field { display: flex; flex-direction: column; gap: 0.015in; }
+.field-label { font-size: 6.3pt; text-transform: uppercase; letter-spacing: 0.4px; color: rgba(255,255,255,0.55); font-weight: 700; }
+.field-value { font-size: 8pt; font-weight: 600; line-height: 1.32; color: #fff; }
+
+.signals { display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 0.02in; }
+.signal { width: 47%; margin-bottom: 0.06in; display: flex; flex-direction: column; gap: 0.01in; }
+.signal-value { font-family: var(--heading); font-size: 12pt; font-weight: 800; line-height: 1; color: #fff; }
+.signal-value small { font-size: 7.5pt; font-weight: 700; }
+.signal-label { font-size: 6pt; line-height: 1.3; color: rgba(255,255,255,0.66); font-weight: 600; }
+
+.pills { display: flex; flex-wrap: wrap; gap: 0.045in; margin-top: 0.02in; }
+.pill { background: rgba(255,255,255,0.13); padding: 0.025in 0.075in; border-radius: 3px; font-size: 5.9pt; font-weight: 700; letter-spacing: 0.2px; white-space: nowrap; }
+
+.side-foot { margin-top: auto; font-size: 6pt; line-height: 1.4; color: rgba(255,255,255,0.5); border-top: 1px solid rgba(255,255,255,0.14); padding-top: 0.1in; }
+
+.main { flex: 1; min-width: 0; padding: 0.32in 0.3in 0.46in 0.3in; display: flex; flex-direction: column; gap: 0.14in; }
+.header { display: flex; flex-direction: column; gap: 0.08in; padding-bottom: 0.13in; border-bottom: 2px solid var(--teal); }
+.eyebrow { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); font-weight: 800; }
+.headline { font-family: var(--heading); font-size: 17pt; font-weight: 800; line-height: 1.12; color: var(--ink); letter-spacing: -0.2px; }
+.subhead { font-size: 8.5pt; font-weight: 400; line-height: 1.45; color: var(--muted); }
+
+.bullets { list-style: none; display: flex; flex-direction: column; gap: 0.05in; margin-top: 0.04in; }
+.bullets li { padding-left: 0.16in; position: relative; font-size: 7.6pt; line-height: 1.4; }
+.bullets li:before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+.bullets strong { color: var(--ink); font-weight: 700; }
+
+.cards { display: flex; flex-wrap: wrap; justify-content: space-between; }
+.card { width: 48.5%; margin-bottom: 0.12in; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+.card-h { background: var(--ink); color: #fff; padding: 0.06in 0.1in; font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 0.06in; }
+.card-h .n { color: var(--accent); font-family: var(--heading); }
+.card-b { padding: 0.09in 0.1in; font-size: 7pt; line-height: 1.46; color: var(--text); }
+.card-b p { margin-bottom: 0.05in; }
+.card-b p:last-child { margin-bottom: 0; }
+.card-b ul { list-style: none; display: flex; flex-direction: column; gap: 0.035in; }
+.card-b ul li { padding-left: 0.12in; position: relative; }
+.card-b ul li:before { content: "•"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+.card-b strong { color: var(--ink); font-weight: 700; }
+.stat-lead { font-family: var(--heading); font-weight: 800; color: var(--accent); font-size: 9pt; }
+
+.anchor { background: var(--surface); border: 2px solid var(--accent); border-radius: 5px; padding: 0.1in 0.13in; display: flex; align-items: center; }
+.anchor-badge { background: var(--accent); color: #fff; padding: 0.07in 0.1in; border-radius: 4px; font-family: var(--heading); font-size: 8.5pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; text-align: center; line-height: 1.1; max-width: 1.05in; flex-shrink: 0; margin-right: 0.13in; }
+.anchor-text { flex: 1; font-size: 7.6pt; line-height: 1.42; color: var(--text); }
+.anchor-text strong { color: var(--ink); font-weight: 700; }
+
+.sources { font-size: 5.9pt; color: #8b8597; line-height: 1.42; padding-top: 0.08in; border-top: 1px solid var(--border); }
+.sources strong { color: var(--ink); font-weight: 700; }
+
+.footer { position: absolute; bottom: 0; left: 2.45in; right: 0; padding: 0.07in 0.3in; background: var(--surface); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 6pt; color: var(--muted); }
+.footer .fl { font-family: var(--heading); font-weight: 800; color: var(--ink); font-size: 7pt; }
+strong, b { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page-container">
+  <div class="sidebar">
+    <div class="brand">
+      <div class="wordmark">NCAD<em> </em>Forge</div>
+      <div class="brand-sub">Strategy Brief · A Reach / NCAD initiative</div>
+      <div class="collection-tag">Strategies collection · Agentic Product Lab</div>
+    </div>
+
+    <div class="side-block">
+      <h3>The Brief</h3>
+      <div class="field"><div class="field-label">Audience</div><div class="field-value">NCAD member institutions, Reach leadership &amp; prospective funders</div></div>
+      <div class="field"><div class="field-label">Framing</div><div class="field-value">Operating proposal — charter a shared lab</div></div>
+      <div class="field"><div class="field-label">The Reframe</div><div class="field-value">The people who understand the problem can finally build the thing</div></div>
+      <div class="field"><div class="field-label">The Ask</div><div class="field-value">Charter &amp; fund the lab — grant-funded, shared-good output</div></div>
+    </div>
+
+    <div class="side-block">
+      <h3>Key Signals</h3>
+      <div class="signals">
+        <div class="signal"><div class="signal-value">2024</div><div class="signal-label">NCAD launched by Reach University</div></div>
+        <div class="signal"><div class="signal-value">2025</div><div class="signal-label">"Vibe coding" named</div></div>
+        <div class="signal"><div class="signal-value">2026</div><div class="signal-label">Tools mature for non-engineers</div></div>
+        <div class="signal"><div class="signal-value"><small>~</small>144<small>h</small></div><div class="signal-label">Related instruction / yr (accreditation)</div></div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <h3>Threads</h3>
+      <div class="pills">
+        <span class="pill">Vibe Coding</span>
+        <span class="pill">Domain Experts</span>
+        <span class="pill">Work ↔ Credit</span>
+        <span class="pill">Voice-First</span>
+        <span class="pill">Shared Infra</span>
+        <span class="pill">Member Network</span>
+      </div>
+    </div>
+
+    <div class="side-foot">
+      Fast-moving facts (tool names, the vibe-coding timeline, accreditation hours, member count) are flagged for verification before presenting.
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div class="eyebrow">Operating Proposal · Shared Lab</div>
+      <div class="headline">Prototype with experts; harden with engineers.</div>
+      <div class="subhead">The Apprenticeship Degree runs on a different technology stack — one that integrates work and learning, gives employers visibility, and delivers chunked, assessable learning to busy adults while meeting accreditation. Historically only expensive engineering teams could build it. As of 2026, agentic "vibe coding" lets the domain experts closest to the problem prototype it themselves. This is the proposal to stand that capability up as a shared lab at NCAD.</div>
+      <ul class="bullets">
+        <li><strong>A different stack — and nobody built it.</strong> Legacy LMSs, university SISs, and online-program platforms each solve a slice; none solve the whole.</li>
+        <li><strong>Who builds has changed.</strong> Vibe coding moved prototyping from the engineering team to the domain expert; engineers still own hardening, scale, and security.</li>
+        <li><strong>One network, one lab.</strong> NCAD's member network pools prototypes so no member rebuilds what another already proved.</li>
+      </ul>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-h"><span class="n">01</span> A Different Stack</div>
+        <div class="card-b">
+          <p>The Apprenticeship Degree must <strong>integrate work and learning</strong> (the job is the curriculum), give employers <strong>visibility and a way to encourage</strong> apprentices, and deliver <strong>chunked learning + assessment</strong> to busy adults — all while satisfying credit-bearing accreditation. Incumbents built parts; the whole is unbuilt.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">02</span> Who Builds Has Changed</div>
+        <div class="card-b">
+          <p>"Vibe coding" — building software by describing intent to an AI — matured by 2026 into something a <strong>non-engineer can ship real prototypes with</strong> (Cursor, v0, Lovable, Bolt, Replit Agent, Claude Code). Engineers are no longer the gate on prototyping; the domain experts who know the problem now build it.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">03</span> How the Lab Works</div>
+        <div class="card-b">
+          <ul>
+            <li><strong>Domain experts prototype</strong> — working software in hours/days.</li>
+            <li><strong>Test</strong> with real cohorts/employers inside member programs.</li>
+            <li><strong>Circulate</strong> across members through NCAD.</li>
+            <li><strong>Engineers harden</strong> what proves out.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">04</span> Candidate First Builds</div>
+        <div class="card-b">
+          <ul>
+            <li>Work ↔ credit mapping (accreditation-legible).</li>
+            <li>Employer visibility &amp; encouragement dashboard.</li>
+            <li>Chunked delivery + stackable assessment.</li>
+            <li><strong>Voice-first evidence capture</strong> — capture in the moment; the commute becomes learning time.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="anchor">
+      <div class="anchor-badge">Charter the Lab</div>
+      <div class="anchor-text">Fund a small standing capability — domain-expert builders + part-time engineering + tool budget — hosted at NCAD, governed by and serving the member network. <strong>Grant-funded, shared-good output</strong>: shared infrastructure for the field, not a commercial bet. <strong>So no member rebuilds what another already proved.</strong></div>
+    </div>
+
+    <div class="sources">
+      <strong>Sources:</strong> NCAD — National Center for the Apprenticeship Degree • NCAD Executive Overview (OADN, 2024) • JFF Work-Based Learning Glossary (~144 hrs related instruction) • Ithaka S+R, "Understanding Work-Based Learning" • "The Vibe Coding Bakeoff" (Bolt/Lovable/Replit/v0) • "Best Vibe Coding Tools 2026" • "Low-Code, High Impact: Why 2026 Belongs to Citizen Developers" — <em>draft narrative; fast-moving facts pending verification.</em>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="fl">NCAD Forge · Reach University · Strategies</div>
+    <div>Draft — figures pending verification · 2026</div>
+  </div>
+</div>
+</body>
+</html>

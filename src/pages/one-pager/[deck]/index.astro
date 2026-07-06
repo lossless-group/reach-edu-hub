@@ -1,0 +1,167 @@
+---
+/**
+ * /one-pager/[deck]/ — wrapper page for a strategy one-pager.
+ * Renders a sticky download bar above an iframe showing the self-contained
+ * one-pager HTML. The PDF is served from public/one-pagers/{slug}/one-pager.pdf.
+ */
+export const prerender = true;
+
+import { DECKS } from "../../../data/decks";
+
+export async function getStaticPaths() {
+  return DECKS.filter((d) => d.onePager).map((d) => ({
+    params: { deck: d.slug },
+    props: { deck: d },
+  }));
+}
+
+const { deck } = Astro.props;
+const htmlSrc = `/one-pagers/${deck.slug}/index.html`;
+const pdfHref = `/one-pagers/${deck.slug}/one-pager.pdf`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{deck.title} — One-Pager</title>
+    <link rel="icon" href="/reach-favicon.png" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; }
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #f5f4f0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .topbar {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.625rem 1.25rem;
+        background: #1f1646;
+        color: #fff;
+        z-index: 10;
+      }
+
+      .topbar__back {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        color: rgba(255,255,255,0.65);
+        text-decoration: none;
+        font-size: 0.75rem;
+        font-family: ui-monospace, 'Cascadia Code', monospace;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: color 0.15s;
+        white-space: nowrap;
+      }
+      .topbar__back:hover { color: #fff; }
+
+      .topbar__divider {
+        width: 1px;
+        height: 1.25rem;
+        background: rgba(255,255,255,0.2);
+        flex-shrink: 0;
+      }
+
+      .topbar__title {
+        flex: 1;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .topbar__label {
+        font-size: 0.6875rem;
+        font-family: ui-monospace, 'Cascadia Code', monospace;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #ff8300;
+        margin-right: 0.25rem;
+      }
+
+      .topbar__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+      }
+
+      .btn-download {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.4375rem 0.875rem;
+        background: #ff8300;
+        color: #1f1646;
+        font-size: 0.75rem;
+        font-weight: 700;
+        font-family: ui-monospace, 'Cascadia Code', monospace;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 2px;
+        transition: background 0.15s, color 0.15s;
+        white-space: nowrap;
+      }
+      .btn-download:hover { background: #e67500; }
+
+      .btn-download svg { flex-shrink: 0; }
+
+      .frame-wrap {
+        flex: 1;
+        overflow: hidden;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="topbar">
+      <a href="/strategies" class="topbar__back">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Strategies
+      </a>
+      <div class="topbar__divider" aria-hidden="true"></div>
+      <p class="topbar__title">
+        <span class="topbar__label">1-Pager</span>{deck.title}
+      </p>
+      <div class="topbar__actions">
+        <a
+          href={pdfHref}
+          download={`${deck.slug}-one-pager.pdf`}
+          class="btn-download"
+        >
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6.5 1.5V9M6.5 9L3.5 6M6.5 9L9.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1.5 11.5H11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Download PDF
+        </a>
+      </div>
+    </nav>
+
+    <div class="frame-wrap">
+      <iframe
+        src={htmlSrc}
+        title={`${deck.title} — One-Pager`}
+        loading="lazy"
+      ></iframe>
+    </div>
+  </body>
+</html>

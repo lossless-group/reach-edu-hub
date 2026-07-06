@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Workflow Maxxing — Strategy Brief</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: letter; margin: 0; }
+
+:root {
+  --ink: #1f1646; --ink-dusk: #473e6e; --teal: #218099; --accent: #ff8300;
+  --muted: #5c5578; --surface: #fbf8f5; --border: #e5e0dc; --text: #2a2342;
+  --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --body: 'Soleil', 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body { font-family: var(--body); color: var(--text); background: #eceaf0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page-container { width: 8.5in; min-height: 11in; background: #fff; display: flex; overflow: hidden; position: relative; }
+@media screen { .page-container { margin: 0.4in auto; box-shadow: 0 2px 24px rgba(31,22,70,0.18); } }
+
+.sidebar { width: 2.45in; flex-shrink: 0; background: var(--ink); color: #fff; padding: 0.32in 0.24in 0.4in 0.24in; display: flex; flex-direction: column; gap: 0.17in; }
+.brand { display: flex; flex-direction: column; gap: 0.05in; padding-bottom: 0.14in; border-bottom: 1px solid rgba(255,255,255,0.18); }
+.wordmark { font-family: var(--heading); font-weight: 800; font-size: 15.5pt; line-height: 1; letter-spacing: 0.2px; }
+.wordmark em { font-style: normal; color: var(--accent); }
+.brand-sub { font-size: 6.8pt; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.62); font-weight: 700; margin-top: 0.04in; }
+.collection-tag { font-size: 7pt; font-style: italic; color: var(--accent); margin-top: 0.02in; }
+
+.side-block { display: flex; flex-direction: column; gap: 0.1in; }
+.side-block h3 { font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--accent); padding-bottom: 0.04in; }
+.field { display: flex; flex-direction: column; gap: 0.015in; }
+.field-label { font-size: 6.3pt; text-transform: uppercase; letter-spacing: 0.4px; color: rgba(255,255,255,0.55); font-weight: 700; }
+.field-value { font-size: 8pt; font-weight: 600; line-height: 1.32; color: #fff; }
+
+.signals { display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 0.02in; }
+.signal { width: 47%; margin-bottom: 0.06in; display: flex; flex-direction: column; gap: 0.01in; }
+.signal-value { font-family: var(--heading); font-size: 12pt; font-weight: 800; line-height: 1; color: #fff; }
+.signal-value small { font-size: 7.5pt; font-weight: 700; }
+.signal-label { font-size: 6pt; line-height: 1.3; color: rgba(255,255,255,0.66); font-weight: 600; }
+
+.pills { display: flex; flex-wrap: wrap; gap: 0.045in; margin-top: 0.02in; }
+.pill { background: rgba(255,255,255,0.13); padding: 0.025in 0.075in; border-radius: 3px; font-size: 5.9pt; font-weight: 700; letter-spacing: 0.2px; white-space: nowrap; }
+
+.side-foot { margin-top: auto; font-size: 6pt; line-height: 1.4; color: rgba(255,255,255,0.5); border-top: 1px solid rgba(255,255,255,0.14); padding-top: 0.1in; }
+
+.main { flex: 1; min-width: 0; padding: 0.32in 0.3in 0.46in 0.3in; display: flex; flex-direction: column; gap: 0.14in; }
+.header { display: flex; flex-direction: column; gap: 0.08in; padding-bottom: 0.13in; border-bottom: 2px solid var(--teal); }
+.eyebrow { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); font-weight: 800; }
+.headline { font-family: var(--heading); font-size: 17pt; font-weight: 800; line-height: 1.12; color: var(--ink); letter-spacing: -0.2px; }
+.subhead { font-size: 8.5pt; font-weight: 400; line-height: 1.45; color: var(--muted); }
+
+.bullets { list-style: none; display: flex; flex-direction: column; gap: 0.05in; margin-top: 0.04in; }
+.bullets li { padding-left: 0.16in; position: relative; font-size: 7.6pt; line-height: 1.4; }
+.bullets li:before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+.bullets strong { color: var(--ink); font-weight: 700; }
+
+.cards { display: flex; flex-wrap: wrap; justify-content: space-between; }
+.card { width: 48.5%; margin-bottom: 0.12in; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+.card-h { background: var(--ink); color: #fff; padding: 0.06in 0.1in; font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 0.06in; }
+.card-h .n { color: var(--accent); font-family: var(--heading); }
+.card-b { padding: 0.09in 0.1in; font-size: 7pt; line-height: 1.46; color: var(--text); }
+.card-b p { margin-bottom: 0.05in; }
+.card-b p:last-child { margin-bottom: 0; }
+.card-b ul { list-style: none; display: flex; flex-direction: column; gap: 0.035in; }
+.card-b ul li { padding-left: 0.12in; position: relative; }
+.card-b ul li:before { content: "•"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+.card-b strong { color: var(--ink); font-weight: 700; }
+.stat-lead { font-family: var(--heading); font-weight: 800; color: var(--accent); font-size: 9pt; }
+
+.anchor { background: var(--surface); border: 2px solid var(--accent); border-radius: 5px; padding: 0.1in 0.13in; display: flex; align-items: center; }
+.anchor-badge { background: var(--accent); color: #fff; padding: 0.07in 0.1in; border-radius: 4px; font-family: var(--heading); font-size: 8.5pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; text-align: center; line-height: 1.1; max-width: 1.05in; flex-shrink: 0; margin-right: 0.13in; }
+.anchor-text { flex: 1; font-size: 7.6pt; line-height: 1.42; color: var(--text); }
+.anchor-text strong { color: var(--ink); font-weight: 700; }
+
+.sources { font-size: 5.9pt; color: #8b8597; line-height: 1.42; padding-top: 0.08in; border-top: 1px solid var(--border); }
+.sources strong { color: var(--ink); font-weight: 700; }
+
+.footer { position: absolute; bottom: 0; left: 2.45in; right: 0; padding: 0.07in 0.3in; background: var(--surface); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 6pt; color: var(--muted); }
+.footer .fl { font-family: var(--heading); font-weight: 800; color: var(--ink); font-size: 7pt; }
+strong, b { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page-container">
+  <div class="sidebar">
+    <div class="brand">
+      <div class="wordmark">Reach<em>·</em>University</div>
+      <div class="brand-sub">Strategy Brief</div>
+      <div class="collection-tag">Strategies collection · Agent Workflow Maxxing</div>
+    </div>
+
+    <div class="side-block">
+      <h3>The Brief</h3>
+      <div class="field"><div class="field-label">Audience</div><div class="field-value">Internal operating doctrine + funder credibility story</div></div>
+      <div class="field"><div class="field-label">Framing</div><div class="field-value">How a small team punches above its weight</div></div>
+      <div class="field"><div class="field-label">The Reframe</div><div class="field-value">Don't do the same work faster — do the work you never had time for</div></div>
+      <div class="field"><div class="field-label">The Ask</div><div class="field-value">Start with one bottleneck, prove it, then maximize</div></div>
+    </div>
+
+    <div class="side-block">
+      <h3>Key Signals</h3>
+      <div class="signals">
+        <div class="signal"><div class="signal-value">89.7<small>%</small></div><div class="signal-label">Social teams using AI daily · Improvado</div></div>
+        <div class="signal"><div class="signal-value">5.4<small>%</small></div><div class="signal-label">Fully automating — augment, don't abdicate</div></div>
+        <div class="signal"><div class="signal-value"><small>$</small>1M<small>+</small></div><div class="signal-label">Pipeline in 3 months · 11x / Questex</div></div>
+        <div class="signal"><div class="signal-value">100<small>h</small></div><div class="signal-label">Per grant → a fraction (practitioner)</div></div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <h3>Threads</h3>
+      <div class="pills">
+        <span class="pill">ABM / Sales</span>
+        <span class="pill">Travel</span>
+        <span class="pill">Events</span>
+        <span class="pill">Grants</span>
+        <span class="pill">Social</span>
+        <span class="pill">Human-in-Loop</span>
+      </div>
+    </div>
+
+    <div class="side-foot">
+      All stats are vendor / anecdote-sourced and flagged for verification. Tool landscape moves fast — names are as of mid-2026.
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div class="eyebrow">Operating Strategy · Small-Team Leverage</div>
+      <div class="headline">Operate like a team several times your size — and stop triaging away the high-leverage work.</div>
+      <div class="subhead">Two effects, not one. Agents reduce overwhelm on work the team already does (the inbox, the follow-ups, the prep), and they enable work that wasn't possible at the team's size — ten outreach threads at once, conference outreach nine months ahead, a grant corpus that drafts itself. The discipline that makes it safe: humans stay on anything that goes outward.</div>
+      <ul class="bullets">
+        <li><strong>Reduce overwhelm AND enable the impossible-at-your-size.</strong> The win isn't "the same work faster" — it's the long-horizon, high-leverage work a busy team always drops.</li>
+        <li><strong>Humans on anything outward.</strong> Sent, published, submitted stays human-approved; agents research, draft, schedule, monitor, prepare — people approve and act.</li>
+        <li><strong>Build the corpus + brand voice once, reuse everywhere.</strong> Grants, outreach, social, and event copy all draw from one source of truth.</li>
+      </ul>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-h"><span class="n">01</span> Sales / ABM &amp; Travel</div>
+        <div class="card-b">
+          <ul>
+            <li><strong>ABM:</strong> prospect research, enrichment, sequencing, reply-triage — one person tends many threads.</li>
+            <li><strong>Travel:</strong> build the itinerary, fill meetings around the dates, optimize drive-time, queue follow-ups.</li>
+            <li><em>Tools:</em> Clay, Apollo, 11x; Badger/Circuit; n8n.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">02</span> Events — 9 Months Ahead</div>
+        <div class="card-b">
+          <p>Events reward people who start absurdly early. Agents track CFP deadlines, run speaker/sponsor outreach 9+ months out, scrape attendee lists, place pitches, set meetings, and generate per-meeting prep briefs — exactly the long-horizon work a busy team drops. <em>Tools:</em> Apollo/Instantly, Fireflies, Firecrawl/Apify, n8n.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">03</span> Grants &amp; Social</div>
+        <div class="card-b">
+          <ul>
+            <li><strong>Grants:</strong> a reusable corpus + snippet library that drafts applications, form fill-outs, and DDQs against the funder's prompts.</li>
+            <li><strong>Social:</strong> monitor stakeholders, surface timely opportunities, <strong>draft</strong> — a human posts (respect platform ToS).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">04</span> The Guardrails</div>
+        <div class="card-b">
+          <ul>
+            <li>Humans on anything outward.</li>
+            <li>Start with one bottleneck; prove it, then expand.</li>
+            <li>Keep asset libraries agents pull from, so output is on-brand.</li>
+            <li>Measure both axes — time saved <em>and</em> work newly possible.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="anchor">
+      <div class="anchor-badge">Augment, Don't Abdicate</div>
+      <div class="anchor-text">~89.7% of social teams use AI daily but only ~5.4% fully automate — the data backs human-in-the-loop. <strong>Agents reduce overwhelm and enable the impossible-at-your-size</strong>; people stay on the action. Pick the right altitude — no-code glue (n8n/Zapier) → custom frameworks (LangGraph/CrewAI) → vertical tools (11x, Grantable) — and <strong>start with one bottleneck</strong>.</div>
+    </div>
+
+    <div class="sources">
+      <strong>Sources:</strong> 11x, "13 Best AI Sales Agent Tools (2026)" • Tribble, "Best AI Sales Agent Software 2026" • Improvado, "Will AI Replace Social Media Managers?" (89.7% / 5.4%) • Outreach, "Meeting Prep Agent" • Instrumentl &amp; Grant Assistant (AI grant writing) • LinkedIn, "Avoiding automated engagement penalties" • LangChain &amp; Firecrawl (agent frameworks) — <em>draft narrative; vendor/anecdote figures pending verification.</em>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="fl">Reach University · Strategies</div>
+    <div>Draft — figures pending verification · 2026</div>
+  </div>
+</div>
+</body>
+</html>

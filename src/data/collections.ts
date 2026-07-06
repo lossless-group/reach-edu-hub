@@ -66,6 +66,8 @@ export function getCollection(slug: string): Collection | undefined {
 export interface CollectionDeck extends Deck {
   /** Deep link into the deck's default variant scroll page. */
   href: string;
+  /** Present when a one-pager exists — links to the wrapper page. */
+  onePagerHref?: string;
 }
 
 /** Resolve a collection's deckSlugs against DECKS, in listed order. Decks that
@@ -80,7 +82,11 @@ export function getCollectionDecks(slug: string): CollectionDeck[] {
     if (!deck) continue; // drafted narrative without a built deck — skip
     const defaultVariant = deck.variants[0];
     if (!defaultVariant) continue;
-    out.push({ ...deck, href: `/scroll/${deck.slug}/${defaultVariant.slug}` });
+    out.push({
+      ...deck,
+      href: `/scroll/${deck.slug}/${defaultVariant.slug}`,
+      ...(deck.onePager ? { onePagerHref: `/one-pager/${deck.slug}/` } : {}),
+    });
   }
   return out;
 }
