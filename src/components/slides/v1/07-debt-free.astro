@@ -1,0 +1,39 @@
+---
+/**
+ * Play-UI 07 · Debt-Free Matters More Here — recreated from T07-DebtFree.astro
+ */
+import '../../../styles/global.css';
+import '../../../styles/theme.css';
+import '../../../styles/play-primitives.css';
+
+const points = [
+  { k: "Debt-aversion runs higher", d: "Many rural candidates would never sign for a loan. A no-debt path turns a hard no into a yes." },
+  { k: "Lower baselines, bigger relative lift", d: "Where incomes start lower, the same raise is a larger share of household earnings." },
+  { k: "The raise isn't clawed back", d: "No monthly loan payment skims the gain — net income rises the full amount, and stays risen." },
+];
+---
+<div class="play-canvas">
+<section class="play-section" data-slot="07" data-variant="v1">
+  <span class="play-kicker">07 / 11</span>
+
+  <div style="max-width: 1300px;">
+    <p class="play-eyebrow" style="margin: 0 0 16px;">Why it fits rural</p>
+    <h2 class="play-h2">Debt-free is worth <span class="play-gradient">more</span> where incomes are lower.</h2>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 0; margin-top: 8px; max-width: 1300px;">
+    {points.map((p, i) => (
+      <div>
+        <div style="display: flex; align-items: flex-start; gap: 20px; padding: 20px 0;">
+          <span class="play-stat-label" style="color: var(--color-accent, #ff8300); padding-top: 4px; font-size: 18px;">0{i + 1}</span>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <p style="font-family: var(--font-heading, 'Playfair Display', serif); font-size: 22px; font-weight: 700; color: var(--color-text, #1f1646); margin: 0;">{p.k}</p>
+            <p style="color: var(--color-text-muted, #5c5578); font-size: 17px; line-height: 1.55; margin: 0;">{p.d}</p>
+          </div>
+        </div>
+        {i < points.length - 1 && <div class="play-rule"></div>}
+      </div>
+    ))}
+  </div>
+</section>
+</div>

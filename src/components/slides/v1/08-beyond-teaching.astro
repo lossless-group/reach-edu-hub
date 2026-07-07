@@ -1,0 +1,47 @@
+---
+/**
+ * Play-UI 08 · Beyond Teaching — recreated from T08-BeyondTeaching.astro
+ */
+import '../../../styles/global.css';
+import '../../../styles/theme.css';
+import '../../../styles/play-primitives.css';
+
+const sectors = [
+  { tag: "Live", k: "Teaching", d: "The proven first front — grow-your-own teachers for districts that can't recruit." },
+  { tag: "New · Apr 2026", k: "Health", d: "Reach + a training fund launched an Apprenticeship College of Health, including a behavioral-health pathway.", cite: "1" },
+  { tag: "Next", k: "More sectors", d: "Any rural workforce desert with employer demand is a candidate for the same earn-and-learn engine." },
+];
+---
+<div class="play-canvas">
+<section class="play-section" data-slot="08" data-variant="v1">
+  <span class="play-kicker">08 / 11</span>
+
+  <div style="max-width: 1300px;">
+    <p class="play-eyebrow" style="margin: 0 0 12px;">Multi-sector expansion</p>
+    <h2 class="play-h2">The engine isn't only for teachers — <span class="play-gradient">it's generalizing.</span></h2>
+  </div>
+
+  <div class="play-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 8px; align-items: stretch;">
+    {sectors.map((s) => (
+      <div class="play-card" style="display: flex; flex-direction: column; gap: 14px;">
+        <span class="play-chip">{s.tag}</span>
+        <p style="font-family: var(--font-heading, 'Playfair Display', serif); font-size: 28px; font-weight: 700; color: var(--color-text, #1f1646); margin: 0;">{s.k}</p>
+        <p style="color: var(--color-text-muted, #5c5578); font-size: 16px; line-height: 1.5; margin: 0;">
+          {s.d}{s.cite && <sup class="play-cite">[{s.cite}]</sup>}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="play-lede" style="max-width: 1350px; margin-top: 8px;">
+    Rural healthcare deserts are a natural second front. The behavioral-health pathway was
+    seeded by The Goodness Web at $1M<sup class="play-cite">[2]</sup> — the
+    same place-based income logic, a different workforce shortage.
+  </p>
+
+  <div class="play-sources">
+    <span class="play-sources__item"><b>[1]</b> "Reach University and Training Fund Launch Apprenticeship College of Health" — Reach University, 2026-04-09</span>
+    <span class="play-sources__item"><b>[2]</b> "$1M Grant to Expand Apprenticeship Degrees in Behavioral Health" — The Goodness Web Foundation, 2025-02-20</span>
+  </div>
+</section>
+</div>

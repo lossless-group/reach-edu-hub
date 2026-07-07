@@ -1,0 +1,79 @@
+---
+/**
+ * Play-UI 10 · Supporters & Funder Pipeline — recreated from T10-FunderPipeline.astro
+ */
+import '../../../styles/global.css';
+import '../../../styles/theme.css';
+import '../../../styles/play-primitives.css';
+
+const tiers = [
+  {
+    chip: "National",
+    role: "Large philanthropies & policy champions — fund expansion, lend credibility.",
+    items: [
+      { name: "Carnegie Corporation of New York", note: "$2M · Teachers College, Delta Region", cite: "1" },
+      { name: "The Goodness Web", note: "$1M · behavioral-health pathway", cite: "2" },
+      { name: "Continued philanthropic funding", note: "actively being sought" },
+    ],
+  },
+  {
+    chip: "Regional / State",
+    role: "Agencies, regional foundations & multi-district consortia that match national grants to local delivery.",
+    items: [
+      { name: "State education & workforce agencies", note: "seed list TBD" },
+      { name: "Regional foundations", note: "seed list TBD" },
+      { name: "Multi-district consortia", note: "seed list TBD" },
+    ],
+  },
+  {
+    chip: "Local",
+    role: "Where the income lands — and where local co-funding proves demand.",
+    items: [
+      { name: "Employers — districts & health systems", note: "seed list TBD" },
+      { name: "Community foundations", note: "seed list TBD" },
+      { name: "Local businesses", note: "seed list TBD" },
+    ],
+  },
+];
+---
+<div class="play-canvas">
+<section class="play-section" data-slot="10" data-variant="v1">
+  <span class="play-kicker">10 / 11</span>
+
+  <div style="max-width: 1300px;">
+    <p class="play-eyebrow" style="margin: 0 0 12px;">Supporters & funder pipeline</p>
+    <h2 class="play-h2">Assembled across tiers — <span class="play-gradient">national down to local.</span></h2>
+  </div>
+
+  <div class="play-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 8px; align-items: stretch;">
+    {tiers.map((t) => (
+      <div class="play-card" style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span class="play-chip">{t.chip}</span>
+          <p style="color: var(--color-text-muted, #5c5578); font-size: 15px; line-height: 1.45; margin: 0;">{t.role}</p>
+        </div>
+        <div class="play-rule"></div>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+          {t.items.map((it) => (
+            <li style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: var(--font-heading, 'Playfair Display', serif); font-size: 17px; font-weight: 700; color: var(--color-text, #1f1646);">
+                {it.name}{it.cite && <sup class="play-cite">[{it.cite}]</sup>}
+              </span>
+              <span class="play-stat-label" style="font-size: 12px;">{it.note}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <p class="play-lede" style="max-width: 1500px; margin-top: 8px; color: var(--color-text, #1f1646);">
+    Funded top-down, proven bottom-up: <span class="play-gradient">national grants, regional match, local co-funding.</span>
+  </p>
+
+  <div class="play-sources">
+    <span class="play-sources__item"><b>[1]</b> Reach University secures $2M grant from Carnegie Corporation of New York — 2026-05-14</span>
+    <span class="play-sources__item"><b>[2]</b> The Goodness Web, $1M behavioral-health pathway grant — 2025-02-20</span>
+  </div>
+</section>
+</div>

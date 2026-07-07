@@ -1,0 +1,52 @@
+---
+/**
+ * Play-UI 09 · The Evidence — recreated from T09-Evidence.astro
+ */
+import '../../../styles/global.css';
+import '../../../styles/theme.css';
+import '../../../styles/play-primitives.css';
+
+const proof = [
+  {
+    quote: "Earn-and-learn programs “can lead to higher pay, produce little student debt, and increase employee retention.”",
+    source: "— GAO, 2025",
+    cite: "1",
+  },
+  {
+    quote: "The Apprenticeship Degree promotes upward mobility while addressing chronic labor shortages.",
+    source: "— Progressive Policy Institute",
+    cite: "2",
+  },
+  {
+    quote: "Strong grow-your-own pipelines mean districts “no longer need job fairs.”",
+    source: "— District outcome, Reach (unverified)",
+  },
+];
+---
+<div class="play-canvas">
+<section class="play-section" data-slot="09" data-variant="v1">
+  <span class="play-kicker">09 / 11</span>
+
+  <div style="max-width: 1300px;">
+    <p class="play-eyebrow" style="margin: 0 0 12px;">The evidence</p>
+    <h2 class="play-h2">The pattern is documented — <span class="play-gradient">pay, debt, retention.</span></h2>
+  </div>
+
+  <div class="play-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 8px;">
+    {proof.map((p) => (
+      <figure class="play-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 18px; margin: 0;">
+        <div class="play-accent-bar"></div>
+        <blockquote style="font-family: var(--font-heading, 'Playfair Display', serif); font-size: 20px; line-height: 1.4; color: var(--color-text, #1f1646); margin: 0;">
+          {p.quote}{p.cite && <sup class="play-cite">[{p.cite}]</sup>}
+        </blockquote>
+        <figcaption class="play-stat-label">{p.source}</figcaption>
+      </figure>
+    ))}
+  </div>
+
+  <div class="play-sources">
+    <span class="play-sources__item"><b>[1]</b> GAO-25-107040 — U.S. GAO, 2025-05-28</span>
+    <span class="play-sources__item"><b>[2]</b> "PPI: The Apprenticeship Degree" — Progressive Policy Institute / Reach University, 2025-06-01</span>
+  </div>
+</section>
+</div>

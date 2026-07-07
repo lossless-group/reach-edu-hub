@@ -1,0 +1,41 @@
+---
+/**
+ * Play-UI 05 · The Raise — recreated from T05-TheRaise.astro
+ */
+import '../../../styles/global.css';
+import '../../../styles/theme.css';
+import '../../../styles/play-primitives.css';
+---
+<div class="play-canvas">
+<section class="play-section" data-slot="05" data-variant="v1" style="justify-content: center;">
+  <span class="play-kicker">05 / 11</span>
+
+  <div style="max-width: 1400px;">
+    <p class="play-eyebrow" style="margin: 0 0 20px;">The raise</p>
+
+    <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px;">
+      <span class="play-stat">≈ +$27,000<span style="font-size: 0.35em; color: var(--color-text-muted, #5c5578); font-family: var(--font-mono, 'Courier New', monospace); letter-spacing: 0.05em;"> / yr</span></span>
+      <p class="play-stat-label">
+        National median: teacher assistant ($35,240/yr) → elementary/kindergarten teacher ($62,310/yr)<sup class="play-cite">[1]</sup>
+      </p>
+    </div>
+
+    <div class="play-rule" style="max-width: 224px; margin-bottom: 32px;"></div>
+
+    <p class="play-lede" style="max-width: 1024px;">
+      The terminal step isn't a certificate — it's a pay grade. Licensure moves an
+      apprentice from a support role into a credentialed, higher-wage one, and because
+      the credential came debt-free, the full delta lands as <span style="color: var(--color-text, #1f1646); font-weight: 600;">durable, net income.</span>
+    </p>
+    <p class="play-lede" style="max-width: 1024px; margin-top: 16px; font-size: 17px;">
+      The figure above is a national BLS median comparison — directional, not a Reach outcome.
+      The exact delta for Reach's rural footprint must come from state salary schedules and
+      Reach outcome data — pending, not estimated.
+    </p>
+  </div>
+
+  <div class="play-sources">
+    <span class="play-sources__item"><b>[1]</b> "Teacher Assistants — Occupational Outlook Handbook" — U.S. Bureau of Labor Statistics, 2024-05-01</span>
+  </div>
+</section>
+</div>

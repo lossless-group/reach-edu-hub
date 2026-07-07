@@ -1,0 +1,40 @@
+---
+/**
+ * Play-UI 02 · The Rural Bind — recreated from T02-RuralBind.astro
+ */
+import '../../../styles/global.css';
+import '../../../styles/theme.css';
+import '../../../styles/play-primitives.css';
+
+const loop = [
+  { k: "Shortages", d: "Rural districts and health systems can't fill roles — teachers first, then healthcare and beyond." },
+  { k: "No local pipeline", d: "Degrees mean leaving town; few come back. Recruiting outsiders rarely sticks." },
+  { k: "Brain drain", d: "The few who do credential up take their earnings to a metro — talent and income both exit." },
+  { k: "Lower incomes", d: "Fewer credentialed, higher-paid workers locally — so the shortage deepens." },
+];
+---
+<div class="play-canvas">
+<section class="play-section" data-slot="02" data-variant="v1">
+  <span class="play-kicker">02 / 11</span>
+
+  <div>
+    <p class="play-eyebrow" style="margin: 0 0 12px;">The problem</p>
+    <h2 class="play-h2">Rural communities are caught in a loop that exports their own talent.</h2>
+  </div>
+
+  <div class="play-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: 8px;">
+    {loop.map((item, i) => (
+      <div class="play-card" style="display: flex; flex-direction: column; gap: 10px;">
+        <span class="play-stat-label">Step {i + 1}{i === loop.length - 1 ? " ↺" : " →"}</span>
+        <p style="font-family: var(--font-heading, 'Playfair Display', serif); font-size: 22px; font-weight: 700; color: var(--color-text, #1f1646); margin: 0;">{item.k}</p>
+        <p style="color: var(--color-text-muted, #5c5578); font-size: 16px; line-height: 1.5; margin: 0;">{item.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="play-lede" style="max-width: 1200px; margin-top: 8px;">
+    Every turn of the loop makes the next worse. Breaking it needs an intervention
+    at the hinge — <span style="color: var(--color-text, #1f1646); font-weight: 600;">income earned and kept locally.</span>
+  </p>
+</section>
+</div>

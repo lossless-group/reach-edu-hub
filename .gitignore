@@ -4,6 +4,9 @@ dist/
 # generated types
 .astro/
 
+# deck export artifacts (PDFs, PNGs, PPTX) — regenerate via scripts/export-*.mjs
+exports/
+
 # dependencies
 node_modules/
 

@@ -87,12 +87,24 @@
         "rankedAt": "2026-07-07T06:42:46.282Z",
         "rankedBy": "founder",
         "notes": null
+      },
+      "play": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T08:04:42.918Z",
+        "rankedBy": "founder",
+        "notes": null
       }
     },
     "rural-income/v1/02": {
       "scroll": {
         "status": "passable",
         "rankedAt": "2026-07-07T06:43:06.873Z",
+        "rankedBy": "founder",
+        "notes": null
+      },
+      "play": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T08:04:45.480Z",
         "rankedBy": "founder",
         "notes": null
       }
@@ -103,12 +115,24 @@
         "rankedAt": "2026-07-07T06:43:15.058Z",
         "rankedBy": "founder",
         "notes": null
+      },
+      "play": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T08:04:47.229Z",
+        "rankedBy": "founder",
+        "notes": null
       }
     },
     "rural-income/v1/04": {
       "scroll": {
         "status": "urgent-redo",
         "rankedAt": "2026-07-07T06:43:35.011Z",
+        "rankedBy": "founder",
+        "notes": null
+      },
+      "play": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T08:04:50.712Z",
         "rankedBy": "founder",
         "notes": null
       }
@@ -119,12 +143,24 @@
         "rankedAt": "2026-07-07T06:43:53.443Z",
         "rankedBy": "founder",
         "notes": null
+      },
+      "play": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T08:04:54.963Z",
+        "rankedBy": "founder",
+        "notes": null
       }
     },
     "rural-income/v1/06": {
       "scroll": {
         "status": "non-urgent-could-be-better",
         "rankedAt": "2026-07-07T06:44:07.375Z",
+        "rankedBy": "founder",
+        "notes": null
+      },
+      "play": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T08:04:59.721Z",
         "rankedBy": "founder",
         "notes": null
       }
@@ -135,12 +171,24 @@
         "rankedAt": "2026-07-07T06:44:20.508Z",
         "rankedBy": "founder",
         "notes": null
+      },
+      "play": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T08:05:07.011Z",
+        "rankedBy": "founder",
+        "notes": null
       }
     },
     "rural-income/v1/08": {
       "scroll": {
         "status": "non-urgent-could-be-better",
         "rankedAt": "2026-07-07T06:44:41.542Z",
+        "rankedBy": "founder",
+        "notes": null
+      },
+      "play": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T08:05:09.254Z",
         "rankedBy": "founder",
         "notes": null
       }
@@ -151,6 +199,12 @@
         "rankedAt": "2026-07-07T06:44:53.842Z",
         "rankedBy": "founder",
         "notes": null
+      },
+      "play": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T08:05:11.446Z",
+        "rankedBy": "founder",
+        "notes": null
       }
     },
     "rural-income/v1/10": {
@@ -159,12 +213,24 @@
         "rankedAt": "2026-07-07T06:45:20.824Z",
         "rankedBy": "founder",
         "notes": null
+      },
+      "play": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T08:05:13.322Z",
+        "rankedBy": "founder",
+        "notes": null
       }
     },
     "rural-income/v1/11": {
       "scroll": {
         "status": "non-urgent-could-be-better",
         "rankedAt": "2026-07-07T06:45:25.849Z",
+        "rankedBy": "founder",
+        "notes": null
+      },
+      "play": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T08:05:16.090Z",
         "rankedBy": "founder",
         "notes": null
       }

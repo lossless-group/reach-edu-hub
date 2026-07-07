@@ -1,0 +1,48 @@
+---
+/**
+ * Play-UI 11 · The Ask — recreated from T11-Ask.astro
+ */
+import '../../../styles/global.css';
+import '../../../styles/theme.css';
+import '../../../styles/play-primitives.css';
+
+const next = [
+  { k: "Reach", d: "Delivers the model, the credential, and the rural cohort outcomes — and scales it through NCAD." },
+  { k: "Funders", d: "Co-fund across the pipeline so national grants reach regional match and local delivery." },
+];
+---
+<div class="play-canvas">
+<section class="play-section play-glow" data-slot="11" data-variant="v1" style="justify-content: center;">
+  <span class="play-kicker">11 / 11</span>
+
+  <div style="max-width: 1400px;">
+    <p class="play-eyebrow" style="margin: 0 0 20px;">Scale & the ask</p>
+
+    <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px;">
+      <span class="play-stat">3 million<sup class="play-cite">[1]</sup></span>
+      <p class="play-stat-label">Apprenticeship Degree completions by 2035 · anchored by NCAD, a goal set at the 2023 Clinton Global Initiative</p>
+    </div>
+
+    <h2 class="play-h2" style="margin-bottom: 32px;">Let's fund the next rural cohorts — <span class="play-gradient">together.</span></h2>
+
+    <div class="play-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 32px;">
+      {next.map((n) => (
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span class="play-stat-label" style="color: var(--color-secondary, #218099); font-size: 15px;">{n.k}</span>
+          <p style="color: var(--color-text-muted, #5c5578); font-size: 17px; line-height: 1.5; margin: 0;">{n.d}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="play-rule" style="max-width: 224px; margin-bottom: 32px;"></div>
+
+    <p class="play-lede" style="max-width: 960px; color: var(--color-text, #1f1646); font-size: 28px;">
+      The raise is the point — and the income stays local.
+    </p>
+  </div>
+
+  <div class="play-sources">
+    <span class="play-sources__item"><b>[1]</b> NCAD — 3 Million Apprenticeship Degree Completions by 2035, Reach University</span>
+  </div>
+</section>
+</div>

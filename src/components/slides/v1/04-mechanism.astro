@@ -1,0 +1,45 @@
+---
+/**
+ * Play-UI 04 · The Mechanism — recreated from T04-Mechanism.astro
+ */
+import '../../../styles/global.css';
+import '../../../styles/theme.css';
+import '../../../styles/play-primitives.css';
+
+const steps = [
+  { k: "Paid throughout", d: "The apprentice is an employee earning wages the whole way — learning while earning, not borrowing to learn.", cite: "1" },
+  { k: "Debt-free credential", d: "No tuition debt to service, so the post-credential raise is net income — not partly clawed back by loans." },
+  { k: "The role upgrade", d: "Licensure unlocks a materially higher-paid role — paraprofessional or aide steps up to licensed teacher." },
+  { k: "Retention", d: "Grow-your-own apprentices stay rooted, sustaining the income gain and stabilizing the local pipeline." },
+];
+---
+<div class="play-canvas">
+<section class="play-section" data-slot="04" data-variant="v1">
+  <span class="play-kicker">04 / 11</span>
+
+  <div>
+    <p class="play-eyebrow" style="margin: 0 0 12px;">The mechanism</p>
+    <h2 class="play-h2">Start with a job, <span class="play-gradient">end with a better one.</span></h2>
+  </div>
+
+  <div class="play-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: 8px;">
+    {steps.map((step, i) => (
+      <div class="play-card" style="display: flex; flex-direction: column; gap: 10px;">
+        <span class="play-stat" style="font-size: 44px;">{String(i + 1).padStart(2, "0")}</span>
+        <p style="font-family: var(--font-heading, 'Playfair Display', serif); font-size: 21px; font-weight: 700; color: var(--color-text, #1f1646); margin: 0;">{step.k}</p>
+        <p style="color: var(--color-text-muted, #5c5578); font-size: 16px; line-height: 1.5; margin: 0;">
+          {step.d}{step.cite && <sup class="play-cite">[{step.cite}]</sup>}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="play-lede" style="max-width: 1200px; margin-top: 8px;">
+    Each step compounds the last — and none of it requires leaving town or taking on debt.
+  </p>
+
+  <div class="play-sources">
+    <span class="play-sources__item"><b>[1]</b> GAO-25-107040, "Apprenticeship: Earn-And-Learn Opportunities Can Benefit Workers and Employers" — U.S. GAO, 2025-05-28</span>
+  </div>
+</section>
+</div>

@@ -1,0 +1,241 @@
+/* ============================================================================
+   play-primitives.css — fixed-px Play-UI counterpart to deck-primitives.css.
+
+   Play-UI slides render inside @dididecks/shell's Play surface, a literal
+   1920x1080 design-space stage — no responsive units, no JS. Every value
+   here is a fixed px equivalent of deck-primitives.css's clamp()/vw/vh
+   range, sized up for a wide 16:9 canvas rather than a narrow scroll
+   column, since that's the fidelity target ("recreate, don't extract" —
+   CLAUDE.md) — a literal port of scroll-proportioned spacing reads as
+   sparse/empty on a 16:9 stage.
+
+   Same token contract as deck-primitives.css: only color, font, and fx
+   semantic tokens from theme.css (--color-background, --font-heading,
+   --fx-headline-gradient, etc.) — BUT every reference here carries an
+   explicit fallback to the light-mode literal value. Unlike Scroll-UI
+   pages, the shell's /play route sets no default `data-mode` attribute
+   at all (confirmed: it's literally absent until a viewer manually
+   toggles it), so any token used without a fallback resolves to nothing —
+   black text on a transparent background. The fallback is what makes
+   "no mode set" look like light mode instead of unstyled.
+   ============================================================================ */
+
+/* .play-canvas is the outer, RESPONSIVE box — it fills whatever container
+   the shell's /play route hands it (confirmed: DeckFrame--Play-UI's
+   `.ddd-frame__stage` is a plain `place-items:center` grid with NO scaling
+   of its own — a fixed-size child inside it just overflows or leaves gaps,
+   which is exactly the "bleeds off the page" bug). Paints the page
+   background across the full box first, so no dark shell-default peeks
+   through in any gap.
+
+   .play-section is the FIXED 1920x1080 design-space stage, scaled down
+   (never up) via CSS transform computed from container-query units — the
+   same technique @dididecks/shell's own SlideCanvas.astro uses elsewhere,
+   applied here directly since this route doesn't provide it. `min()` picks
+   whichever axis is the binding constraint so non-16:9 containers letterbox
+   instead of stretching or clipping. */
+.play-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-background, #ffffff);
+  container-type: size;
+}
+
+/* DeckFrame--Play-UI's `.ddd-frame__stage` carries `padding: 3.5rem 0` to
+   give the top/bottom chrome bars breathing room — that padding sits
+   OUTSIDE .play-canvas's box, so .play-canvas's own background can't paint
+   over it, leaving the shell's dark stage-background visible as a bar top
+   and bottom. Only zero it out once chrome is actually hidden (export/
+   review mode) — normal interactive viewing keeps the intended spacing. */
+[data-chrome-hidden="true"] .ddd-frame__stage {
+  padding: 0 !important;
+}
+
+.play-section {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: top left;
+  transform: scale(min(calc(100cqw / 1920px), calc(100cqh / 1080px)));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  padding: 96px 140px;
+  background: var(--color-background, #ffffff);
+  color: var(--color-text, #1f1646);
+  overflow: hidden;
+}
+
+/* Corner labels (header crumbs, footer marks) — absolutely positioned so they
+   don't participate in the main flex distribution and force awkward gaps
+   around otherwise-short center content. Use these instead of flex
+   header/footer rows on text-driven slides. */
+.play-corner {
+  position: absolute;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #5c5578);
+}
+.play-corner--tl { top: 56px; left: 140px; }
+.play-corner--tr { top: 56px; right: 140px; }
+.play-corner--bl { bottom: 56px; left: 140px; }
+.play-corner--br { bottom: 56px; right: 140px; }
+
+.play-kicker {
+  position: absolute;
+  top: 56px;
+  right: 140px;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  color: var(--color-text-muted, #5c5578);
+}
+
+.play-eyebrow {
+  font-family: var(--font-mono, 'Courier New', monospace);
+  font-size: 17px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent, #ff8300);
+  font-weight: 600;
+}
+
+.play-h1 {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-weight: 700;
+  font-size: 118px;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 16ch;
+}
+
+.play-h2 {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-weight: 700;
+  font-size: 66px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0;
+  max-width: 20ch;
+}
+
+.play-gradient {
+  background: var(--fx-headline-gradient, linear-gradient(120deg, #1f1646 0%, #218099 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.play-lede {
+  font-family: var(--font-body, 'Soleil', system-ui, -apple-system, sans-serif);
+  font-size: 32px;
+  line-height: 1.55;
+  color: var(--color-text-muted, #5c5578);
+  max-width: 52ch;
+  margin: 0;
+}
+
+.play-card {
+  background: var(--color-surface, #fbf8f5);
+  border: 1px solid var(--color-border, #e5e0dc);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--fx-card-shadow, 0 1px 3px rgba(31, 22, 70, 0.06), 0 1px 2px rgba(31, 22, 70, 0.04));
+}
+
+[data-mode="dark"] .play-card {
+  background: color-mix(in srgb, var(--color-surface) 38%, var(--color-background));
+  border-color: color-mix(in srgb, var(--color-text) 14%, transparent);
+}
+
+.play-stat {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-weight: 700;
+  font-size: 156px;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: var(--color-accent, #ff8300);
+}
+
+.play-stat-label {
+  font-family: var(--font-mono, 'Courier New', monospace);
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #5c5578);
+}
+
+.play-grid { display: grid; gap: 32px; }
+.play-rule { height: 1px; background: var(--color-border, #e5e0dc); width: 100%; }
+.play-accent-bar { width: 64px; height: 4px; border-radius: 2px; background: var(--color-accent, #ff8300); }
+
+.play-chip {
+  display: inline-block;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-secondary, #218099);
+  border: 1px solid var(--color-border, #e5e0dc);
+  border-radius: 999px;
+  padding: 3px 12px;
+  background: color-mix(in srgb, var(--color-secondary, #218099) 8%, transparent);
+}
+
+.play-verify {
+  font-family: var(--font-mono, 'Courier New', monospace);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent, #ff8300);
+  border: 1px dashed var(--color-accent, #ff8300);
+  border-radius: 4px;
+  padding: 0 5px;
+  vertical-align: super;
+  opacity: 0.8;
+}
+
+.play-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    55% 45% at 82% 18%,
+    color-mix(in srgb, var(--color-secondary, #218099) calc(var(--fx-glow-opacity, 0.06) * 100%), transparent),
+    transparent 70%
+  );
+}
+
+/* Static, non-interactive citation footnote — Play-UI ships zero JS, so no
+   hover popover (that's InlineCitation.astro's job on the Scroll-UI side). */
+.play-cite {
+  font-size: 0.7em;
+  color: var(--color-accent, #ff8300);
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+.play-sources {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border, #e5e0dc);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.play-sources__item {
+  font-family: var(--font-mono, 'Courier New', monospace);
+  font-size: 12px;
+  color: var(--color-text-muted, #5c5578);
+}
+.play-sources__item b { color: var(--color-text, #1f1646); font-weight: 600; }
