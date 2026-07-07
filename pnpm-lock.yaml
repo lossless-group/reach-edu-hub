@@ -14,6 +14,9 @@ importers:
       '@astrojs/vercel':
         specifier: ^10.0.6
         version: 10.0.6(astro@6.2.2(@vercel/functions@3.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.3)(yaml@2.8.4))(rollup@4.60.3)
+      '@dididecks/shell':
+        specifier: npm:@lossless-group/dididecks-shell@^0.1.0
+        version: '@lossless-group/dididecks-shell@0.1.0(astro@6.2.2(@vercel/functions@3.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.3)(yaml@2.8.4))'
       '@lossless-group/lfm':
         specifier: npm:@jsr/lossless-group__lfm@^0.3.0
         version: '@jsr/lossless-group__lfm@0.3.0'
@@ -449,6 +452,11 @@ packages:
 
   '@jsr/lossless-group__lfm@0.3.0':
     resolution: {integrity: sha512-YSikZtVnJ+qWjH+1CZsYh94ujgh3Jj1SQW801D6GP5oZwi3ty8Aa+fyBy0UFU5iZLpZOCpCSMLxSP3x/Lv7qdA==, tarball: https://npm.jsr.io/~/11/@jsr/lossless-group__lfm/0.3.0.tgz}
+
+  '@lossless-group/dididecks-shell@0.1.0':
+    resolution: {integrity: sha512-1y5c7+PDvwlWAm53ldNi755dUDHlTx3uPd4627Tghyk/mQIfJJdmrTttXkOBjUYwCE36ub0EEZWumFfoAyIE7w==, tarball: https://npm.pkg.github.com/download/@lossless-group/dididecks-shell/0.1.0/39e57bb1e3bd4172d5fe2ab6741bd514df18d7b6}
+    peerDependencies:
+      astro: ^6.0.0
 
   '@mapbox/node-pre-gyp@2.0.3':
     resolution: {integrity: sha512-uwPAhccfFJlsfCxMYTwOdVfOz3xqyj8xYL3zJj8f0pb30tLohnnFPhLuqp4/qoEz8sNxe4SESZedcBojRefIzg==}
@@ -2514,6 +2522,10 @@ snapshots:
       unified: 11.0.5
     transitivePeerDependencies:
       - supports-color
+
+  '@lossless-group/dididecks-shell@0.1.0(astro@6.2.2(@vercel/functions@3.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.3)(yaml@2.8.4))':
+    dependencies:
+      astro: 6.2.2(@vercel/functions@3.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.3)(yaml@2.8.4)
 
   '@mapbox/node-pre-gyp@2.0.3':
     dependencies:
