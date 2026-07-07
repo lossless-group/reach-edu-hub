@@ -1,4 +1,173 @@
 {
   "schema": 2,
-  "ranks": {}
+  "ranks": {
+    "literacy-numeracy/ln-v1/01": {
+      "scroll": {
+        "status": "passable",
+        "rankedAt": "2026-07-07T06:52:55.445Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "literacy-numeracy/ln-v1/02": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:53:01.577Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "literacy-numeracy/ln-v1/03": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:53:05.103Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "literacy-numeracy/ln-v1/04": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:53:11.303Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "literacy-numeracy/ln-v1/05": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:53:19.005Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "literacy-numeracy/ln-v1/06": {
+      "scroll": {
+        "status": "passable",
+        "rankedAt": "2026-07-07T06:53:36.069Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "literacy-numeracy/ln-v1/07": {
+      "scroll": {
+        "status": "passable",
+        "rankedAt": "2026-07-07T06:53:51.425Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "literacy-numeracy/ln-v1/08": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:53:57.050Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "literacy-numeracy/ln-v1/09": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:54:01.565Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "literacy-numeracy/ln-v1/10": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:54:11.961Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/01": {
+      "scroll": {
+        "status": "passable",
+        "rankedAt": "2026-07-07T06:42:46.282Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/02": {
+      "scroll": {
+        "status": "passable",
+        "rankedAt": "2026-07-07T06:43:06.873Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/03": {
+      "scroll": {
+        "status": "passable",
+        "rankedAt": "2026-07-07T06:43:15.058Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/04": {
+      "scroll": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T06:43:35.011Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/05": {
+      "scroll": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T06:43:53.443Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/06": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:44:07.375Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/07": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:44:20.508Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/08": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:44:41.542Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/09": {
+      "scroll": {
+        "status": "urgent-redo",
+        "rankedAt": "2026-07-07T06:44:53.842Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/10": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:45:20.824Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    },
+    "rural-income/v1/11": {
+      "scroll": {
+        "status": "non-urgent-could-be-better",
+        "rankedAt": "2026-07-07T06:45:25.849Z",
+        "rankedBy": "founder",
+        "notes": null
+      }
+    }
+  }
 }

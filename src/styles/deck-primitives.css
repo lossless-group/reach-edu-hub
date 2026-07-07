@@ -156,6 +156,43 @@
   background: color-mix(in srgb, var(--color-secondary) 8%, transparent);
 }
 
+/* ----------------------------------------------------------------------------
+   @dididecks/shell floating chrome — header-clearance + dark-mode contrast.
+
+   The shell's SlidePaginator and ModeToggle are `position: fixed; top: 1rem`
+   by default, with no awareness of a consumer's own site header — they were
+   designed to be overridden via --ddd-paginator-top / --ddd-mode-toggle-top,
+   not to auto-detect one. Header.astro here is `sticky top-0 h-12` (3rem), so
+   the un-overridden default sits *inside* the header rather than below it.
+   Clear it once, globally, rather than per-page.
+   ---------------------------------------------------------------------------- */
+:root {
+  --ddd-paginator-top: calc(3rem + 0.75rem);
+  --ddd-mode-toggle-top: calc(3rem + 0.75rem);
+}
+
+/* Same root cause as the .deck-card dark-mode rethink above: the shell's
+   chrome tokens (chrome-tokens.css) resolve --ddd-chrome-bg/-border straight
+   through to --color-surface/--color-border, which in dark mode is purple-dusk
+   surface on a purple-midnight border — too close in value for a small
+   floating capsule to read clearly. Apply the identical blend recipe used for
+   .deck-card: de-saturate the surface toward the page background, derive the
+   border from --color-text instead of the raw (darker) border token.
+
+   Specificity note: chrome-tokens.css's own `:root { --ddd-chrome-bg: ... }`
+   default loads via a LATER <style> tag than this file (SlidePaginator's own
+   component-scoped import chain resolves after deck-primitives.css), and a
+   bare `[data-mode="dark"]` selector has the SAME specificity (0,1,0) as a
+   bare `:root` — so source order alone decided the winner, and the shell's
+   later-loading default was clobbering this override silently. Bumping to
+   `:root[data-mode="dark"]` (0,2,0) beats it regardless of load order. */
+:root[data-mode="dark"] {
+  --ddd-chrome-bg: color-mix(in srgb, var(--color-surface) 38%, var(--color-background));
+  --ddd-chrome-border: color-mix(in srgb, var(--color-text) 14%, transparent);
+  --ddd-chrome-fg: color-mix(in srgb, var(--color-text) 72%, transparent);
+  --ddd-chrome-fg-muted: color-mix(in srgb, var(--color-text) 72%, transparent);
+}
+
 /* Soft brand glow — intensity scales with the per-mode --fx-glow-opacity. */
 .deck-glow::before {
   content: "";

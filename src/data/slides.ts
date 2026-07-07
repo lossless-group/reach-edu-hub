@@ -136,4 +136,18 @@ export const SLOTS: SlotsByVariant = {
     { slot: "08", title: "What to Build First", slug: "build-first" },
     { slot: "09", title: "Opinion Is the Product", slug: "close" },
   ],
+
+  // Strategy deck: workforce-development (variant wd-v1). Ten slots.
+  "wd-v1": [
+    { slot: "01", title: "Workforce Development: The System Is Broken. The Model Is Here.", slug: "cover" },
+    { slot: "02", title: "The Broken Status Quo", slug: "broken-system" },
+    { slot: "03", title: "Automation Pressure", slug: "automation-pressure" },
+    { slot: "04", title: "The Evidence", slug: "evidence" },
+    { slot: "05", title: "The Active Ingredient", slug: "active-ingredient" },
+    { slot: "06", title: "The Degree Stack", slug: "degree-stack" },
+    { slot: "07", title: "The Federal Moment", slug: "federal-moment" },
+    { slot: "08", title: "The Equity Case", slug: "equity-case" },
+    { slot: "09", title: "Funders & the Philanthropic Landscape", slug: "funders" },
+    { slot: "10", title: "Scale & The Ask", slug: "ask" },
+  ],
 };
