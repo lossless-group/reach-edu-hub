@@ -12,8 +12,12 @@ export default defineConfig({
   // (`__filename is not defined`). 'server' renders the injected routes
   // on-demand so esbuild runs at request time in real Node — the same reason
   // every other client-site (chroma/humain/lossless) uses server output.
-  // The hub stays ungated (no auth/DB); reach's own authored pages opt back
-  // into static HTML via `export const prerender = true`.
+  // Also required for the whole-site gate (src/middleware.ts) — a passcode/
+  // @domain-email cookie check with no DB, per the calmstorm
+  // Gate-Sensitive-Information-with-Simple-Code pattern. No page in this
+  // site opts into `export const prerender = true` anymore, since a
+  // prerendered page is a static file Vercel serves directly and never
+  // reaches the middleware.
   output: 'server',
   adapter: vercel(),
 

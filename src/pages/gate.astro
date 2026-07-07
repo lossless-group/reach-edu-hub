@@ -1,0 +1,54 @@
+---
+/**
+ * /gate — the whole-site passcode / @domain-email unlock page. See
+ * src/lib/gate.ts and src/middleware.ts for the mechanism.
+ */
+import BaseThemeLayout from '../layouts/BaseThemeLayout.astro';
+import { sanitizeNext, UNLOCK_API_PATH } from '@lib/gate';
+
+export const prerender = false;
+
+const next = sanitizeNext(Astro.url.searchParams.get('next'));
+const hasError = Astro.url.searchParams.get('error') === '1';
+---
+
+<BaseThemeLayout title="Reach Education Hub — Access" noindex={true}>
+  <section class="min-h-[70vh] flex items-center justify-center px-8 py-24 bg-white dark:bg-slate-950 vibrant:bg-indigo-950">
+    <div class="w-full max-w-sm">
+      <p class="text-xs uppercase tracking-[0.4em] text-cyan-700 dark:text-cyan-400 vibrant:text-orange-500 mb-6">
+        Reach University <span class="text-orange-500">×</span> The Lossless Group
+      </p>
+      <h1 class="font-serif text-3xl text-indigo-950 dark:text-stone-50 vibrant:text-stone-50 mb-6">
+        This hub is restricted.
+      </h1>
+
+      <form method="POST" action={UNLOCK_API_PATH} class="flex flex-col gap-3">
+        <input type="hidden" name="next" value={next} />
+        <label class="text-sm text-indigo-950 dark:text-stone-200 vibrant:text-stone-200" for="credential">
+          Access code or @reach.edu email
+        </label>
+        <input
+          id="credential"
+          name="credential"
+          type="text"
+          autocomplete="off"
+          autofocus
+          required
+          class="rounded-md border border-indigo-950/20 dark:border-stone-50/20 bg-transparent px-4 py-2.5 text-indigo-950 dark:text-stone-50 focus:outline-none focus:ring-2 focus:ring-orange-500"
+        />
+        <button
+          type="submit"
+          class="mt-2 rounded-md bg-orange-500 px-4 py-2.5 font-medium text-white hover:bg-orange-600 transition-colors"
+        >
+          Enter
+        </button>
+      </form>
+
+      {hasError && (
+        <p class="mt-4 text-sm text-red-600 dark:text-red-400">
+          Doesn't look right. Try again.
+        </p>
+      )}
+    </div>
+  </section>
+</BaseThemeLayout>
