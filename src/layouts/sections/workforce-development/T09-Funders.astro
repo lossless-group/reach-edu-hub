@@ -1,0 +1,39 @@
+---
+/**
+ * Slide 09 · Funders & Alignment — key philanthropic players aligned on work-based learning.
+ */
+const funders = [
+  { name: "Strada Education Foundation", focus: "Education-to-employment connections, work-based learning, career navigation" },
+  { name: "Lumina Foundation", focus: "Postsecondary attainment and credential value; apprenticeship 2.0 framework" },
+  { name: "JFF (Jobs for the Future)", focus: "Career pathways, apprenticeship expansion, sector-based training" },
+  { name: "Ascendium Education Group", focus: "Community college and work-based learning pathways" },
+  { name: "W.K. Kellogg Foundation", focus: "Economic opportunity and equitable workforce for vulnerable communities" },
+  { name: "Arnold Ventures", focus: "Evidence-based workforce programs with measurable labor market outcomes" },
+];
+---
+
+<section data-slot="09" data-variant="wd-v1" class="deck-section">
+  <span class="deck-kicker">09 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="color: var(--color-secondary);">The philanthropic landscape</p>
+    <h2 class="deck-h1">
+      The funders are <span class="deck-gradient">already aligned.</span>
+    </h2>
+    <p class="deck-lede mt-4" style="max-width: 70ch;">
+      Major foundations are currently funding fragmented pieces — navigation, credential
+      attainment, sector training, employer partnerships. The Apprenticeship Degree
+      integrates all of them in a model with the evidence base, the federal alignment,
+      and the infrastructure to scale.
+    </p>
+  </div>
+
+  <div class="deck-grid mt-4" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    {funders.map((f) => (
+      <div class="deck-card flex flex-col gap-1">
+        <p style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--color-text); margin: 0;">{f.name}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.88rem; line-height: 1.45; margin: 0;">{f.focus}</p>
+      </div>
+    ))}
+  </div>
+</section>

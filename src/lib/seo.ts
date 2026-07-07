@@ -124,6 +124,11 @@ export const SCROLL_DECK_SEO: Record<string, SeoEntry> = {
     description:
       'Design apprenticeship-degree programs backward from where the jobs are going — Advanced Manufacturing Operations, Drone Sciences, and AI in Business Operations: fields with huge demand, employer pull, and work suited to a work-embedded degree.',
   },
+  '/scroll/workforce-development/wd-v1': {
+    title: 'Workforce Development: The System Is Broken. The Model Is Here.',
+    description:
+      'The U.S. workforce system was built for employer demand, not worker mobility. Brookings/Child Trends research names the active ingredient: relationship-based work-based learning predicts job quality a decade later. The Apprenticeship Degree implements every evidence-based design feature at once.',
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────

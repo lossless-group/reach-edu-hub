@@ -1,13 +1,45 @@
 ---
 /**
  * Slide 04 · Who's Below the Line — the scale of the gap, as a stats slide.
- * All figures VERIFY-flagged (PIAAC 2023 / AIR / 2017 estimates).
+ * Figures verified against NCES PIAAC 2023 national results, National Skills
+ * Coalition's writeup of AIR's service-sector PIAAC analysis, and NCES's
+ * 2017 low-skills estimate report.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'piaac23',
+    title: 'PIAAC 2023: Highlights of U.S. National Results',
+    url: 'https://nces.ed.gov/surveys/piaac/2023/national_results.asp',
+    source: 'NCES',
+  },
+  {
+    hexCode: 'svcsector17',
+    title: 'Service Sector Basic Skills Gap in US — 62% of workers have limited literacy skills, and an even higher 74% have limited numeracy skills',
+    url: 'https://nationalskillscoalition.org/news/latest/service-sector-basic-skills-gap-in-us-62-of-workers-have-limited-literacy-skills-and-an-even-higher-74-have-limited-numeracy-skills',
+    source: 'National Skills Coalition, citing AIR PIAAC analysis',
+    publishedDate: '2017-10-10',
+  },
+  {
+    hexCode: 'lowskills17',
+    title: 'U.S. Adults With Low Literacy and Numeracy Skills: 2012/14 to 2017',
+    url: 'https://nces.ed.gov/pubs2022/2022004/',
+    source: 'NCES',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const cards = [
-  { stat: "~62%", label: "of U.S. service-sector workers have limited literacy · AIR" },
-  { stat: "~74%", label: "of U.S. service-sector workers have limited numeracy · AIR" },
-  { stat: "≈ 48M", label: "U.S. adults with low literacy (2017 estimate)" },
-  { stat: "≈ 69M", label: "U.S. adults with low numeracy (2017 estimate)" },
+  { stat: "~62%", label: "of U.S. service-sector workers have limited literacy", hexCode: "svcsector17" },
+  { stat: "~74%", label: "of U.S. service-sector workers have limited numeracy", hexCode: "svcsector17" },
+  { stat: "≈ 48M", label: "U.S. adults with low literacy (2017 estimate)", hexCode: "lowskills17" },
+  { stat: "≈ 69M", label: "U.S. adults with low numeracy (2017 estimate)", hexCode: "lowskills17" },
 ];
 ---
 
@@ -21,17 +53,21 @@ const cards = [
 
   <div class="grid gap-8 items-center" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);">
     <div class="flex flex-col gap-2">
-      <span class="deck-stat">~38% <span class="deck-verify">VERIFY</span></span>
+      <span class="deck-stat">38%</span>
       <p class="deck-stat-label" style="max-width: 32ch;">
-        of U.S. adults reach Level 3+ in numeracy — so a majority (~62%) sit below ·
-        PIAAC 2023. Literacy is similar at ~44% reaching Level 3+.
+        of U.S. adults reach Level 3+ in numeracy — so a majority (62%) sit below ·
+        PIAAC 2023. Literacy is similar at 44% reaching Level 3+.
+        {citationIndex.get('piaac23') && <InlineCitation {...citationIndex.get('piaac23')!} />}
       </p>
     </div>
 
     <div class="deck-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
       {cards.map((c) => (
         <div class="deck-card flex flex-col gap-1">
-          <span style="font-family: var(--font-heading); font-size: 1.9rem; font-weight: 700; color: var(--color-text);">{c.stat} <span class="deck-verify">VERIFY</span></span>
+          <span style="font-family: var(--font-heading); font-size: 1.9rem; font-weight: 700; color: var(--color-text);">
+            {c.stat}
+            {citationIndex.get(c.hexCode) && <InlineCitation {...citationIndex.get(c.hexCode)!} />}
+          </span>
           <span style="color: var(--color-text-muted); font-size: 0.85rem; line-height: 1.45;">{c.label}</span>
         </div>
       ))}
@@ -39,7 +75,12 @@ const cards = [
   </div>
 
   <p class="deck-lede mt-2" style="max-width: 76ch;">
-    OECD's latest survey flagged a decline, not gains. And the concentration matters:
+    OECD's latest survey flagged a decline, not gains — the share of U.S. adults at the
+    lowest literacy level rose from 19% to 28% between 2017 and 2023.
+    {citationIndex.get('piaac23') && <InlineCitation {...citationIndex.get('piaac23')!} />} And the
+    concentration matters:
     <span style="color: var(--color-text); font-weight: 600;">the frontline and service workers most affected are exactly the Apprenticeship Degree's core population.</span>
   </p>
+
+  <Sources citations={citationsArray} />
 </section>

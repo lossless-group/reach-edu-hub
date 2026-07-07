@@ -7,10 +7,14 @@ const roles = [
   { k: "Reach", d: "Integrates validated foundational-skills pedagogy and pre/post measurement into the Apprenticeship Degree, and reports the gain for every cohort." },
   { k: "Funders", d: "Co-fund the integration — the curriculum work, the instrument, and the measurement — so the capability guarantee reaches the frontline learners who need it." },
 ];
+/* SOURCING TODO: both named foundations are real, active adult-literacy funders
+   (confirmed via their program pages — barbarabush.org, dgliteracy.org) but no
+   grant-history match to Reach specifically has been confirmed. Kept as
+   prospects, not asserted past funders. */
 const candidates = [
-  { name: "Barbara Bush Foundation for Family Literacy", note: "candidate · seed list TBD" },
-  { name: "Dollar General Literacy Foundation", note: "candidate · seed list TBD" },
-  { name: "Adult-education & workforce foundations", note: "seed list TBD" },
+  { name: "Barbara Bush Foundation for Family Literacy", url: "https://www.barbarabush.org/", note: "prospect · no grant history confirmed" },
+  { name: "Dollar General Literacy Foundation", url: "https://www.dgliteracy.org/grant-programs/", note: "prospect · no grant history confirmed" },
+  { name: "Adult-education & workforce foundations", url: null, note: "seed list TBD" },
 ];
 ---
 
@@ -35,7 +39,14 @@ const candidates = [
     <div class="flex items-center gap-2 mb-6" style="flex-wrap: wrap;">
       <span class="deck-stat-label" style="color: var(--color-text-muted);">Candidate foundational-skills funders:</span>
       {candidates.map((c) => (
-        <span class="deck-chip">{c.name} <span class="deck-verify">VERIFY</span></span>
+        <span class="deck-chip">
+          {c.url ? (
+            <a href={c.url} target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 2px;">{c.name}</a>
+          ) : (
+            c.name
+          )}
+          {" "}<span class="deck-stat-label" style="font-size: 0.7rem; font-style: italic;">({c.note})</span>
+        </span>
       ))}
     </div>
 

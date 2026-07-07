@@ -1,0 +1,79 @@
+---
+/**
+ * Slide 05 · The Active Ingredient — the human relationship in the context of real work.
+ * Relationship-based CTE vs. non-relationship CTE.
+ */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'br2018',
+    title: 'Pathways to High-Quality Jobs for Young Adults',
+    url: 'https://www.brookings.edu/research/pathways-to-high-quality-jobs-for-young-adults/',
+    source: 'Brookings / Child Trends',
+    publishedDate: '2018-11-01',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
+const works = [
+  { label: "Apprenticeship / internship", outcome: "Predicts higher job quality a decade later" },
+  { label: "Cooperative education", outcome: "Predicts higher job quality a decade later" },
+  { label: "Mentoring", outcome: "Predicts higher job quality a decade later" },
+];
+const doesnt = [
+  { label: "Job shadowing", outcome: "Not a significant predictor of job quality" },
+  { label: "Career majors", outcome: "Not a significant predictor of job quality" },
+  { label: "Tech prep", outcome: "Not a significant predictor of job quality" },
+  { label: "School-based enterprise", outcome: "Not a significant predictor of job quality" },
+];
+---
+
+<section data-slot="05" data-variant="wd-v1" class="deck-section">
+  <span class="deck-kicker">05 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="color: var(--color-secondary);">The active ingredient</p>
+    <h2 class="deck-h1">
+      Not proximity to a workplace — <span class="deck-gradient">a relationship in it.</span>
+    </h2>
+    <p class="deck-lede mt-4" style="max-width: 68ch;">
+      The Brookings analysis named the design feature: programs where a supervising adult
+      builds a real working relationship with the learner. That's what separates apprenticeship
+      from job shadowing — and it's what the research rewards.
+      {citationIndex.get('br2018') && <InlineCitation {...citationIndex.get('br2018')!} />}
+    </p>
+  </div>
+
+  <div class="deck-grid mt-4" style="grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+    <div>
+      <p class="deck-stat-label mb-3" style="color: var(--color-accent); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;">Predicts lasting job quality</p>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        {works.map((w) => (
+          <div class="deck-card flex flex-col gap-0.5" style="border-left: 3px solid var(--color-accent);">
+            <p style="font-weight: 700; color: var(--color-text); font-size: 0.95rem; margin: 0;">{w.label}</p>
+            <p style="color: var(--color-text-muted); font-size: 0.85rem; margin: 0;">{w.outcome}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div>
+      <p class="deck-stat-label mb-3" style="color: var(--color-text-muted); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;">Not a significant predictor</p>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        {doesnt.map((d) => (
+          <div class="deck-card flex flex-col gap-0.5" style="border-left: 3px solid var(--color-border); opacity: 0.75;">
+            <p style="font-weight: 700; color: var(--color-text-muted); font-size: 0.95rem; margin: 0;">{d.label}</p>
+            <p style="color: var(--color-text-muted); font-size: 0.85rem; margin: 0;">{d.outcome}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <Sources citations={citationsArray} />
+</section>

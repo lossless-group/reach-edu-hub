@@ -3,6 +3,24 @@
  * Slide 03 · The Skills Are Priced — the core evidence slide.
  * Literacy/numeracy predict wages & promotions, net of education.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'hanushek15',
+    title: 'Returns to Skills around the World: Evidence from PIAAC',
+    url: 'https://www.nber.org/papers/w19762',
+    source: 'NBER Working Paper 19762 (Hanushek, Schwerdt, Wiederhold & Woessmann; European Economic Review 73, 2015)',
+    publishedDate: '2015-01-01',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const proofs = [
   { k: "Net of education", d: "The premium holds after controlling for years of schooling, credentials, experience, and demographics — it's the skill, not just the diploma." },
   { k: "Promotions, not just pay", d: "Higher foundational skills track with advancement and on-the-job learning across the career, so the gain compounds." },
@@ -20,10 +38,11 @@ const proofs = [
 
   <div class="grid gap-8 items-center" style="grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);">
     <div class="flex flex-col gap-2">
-      <span class="deck-stat">≈ +28% <span class="deck-verify">VERIFY</span></span>
+      <span class="deck-stat">≈ +28%</span>
       <p class="deck-stat-label" style="max-width: 30ch;">
         higher wages per one standard-deviation gain in numeracy · U.S. · PIAAC
         (Hanushek et al., 2015) · ≈ +18% across countries
+        {citationIndex.get('hanushek15') && <InlineCitation {...citationIndex.get('hanushek15')!} />}
       </p>
     </div>
 
@@ -41,4 +60,6 @@ const proofs = [
     Literacy and numeracy are among the most robust predictors of earnings in the
     economics literature — <span style="color: var(--color-text); font-weight: 600;">independent of the credential.</span>
   </p>
+
+  <Sources citations={citationsArray} />
 </section>

@@ -1,12 +1,49 @@
 ---
 /**
  * Slide 02 · Funding Follows a Power Law — the hero data slide.
- * Source figures are wealth/philanthropy reports — flagged VERIFY.
+ * Figures verified against primary sources 2026-07-06 (see citationDefs).
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'givingusa25',
+    title: 'Giving USA 2025: U.S. Charitable Giving Grew to $592.50 Billion in 2024',
+    url: 'https://givingusa.org/giving-usa-2025-u-s-charitable-giving-grew-to-592-50-billion-in-2024-lifted-by-stock-market-gains/',
+    source: 'Giving USA Foundation / Lilly Family School of Philanthropy',
+  },
+  {
+    hexCode: 'cerulli84t',
+    title: 'Cerulli Anticipates $84 Trillion in Wealth Transfers Through 2045',
+    url: 'https://www.cerulli.com/press-releases/cerulli-anticipates-84-trillion-in-wealth-transfers-through-2045',
+    source: 'Cerulli Associates',
+    publishedDate: '2022-01-20',
+  },
+  {
+    hexCode: 'altrata25',
+    title: 'World Ultra Wealth Report 2025',
+    url: 'https://altrata.com/reports/world-ultra-wealth-report-2025',
+    source: 'Altrata',
+    publishedDate: '2025-09-30',
+  },
+  {
+    hexCode: 'candidconc',
+    title: 'U.S. Social Sector Dashboard — Money',
+    url: 'https://candid.org/impact-insights/us-social-sector/money/',
+    source: 'Candid',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const stats = [
-  { n: "$592.5B", l: "U.S. charitable giving, 2024 (Giving USA)" },
-  { n: "$84T", l: "great wealth transfer through 2045 — ~$11.9T to charity (Cerulli)" },
-  { n: "~426K", l: "UHNW individuals worldwide, net worth >$30M (Altrata, 2025)" },
+  { n: "$592.5B", l: "U.S. charitable giving, 2024", hex: 'givingusa25' },
+  { n: "$84.4T", l: "great wealth transfer through 2045 — ~$11.9T to charity", hex: 'cerulli84t' },
+  { n: "~511K", l: "UHNW individuals worldwide, net worth >$30M (2025)", hex: 'altrata25' },
 ];
 ---
 
@@ -21,15 +58,19 @@ const stats = [
   <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
     {stats.map((s) => (
       <div class="deck-card flex flex-col gap-1">
-        <span class="deck-stat" style="font-size: clamp(2rem, 4.5vw, 3.4rem);">{s.n} <span class="deck-verify">VERIFY</span></span>
-        <span class="deck-stat-label" style="line-height: 1.4;">{s.l}</span>
+        <span class="deck-stat" style="font-size: clamp(2rem, 4.5vw, 3.4rem);">{s.n}</span>
+        <span class="deck-stat-label" style="line-height: 1.4;">{s.l}{citationIndex.get(s.hex) && <InlineCitation {...citationIndex.get(s.hex)!} />}</span>
       </div>
     ))}
   </div>
 
   <p class="deck-lede mt-2" style="max-width: 76ch;">
-    Of ~120,000+ U.S. foundations, a few hundred of the largest move most of the
-    grant dollars <span class="deck-verify">VERIFY</span> — and the new-money tail is
-    growing fast. <span style="color: var(--color-text); font-weight: 600;">Chase the few, not the many.</span>
+    Just 0.1% of U.S. grantmakers — those giving $50M+ a year — supply 40% of all
+    grant dollars, out of 120,000+ U.S. foundations overall
+    {citationIndex.get('candidconc') && <InlineCitation {...citationIndex.get('candidconc')!} />} —
+    and the new-money tail is growing fast.
+    <span style="color: var(--color-text); font-weight: 600;"> Chase the few, not the many.</span>
   </p>
+
+  <Sources citations={citationsArray} />
 </section>

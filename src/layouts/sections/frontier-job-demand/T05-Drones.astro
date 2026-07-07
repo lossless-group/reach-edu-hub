@@ -2,8 +2,44 @@
 /**
  * Slide 05 · Drone Sciences — Field 02.
  * Mirrors T04-Manufacturing: demand stat → program shape → apprenticeship fit.
- * Source figures flagged VERIFY.
+ * Figures verified 2026-07-06: Pilot Institute for $163.6B/13% CAGR; MorganHR
+ * (citing PwC's 2024 Commercial Drone Survey) for 78% enterprise integration;
+ * FAA Aerospace Forecast for the U.S. remote-pilot workforce figure.
+ *
+ * CORRECTED: the original "~650,000 drone-linked jobs (PwC)" figure was
+ * actually PwC's 2022 "Skies Without Limits v2.0" UK-economy estimate, not a
+ * U.S. figure — it was mismatched against the "U.S. drone industry" framing
+ * of this stat block. Replaced with the FAA's own U.S. remote-pilot forecast.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'pilotinst26',
+    title: 'Statistics and Trends for Drones in 2026 and Beyond',
+    url: 'https://pilotinstitute.com/drone-statistics/',
+    source: 'Pilot Institute',
+  },
+  {
+    hexCode: 'faauas25',
+    title: 'FAA Aerospace Forecast: Unmanned Aircraft Systems',
+    url: 'https://www.faa.gov/data_research/aviation/aerospace_forecasts/unmanned_aircraft_systems.pdf',
+    source: 'Federal Aviation Administration',
+  },
+  {
+    hexCode: 'morganhr24',
+    title: 'Drone Operator Jobs 2030: AI-Powered Career Evolution',
+    url: 'https://morganhr.com/blog/drone-operator-jobs-future-2030/',
+    source: "MorganHR, citing PwC's 2024 Commercial Drone Survey",
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const covers = [
   "Drone manufacture",
   "The software stack",
@@ -21,8 +57,12 @@ const covers = [
   </div>
 
   <div class="flex items-baseline gap-4 flex-wrap mt-1">
-    <span class="deck-stat" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">$163.6B <span class="deck-verify">VERIFY</span></span>
-    <span class="deck-stat-label" style="max-width: 42ch;">projected U.S. drone industry by 2030 at ~13% CAGR (Pilot Institute) — with ~650,000 drone-linked jobs (PwC) and ~78% of enterprises integrating drone operations.</span>
+    <span class="deck-stat" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">$163.6B</span>
+    <span class="deck-stat-label" style="max-width: 42ch;">
+      projected U.S. drone industry by 2030 at ~13% CAGR.{citationIndex.get('pilotinst26') && <InlineCitation {...citationIndex.get('pilotinst26')!} />}
+      The FAA projects U.S. registered remote pilots will grow from ~369,000 (2023) to over 472,000 within five years,{citationIndex.get('faauas25') && <InlineCitation {...citationIndex.get('faauas25')!} />}
+      and ~78% of enterprises plan to integrate drone operations with existing business systems.{citationIndex.get('morganhr24') && <InlineCitation {...citationIndex.get('morganhr24')!} />}
+    </span>
   </div>
 
   <div class="deck-grid mt-1" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
@@ -43,4 +83,6 @@ const covers = [
       </p>
     </div>
   </div>
+
+  <Sources citations={citationsArray} />
 </section>

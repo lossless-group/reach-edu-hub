@@ -3,6 +3,31 @@
  * Slide 04 · Who Builds Has Changed — the vibe-coding shift.
  * Big stat + the roster of agentic tools a non-engineer can ship with.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'vibecode',
+    title: 'Vibe coding',
+    url: 'https://en.wikipedia.org/wiki/Vibe_coding',
+    source: 'Wikipedia',
+    publishedDate: '2025-02-02',
+  },
+  {
+    hexCode: 'toolroster',
+    title: 'Best Vibe Coding Tools 2026',
+    url: 'https://www.taskade.com/blog/best-vibe-coding-tools',
+    source: 'Taskade',
+    publishedDate: '2026-02-05',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const tools = ["Cursor", "v0", "Lovable", "Bolt", "Replit Agent", "Claude Code"];
 ---
 
@@ -19,7 +44,7 @@ const tools = ["Cursor", "v0", "Lovable", "Bolt", "Replit Agent", "Claude Code"]
       <span class="deck-stat" style="font-family: var(--font-mono);">2026</span>
       <p class="deck-stat-label" style="max-width: 30ch;">
         the year vibe-coding tools matured into something a non-engineer can ship
-        real prototypes with — hours, not quarters <span class="deck-verify">VERIFY</span>
+        real prototypes with — hours, not quarters{citationIndex.get('toolroster') && <InlineCitation {...citationIndex.get('toolroster')!} />}
       </p>
     </div>
 
@@ -27,14 +52,13 @@ const tools = ["Cursor", "v0", "Lovable", "Bolt", "Replit Agent", "Claude Code"]
       <p style="margin: 0; color: var(--color-text-muted); font-size: 1rem; line-height: 1.55;">
         Until recently, turning a domain insight into working software meant hiring
         an expensive engineering team. "Vibe coding" — building by describing intent
-        to an AI — was named by Andrej Karpathy in early 2025
-        <span class="deck-verify">VERIFY</span>. The tools caught up fast.
+        to an AI — was named by Andrej Karpathy in a February 2025 post on X
+        {citationIndex.get('vibecode') && <InlineCitation {...citationIndex.get('vibecode')!} />}. The tools caught up fast.
       </p>
       <div class="flex items-center gap-2" style="flex-wrap: wrap;">
         {tools.map((t) => (
           <span class="deck-chip" style="font-family: var(--font-mono);">{t}</span>
         ))}
-        <span class="deck-verify">VERIFY roster</span>
       </div>
     </div>
   </div>
@@ -43,4 +67,6 @@ const tools = ["Cursor", "v0", "Lovable", "Bolt", "Replit Agent", "Claude Code"]
     The gate on prototyping moved —
     <span style="color: var(--color-text); font-weight: 600;"> off the engineering team, onto the person who understands the problem.</span>
   </p>
+
+  <Sources citations={citationsArray} />
 </section>

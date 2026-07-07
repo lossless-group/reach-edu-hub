@@ -3,6 +3,23 @@
  * Slide 02 · A Different Stack — the Apprenticeship Degree needs software
  * incumbents didn't build. Three requirements + accreditation tie-off.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'jffwbl',
+    title: 'Work-Based Learning Glossary',
+    url: 'https://www.jff.org/idea/work-based-learning-glossary/',
+    source: 'Jobs for the Future (JFF)',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const reqs = [
   { tag: "Integrate", k: "Work & learning are one thing", d: "Day-to-day application on the job IS the curriculum — not a separate course bolted on after the shift." },
   { tag: "Make visible", k: "Employer visibility & encouragement", d: "Supervisors can see an apprentice's progress and nudge it — the employer is part of the loop, not a bystander." },
@@ -30,8 +47,11 @@ const reqs = [
 
   <p class="deck-lede mt-2" style="max-width: 76ch;">
     All of it while still meeting credit-bearing accreditation — time-based
-    Registered Apprenticeship requires ~144 hours of related instruction per year,
-    with competency-based pathways alongside <span class="deck-verify">VERIFY</span>.
+    Registered Apprenticeship requires a minimum of 144 hours of related instruction
+    per year (plus ~2,000 hours of on-the-job learning), with competency-based
+    pathways alongside.{citationIndex.get('jffwbl') && <InlineCitation {...citationIndex.get('jffwbl')!} />}
     <span style="color: var(--color-text); font-weight: 600;"> It's not a campus, and not even an online program.</span>
   </p>
+
+  <Sources citations={citationsArray} />
 </section>

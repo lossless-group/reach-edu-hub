@@ -3,8 +3,26 @@
  * Slide 04 · The Mechanism — start with a job, end with a better one.
  * Four-step flow: paid throughout → debt-free → role upgrade → retention.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'gao25a',
+    title: 'Apprenticeship: Earn-And-Learn Opportunities Can Benefit Workers and Employers',
+    url: 'https://www.gao.gov/products/gao-25-107040',
+    source: 'U.S. Government Accountability Office (GAO-25-107040)',
+    publishedDate: '2025-05-28',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const steps = [
-  { k: "Paid throughout", d: "The apprentice is an employee earning wages the whole way — learning while earning, not borrowing to learn." },
+  { k: "Paid throughout", d: "The apprentice is an employee earning wages the whole way — learning while earning, not borrowing to learn.", cite: 'gao25a' },
   { k: "Debt-free credential", d: "No tuition debt to service, so the post-credential raise is net income — not partly clawed back by loans." },
   { k: "The role upgrade", d: "Licensure unlocks a materially higher-paid role — paraprofessional or aide steps up to licensed teacher." },
   { k: "Retention", d: "Grow-your-own apprentices stay rooted, sustaining the income gain and stabilizing the local pipeline." },
@@ -24,7 +42,10 @@ const steps = [
       <div class="deck-card flex flex-col gap-2">
         <span class="deck-stat" style="font-size: clamp(1.8rem, 3vw, 2.6rem);">{String(i + 1).padStart(2, "0")}</span>
         <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-text); margin: 0;">{step.k}</p>
-        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">{step.d}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+          {step.d}
+          {step.cite && citationIndex.get(step.cite) && <InlineCitation {...citationIndex.get(step.cite)!} />}
+        </p>
       </div>
     ))}
   </div>
@@ -32,4 +53,6 @@ const steps = [
   <p class="deck-lede mt-2" style="max-width: 70ch;">
     Each step compounds the last — and none of it requires leaving town or taking on debt.
   </p>
+
+  <Sources citations={citationsArray} />
 </section>

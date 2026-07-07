@@ -3,6 +3,29 @@
  * Slide 07 · Grants (Front 04) — a corpus that drafts itself.
  * Follows the T04-ABM front template.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'grntai',
+    title: '7 AI Grant Writing Tools Tested on Real NIH, NSF, and SBIR Proposals (2026 Rankings)',
+    url: 'https://grantedai.com/blog/best-ai-grant-writing-tools-2026',
+    source: 'Granted AI',
+  },
+  {
+    hexCode: 'grntas',
+    title: 'How to Use AI for Grant Writing',
+    url: 'https://www.grantassistant.ai/resources/articles/ai-grant-writing',
+    source: 'Grant Assistant',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const paid = ["Grant Assistant", "Grantable", "Instrumentl", "FundRobin"];
 const oss = ["Claude Projects", "Chroma", "Datawrapper", "Flourish"];
 ---
@@ -35,8 +58,14 @@ const oss = ["Claude Projects", "Chroma", "Datawrapper", "Flourish"];
   </div>
 
   <div class="flex items-baseline gap-4 flex-wrap mt-1">
-    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">100+ hrs <span class="deck-verify">VERIFY</span></span>
-    <span class="deck-stat-label" style="max-width: 46ch;">practitioners report cutting grant-drafting time dramatically — one anecdote: "100+ hours per grant" down to a fraction</span>
+    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">80–200 hrs</span>
+    <span class="deck-stat-label" style="max-width: 48ch;">
+      typical staff time for a first-time federal grant proposal written by hand
+      {citationIndex.get('grntai') && <InlineCitation {...citationIndex.get('grntai')!} />};
+      teams using AI drafting assistance report cutting that drafting time by up to
+      two-thirds {citationIndex.get('grntas') && <InlineCitation {...citationIndex.get('grntas')!} />} —
+      corrected from an earlier unverified "100+ hrs down to a fraction" framing.
+    </span>
   </div>
 
   <div class="flex flex-col gap-2 mt-1">
@@ -48,4 +77,6 @@ const oss = ["Claude Projects", "Chroma", "Datawrapper", "Flourish"];
       {oss.map((t) => <span class="deck-chip">{t}</span>)}
     </div>
   </div>
+
+  <Sources citations={citationsArray} />
 </section>

@@ -1,0 +1,47 @@
+---
+/**
+ * Slide 10 · The Ask — what funders enable; what Reach delivers differently.
+ */
+const differentiators = [
+  "Every graduate leaves with a post-secondary credential, not a certificate that expires",
+  "Employer co-design and sponsorship — guaranteed pathway, not job-placement hope",
+  "Relationship-based learning built into the model by structure, not by chance",
+  "Measured outcomes: employment rate, wage trajectory, and job quality — not just completion",
+  "Work-embedded curriculum that stays current with automation without catalog revisions",
+];
+---
+
+<section
+  data-slot="10"
+  data-variant="wd-v1"
+  class="deck-section deck-glow"
+  style="justify-content: space-between;"
+>
+  <header class="flex items-baseline justify-between gap-6">
+    <span class="deck-eyebrow">Reach University · Workforce Development Strategy</span>
+    <span class="deck-eyebrow" style="color: var(--color-text-muted);">Draft · 2026</span>
+  </header>
+
+  <div class="max-w-5xl">
+    <p class="deck-eyebrow mb-5" style="color: var(--color-secondary);">The ask</p>
+    <h2 class="deck-h1">
+      Fund the model the <span class="deck-gradient">evidence already validated.</span>
+    </h2>
+    <p class="deck-lede mt-6" style="max-width: 70ch;">
+      Reach delivers what the research shows works — at scale, with employer partners,
+      with measured outcomes. What funders enable is the infrastructure to reach the
+      workers the broken system leaves behind.
+    </p>
+
+    <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 0.55rem;">
+      {differentiators.map((d) => (
+        <p style="color: var(--color-text); font-size: 0.96rem; line-height: 1.5; padding-left: 1.1rem; border-left: 2px solid var(--color-accent); margin: 0;">{d}</p>
+      ))}
+    </div>
+  </div>
+
+  <footer class="flex items-end justify-between gap-6">
+    <div class="deck-accent-bar"></div>
+    <span class="deck-eyebrow" style="color: var(--color-text-muted);">reach.edu · strategies</span>
+  </footer>
+</section>

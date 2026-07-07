@@ -2,8 +2,41 @@
 /**
  * Slide 06 · AI in Business Operations — Field 03.
  * Mirrors T04-Manufacturing: demand stat → program shape → apprenticeship fit.
- * Source figures flagged VERIFY.
+ * Figures verified 2026-07-06: Gloat for 90%/9%; BCG for the US 50-55%
+ * reshaped-in-2-3-years figure; PwC's 2026 Global AI Jobs Barometer for the
+ * 2x-growth/42%-wage figures ("professionalised" vs. "democratised" jobs).
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'gloat2026',
+    title: 'AI Skills Demand in the U.S. Job Market (2026)',
+    url: 'https://gloat.com/blog/ai-skills-demand/',
+    source: 'Gloat',
+  },
+  {
+    hexCode: 'bcg2026',
+    title: 'AI Will Reshape More Jobs Than It Replaces',
+    url: 'https://www.bcg.com/publications/2026/ai-will-reshape-more-jobs-than-it-replaces',
+    source: 'BCG',
+    publishedDate: '2026-04-03',
+  },
+  {
+    hexCode: 'pwcjb2026',
+    title: '2026 Global AI Jobs Barometer',
+    url: 'https://www.pwc.com/gx/en/services/ai/ai-jobs-barometer.html',
+    source: 'PwC',
+    publishedDate: '2026-06-15',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const covers = [
   "Workflow automation",
   "Analysis & decision support",
@@ -21,8 +54,11 @@ const covers = [
   </div>
 
   <div class="flex items-baseline gap-4 flex-wrap mt-1">
-    <span class="deck-stat" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">~90% / ~9% <span class="deck-verify">VERIFY</span></span>
-    <span class="deck-stat-label" style="max-width: 44ch;">of organizations use AI in operations, but only ~9% are "AI-mature" (Gloat) — a vast operationalization gap. BCG: ~50–55% of U.S. jobs reshaped in 2–3 years.</span>
+    <span class="deck-stat" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">~90% / ~9%</span>
+    <span class="deck-stat-label" style="max-width: 44ch;">
+      of organizations use AI in operations, but only ~9% are "AI-mature"{citationIndex.get('gloat2026') && <InlineCitation {...citationIndex.get('gloat2026')!} />} — a vast operationalization gap.
+      BCG: ~50–55% of U.S. jobs reshaped in 2–3 years.{citationIndex.get('bcg2026') && <InlineCitation {...citationIndex.get('bcg2026')!} />}
+    </span>
   </div>
 
   <div class="deck-grid mt-1" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
@@ -40,8 +76,10 @@ const covers = [
         Every employer needs this now, and it's learned in the actual workflow.
         Working adults become the people who make AI deliver — with
         <strong> ~2× faster role growth and ~42% faster wages</strong>
-        <span class="deck-verify">VERIFY</span> for AI-professionalized work (PwC).
+        for AI-"professionalized" work.{citationIndex.get('pwcjb2026') && <InlineCitation {...citationIndex.get('pwcjb2026')!} />}
       </p>
     </div>
   </div>
+
+  <Sources citations={citationsArray} />
 </section>

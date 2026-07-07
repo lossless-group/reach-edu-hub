@@ -2,6 +2,23 @@
 /**
  * Slide 11 · The Ask — scale + the call to co-fund. Closing flourish.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'ncad35',
+    title: 'NCAD: Growing List of Partners Take Foundational Strides Towards Achieving 3 Million Apprenticeship Degree Completions by 2035',
+    url: 'https://reach.edu/blog/ncad-growing-list-of-partners-take-foundational-strides-towards-achieving-3-million-apprenticeship-degree-completions-by-2035',
+    source: 'Reach University / National Center for the Apprenticeship Degree',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const next = [
   { k: "Reach", d: "Delivers the model, the credential, and the rural cohort outcomes — and scales it through NCAD." },
   { k: "Funders", d: "Co-fund across the pipeline so national grants reach regional match and local delivery." },
@@ -15,8 +32,8 @@ const next = [
     <p class="deck-eyebrow mb-5">Scale & the ask</p>
 
     <div class="flex flex-col gap-2 mb-8">
-      <span class="deck-stat">3 million <span class="deck-verify">VERIFY</span></span>
-      <p class="deck-stat-label">Apprenticeship Degree completions by 2035 · anchored by NCAD</p>
+      <span class="deck-stat">3 million{citationIndex.get('ncad35') && <InlineCitation {...citationIndex.get('ncad35')!} />}</span>
+      <p class="deck-stat-label">Apprenticeship Degree completions by 2035 · anchored by NCAD, a goal set at the 2023 Clinton Global Initiative</p>
     </div>
 
     <h2 class="deck-h2 mb-8">Let's fund the next rural cohorts — <span class="deck-gradient">together.</span></h2>
@@ -35,5 +52,7 @@ const next = [
     <p class="deck-lede" style="max-width: 60ch; color: var(--color-text); font-size: clamp(1.2rem, 2vw, 1.7rem);">
       The raise is the point — and the income stays local.
     </p>
+
+    <Sources citations={citationsArray} />
   </div>
 </section>

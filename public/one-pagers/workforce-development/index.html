@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workforce Development: The System Is Broken. The Model Is Here. — Strategy Brief</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: letter; margin: 0; }
+
+:root {
+  --ink: #1f1646;
+  --ink-dusk: #473e6e;
+  --teal: #218099;
+  --accent: #ff8300;
+  --muted: #5c5578;
+  --surface: #fbf8f5;
+  --border: #e5e0dc;
+  --text: #2a2342;
+  --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --body: 'Soleil', 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body { font-family: var(--body); color: var(--text); background: #eceaf0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.page-container { width: 8.5in; min-height: 11in; background: #fff; display: flex; overflow: hidden; position: relative; }
+@media screen { .page-container { margin: 0.4in auto; box-shadow: 0 2px 24px rgba(31,22,70,0.18); } }
+
+.sidebar { width: 2.45in; flex-shrink: 0; background: var(--ink); color: #fff; padding: 0.32in 0.24in 0.4in 0.24in; display: flex; flex-direction: column; gap: 0.17in; }
+.brand { display: flex; flex-direction: column; gap: 0.05in; padding-bottom: 0.14in; border-bottom: 1px solid rgba(255,255,255,0.18); }
+.wordmark { font-family: var(--heading); font-weight: 800; font-size: 15.5pt; line-height: 1; letter-spacing: 0.2px; }
+.wordmark em { font-style: normal; color: var(--accent); }
+.brand-sub { font-size: 6.8pt; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.62); font-weight: 700; margin-top: 0.04in; }
+.collection-tag { font-size: 7pt; font-style: italic; color: var(--accent); margin-top: 0.02in; }
+
+.side-block { display: flex; flex-direction: column; gap: 0.1in; }
+.side-block h3 { font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--accent); padding-bottom: 0.04in; }
+.field { display: flex; flex-direction: column; gap: 0.015in; }
+.field-label { font-size: 6.3pt; text-transform: uppercase; letter-spacing: 0.4px; color: rgba(255,255,255,0.55); font-weight: 700; }
+.field-value { font-size: 8pt; font-weight: 600; line-height: 1.32; color: #fff; }
+
+.signals { display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 0.02in; }
+.signal { width: 47%; margin-bottom: 0.06in; display: flex; flex-direction: column; gap: 0.01in; }
+.signal-value { font-family: var(--heading); font-size: 12pt; font-weight: 800; line-height: 1; color: #fff; }
+.signal-value small { font-size: 7.5pt; font-weight: 700; }
+.signal-label { font-size: 6pt; line-height: 1.3; color: rgba(255,255,255,0.66); font-weight: 600; }
+
+.pills { display: flex; flex-wrap: wrap; gap: 0.045in; margin-top: 0.02in; }
+.pill { background: rgba(255,255,255,0.13); padding: 0.025in 0.075in; border-radius: 3px; font-size: 5.9pt; font-weight: 700; letter-spacing: 0.2px; white-space: nowrap; }
+
+.side-foot { margin-top: auto; font-size: 6pt; line-height: 1.4; color: rgba(255,255,255,0.5); border-top: 1px solid rgba(255,255,255,0.14); padding-top: 0.1in; }
+
+.main { flex: 1; min-width: 0; padding: 0.32in 0.3in 0.46in 0.3in; display: flex; flex-direction: column; gap: 0.14in; }
+.header { display: flex; flex-direction: column; gap: 0.08in; padding-bottom: 0.13in; border-bottom: 2px solid var(--teal); }
+.eyebrow { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); font-weight: 800; }
+.headline { font-family: var(--heading); font-size: 17pt; font-weight: 800; line-height: 1.12; color: var(--ink); letter-spacing: -0.2px; }
+.subhead { font-size: 8.5pt; font-weight: 400; line-height: 1.45; color: var(--muted); }
+
+.bullets { list-style: none; display: flex; flex-direction: column; gap: 0.05in; margin-top: 0.04in; }
+.bullets li { padding-left: 0.16in; position: relative; font-size: 7.6pt; line-height: 1.4; }
+.bullets li:before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+.bullets strong { color: var(--ink); font-weight: 700; }
+
+.cards { display: flex; flex-wrap: wrap; justify-content: space-between; }
+.card { width: 48.5%; margin-bottom: 0.12in; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+.card-h { background: var(--ink); color: #fff; padding: 0.06in 0.1in; font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 0.06in; }
+.card-h .n { color: var(--accent); font-family: var(--heading); }
+.card-b { padding: 0.09in 0.1in; font-size: 7pt; line-height: 1.46; color: var(--text); }
+.card-b p { margin-bottom: 0.05in; }
+.card-b p:last-child { margin-bottom: 0; }
+.card-b ul { list-style: none; display: flex; flex-direction: column; gap: 0.035in; }
+.card-b ul li { padding-left: 0.12in; position: relative; }
+.card-b ul li:before { content: "•"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+.card-b strong { color: var(--ink); font-weight: 700; }
+.stat-lead { font-family: var(--heading); font-weight: 800; color: var(--accent); font-size: 9pt; }
+
+.anchor { background: var(--surface); border: 2px solid var(--accent); border-radius: 5px; padding: 0.1in 0.13in; display: flex; align-items: center; }
+.anchor-badge { background: var(--accent); color: #fff; padding: 0.07in 0.1in; border-radius: 4px; font-family: var(--heading); font-size: 8.5pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; text-align: center; line-height: 1.1; max-width: 1.05in; flex-shrink: 0; margin-right: 0.13in; }
+.anchor-text { flex: 1; font-size: 7.6pt; line-height: 1.42; color: var(--text); }
+.anchor-text strong { color: var(--ink); font-weight: 700; }
+
+.quote { background: #fff; border-left: 3px solid var(--accent); border-radius: 0 4px 4px 0; padding: 0.07in 0.11in; margin-top: 0.04in; }
+.quote q { font-family: var(--heading); font-style: italic; font-size: 8pt; line-height: 1.4; color: var(--ink); }
+.quote .cite { font-size: 6.3pt; color: var(--muted); margin-top: 0.03in; }
+.quote .cite a { color: var(--teal); text-decoration: none; }
+
+.sources { font-size: 5.9pt; color: #8b8597; line-height: 1.42; padding-top: 0.08in; border-top: 1px solid var(--border); }
+.sources strong { color: var(--ink); font-weight: 700; }
+
+.footer { position: absolute; bottom: 0; left: 2.45in; right: 0; padding: 0.07in 0.3in; background: var(--surface); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 6pt; color: var(--muted); }
+.footer .fl { font-family: var(--heading); font-weight: 800; color: var(--ink); font-size: 7pt; }
+strong, b { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page-container">
+  <div class="sidebar">
+    <div class="brand">
+      <div class="wordmark">Reach<em>·</em>University</div>
+      <div class="brand-sub">Strategy Brief</div>
+      <div class="collection-tag">Strategies collection · Workforce Development</div>
+    </div>
+
+    <div class="side-block">
+      <h3>The Brief</h3>
+      <div class="field"><div class="field-label">Audience</div><div class="field-value">Philanthropy &amp; workforce-development grant funders</div></div>
+      <div class="field"><div class="field-label">Framing</div><div class="field-value">Grant-seeking · evidence-based model, not incremental reform</div></div>
+      <div class="field"><div class="field-label">The Reframe</div><div class="field-value">The Apprenticeship Degree IS the evidence — not a theory about it</div></div>
+      <div class="field"><div class="field-label">The Ask</div><div class="field-value">Fund the scaling of a model that stacks every evidence-based design feature at once</div></div>
+    </div>
+
+    <div class="side-block">
+      <h3>Key Signals</h3>
+      <div class="signals">
+        <div class="signal"><div class="signal-value">21<small>M</small></div><div class="signal-label">Americans ages 25–54 outside the labor force · DOL 2025</div></div>
+        <div class="signal"><div class="signal-value">200<small>+</small></div><div class="signal-label">CC apprenticeship sponsors in 2023, up from 30 in 2016</div></div>
+        <div class="signal"><div class="signal-value"><small>+</small>0.37</div><div class="signal-label">Job quality score gain from training at ages 24–27 · Brookings</div></div>
+        <div class="signal"><div class="signal-value">93<small>%</small></div><div class="signal-label">Apprenticeship completers employed; ~$77K avg. start · NIST</div></div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <h3>Threads</h3>
+      <div class="pills">
+        <span class="pill">Apprenticeship Degree</span>
+        <span class="pill">Work-Based Learning</span>
+        <span class="pill">Earn-While-Learn</span>
+        <span class="pill">Career Pathways</span>
+        <span class="pill">Economic Mobility</span>
+        <span class="pill">AI Workforce</span>
+      </div>
+    </div>
+
+    <div class="side-foot">
+      Figures from DOL, Brookings/Child Trends, NIST, Community College Daily, and corpus sources. All flagged ⚠ VERIFY — confirm against primary sources before presenting.
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div class="eyebrow">Opinionated Strategy · Workforce Development</div>
+      <div class="headline">The system was built for employer demand. Workers paid the price.</div>
+      <div class="subhead">The U.S. workforce development system produces credentials without ladders, training without guaranteed outcomes, and a "train and pray" model that leaves millions sidelined. The evidence on what actually works is now unmistakable — and the Apprenticeship Degree implements every evidence-based design feature at once.</div>
+      <ul class="bullets">
+        <li><strong>Relationship-based work-based learning predicts lasting quality.</strong> Brookings/Child Trends: apprenticeship, co-op, and mentoring predict higher job quality a decade later. Job shadowing and career majors do not.</li>
+        <li><strong>Training in the mid-20s is decisive.</strong> Participating in a training program at ages 24–27 raises job quality by 0.37 points — the exact window the Apprenticeship Degree targets.</li>
+        <li><strong>Federal policy just aligned.</strong> DOL set a 1M active apprentice target. Workforce Pell Grants now fund short-term credentials tied to outcomes. The scaling moment is now.</li>
+      </ul>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-h"><span class="n">01</span> The Broken System</div>
+        <div class="card-b">
+          <p>WIOA-era programs are spread across agencies, run on incompatible rules, and have no reliable mechanism to measure outcomes. Credentials stack but don't ladder. Workers complete programs and hope. <strong>21M Americans ages 25–54 are outside the labor force</strong> — not lazy, structurally blocked.</p>
+          <ul>
+            <li>44% of Americans face at least one major barrier to upskilling</li>
+            <li>Automation will transform 25% of current tasks by 2030</li>
+            <li>Billions spent annually; no consistent accountability for outcomes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">02</span> What the Evidence Shows</div>
+        <div class="card-b">
+          <p>Brookings / Child Trends (2018) followed 3,928 people from disadvantaged backgrounds to age 29. The finding is unambiguous: <strong>relationship-based CTE</strong> (apprenticeship, co-op, mentoring) predicts job quality 10+ years later. Non-relationship CTE does not.</p>
+          <ul>
+            <li><span class="stat-lead">+0.18</span> quality score from relationship-based CTE, net of all controls</li>
+            <li><span class="stat-lead">+0.37</span> quality score from training at ages 24–27</li>
+            <li><span class="stat-lead">+0.90</span> quality score from a post-secondary degree vs. no diploma</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">03</span> The Apprenticeship Degree Stack</div>
+        <div class="card-b">
+          <p>The Apprenticeship Degree is the only model that combines every evidence-based feature in one design:</p>
+          <ul>
+            <li><strong>Earn-while-learn</strong> — removes the income/debt barrier to entry</li>
+            <li><strong>Employer co-design &amp; sponsorship</strong> — guarantees the outcome, ends "train and pray"</li>
+            <li><strong>Relationship-based WBL</strong> — the design feature that predicts lasting quality</li>
+            <li><strong>Post-secondary credential</strong> — the strongest predictor of a quality job</li>
+            <li><strong>Work-embedded curriculum</strong> — stays current as automation transforms tasks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="n">04</span> Federal Moment &amp; Infrastructure</div>
+        <div class="card-b">
+          <p>The policy environment has never been more favorable for apprenticeship degrees:</p>
+          <ul>
+            <li>DOL target: <strong>1 million active Registered Apprentices</strong> (exec order)</li>
+            <li><strong>Workforce Pell Grants</strong> — new Pell eligibility for outcome-tied short-term credentials</li>
+            <li>Community college sponsors: <strong>30 (2016) → 200+ (2023)</strong></li>
+            <li>State ecosystems scaling: Texas TIRA, Alabama statewide office, Michigan grants</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <q>Work-based learning incorporating positive relationships with adults… is related to higher subsequent job quality. The relationships built between participants and adults set these programs apart… and affect job quality at least a decade later.</q>
+      <div class="cite">— Brookings Institution &amp; Child Trends, <a href="https://tacc.org/sites/default/files/documents/2018-11/brookings_child-trends_pathways-for-high-quality-jobs.pdf">"Pathways to High-Quality Jobs for Young Adults"</a> (2018) — the evidence that names apprenticeship's active ingredient.</div>
+    </div>
+
+    <div class="anchor">
+      <div class="anchor-badge">The Evidence-Based Model</div>
+      <div class="anchor-text">The Apprenticeship Degree doesn't theorize about what works in workforce development — it <strong>implements what decades of longitudinal research shows produces lasting job quality gains</strong>: the human relationship in the context of real work, a post-secondary credential, and training at the exact career stage when it most predicts mobility. Fund the scaling of what the evidence already validated.</div>
+    </div>
+
+    <div class="sources">
+      <strong>Sources:</strong> Brookings / Child Trends (2018), "Pathways to High-Quality Jobs for Young Adults" (NLSY97 longitudinal, n=3,928) • DOL/Commerce/Education (2025), "America's Talent Strategy: Building the Workforce for the Golden Age" • Community College Daily (2025), "Reimagining Postsecondary Pathways: Apprenticeship Degrees" • Insight Strategic Concepts (2025), "The Future of Workforce Development" • NIST, apprenticeship completion outcomes (93% / $77K) — <em>draft narrative; figures pending verification.</em>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="fl">Reach University · Strategies</div>
+    <div>Draft — figures pending verification · 2026</div>
+  </div>
+</div>
+</body>
+</html>

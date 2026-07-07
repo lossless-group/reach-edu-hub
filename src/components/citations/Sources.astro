@@ -1,0 +1,196 @@
+---
+/**
+ * Sources Component
+ *
+ * Renders a numbered sources list at the bottom of a slide/section.
+ * Ported from astro-knots/sites/dark-matter/src/components/citations/Sources.astro
+ * Tokens adapted to reach-edu-hub deck-primitives.
+ */
+import type { IndexedCitation } from '@lib/citations/types';
+
+interface Props {
+  citations: IndexedCitation[];
+  title?: string;
+}
+
+const { citations, title = 'Sources' } = Astro.props;
+
+const sortedCitations = [...citations].sort((a, b) => a.index - b.index);
+
+const getDomain = (url: string): string => {
+  try { return new URL(url).hostname.replace('www.', ''); }
+  catch { return url; }
+};
+---
+
+{sortedCitations.length > 0 && (
+  <section class="sources-section">
+    <h2 class="sources-title">{title}</h2>
+    <ol class="sources-list">
+      {sortedCitations.map((citation) => (
+        <li class="source-item" id={`source-${citation.hexCode}`}>
+          <span class="source-index">[{citation.index}]</span>
+          <div class="source-content">
+            <a
+              href={citation.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="source-link"
+            >
+              <span class="source-title">{citation.title}</span>
+              <svg class="source-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <div class="source-meta">
+              <span class="source-publication">
+                {citation.source || getDomain(citation.url)}
+              </span>
+              {citation.publishedDate && (
+                <>
+                  <span class="source-separator">•</span>
+                  <span class="source-date">{citation.publishedDate}</span>
+                </>
+              )}
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}
+
+<style>
+  .sources-section {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+  }
+
+  .sources-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .sources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .source-item {
+    display: flex;
+    gap: 0.625rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    padding: 0.5rem 0.625rem;
+    border-radius: 0.375rem;
+    transition: background 0.2s ease;
+  }
+
+  .source-index {
+    flex-shrink: 0;
+    font-weight: 600;
+    min-width: 2rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .source-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+
+  .source-link {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .source-link:hover { text-decoration: underline; }
+
+  .source-title { font-weight: 500; }
+
+  .source-icon {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  .source-link:hover .source-icon { opacity: 1; }
+
+  .source-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+  }
+
+  .source-publication {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  .source-separator { opacity: 0.5; }
+
+  .source-date { font-variant-numeric: tabular-nums; }
+
+  /* Light mode */
+  :global([data-mode="light"]) .sources-section {
+    background: color-mix(in srgb, var(--color-accent) 4%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 14%, transparent);
+  }
+  :global([data-mode="light"]) .sources-title { color: var(--color-accent); }
+  :global([data-mode="light"]) .source-item:hover {
+    background: color-mix(in srgb, var(--color-accent) 6%, transparent);
+  }
+  :global([data-mode="light"]) .source-index { color: var(--color-accent); }
+  :global([data-mode="light"]) .source-link { color: var(--color-text); }
+  :global([data-mode="light"]) .source-link:hover { color: var(--color-accent); }
+  :global([data-mode="light"]) .source-publication { color: var(--color-accent); opacity: 0.85; }
+  :global([data-mode="light"]) .source-date { color: var(--color-text-muted); }
+
+  /* Dark mode */
+  :global([data-mode="dark"]) .sources-section {
+    background: color-mix(in srgb, var(--color-secondary) 4%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-secondary) 18%, transparent);
+  }
+  :global([data-mode="dark"]) .sources-title { color: var(--color-secondary); }
+  :global([data-mode="dark"]) .source-item:hover {
+    background: color-mix(in srgb, var(--color-secondary) 6%, transparent);
+  }
+  :global([data-mode="dark"]) .source-index { color: var(--color-secondary); }
+  :global([data-mode="dark"]) .source-link { color: var(--color-text); }
+  :global([data-mode="dark"]) .source-link:hover { color: var(--color-secondary); }
+  :global([data-mode="dark"]) .source-publication { color: var(--color-secondary); opacity: 0.85; }
+  :global([data-mode="dark"]) .source-date { color: var(--color-text-muted); }
+
+  /* Vibrant mode */
+  :global([data-mode="vibrant"]) .sources-section {
+    background: color-mix(in srgb, var(--color-accent) 5%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 22%, transparent);
+    box-shadow: inset 0 0 24px color-mix(in srgb, var(--color-secondary) 6%, transparent);
+  }
+  :global([data-mode="vibrant"]) .sources-title { color: var(--color-accent); }
+  :global([data-mode="vibrant"]) .source-item:hover {
+    background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+  }
+  :global([data-mode="vibrant"]) .source-index { color: var(--color-accent); }
+  :global([data-mode="vibrant"]) .source-link { color: var(--color-text); }
+  :global([data-mode="vibrant"]) .source-link:hover { color: var(--color-accent); }
+  :global([data-mode="vibrant"]) .source-publication { color: var(--color-accent); }
+  :global([data-mode="vibrant"]) .source-date { color: var(--color-text-muted); }
+</style>

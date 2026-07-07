@@ -3,18 +3,48 @@
  * Slide 09 · The Evidence — proof as attributed cards.
  * NOTE: deliberately omits the broad DOL "$86k average" figure (not degree-specific).
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'gao25a',
+    title: 'Apprenticeship: Earn-And-Learn Opportunities Can Benefit Workers and Employers',
+    url: 'https://www.gao.gov/products/gao-25-107040',
+    source: 'U.S. Government Accountability Office (GAO-25-107040)',
+    publishedDate: '2025-05-28',
+  },
+  {
+    hexCode: 'ppi25a',
+    title: 'PPI: The Apprenticeship Degree — Promoting Upward Mobility and Addressing Labor Shortages',
+    url: 'https://reach.edu/blog/ppi-the-apprenticeship-degree-promoting-upward-mobility-and-addressing-labor-shortages',
+    source: 'Progressive Policy Institute / Reach University',
+    publishedDate: '2025-06-01',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const proof = [
   {
     quote: "Earn-and-learn programs “can lead to higher pay, produce little student debt, and increase employee retention.”",
     source: "— GAO, 2025",
+    cite: 'gao25a',
   },
   {
     quote: "The Apprenticeship Degree promotes upward mobility while addressing chronic labor shortages.",
     source: "— Progressive Policy Institute",
+    cite: 'ppi25a',
   },
   {
+    // SOURCING TODO: figure/quote unverified as of first pass — no accessible primary
+    // source (Reach blog / AIR) confirmed this exact "no longer need job fairs" line.
+    // Confirm attribution or replace before shipping.
     quote: "Strong grow-your-own pipelines mean districts “no longer need job fairs.”",
-    source: "— District outcome, Reach",
+    source: "— District outcome, Reach (unverified)",
   },
 ];
 ---
@@ -31,9 +61,14 @@ const proof = [
     {proof.map((p) => (
       <figure class="deck-card flex flex-col justify-between gap-4" style="margin: 0;">
         <div class="deck-accent-bar"></div>
-        <blockquote style="font-family: var(--font-heading); font-size: 1.2rem; line-height: 1.4; color: var(--color-text); margin: 0;">{p.quote}</blockquote>
+        <blockquote style="font-family: var(--font-heading); font-size: 1.2rem; line-height: 1.4; color: var(--color-text); margin: 0;">
+          {p.quote}
+          {p.cite && citationIndex.get(p.cite) && <InlineCitation {...citationIndex.get(p.cite)!} />}
+        </blockquote>
         <figcaption class="deck-stat-label">{p.source}</figcaption>
       </figure>
     ))}
   </div>
+
+  <Sources citations={citationsArray} />
 </section>

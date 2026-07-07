@@ -1,0 +1,80 @@
+---
+/**
+ * Slide 03 · The Automation Pressure — AI reshaping tasks faster than training adapts.
+ */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'wef2020',
+    title: 'The Future of Jobs Report 2020',
+    url: 'https://www.weforum.org/reports/the-future-of-jobs-report-2020',
+    source: 'World Economic Forum',
+    publishedDate: '2020-10-20',
+  },
+  {
+    hexCode: 'mgi2023',
+    title: 'Generative AI and the Future of Work in America',
+    url: 'https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america',
+    source: 'McKinsey Global Institute',
+    publishedDate: '2023-07-26',
+  },
+  {
+    hexCode: 'bcg2026',
+    title: 'How AI Is Reshaping Jobs and Skills',
+    url: 'https://www.bcg.com/publications/2026/how-ai-is-reshaping-jobs-and-skills',
+    source: 'BCG',
+    publishedDate: '2026-01-01',
+  },
+  {
+    hexCode: 'pwc2026',
+    title: 'AI Reshapes Global Labour Market into Two Distinct Paths, Rewarding Human Skills: PwC 2026 Global AI Jobs Barometer',
+    url: 'https://www.prnewswire.com/news-releases/ai-reshapes-global-labour-market-into-two-distinct-paths-rewarding-human-skills-pwc-2026-global-ai-jobs-barometer-302798987.html',
+    source: 'PwC',
+    publishedDate: '2026-06-15',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
+const pressures: { stat: string; label: string; citeKey: string }[] = [
+  { stat: "47%", label: "of current work tasks projected to be performed by machines by 2025, up from 33% in 2020", citeKey: "wef2020" },
+  { stat: "30%", label: "of U.S. work hours could be automated by 2030, accelerated by generative AI", citeKey: "mgi2023" },
+  { stat: "50–55%", label: "of U.S. jobs reshaped by AI in 2–3 years", citeKey: "bcg2026" },
+  { stat: "2×", label: "faster job growth for AI-\"professionalized\" roles, with 42% faster wage growth", citeKey: "pwc2026" },
+];
+---
+
+<section data-slot="03" data-variant="wd-v1" class="deck-section">
+  <span class="deck-kicker">03 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="color: var(--color-secondary);">The pressure</p>
+    <h2 class="deck-h1">
+      AI is transforming work faster than <span class="deck-gradient">training can adapt.</span>
+    </h2>
+    <p class="deck-lede mt-4" style="max-width: 70ch;">
+      The workers most exposed to automation are exactly the frontline and middle-skill workers
+      the Apprenticeship Degree is built for. They face the greatest transformation pressure
+      and have the fewest resources to navigate it independently.
+    </p>
+  </div>
+
+  <div class="deck-grid mt-4" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {pressures.map((p) => (
+      <div class="deck-card flex flex-col gap-1">
+        <span class="deck-stat" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">{p.stat}</span>
+        <p style="color: var(--color-text); font-size: 0.93rem; line-height: 1.45; margin: 0;">
+          {p.label}
+          {citationIndex.get(p.citeKey) && <InlineCitation {...citationIndex.get(p.citeKey)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <Sources citations={citationsArray} />
+</section>

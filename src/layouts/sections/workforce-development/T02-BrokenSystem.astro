@@ -1,0 +1,59 @@
+---
+/**
+ * Slide 02 · The Broken Status Quo — "train and pray"; 21M sidelined.
+ */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'dol2025',
+    title: "America's Talent Strategy: Building the Workforce for the Golden Age",
+    url: 'https://www.dol.gov/sites/dolgov/files/OPA/newsreleases/2025/08/Americas-Talent-Strategy-Building-the-Workforce-for-the-Golden-Age.pdf',
+    source: 'U.S. Departments of Labor, Commerce, and Education',
+    publishedDate: '2025-08-12',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
+const failures = [
+  { k: "Fragmented programs", d: "WIOA spread across agencies with incompatible rules, siloed data, and no unified access point for workers or employers." },
+  { k: "Credentials without ladders", d: "Programs deliver certificates that don't stack; experience requirements still block access; wage gains are minimal or temporary." },
+  { k: "Barrier blindness", d: "The system was designed around employer demand — childcare, transportation, and financial instability remain invisible to it." },
+  { k: "No outcome accountability", d: "Billions spent annually with no consistent mechanism to hold programs accountable when they fail to connect workers to high-wage jobs." },
+];
+---
+
+<section data-slot="02" data-variant="wd-v1" class="deck-section">
+  <span class="deck-kicker">02 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="color: var(--color-secondary);">The broken status quo</p>
+    <h2 class="deck-h1">
+      "Train and pray" <span class="deck-gradient">isn't a strategy.</span>
+    </h2>
+  </div>
+
+  <div class="flex items-baseline gap-4 flex-wrap mt-1">
+    <span class="deck-stat" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">21M</span>
+    <span class="deck-stat-label" style="max-width: 44ch;">
+      Americans ages 25–54 outside the labor force — not lazy, structurally blocked
+      {citationIndex.get('dol2025') && <InlineCitation {...citationIndex.get('dol2025')!} />}
+    </span>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {failures.map((f) => (
+      <div class="deck-card flex flex-col gap-2">
+        <p style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--color-text); margin: 0;">{f.k}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.93rem; line-height: 1.5; margin: 0;">{f.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <Sources citations={citationsArray} />
+</section>

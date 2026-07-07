@@ -3,6 +3,23 @@
  * Slide 06 · Events & Conferences (Front 03) — the nine-months-ahead game.
  * Follows the T04-ABM front template.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'lensev',
+    title: 'Best AI Tool for Event Planning in 2026',
+    url: 'https://www.lensmor.com/blog/ai-tool-for-event-planning',
+    source: 'Lensmor',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const paid = ["Outreach Meeting Prep", "Apollo", "Instantly", "Read.ai", "Fireflies"];
 const oss = ["Firecrawl", "Apify", "Browse AI", "n8n"];
 ---
@@ -35,8 +52,13 @@ const oss = ["Firecrawl", "Apify", "Browse AI", "n8n"];
   </div>
 
   <div class="flex items-baseline gap-4 flex-wrap mt-1">
-    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">24/7 <span class="deck-verify">VERIFY</span></span>
-    <span class="deck-stat-label" style="max-width: 46ch;">event teams report agents "working 24/7 sending personalized sponsor emails and matching attendees" — vendor-reported</span>
+    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">24/7</span>
+    <span class="deck-stat-label" style="max-width: 46ch;">
+      AI concierges field attendee questions around the clock, while separate outreach
+      agents run continuous, automated sponsor and attendee sequences — two distinct
+      capabilities, not one 24/7 sponsor-email claim (vendor-reported).
+      {citationIndex.get('lensev') && <InlineCitation {...citationIndex.get('lensev')!} />}
+    </span>
   </div>
 
   <div class="flex flex-col gap-2 mt-1">
@@ -48,4 +70,6 @@ const oss = ["Firecrawl", "Apify", "Browse AI", "n8n"];
       {oss.map((t) => <span class="deck-chip">{t}</span>)}
     </div>
   </div>
+
+  <Sources citations={citationsArray} />
 </section>

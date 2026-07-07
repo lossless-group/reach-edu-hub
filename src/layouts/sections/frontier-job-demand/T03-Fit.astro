@@ -2,7 +2,31 @@
 /**
  * Slide 03 · Why Apprenticeship Fits Frontier — the structural edge in fast fields,
  * anchored by proven completer outcomes.
+ * Figures verified 2026-07-06: NIST (citing DOL) for 93%/$77K; JFF for 800+ employers.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'nistappr',
+    title: 'Expanding on the Success of a Regional Registered Apprenticeship Program',
+    url: 'https://www.nist.gov/blogs/manufacturing-innovation-blog/expanding-success-regional-registered-apprenticeship-program',
+    source: 'NIST, citing U.S. Dept. of Labor',
+  },
+  {
+    hexCode: 'jff2025',
+    title: 'Apprenticeship Expansion Helps Workers and Businesses Thrive',
+    url: 'https://www.jff.org/idea/apprenticeship-expansion-helps-workers-and-businesses-thrive/',
+    source: 'JFF',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const reasons = [
   {
     k: "Outruns the catalog",
@@ -14,7 +38,7 @@ const reasons = [
     d: "Frontier demand means employers sponsor, mentor, and hire — the pull that makes the model work.",
     tone: "var(--color-accent)",
     verify: true,
-    note: "800+ employers created or expanded registered apprenticeships in advanced manufacturing (JFF).",
+    note: "800+ employers created or expanded registered apprenticeships in advanced manufacturing.",
   },
   {
     k: "Debt-free funnel",
@@ -33,8 +57,8 @@ const reasons = [
   </div>
 
   <div class="flex flex-col gap-2 mt-1">
-    <span class="deck-stat" style="font-size: clamp(2.4rem, 5.5vw, 4rem);">~93% <span class="deck-verify">VERIFY</span></span>
-    <p class="deck-stat-label" style="max-width: 54ch;">of registered-apprenticeship completers gain employment, at a ~$77,000 average starting wage (NIST) — the outcomes are already proven.</p>
+    <span class="deck-stat" style="font-size: clamp(2.4rem, 5.5vw, 4rem);">~93%</span>
+    <p class="deck-stat-label" style="max-width: 54ch;">of registered-apprenticeship completers gain employment, at a ~$77,000 average starting wage.{citationIndex.get('nistappr') && <InlineCitation {...citationIndex.get('nistappr')!} />} The outcomes are already proven.</p>
   </div>
 
   <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
@@ -44,9 +68,11 @@ const reasons = [
         <div class="deck-rule"></div>
         <p style={`color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0; border-left: 3px solid ${r.tone}; padding-left: 0.75rem;`}>
           {r.d}
-          {r.verify && (<><br /><span style="color: var(--color-text);">{r.note}</span> <span class="deck-verify">VERIFY</span></>)}
+          {r.verify && (<><br /><span style="color: var(--color-text);">{r.note}</span> {citationIndex.get('jff2025') && <InlineCitation {...citationIndex.get('jff2025')!} />}</>)}
         </p>
       </div>
     ))}
   </div>
+
+  <Sources citations={citationsArray} />
 </section>

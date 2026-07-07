@@ -4,6 +4,23 @@
  * Follows the T04-ABM front template, but the load-bearing element is the
  * accent-bordered ToS caveat (mirrors agentic-product-lab/T09 callout).
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'imprvd',
+    title: 'Will AI Replace Social Media Managers? 2026 Reality Check',
+    url: 'https://improvado.io/blog/will-ai-replace-social-media-managers',
+    source: 'Improvado (citing Sociality.io, "AI in Social Media Marketing Report")',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const paid = ["Hootsuite AI", "Taplio", "Brandwatch", "6sense"];
 const oss = ["n8n monitor → Slack"];
 ---
@@ -44,8 +61,12 @@ const oss = ["n8n monitor → Slack"];
   </div>
 
   <div class="flex items-baseline gap-4 flex-wrap mt-1">
-    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">89.7% / 5.4% <span class="deck-verify">VERIFY</span></span>
-    <span class="deck-stat-label" style="max-width: 46ch;">of social teams use AI daily, but only 5.4% fully automate (Improvado, 2026) — augment, don't abdicate</span>
+    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">89.7% / 5.4%</span>
+    <span class="deck-stat-label" style="max-width: 46ch;">
+      of social media pros use AI daily or several times/week, but only 5.4% fully
+      trust it for full automation — augment, don't abdicate.
+      {citationIndex.get('imprvd') && <InlineCitation {...citationIndex.get('imprvd')!} />}
+    </span>
   </div>
 
   <div class="flex flex-col gap-2 mt-1">
@@ -57,4 +78,6 @@ const oss = ["n8n monitor → Slack"];
       {oss.map((t) => <span class="deck-chip">{t}</span>)}
     </div>
   </div>
+
+  <Sources citations={citationsArray} />
 </section>

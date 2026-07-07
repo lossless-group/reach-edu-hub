@@ -1,0 +1,82 @@
+---
+/**
+ * /scroll/workforce-development/wd-v1/ — "Workforce Development: The System Is Broken. The Model Is Here."
+ *
+ * Seventh strategy deck in the `strategies` collection — workforce development narrative.
+ * Scroll-UI, v1 draft.
+ * Narrative source: context-v/narratives/strategies/workforce-development/README.md
+ *
+ * Token-driven via deck-primitives.css (light/dark/vibrant). Figures marked
+ * <span class="deck-verify"> are unverified corpus-sourced values.
+ */
+import '../../../../styles/global.css';
+import '../../../../styles/theme.css';
+import '../../../../styles/deck-primitives.css';
+import Header from '../../../../components/basics/Header.astro';
+import MetaTags from '../../../../components/basics/MetaTags.astro';
+import PageAsDeckWrapper from '../../../../layouts/PageAsDeckWrapper.astro';
+import DeckOverlayScrollUI from '@dididecks/shell/components/DeckOverlay--Scroll-UI.astro';
+import { SCROLL_DECK_SEO } from '../../../../lib/seo';
+
+const seo = SCROLL_DECK_SEO['/scroll/workforce-development/wd-v1']!;
+
+import T01Cover             from '../../../../layouts/sections/workforce-development/T01-Cover.astro';
+import T02BrokenSystem      from '../../../../layouts/sections/workforce-development/T02-BrokenSystem.astro';
+import T03AutomationPressure from '../../../../layouts/sections/workforce-development/T03-AutomationPressure.astro';
+import T04Evidence          from '../../../../layouts/sections/workforce-development/T04-Evidence.astro';
+import T05ActiveIngredient  from '../../../../layouts/sections/workforce-development/T05-ActiveIngredient.astro';
+import T06DegreeStack       from '../../../../layouts/sections/workforce-development/T06-DegreeStack.astro';
+import T07FederalMoment     from '../../../../layouts/sections/workforce-development/T07-FederalMoment.astro';
+import T08EquityCase        from '../../../../layouts/sections/workforce-development/T08-EquityCase.astro';
+import T09Funders           from '../../../../layouts/sections/workforce-development/T09-Funders.astro';
+import T10TheAsk            from '../../../../layouts/sections/workforce-development/T10-TheAsk.astro';
+---
+
+<!doctype html>
+<html lang="en" class="theme-default" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/reach-favicon.png" />
+
+    <MetaTags title={seo.title} description={seo.description} ogImage={seo.ogImage} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mode');
+          var valid = ['light', 'dark', 'vibrant'];
+          var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          var mode = valid.indexOf(stored) !== -1 ? stored : (sysLight ? 'light' : 'dark');
+          var html = document.documentElement;
+          html.setAttribute('data-mode', mode);
+          if (mode === 'dark' || mode === 'vibrant') html.classList.add('dark');
+          else html.classList.remove('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="font-sans" style="--deck-height: calc(100vh - 3rem);">
+    <Header />
+
+    <PageAsDeckWrapper enableScrollSnap={true} showNavigationHints={true}>
+      <T01Cover />
+      <T02BrokenSystem />
+      <T03AutomationPressure />
+      <T04Evidence />
+      <T05ActiveIngredient />
+      <T06DegreeStack />
+      <T07FederalMoment />
+      <T08EquityCase />
+      <T09Funders />
+      <T10TheAsk />
+    </PageAsDeckWrapper>
+
+    <DeckOverlayScrollUI deckSlug="workforce-development" variantSlug="wd-v1" />
+
+    <script>
+      import '../../../../utils/mode-switcher.js';
+    </script>
+  </body>
+</html>

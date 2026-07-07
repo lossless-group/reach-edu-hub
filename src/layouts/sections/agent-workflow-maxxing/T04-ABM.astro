@@ -4,6 +4,23 @@
  * This is the TEMPLATE for the five "front" slides (04–08): bottleneck →
  * agents do → example/stat → tools (paid + OSS).
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'x11xai',
+    title: '13 Best AI Sales Agent Tools for B2B Teams (2026)',
+    url: 'https://www.11x.ai/guides/ai-sales-agent-tools-b2b-sales-teams',
+    source: '11x.ai',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const paid = ["Clay", "Apollo", "11x", "Artisan", "Agentforce"];
 const oss = ["n8n + LLM", "LangGraph / CrewAI"];
 ---
@@ -34,8 +51,13 @@ const oss = ["n8n + LLM", "LangGraph / CrewAI"];
   </div>
 
   <div class="flex items-baseline gap-4 flex-wrap mt-1">
-    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">$1M+ <span class="deck-verify">VERIFY</span></span>
-    <span class="deck-stat-label" style="max-width: 42ch;">pipeline in the first three months (11x · Questex, vendor-reported) — illustrative of AI-SDR leverage</span>
+    <span class="deck-stat" style="font-size: clamp(2rem, 4vw, 3.2rem);">$1M+</span>
+    <span class="deck-stat-label" style="max-width: 42ch;">
+      pipeline in the first three months, from Questex's 11x deployment — alongside
+      ~2,000 hrs/month of automated manual work and a reported 700% ROI
+      (vendor case study, illustrative of AI-SDR leverage, not a Reach-specific result).
+      {citationIndex.get('x11xai') && <InlineCitation {...citationIndex.get('x11xai')!} />}
+    </span>
   </div>
 
   <div class="flex flex-col gap-2 mt-1">
@@ -47,4 +69,6 @@ const oss = ["n8n + LLM", "LangGraph / CrewAI"];
       {oss.map((t) => <span class="deck-chip">{t}</span>)}
     </div>
   </div>
+
+  <Sources citations={citationsArray} />
 </section>

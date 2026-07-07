@@ -3,18 +3,44 @@
  * Slide 06 · The Pedagogy Is Ready — two validated, evidence-based methods.
  * Science of reading (now for adults) + contextualized/embedded numeracy.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'sor24',
+    title: 'The Science of Reading and Where It Stands in Adult Education',
+    url: 'https://www.proliteracy.org/resources/the-science-of-reading-and-where-it-stands-in-adult-education/',
+    source: 'ProLiteracy (research digest by AIR’s Amani Talwar)',
+  },
+  {
+    hexCode: 'iesadult21',
+    title: 'Adult Education Strategies: Identifying and Building Evidence of Effectiveness',
+    url: 'https://ies.ed.gov/use-work/resource-library/report/snapshot/adult-education-strategies-identifying-and-building-evidence-effectiveness',
+    source: 'IES / NCEE (Mathematica), NCEE 2021-007',
+    publishedDate: '2021-04-01',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const methods = [
   {
     chip: "Reading",
     title: "The science of reading",
     body: "The validated evidence base — decoding, fluency, vocabulary, and comprehension as connected processes — that reshaped K-12 literacy.",
     move: "Now being adapted for adult learners (ProLiteracy).",
+    hexCode: "sor24",
   },
   {
     chip: "Numeracy",
     title: "Contextualized, embedded numeracy",
     body: "Teaching math in the context of real work and life tasks, which outperforms decontextualized drill.",
     move: "Catalogued in IES adult-education evidence reviews.",
+    hexCode: "iesadult21",
   },
 ];
 ---
@@ -34,7 +60,10 @@ const methods = [
         <p style="font-family: var(--font-heading); font-size: 1.45rem; font-weight: 700; color: var(--color-text); margin: 0;">{m.title}</p>
         <p style="color: var(--color-text-muted); font-size: 0.96rem; line-height: 1.5; margin: 0;">{m.body}</p>
         <div class="deck-rule"></div>
-        <p class="deck-stat-label" style="color: var(--color-secondary);">{m.move} <span class="deck-verify">VERIFY</span></p>
+        <p class="deck-stat-label" style="color: var(--color-secondary);">
+          {m.move}
+          {citationIndex.get(m.hexCode) && <InlineCitation {...citationIndex.get(m.hexCode)!} />}
+        </p>
       </div>
     ))}
   </div>
@@ -43,4 +72,6 @@ const methods = [
     Both are validated. The move isn't inventing a method — it's
     <span style="color: var(--color-text); font-weight: 600;"> applying what already works to adults, in the flow of their work.</span>
   </p>
+
+  <Sources citations={citationsArray} />
 </section>

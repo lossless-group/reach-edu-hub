@@ -1,0 +1,58 @@
+---
+/**
+ * Slide 04 · The Evidence — Brookings / Child Trends 2018 longitudinal study.
+ * Work-based learning with adult relationships predicts job quality a decade later.
+ */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'br2018',
+    title: 'Pathways to High-Quality Jobs for Young Adults',
+    url: 'https://www.brookings.edu/research/pathways-to-high-quality-jobs-for-young-adults/',
+    source: 'Brookings / Child Trends',
+    publishedDate: '2018-11-01',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
+const findings = [
+  { stat: "+0.18", label: "job quality score from relationship-based CTE (apprenticeship, co-op, mentoring)", note: "net of education, wages, demographics" },
+  { stat: "+0.37", label: "job quality score from training at ages 24–27", note: "the Apprenticeship Degree's target window" },
+  { stat: "+0.90", label: "job quality score from a post-secondary degree vs. no diploma", note: "the strongest single predictor found" },
+  { stat: "0", label: "significant effect from job shadowing, career majors, or tech prep", note: "the design feature is the relationship, not proximity" },
+];
+---
+
+<section data-slot="04" data-variant="wd-v1" class="deck-section">
+  <span class="deck-kicker">04 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="color: var(--color-secondary);">The evidence</p>
+    <h2 class="deck-h1">
+      A decade later, the gains <span class="deck-gradient">still hold.</span>
+    </h2>
+    <p class="deck-lede mt-4" style="max-width: 72ch;">
+      Brookings Institution &amp; Child Trends followed 3,928 people from disadvantaged
+      backgrounds from adolescence to age 29. The findings on work-based learning
+      are unambiguous.{citationIndex.get('br2018') && <InlineCitation {...citationIndex.get('br2018')!} />}
+    </p>
+  </div>
+
+  <div class="deck-grid mt-4" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+    {findings.map((f) => (
+      <div class="deck-card flex flex-col gap-1">
+        <span class="deck-stat" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">{f.stat}</span>
+        <p style="color: var(--color-text); font-size: 0.93rem; line-height: 1.45; margin: 0;">{f.label}</p>
+        <span class="deck-stat-label" style="color: var(--color-text-muted); font-size: 0.78rem; font-style: italic;">{f.note}</span>
+      </div>
+    ))}
+  </div>
+
+  <Sources citations={citationsArray} />
+</section>

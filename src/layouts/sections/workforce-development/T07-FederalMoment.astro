@@ -1,0 +1,76 @@
+---
+/**
+ * Slide 07 · Federal Moment — policy aligned behind scaling apprenticeship.
+ */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'eo14278',
+    title: 'Executive Order 14278 — Preparing Americans for High-Paying Skilled Trade Jobs of the Future',
+    url: 'https://www.whitehouse.gov/presidential-actions/2025/04/preparing-americans-for-high-paying-skilled-trade-jobs-of-the-future/',
+    source: 'The White House',
+    publishedDate: '2025-04-23',
+  },
+  {
+    hexCode: 'afa2024',
+    title: 'How Community Colleges Can Help Scale US Apprenticeships: Evidence from the Field',
+    url: 'https://apprenticeshipsforamerica.org/resources/afa-publications/10/report-how-community-colleges-can-help-scale-us-apprenticeships',
+    source: 'Apprenticeships for America',
+    publishedDate: '2024-11-06',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
+const signals: { stat: string; label: string; citeKey: string }[] = [
+  { stat: "1M", label: "active Registered Apprentice target — set by executive order, plan due from DOL/Commerce/Education", citeKey: "eo14278" },
+  { stat: "200+", label: "community college apprenticeship sponsors with active apprentices by 2023, up from 30 in 2016", citeKey: "afa2024" },
+];
+
+const policy = [
+  "Workforce Pell Grants — Pell-eligible short-term credentials tied to labor market outcomes for the first time",
+  "WIOA reauthorization direction: pay-for-performance, integrated systems, apprenticeship as primary pathway",
+  "State ecosystems scaling: Texas TIRA grants, Alabama statewide Office of Apprenticeship, Michigan expansion grants",
+];
+---
+
+<section data-slot="07" data-variant="wd-v1" class="deck-section">
+  <span class="deck-kicker">07 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="color: var(--color-secondary);">The federal moment</p>
+    <h2 class="deck-h1">
+      Policy just <span class="deck-gradient">aligned.</span>
+    </h2>
+    <p class="deck-lede mt-4" style="max-width: 68ch;">
+      The convergence of federal mandate, new funding streams, and a growing community
+      college infrastructure creates the window for the Apprenticeship Degree to move
+      from innovator-stage to scaled deployment.
+    </p>
+  </div>
+
+  <div class="deck-grid mt-4" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+    {signals.map((s) => (
+      <div class="deck-card flex flex-col gap-1">
+        <span class="deck-stat" style="font-size: clamp(2rem, 5vw, 3.2rem);">{s.stat}</span>
+        <p style="color: var(--color-text); font-size: 0.93rem; line-height: 1.45; margin: 0;">
+          {s.label}
+          {citationIndex.get(s.citeKey) && <InlineCitation {...citationIndex.get(s.citeKey)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+    {policy.map((p) => (
+      <p style="color: var(--color-text); font-size: 0.93rem; line-height: 1.5; padding-left: 1rem; border-left: 2px solid var(--color-accent); margin: 0;">{p}</p>
+    ))}
+  </div>
+
+  <Sources citations={citationsArray} />
+</section>

@@ -3,9 +3,34 @@
  * Slide 08 · Beyond Teaching — the model generalizes across sectors.
  * Teaching → health (Apprenticeship College of Health, Apr 2026) → more.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'achlth',
+    title: 'Reach University and Training Fund Launch Apprenticeship College of Health to Address National Healthcare Workforce Shortages',
+    url: 'https://reach.edu/blog/reach-university-and-training-fund-launch-apprenticeship-college-of-health-to-address-national-healthcare-workforce-shortages',
+    source: 'Reach University',
+    publishedDate: '2026-04-09',
+  },
+  {
+    hexCode: 'tgw25a',
+    title: 'Announcement | $1M Grant to Expand Apprenticeship Degrees in Behavioral Health',
+    url: 'https://www.thegoodnessweb.org/announcement-1m-grant-to-expand-apprenticeship-degrees-in-behavioral-health',
+    source: 'The Goodness Web Foundation',
+    publishedDate: '2025-02-20',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const sectors = [
   { tag: "Live", k: "Teaching", d: "The proven first front — grow-your-own teachers for districts that can't recruit." },
-  { tag: "New · Apr 2026", k: "Health", d: "Reach + a training fund launched an Apprenticeship College of Health, including a behavioral-health pathway." },
+  { tag: "New · Apr 2026", k: "Health", d: "Reach + a training fund launched an Apprenticeship College of Health, including a behavioral-health pathway.", cite: 'achlth' },
   { tag: "Next", k: "More sectors", d: "Any rural workforce desert with employer demand is a candidate for the same earn-and-learn engine." },
 ];
 ---
@@ -23,14 +48,19 @@ const sectors = [
       <div class="deck-card flex flex-col gap-3">
         <span class="deck-chip">{s.tag}</span>
         <p style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--color-text); margin: 0;">{s.k}</p>
-        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">{s.d}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+          {s.d}
+          {s.cite && citationIndex.get(s.cite) && <InlineCitation {...citationIndex.get(s.cite)!} />}
+        </p>
       </div>
     ))}
   </div>
 
   <p class="deck-lede mt-2" style="max-width: 72ch;">
     Rural healthcare deserts are a natural second front. The behavioral-health pathway was
-    seeded by The Goodness Web <span class="deck-verify">VERIFY</span> at roughly $1M — the
+    seeded by The Goodness Web at $1M{citationIndex.get('tgw25a') && <InlineCitation {...citationIndex.get('tgw25a')!} />} — the
     same place-based income logic, a different workforce shortage.
   </p>
+
+  <Sources citations={citationsArray} />
 </section>

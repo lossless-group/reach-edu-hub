@@ -2,8 +2,33 @@
 /**
  * Slide 04 · Advanced Manufacturing Operations — Field 1.
  * TEMPLATE for the three field slides (04–06): demand stat → program shape →
- * apprenticeship fit. Source figures flagged VERIFY.
+ * apprenticeship fit.
+ * Figures verified 2026-07-06: NAM (citing Deloitte + Manufacturing Institute)
+ * for 2.1M; Apprenticeship.gov (DOL) for 97,500 / +20%.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'nam2030',
+    title: '2.1 Million Manufacturing Jobs Could Go Unfilled by 2030',
+    url: 'https://nam.org/2-1-million-manufacturing-jobs-could-go-unfilled-by-2030/',
+    source: 'NAM, citing Deloitte + The Manufacturing Institute',
+  },
+  {
+    hexCode: 'appgov2025',
+    title: 'Advanced Manufacturing',
+    url: 'https://www.apprenticeship.gov/apprenticeship-industries/advanced-manufacturing',
+    source: 'Apprenticeship.gov, U.S. Dept. of Labor',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const covers = [
   "Software-driven production lines",
   "Robotics & cobots",
@@ -20,8 +45,8 @@ const covers = [
   </div>
 
   <div class="flex items-baseline gap-4 flex-wrap mt-1">
-    <span class="deck-stat" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">2.1M <span class="deck-verify">VERIFY</span></span>
-    <span class="deck-stat-label" style="max-width: 40ch;">manufacturing jobs could go unfilled by 2030 (Deloitte + The Manufacturing Institute)</span>
+    <span class="deck-stat" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">2.1M</span>
+    <span class="deck-stat-label" style="max-width: 40ch;">manufacturing jobs could go unfilled by 2030.{citationIndex.get('nam2030') && <InlineCitation {...citationIndex.get('nam2030')!} />}</span>
   </div>
 
   <div class="deck-grid mt-1" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
@@ -36,10 +61,12 @@ const covers = [
     <div class="deck-card flex flex-col gap-2">
       <span class="deck-stat-label" style="color: var(--color-accent);">Why apprenticeship fits</span>
       <p style="color: var(--color-text); font-size: 0.96rem; line-height: 1.5; margin: 0;">
-        Already a stronghold — <strong>97,500</strong> <span class="deck-verify">VERIFY</span>
-        registered advanced-manufacturing apprentices in 2025 (+20% over five years).
+        Already a stronghold — <strong>97,500</strong>
+        registered advanced-manufacturing apprentices in 2025 (+20% over five years).{citationIndex.get('appgov2025') && <InlineCitation {...citationIndex.get('appgov2025')!} />}
         The modern plant floor is learned best on the floor.
       </p>
     </div>
   </div>
+
+  <Sources citations={citationsArray} />
 </section>

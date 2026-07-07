@@ -1,0 +1,40 @@
+---
+/**
+ * Slide 06 · The Apprenticeship Degree Stack — the only model that combines every feature.
+ */
+const stack = [
+  { n: "01", k: "Earn-while-learn", d: "Workers are paid from day one — removing the income disruption and debt risk that make conventional training inaccessible." },
+  { n: "02", k: "Employer co-design & sponsorship", d: "The employer defines the competencies, mentors the apprentice, and guarantees placement. Ends 'train and pray.'" },
+  { n: "03", k: "Relationship-based WBL", d: "A supervising adult builds a real working relationship — the exact design feature the research says produces lasting job quality." },
+  { n: "04", k: "Post-secondary credential", d: "The strongest single predictor of a quality job. Not a certificate that expires — a degree that opens doors and confers benefits." },
+  { n: "05", k: "Work-embedded curriculum", d: "The curriculum lives in the job, so it stays current as automation transforms tasks. No catalog lag." },
+];
+---
+
+<section data-slot="06" data-variant="wd-v1" class="deck-section">
+  <span class="deck-kicker">06 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="color: var(--color-secondary);">The model</p>
+    <h2 class="deck-h1">
+      Every evidence-based feature, <span class="deck-gradient">in one design.</span>
+    </h2>
+    <p class="deck-lede mt-4" style="max-width: 70ch;">
+      No other model stacks all five. The Apprenticeship Degree doesn't theorize about
+      what works in workforce development — it implements what decades of longitudinal
+      research already validated.
+    </p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem;">
+    {stack.map((s) => (
+      <div class="deck-card flex items-start gap-4" style="padding: 0.75rem 1rem;">
+        <span class="deck-stat-label" style="font-family: var(--font-mono); color: var(--color-accent); flex-shrink: 0; font-size: 0.8rem; padding-top: 0.1rem;">{s.n}</span>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.2rem 0;">{s.k}</p>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.5; margin: 0;">{s.d}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

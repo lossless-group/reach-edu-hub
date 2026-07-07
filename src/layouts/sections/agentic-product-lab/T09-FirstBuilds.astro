@@ -3,8 +3,25 @@
  * Slide 09 · First Builds — candidate stack gaps to prototype first.
  * Cards drawn from the "different stack" requirements.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'jffwbl',
+    title: 'Work-Based Learning Glossary',
+    url: 'https://www.jff.org/idea/work-based-learning-glossary/',
+    source: 'Jobs for the Future (JFF)',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
 const builds = [
-  { tag: "Work ↔ credit", k: "Work–credit mapping", d: "Capture on-the-job work and map it to competencies and credit in an accreditation-legible way.", verify: true },
+  { tag: "Work ↔ credit", k: "Work–credit mapping", d: "Capture on-the-job work and map it to competencies and credit (e.g. the ~144 hrs/year of related instruction time-based Registered Apprenticeship requires) in an accreditation-legible way.", verify: true },
   { tag: "Visibility", k: "Employer dashboard", d: "Lightweight supervisor visibility and nudges, so the employer can see and encourage progress.", verify: false },
   { tag: "Delivery", k: "Chunked delivery + assessment", d: "Microlearning and stackable assessment sized for shifts — delivered and answered by voice when hands are full.", verify: false },
   { tag: "Evidence", k: "Accreditation evidence capture", d: "Turn messy work artifacts — voice notes, photos, logs — into the documentation accreditors expect.", verify: false },
@@ -25,7 +42,7 @@ const builds = [
         <span class="deck-stat-label" style="color: var(--color-secondary);">{b.tag}</span>
         <p style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--color-text); margin: 0;">{b.k}</p>
         <p style="color: var(--color-text-muted); font-size: 0.93rem; line-height: 1.5; margin: 0;">
-          {b.d}{b.verify && (<> <span class="deck-verify">VERIFY ~144 hrs</span></>)}
+          {b.d}{b.verify && citationIndex.get('jffwbl') && <InlineCitation {...citationIndex.get('jffwbl')!} />}
         </p>
       </div>
     ))}
@@ -42,4 +59,6 @@ const builds = [
     A starting menu, not a roadmap —
     <span style="color: var(--color-text); font-weight: 600;"> to be prioritized with members.</span>
   </p>
+
+  <Sources citations={citationsArray} />
 </section>

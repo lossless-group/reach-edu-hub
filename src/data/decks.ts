@@ -197,6 +197,27 @@ export const DECKS: Deck[] = [
     ],
   },
   {
+    // Seventh "strategy" deck — workforce development.
+    // Narrative: context-v/narratives/strategies/workforce-development/README.md
+    slug: "workforce-development",
+    title: "Workforce Development: The System Is Broken. The Model Is Here.",
+    lede: "The U.S. workforce system was built for employer demand, not worker mobility — producing credentials without ladders and a 'train and pray' model that leaves millions sidelined. Brookings/Child Trends research names the active ingredient: relationship-based work-based learning predicts job quality a decade later. The Apprenticeship Degree implements every evidence-based design feature at once, at the exact moment federal policy aligned behind scaling it.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-07-06",
+    status: "draft",
+    onePager: true,
+    variants: [
+      {
+        // Globally-unique variant slug (shell keys SLOTS by variant alone).
+        slug: "wd-v1",
+        label: "v1 · Draft",
+        lede: "First Scroll-UI cut from the narrative; corpus-sourced figures flagged for verification. Token-driven via deck-primitives.",
+        status: "draft",
+        lastUpdated: "2026-07-06",
+      },
+    ],
+  },
+  {
     // Sixth "strategy" deck — program-design doctrine.
     // Narrative: context-v/narratives/strategies/frontier-job-demand/README.md
     slug: "frontier-job-demand",

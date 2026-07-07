@@ -53,7 +53,7 @@ export const COLLECTIONS: Collection[] = [
     itemLabel: "Strategy",
     // Strategy decks (built 2026-06-29). Narratives under
     // context-v/narratives/strategies/<deck>/README.md
-    deckSlugs: ["rural-income", "literacy-numeracy", "agentic-product-lab", "agent-workflow-maxxing", "reverse-engineer-funding", "frontier-job-demand"],
+    deckSlugs: ["rural-income", "literacy-numeracy", "agentic-product-lab", "agent-workflow-maxxing", "reverse-engineer-funding", "frontier-job-demand", "workforce-development"],
   },
 ];
 

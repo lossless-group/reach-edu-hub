@@ -1,8 +1,26 @@
 ---
 /**
  * Slide 05 · The Raise — the wage jump at licensure.
- * Big-number slide. NO verified dollar figure exists — placeholder is flagged.
+ * Big-number slide. National BLS benchmark substituted for the placeholder —
+ * the district/rural-specific delta is still pending Reach outcome data.
  */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'bls24a',
+    title: 'Teacher Assistants — Occupational Outlook Handbook',
+    url: 'https://www.bls.gov/ooh/education-training-and-library/teacher-assistants.htm',
+    source: 'U.S. Bureau of Labor Statistics',
+    publishedDate: '2024-05-01',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
 ---
 
 <section data-slot="05" data-variant="v1" class="deck-section" style="justify-content: center;">
@@ -12,8 +30,10 @@
     <p class="deck-eyebrow mb-5">The raise</p>
 
     <div class="flex flex-col gap-4 mb-8">
-      <span class="deck-stat">≈ +$XX,XXX<span style="font-size: 0.35em; color: var(--color-text-muted); font-family: var(--font-mono); letter-spacing: 0.05em;"> / yr</span> <span class="deck-verify">VERIFY</span></span>
-      <p class="deck-stat-label">Paraprofessional / aide → licensed teacher</p>
+      <span class="deck-stat">≈ +$27,000<span style="font-size: 0.35em; color: var(--color-text-muted); font-family: var(--font-mono); letter-spacing: 0.05em;"> / yr</span></span>
+      <p class="deck-stat-label">
+        National median: teacher assistant ($35,240/yr) → elementary/kindergarten teacher ($62,310/yr){citationIndex.get('bls24a') && <InlineCitation {...citationIndex.get('bls24a')!} />}
+      </p>
     </div>
 
     <div class="deck-rule mb-8" style="max-width: 14rem;"></div>
@@ -24,8 +44,13 @@
       the credential came debt-free, the full delta lands as <span style="color: var(--color-text); font-weight: 600;">durable, net income.</span>
     </p>
     <p class="deck-lede mt-4" style="max-width: 64ch; font-size: 0.95rem;">
-      The exact delta must come from state salary schedules and Reach outcome data for
-      the relevant rural footprint — pending, not estimated.
+      The figure above is a national BLS median comparison — directional, not a Reach outcome.
+      {/* SOURCING TODO: figure unverified as of first pass — confirm or replace with state
+      salary-schedule + Reach rural-cohort outcome data before this goes in front of a funder. */}
+      The exact delta for Reach's rural footprint must come from state salary schedules and
+      Reach outcome data — pending, not estimated.
     </p>
   </div>
+
+  <Sources citations={citationsArray} />
 </section>

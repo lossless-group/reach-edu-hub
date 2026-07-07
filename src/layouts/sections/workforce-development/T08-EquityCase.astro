@@ -1,0 +1,65 @@
+---
+/**
+ * Slide 08 · The Equity Case — automation hits hardest where the system serves worst.
+ */
+import { buildCitationIndex, citationsToArray } from '@lib/citations/types';
+import type { CitationReference } from '@lib/citations/types';
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import Sources from '@components/citations/Sources.astro';
+
+const citationDefs: CitationReference[] = [
+  {
+    hexCode: 'br2018',
+    title: 'Pathways to High-Quality Jobs for Young Adults',
+    url: 'https://www.brookings.edu/research/pathways-to-high-quality-jobs-for-young-adults/',
+    source: 'Brookings / Child Trends',
+    publishedDate: '2018-11-01',
+  },
+];
+
+const citationIndex = buildCitationIndex(citationDefs);
+const citationsArray = citationsToArray(citationIndex);
+
+const barriers = [
+  { k: "Debt risk", d: "Earn-while-learn eliminates it — workers are paid from day one, not taking on loans to train." },
+  { k: "Income disruption", d: "No training gap. Workers stay inside the labor force and keep earning while they upskill." },
+  { k: "Adult mentorship", d: "The design feature the evidence rewards, built into every apprenticeship by structure." },
+  { k: "Credential ceiling", d: "A post-secondary degree — the strongest predictor of job quality — accessible without the debt model." },
+];
+---
+
+<section data-slot="08" data-variant="wd-v1" class="deck-section">
+  <span class="deck-kicker">08 / 10</span>
+
+  <div class="max-w-4xl">
+    <p class="deck-eyebrow mb-3" style="color: var(--color-secondary);">The equity case</p>
+    <h2 class="deck-h1">
+      Automation hits hardest where the <span class="deck-gradient">system serves worst.</span>
+    </h2>
+    <p class="deck-lede mt-4" style="max-width: 70ch;">
+      Brookings data is direct: workers from disadvantaged backgrounds have lower employment
+      rates (79% vs. 90%), lower job quality (38% vs. 48% in high-quality jobs), and
+      systematically lower wages — even controlling for education.
+      {citationIndex.get('br2018') && <InlineCitation {...citationIndex.get('br2018')!} />}
+      The earn-and-learn model removes the specific barriers that keep the current system
+      from reaching them.
+    </p>
+  </div>
+
+  <div class="deck-grid mt-4" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+    {barriers.map((b) => (
+      <div class="deck-card flex flex-col gap-2">
+        <p style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--color-text); margin: 0;">{b.k}</p>
+        <p style="color: var(--color-text-muted); font-size: 0.93rem; line-height: 1.5; margin: 0;">{b.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-4" style="max-width: 68ch; font-size: 0.95rem; color: var(--color-text);">
+    This isn't a consolation prize for workers who didn't get a four-year degree.
+    It's the <strong>evidence-based route to lasting job quality gains</strong> for the
+    workers most likely to need them.
+  </p>
+
+  <Sources citations={citationsArray} />
+</section>
