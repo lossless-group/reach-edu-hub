@@ -53,7 +53,10 @@ export const COLLECTIONS: Collection[] = [
     itemLabel: "Strategy",
     // Strategy decks (built 2026-06-29). Narratives under
     // context-v/narratives/strategies/<deck>/README.md
-    deckSlugs: ["rural-income", "literacy-numeracy", "agentic-product-lab", "agent-workflow-maxxing", "reverse-engineer-funding", "frontier-job-demand", "workforce-development"],
+    // Pitch-generation decks (2026-07-28) — slugs now match the reach-edu
+    // corpus strategy slugs; built from pitch.md narratives with verified
+    // hex-code citations. June drafts archived (sections/_archive/).
+    deckSlugs: ["upward-mobility", "workforce-development", "rural-income-boosts", "adult-literacy-numeracy", "frontier-job-demand", "ncad-forge", "agent-workflow-maxxing", "reverse-engineer-funding"],
   },
 ];
 

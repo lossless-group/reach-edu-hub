@@ -1,0 +1,45 @@
+---
+/** Slide 08 · What your gift charters — setup desk first. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const flow = [
+  { k: 'The front door', d: 'An Agentic Engineering setup desk and coach: a member’s domain expert arrives with a workflow problem; the desk stands them up on tooling (environments, accounts, guardrails); the coach walks them from first prompt to working prototype.' },
+  { k: 'Prototype', d: 'Domain-expert builders across the member network, with tool budget and shared-good governance.', cite: '57ce95' },
+  { k: 'Test & circulate', d: 'Real cohorts and employers inside member programs; working prototypes flow through NCAD so the network compounds.' },
+  { k: 'Harden the winners', d: 'Part-time engineering gives production-grade treatment — security, scale, accreditation-grade data integrity — only to what earns it.' },
+];
+---
+
+<section data-slot="08" data-variant="nf-p1" class="deck-section">
+  <span class="deck-kicker">08 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">What your gift charters</p>
+    <h2 class="deck-h2">
+      Domain experts prototype, engineers harden,
+      <span class="deck-gradient">the movement keeps the IP.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+    {flow.map((f, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.8rem, 3vw, 2.6rem);">{String(i + 1).padStart(2, '0')}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{f.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.98rem, 1.05vw, 1.18rem); line-height: 1.5; margin: 0;">
+          {f.d}
+          {f.cite && CITE.get(f.cite) && <InlineCitation {...CITE.get(f.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    A program grant improves one institution.
+    <strong style="color: var(--color-text);">Chartering the Forge upgrades
+    every current and future member of the apprenticeship-degree movement at
+    once</strong> — the 3M-by-2035 moonshot's tooling
+    layer.<InlineCitation {...CITE.get('4aedc1')!} />
+  </p>
+</section>

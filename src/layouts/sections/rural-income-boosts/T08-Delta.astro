@@ -1,0 +1,44 @@
+---
+/** Slide 08 · Why the Delta, why now — the convergence slide. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+---
+
+<section data-slot="08" data-variant="rib-p1" class="deck-section deck-glow">
+  <span class="deck-kicker">08 / 11</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The convergence</p>
+    <h2 class="deck-h2">
+      Carnegie just funded Reach's Delta expansion. Walton just aimed its
+      decade at the Delta. <span class="deck-gradient">The co-funding table is set.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">NATIONAL ANCHOR · IN</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        Carnegie Corporation of New York: $2M to expand the teachers college
+        across the Delta and launch Mississippi — the first anchor of the $25M
+        growth campaign.<InlineCitation {...CITE.get('0a146a')!} /><InlineCitation {...CITE.get('57ce95')!} />
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">REGIONAL DECADE · AIMED</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        Walton's Strategy 2030 names Delta educator workforce and economic
+        stability as its focus — ~$70M/yr of home-region
+        grantmaking.<InlineCitation {...CITE.get('5e224c')!} />
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">YOUR SEAT</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        A rural funder joining now co-funds alongside a national anchor, in a
+        geography with a shovel-ready launch — the highest-leverage seat in
+        rural education philanthropy this cycle.
+      </p>
+    </div>
+  </div>
+</section>

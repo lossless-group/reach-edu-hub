@@ -1,0 +1,41 @@
+---
+/** Slide 10 · The two-generation dividend. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+---
+
+<section data-slot="10" data-variant="aln-p1" class="deck-section deck-glow">
+  <span class="deck-kicker">10 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The payoff</p>
+    <h2 class="deck-h2">
+      Teach a parent to read better, and you've made
+      <span class="deck-gradient">two investments.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">THE STATISTICS</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        An NIH-funded study of 3,000+ families found a mother's reading skill
+        was the single strongest predictor of her children's later academic
+        success — ahead of neighborhood and family
+        income.<InlineCitation {...CITE.get('4872f7')!} /> OECD analysis shows
+        parental background predicts adult skills more strongly in the U.S.
+        than in almost any other surveyed country.<InlineCitation {...CITE.get('6a9ca0')!} />
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">THE POPULATION</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        Reach's candidates are parents, working as paraprofessionals in the
+        schools their own children attend.<InlineCitation {...CITE.get('57ce95')!} />
+        A measured literacy gain lands twice — once in the candidate's
+        paycheck, once at their kitchen table. This is the family-literacy
+        thesis the Barbara Bush Fund exists to fund.<InlineCitation {...CITE.get('69fa84')!} />
+      </p>
+    </div>
+  </div>
+</section>

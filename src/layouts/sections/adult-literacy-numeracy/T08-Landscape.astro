@@ -1,0 +1,37 @@
+---
+/** Slide 08 · OVERWHELM — the funding landscape of the most under-capitalized lane. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const rows = [
+  { k: 'Dollar General Literacy Foundation', amt: '$10.6M → $13.2M → ~$16M', d: 'The anchor funder, escalating — record one-day adult/family literacy rounds 2024 → 2026, incl. GED/HSE support at colleges.', cites: ['79319a', '90ad13', '3f6fb6'] },
+  { k: 'Barbara Bush Fund for Family Literacy', amt: 'Relaunched 2025', d: 'National grantmaking fund — two-generation family literacy, exactly the parent-learner demographic Reach serves.', cites: ['69fa84'] },
+  { k: "MacKenzie Scott's Open Call", amt: '$1–2M each', d: 'Unrestricted gifts to community adult-literacy providers — the largest infusion those organizations have ever seen.', cites: ['b8a0cd'] },
+  { k: 'The typical grant in this lane', amt: '≤ $6,000', d: 'Federal adult-education funding collapsed from ~$1B (2005) to ~$190M (2024), so philanthropy micro-backfills — the field’s own re-granting fund caps at $6,000 per grant. No scalable, measured flagship exists. That’s the opening.', cites: ['e174dc'] },
+];
+---
+
+<section data-slot="08" data-variant="aln-p1" class="deck-section">
+  <span class="deck-kicker">08 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The field</p>
+    <h2 class="deck-h2">
+      Adult literacy is philanthropy's most under-capitalized lane —
+      <span class="deck-gradient">which makes measured improvement the differentiator worth funding.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {rows.map((r) => (
+      <div class="deck-card flex flex-col gap-1" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-stat" style="font-size: clamp(1.2rem, 2vw, 1.7rem);">{r.amt}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.1rem, 1.3vw, 1.35rem); font-weight: 700; color: var(--color-text); margin: 0;">{r.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.45; margin: 0;">
+          {r.d}
+          {r.cites.map((c) => CITE.get(c) && <InlineCitation {...CITE.get(c)!} />)}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

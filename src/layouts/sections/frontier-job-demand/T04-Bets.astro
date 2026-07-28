@@ -1,0 +1,37 @@
+---
+/** Slide 04 · Five opinionated bets. */
+const bets = [
+  { n: '01', k: 'Advanced Manufacturing Operations', d: 'Software-driven lines, robotics, observability.' },
+  { n: '02', k: 'Drone Sciences', d: 'Manufacture, software, deployment, applications.' },
+  { n: '03', k: 'AI in Business Operations', d: 'Making AI actually deliver inside organizations.' },
+  { n: '04', k: 'Data Center Operations', d: 'The physical-infrastructure jobs of the AI buildout.' },
+  { n: '05', k: 'Remote & Distributed Business Administration', d: 'A work mode the catalog never taught at all.' },
+];
+---
+
+<section data-slot="04" data-variant="fjd-p1" class="deck-section">
+  <span class="deck-kicker">04 / 09</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The bets</p>
+    <h2 class="deck-h2">
+      We don't offer everything. We design backward from
+      <span class="deck-gradient">five frontier fields.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));">
+    {bets.map((b) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.6rem, 2.6vw, 2.2rem);">{b.n}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{b.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.98rem, 1.05vw, 1.18rem); line-height: 1.45; margin: 0;">{b.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 66ch;">
+    Selection bar: demand signal × employer pull × apprenticeship fit. Opinion
+    is the point — a program for everyone serves no employer well.
+  </p>
+</section>

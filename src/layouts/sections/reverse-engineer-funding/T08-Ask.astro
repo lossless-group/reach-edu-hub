@@ -1,0 +1,43 @@
+---
+/** Slide 08 · The ask — adopt the doctrine. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+---
+
+<section data-slot="08" data-variant="ref-p1" class="deck-section">
+  <span class="deck-kicker">08 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The internal decision</p>
+    <h2 class="deck-h2">
+      Rank every prospect by capacity × alignment. Spend the hours on the top
+      ten. <span class="deck-gradient">Size every ask to the pattern's maximum.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">NOW</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        Adopt the tiered whale map as the working pipeline; push intro calls to
+        the pattern-proven tier before the August cohort
+        close.<InlineCitation {...CITE.get('57ce95')!} />
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">EVERY WINDOW</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        Submit into every dated window that clears the alignment bar — agents
+        track the calendar so nothing expires unseen.
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">THE MEGA-ASK</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        Draft the first pattern-matched mega-ask — the medicine-precedent,
+        debt-free-degree framing — for the one funder whose pattern it fits
+        best.
+      </p>
+    </div>
+  </div>
+</section>

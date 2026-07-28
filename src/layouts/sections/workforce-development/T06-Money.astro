@@ -1,0 +1,50 @@
+---
+/** Slide 06 · OVERWHELM — follow the money: the corporate wave funds everything but the degree. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const rows = [
+  { funder: 'Bloomberg Philanthropies', amt: '$250M (2024)', d: 'Healthcare high schools — employer-embedded pipelines', cite: 'a2ceba' },
+  { funder: 'Bloomberg Philanthropies', amt: '$90M (2026)', d: 'National Skilled Trades Initiative; $570M cumulative CTE', cite: '65140c' },
+  { funder: "Lowe's Foundation", amt: '$250M by 2035', d: '250,000 tradespeople via colleges', cite: 'e33e8d' },
+  { funder: 'BlackRock Foundation', amt: '$100M (2026)', d: 'Future Builders; JFF runs a $25M RFP', cite: 'a25592' },
+  { funder: 'Meta', amt: '$115M (2026)', d: "America's Workforce Academy, fast-track trades", cite: 'e9c685' },
+  { funder: 'MacKenzie Scott', amt: '$20M · $42M', d: 'JFF; 10,000 Degrees — unrestricted, mobility-screened', cite: 'b585ef' },
+  { funder: 'Ascendium', amt: '$172M (2025)', d: 'Community colleges, sectoral training, rural learners', cite: '63bbab' },
+  { funder: 'Bloomberg / Arnold', amt: '$17M · $16M', d: 'Largest-ever gifts to community colleges (HCC, Maricopa)', cite: 'a26016' },
+];
+---
+
+<section data-slot="06" data-variant="wd-p1" class="deck-section">
+  <span class="deck-kicker">06 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">Follow the money</p>
+    <h2 class="deck-h2">
+      Corporate philanthropy went nine-figure on workforce — funding everything
+      around the degree <span class="deck-gradient">except the degree.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {rows.map((r) => (
+      <div class="deck-card flex flex-col gap-1" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-stat" style="font-size: clamp(1.3rem, 2.2vw, 1.8rem);">{r.amt}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{r.funder}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.4; margin: 0;">
+          {r.d}
+          {CITE.get(r.cite) && <InlineCitation {...CITE.get(r.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 76ch; font-size: clamp(0.95rem, 1.3vw, 1.1rem);">
+    Every row funds training, pipelines, or completion <em>around</em> the
+    degree. The piece the system lacks — degree-bearing, employer-embedded,
+    debt-free — is what Reach has already accredited and proven. Skills-first
+    money<InlineCitation {...CITE.get('2af56e')!} /> and career-navigation
+    bets<InlineCitation {...CITE.get('f9c42b')!} /> reward exactly a model
+    that certifies competence through work.
+  </p>
+</section>

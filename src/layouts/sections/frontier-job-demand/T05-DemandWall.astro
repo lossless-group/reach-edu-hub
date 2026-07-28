@@ -1,0 +1,63 @@
+---
+/** Slide 05 · OVERWHELM — the demand wall, one dense card per field. All figures verified 2026-07-28. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const fields = [
+  {
+    chip: 'ADVANCED MANUFACTURING',
+    head: '3.8M needed · 1.9M at risk',
+    body: 'Net need of ~3.8M workers 2024–2033; roughly half could go unfilled. Already an apprenticeship stronghold: 97,500 apprentices served in 2025 (+20% in five years); JFF alone assisted 800+ employers.',
+    cites: ['757e16', 'ee9ca4', '405c2d'],
+  },
+  {
+    chip: 'DRONE SCIENCES',
+    head: '$73B → $163.6B (global)',
+    body: 'Global market to 2030 at a 14.3% CAGR, U.S. the largest single market; PwC UK projects 628,000 jobs in the UK drone economy alone — a scale signal for the larger U.S. market.',
+    cites: ['7bb99e', '69bdec'],
+  },
+  {
+    chip: 'AI IN BUSINESS OPERATIONS',
+    head: '~90% use AI · 9% mature',
+    body: 'An enormous operationalization gap (McKinsey adoption; Gartner maturity). BCG: 50–55% of U.S. jobs reshaped within 2–3 years — reshaped, not replaced. PwC 2026 Barometer: AI-professionalised jobs growing 2× faster, 42% faster wage growth.',
+    cites: ['42684f', 'da5b04', 'c1cc24', '43d7ac'],
+  },
+  {
+    chip: 'DATA CENTER OPERATIONS',
+    head: '46% can’t find candidates',
+    body: 'Global staffing needs near 2.3M roles; ~$6.7T projected global capex by 2030; ~1M direct U.S. jobs. The industry’s own research: remove degree requirements, train on the job.',
+    cites: ['6777be', 'cf95b7', 'e225f4', '3832d4'],
+  },
+  {
+    chip: 'REMOTE & DISTRIBUTED ADMIN',
+    head: '25% of paid workdays',
+    body: 'A large, durable, ferociously contested market (46% of applications chased ~10% of postings). Remote work is the accessibility technology behind record disabled employment — yet fully remote workers were promoted 31% less. A job category the catalog never built.',
+    cites: ['a057d7', '44bfd1', '272bb5', 'c356ce', 'c7ebc7'],
+  },
+];
+---
+
+<section data-slot="05" data-variant="fjd-p1" class="deck-section">
+  <span class="deck-kicker">05 / 09</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The demand wall</p>
+    <h2 class="deck-h2">
+      Every field is short by six or seven figures of people —
+      <span class="deck-gradient">and the shortage is the syllabus.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+    {fields.map((f) => (
+      <div class="deck-card flex flex-col gap-2" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-chip">{f.chip}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.25rem, 1.55vw, 1.55rem); font-weight: 700; color: var(--color-accent); margin: 0;">{f.head}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.45; margin: 0;">
+          {f.body}
+          {f.cites.map((c) => CITE.get(c) && <InlineCitation {...CITE.get(c)!} />)}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

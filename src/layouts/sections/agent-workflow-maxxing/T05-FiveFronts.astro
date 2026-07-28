@@ -1,0 +1,44 @@
+---
+/** Slide 05 · The five fronts — agents research/draft/watch; humans approve/act. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const fronts = [
+  { k: 'Grants', d: 'The corpus that drafts itself: snippet library, brand voice, deadline calendar, DDQ fill-outs.', cites: ['ef2072', '91f051'] },
+  { k: 'ABM / funder conversations', d: 'Research, enrichment, sequencing, reply triage — one person tends many threads.', cites: ['97bdd0', '1ffec6'] },
+  { k: 'Events', d: 'The nine-months-ahead game: CFPs, attendee scraping, per-meeting prep briefs.', cites: ['ccb282', '7fb84f'] },
+  { k: 'Travel', d: 'Itineraries built around stacked funder meetings; route and drive-time optimized.', cites: ['70a304', '8a2652'] },
+  { k: 'Social presence', d: 'Monitor named stakeholders, draft engagement; a human posts. LinkedIn penalizes automated engagement — the guardrail is load-bearing.', cites: ['9cc232'] },
+];
+---
+
+<section data-slot="05" data-variant="awm-p1" class="deck-section">
+  <span class="deck-kicker">05 / 09</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The five fronts</p>
+    <h2 class="deck-h2">
+      One rule everywhere: agents research, draft, and watch —
+      <span class="deck-gradient">humans approve and act.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));">
+    {fronts.map((f, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.6rem, 2.6vw, 2.2rem);">{String(i + 1).padStart(2, '0')}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{f.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.45; margin: 0;">
+          {f.d}
+          {f.cites.map((c) => CITE.get(c) && <InlineCitation {...CITE.get(c)!} />)}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 68ch;">
+    The industry data supports the split: ~89.7% of social teams use AI daily;
+    only ~5.4% fully automate.<InlineCitation {...CITE.get('22d589')!} />
+    Augment, don't abdicate.
+  </p>
+</section>

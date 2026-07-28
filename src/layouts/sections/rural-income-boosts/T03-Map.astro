@@ -1,0 +1,38 @@
+---
+/** Slide 03 · The map — education deserts always have a school. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+---
+
+<section data-slot="03" data-variant="rib-p1" class="deck-section">
+  <span class="deck-kicker">03 / 11</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The map</p>
+    <h2 class="deck-h2">
+      In America's education deserts there is no college within commuting
+      distance. <span class="deck-gradient">There is always a school.</span>
+      <InlineCitation {...CITE.get('57ce95')!} />
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat" style="font-size: clamp(2rem, 3.6vw, 3rem);">0–1</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.5; margin: 0;">broad-access colleges within commuting distance in an education desert — where Reach grows fastest.</p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat" style="font-size: clamp(2rem, 3.6vw, 3rem);">36%</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.5; margin: 0;">of Reach's candidates are rural — proof the model reaches where traditional higher ed never did.</p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-stat" style="font-size: clamp(2rem, 3.6vw, 3rem);">Every county</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.5; margin: 0;">has a school — full of degree-requiring jobs and committed adults already working in them.</p>
+    </div>
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 68ch;">
+    Aides, paraprofessionals, coaches, secretaries: the local talent pipeline
+    is already inside the building.
+  </p>
+</section>

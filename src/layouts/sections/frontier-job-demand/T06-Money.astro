@@ -1,0 +1,49 @@
+---
+/** Slide 06 · OVERWHELM — the money already voted; none of it buys a degree. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const rows = [
+  { funder: 'BlackRock Foundation', amt: '$100M', d: 'Future Builders — with a $25M RFP run by JFF', cite: 'a25592' },
+  { funder: "Lowe's Foundation", amt: '$250M', d: '250,000 tradespeople by 2035', cite: 'e33e8d' },
+  { funder: 'Meta', amt: '$115M', d: "America's Workforce Academy — data-center-adjacent trades", cite: 'e9c685' },
+  { funder: 'Bloomberg Philanthropies', amt: '$90M', d: 'National Skilled Trades Initiative atop $570M cumulative CTE', cite: '65140c' },
+  { funder: 'Microsoft', amt: '$4B', d: 'Elevate — 20M AI credentials targeted', cite: '2d173e' },
+  { funder: 'Google', amt: '$1B', d: 'AI training across accredited nonprofit colleges — Reach is eligible', cite: '611b39' },
+  { funder: 'Google.org', amt: '$75M', d: 'AI Opportunity Fund for essential AI skills', cite: '29691f' },
+];
+---
+
+<section data-slot="06" data-variant="fjd-p1" class="deck-section">
+  <span class="deck-kicker">06 / 09</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The money already voted</p>
+    <h2 class="deck-h2">
+      Corporate philanthropy went nine-figure on exactly these fields.
+      <span class="deck-gradient">None of it yet buys a degree.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {rows.map((r) => (
+      <div class="deck-card flex flex-col gap-1" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-stat" style="font-size: clamp(1.4rem, 2.4vw, 2rem);">{r.amt}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{r.funder}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.4; margin: 0;">
+          {r.d}
+          {CITE.get(r.cite) && <InlineCitation {...CITE.get(r.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 76ch; font-size: clamp(0.95rem, 1.3vw, 1.1rem);">
+    Certificates, boot camps, academies — training without the degree. The
+    evidence says the degree is what compounds (the strongest single predictor
+    of lasting job quality<InlineCitation {...CITE.get('679c9b')!} />). The
+    open position in this wave is the accredited, debt-free, work-embedded
+    degree — and Reach is the only institution accredited to deliver
+    it.<InlineCitation {...CITE.get('28ded4')!} />
+  </p>
+</section>

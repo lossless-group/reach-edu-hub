@@ -1,0 +1,35 @@
+---
+/** Slide 03 · Who's below the line — hard numbers, the trend as the headline. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const stats = [
+  { n: '19% → 28%', d: 'of U.S. adults read at Level 1 or below — more than 1 in 4, up nine points from 2017 to 2023. The trend is the headline.', cites: ['24ff0f', 'a182e2'] },
+  { n: '44% · 38%', d: 'reached Level 3+ in literacy · numeracy respectively (PIAAC 2023); average scores declined significantly from 2017.', cites: ['24ff0f', 'd67dcb'] },
+  { n: '62% · 74%', d: 'of frontline service-sector workers (retail, food service, health & social assistance) score below Level 3 in literacy · numeracy respectively — the Apprenticeship Degree’s core population.', cites: ['a73ccd', 'd461ae'] },
+];
+---
+
+<section data-slot="03" data-variant="aln-p1" class="deck-section">
+  <span class="deck-kicker">03 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">Who's below the line</p>
+    <h2 class="deck-h2">
+      Most working adults are below proficiency in exactly the skills
+      <span class="deck-gradient">the market prices highest.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {stats.map((s) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.9rem, 3.4vw, 2.8rem);">{s.n}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">
+          {s.d}
+          {s.cites.map((c) => CITE.get(c) && <InlineCitation {...CITE.get(c)!} />)}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

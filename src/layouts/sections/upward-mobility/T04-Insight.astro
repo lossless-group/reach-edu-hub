@@ -1,0 +1,24 @@
+---
+/**
+ * Slide 04 · The insight — the tweet-sized turn.
+ */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+---
+
+<section data-slot="04" data-variant="um-p1" class="deck-section deck-glow" style="align-items: center; text-align: center;">
+  <span class="deck-kicker">04 / 12</span>
+
+  <p class="deck-eyebrow">The insight</p>
+  <h2 class="deck-h1" style="max-width: 22ch;">
+    What if your job led to your degree —
+    <span class="deck-gradient">not the other way around?</span>
+    <InlineCitation {...CITE.get('57ce95')!} />
+  </h2>
+  <p class="deck-lede" style="max-width: 62ch; margin-inline: auto;">
+    In every county in America there is a school — and usually a hospital —
+    full of good jobs that require degrees, staffed by committed adults who
+    don't have one. Coaches, library aides, paraprofessionals, nursing
+    assistants. They are already the talent pipeline.
+  </p>
+</section>

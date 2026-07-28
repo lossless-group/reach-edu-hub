@@ -1,0 +1,43 @@
+---
+/**
+ * Slide 03 · The problem, in four numbers — locked out while jobs sit empty.
+ */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const stats = [
+  { n: '40M', d: 'American adults with some college, no degree — placebound in entry-level jobs.' },
+  { n: '4.8M', d: 'students in school buildings where classrooms lack a certified teacher.' },
+  { n: '1.5M', d: 'unfilled openings in teaching and healthcare — good jobs that require a degree.' },
+  { n: '$55K', d: 'average loan debt for a new teacher, against $1.8T national student debt.' },
+];
+---
+
+<section data-slot="03" data-variant="um-p1" class="deck-section">
+  <span class="deck-kicker">03 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The problem</p>
+    <h2 class="deck-h2">
+      Millions locked out of mobility — while degree-requiring jobs
+      <span class="deck-gradient">sit empty in their own communities.</span>
+      <InlineCitation {...CITE.get('57ce95')!} />
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));">
+    {stats.map((s) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(2.2rem, 4vw, 3.4rem);">{s.n}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.5; margin: 0;">{s.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    Two failed offers made this. Campus-based: <em>quit, borrow, relocate,
+    maybe graduate.</em> Online, for the last twenty years: <em>borrow,
+    struggle for time, maybe graduate with debt and a low ROI.</em> Two
+    generations of “access” — and in both, the learner holds the downside.
+  </p>
+</section>

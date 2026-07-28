@@ -1,0 +1,46 @@
+---
+/** Slide 07 · OVERWHELM — the rural money map. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const rows = [
+  { k: 'Walton · Strategy 2030', amt: '~$70M/yr', d: 'Home-region grantmaking re-centered on education-to-career in NW Arkansas and the Arkansas–Mississippi Delta (May 2026).', cite: '5e224c' },
+  { k: "MacKenzie Scott's rural wave", amt: '$50M · $36M · $17M · $11M', d: 'Native Forward (largest-ever award in Indian Country) · two rural NC community colleges · Northern Oklahoma College · Fort Peck tribal college — all unrestricted, all Reach’s peer set.', cite: 'a14f6b', cites: ['496a2b', '333d1c', 'b22fe0'] },
+  { k: 'Scott → LISC', amt: '$65M', d: 'Largest gift in LISC’s history; its rural program spans 2,000+ counties.', cite: '9ec98d' },
+  { k: 'Ascendium', amt: '$172M (2025)', d: 'The only durable national rural-postsecondary funder — rural learner success as named strategy.', cite: '63bbab' },
+  { k: 'Place-based scale', amt: '$365M · $312M · $600M+', d: 'Dogwood Health Trust (rural WNC) · Lilly GIFT VIII (all 92 Indiana counties) · Blue Meridian Place Matters.', cite: '5126b2', cites: ['e3b418', 'cca778'] },
+  { k: 'Corporate rural entry', amt: '$100M', d: 'Goldman Sachs rural small-business expansion (Alabama & Mississippi cohorts); CoBank’s recurring rural-prosperity grants.', cite: 'bfbdb3', cites: ['13929c'] },
+];
+---
+
+<section data-slot="07" data-variant="rib-p1" class="deck-section">
+  <span class="deck-kicker">07 / 11</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The rural money map</p>
+    <h2 class="deck-h2">
+      Rural capital is moving — and it just turned toward education-to-career
+      <span class="deck-gradient">in Reach's exact geography.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    {rows.map((r) => (
+      <div class="deck-card flex flex-col gap-1" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-stat" style="font-size: clamp(1.2rem, 2vw, 1.7rem);">{r.amt}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.1rem, 1.3vw, 1.35rem); font-weight: 700; color: var(--color-text); margin: 0;">{r.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.45; margin: 0;">
+          {r.d}
+          {CITE.get(r.cite) && <InlineCitation {...CITE.get(r.cite)!} />}
+          {r.cites && r.cites.map((c) => CITE.get(c) && <InlineCitation {...CITE.get(c)!} />)}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch; font-size: clamp(0.95rem, 1.3vw, 1.1rem);">
+    Unrestricted mega-gifts now flow to rural two-year institutions; place-rooted
+    funders outspend national rural programs inside their geographies by an
+    order of magnitude. The freshest signal points at the Delta.
+  </p>
+</section>

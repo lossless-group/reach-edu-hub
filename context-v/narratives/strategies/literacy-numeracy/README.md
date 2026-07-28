@@ -65,8 +65,8 @@ durably lifts the literacy and numeracy the labor market rewards, locking in
 the income and promotion gains and making them real rather than nominal.
 
 So the reframe for a funder: this is not remediation tacked onto a degree. It is
-a **capability guarantee** — the assurance that an Apprenticeship Degree
-graduate leaves measurably stronger in the two skills most tightly linked to
+**measured improvement** — an Apprenticeship Degree graduate leaves
+measurably stronger, demonstrably, in the two skills most tightly linked to
 lifetime earnings.
 
 ## Why it moves income — the mechanism
@@ -104,7 +104,7 @@ lifetime earnings.
   workers Reach serves. [^a73ccd] [^d461ae] (Say "below Level 3," not
   "limited," to a PIAAC-literate audience.)
 - **Degrees can certify without lifting the basics.** Without explicit,
-  measured foundational-skills instruction, the gain is assumed, not assured.
+  measured foundational-skills instruction, the gain is assumed, never measured.
 
 ## The pedagogy is ready
 
@@ -121,9 +121,9 @@ lifetime earnings.
   teaches in the flow of work — the natural vehicle for contextualized
   foundational-skills instruction.
 
-## Assure the gain — measurement
+## Measure the improvement
 
-The differentiator is **assurance**: pre/post assessment (PIAAC-aligned or a
+The differentiator is **measured improvement**: pre/post assessment (PIAAC-aligned or a
 validated instrument) so every cohort's literacy/numeracy gain is *visible*. That
 turns the strategy into a fundable, evaluable program with a clear outcome metric
 (skill-level movement) sitting upstream of the mobility metric (wage/promotion).
@@ -139,7 +139,7 @@ turns the strategy into a fundable, evaluable program with a clear outcome metri
 5. **Credential ≠ capability** — degrees can certify without lifting the basics.
 6. **The pedagogy is ready** — science of reading + contextualized numeracy.
 7. **Embed it in the degree** — taught in the flow of work, contextualized.
-8. **Assure the gain** — pre/post measurement; the capability guarantee.
+8. **Measure the improvement** — pre/post assessment; visible growth curves.
 9. **The payoff** — durable, compounding income + promotion gains; equity for the
    most-affected workers.
 10. **Supporters & the ask** — the philanthropic case + what funders enable.
@@ -148,9 +148,9 @@ turns the strategy into a fundable, evaluable program with a clear outcome metri
 
 - "The labor market pays for the skill, not just the diploma."
 - "Most working adults are below the line on exactly the skills that pay."
-- "A credential can certify without lifting the basics — we assure the gain."
+- "A credential can certify without lifting the basics — we measure the improvement."
 - "Science of reading, now for adults. Numeracy, in the flow of work."
-- "Measured gains turn a degree into a capability guarantee."
+- "Foundational capabilities, measured improvements."
 
 ## Open questions / to research before deck build
 

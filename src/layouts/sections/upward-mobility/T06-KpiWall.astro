@@ -1,0 +1,50 @@
+---
+/**
+ * Slide 06 · OVERWHELM #1 — the KPI wall. Proof at benchmark-beating scale.
+ */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const kpis = [
+  { n: '3,400+', d: 'candidates enrolled across 8 states' },
+  { n: '550', d: 'school districts & networks as employer partners' },
+  { n: '93%', d: 'retention, semester after first term' },
+  { n: '70%', d: 'on-time completion vs ~50% nationally' },
+  { n: '65–110%', d: 'wage gain, aide → teacher-of-record' },
+  { n: '60+', d: 'candidate NPS vs sector benchmark of 32' },
+  { n: '65%', d: 'Pell-eligible · 48% candidates of color · 36% rural' },
+  { n: '$75/mo', d: 'maximum out-of-pocket — zero student debt' },
+];
+---
+
+<section data-slot="06" data-variant="um-p1" class="deck-section">
+  <span class="deck-kicker">06 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">Proof, not pilot</p>
+    <h2 class="deck-h2">
+      Five years in: the nation's leading proof point —
+      <span class="deck-gradient">beating the benchmarks that matter.</span>
+      <InlineCitation {...CITE.get('57ce95')!} />
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+    {kpis.map((k) => (
+      <div class="deck-card flex flex-col gap-1" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-stat" style="font-size: clamp(1.5rem, 2.6vw, 2.2rem);">{k.n}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.4; margin: 0;">{k.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 78ch; font-size: clamp(0.95rem, 1.3vw, 1.15rem);">
+    And the third-party line: Education Analytics measured a
+    <strong style="color: var(--color-text);">~2.4 effect size on post-program income</strong>
+    in Arkansas — causal-analysis-ready at today's cohort sizes — with ~$20M/yr
+    in projected aggregate wage gains. Over 80% of the first Arkansas BA cohort
+    stepped straight into full-time teaching at $50,000+, roughly double prior
+    wages; Jefferson Parish, LA credits Reach with halving teacher vacancies.
+    <InlineCitation {...CITE.get('57ce95')!} />
+  </p>
+</section>

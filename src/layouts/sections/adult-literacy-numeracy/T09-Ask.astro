@@ -1,0 +1,44 @@
+---
+/** Slide 09 · The ask — fund measured improvements; share them with the movement. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const shape = [
+  { k: 'Adapt the curricula', d: 'Science-of-reading and contextualized-numeracy instruction folded into Reach’s tutorial sequence.', cites: ['cd9feb', '95f776'] },
+  { k: 'Build the audio-AI layer', d: 'Instruction and assessment that fit candidates’ interstitial moments — spoken micro-lessons, voice check-ins, growth curves.' },
+  { k: 'Report per cohort', d: 'Public, PIAAC-aligned skill-gain reporting: an auditable answer to “did the basics actually improve?” — attached to thousands of candidates whose wage outcomes are already tracked.', cites: ['57ce95'] },
+  { k: 'Share with the movement', d: 'What works — curricula, instruments, and wherever possible the delivery technology — flows to the wider NCAD community. One grant, one proof, a movement’s worth of adoption.', cites: ['4aedc1'] },
+];
+---
+
+<section data-slot="09" data-variant="aln-p1" class="deck-section">
+  <span class="deck-kicker">09 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">What your gift catalyzes</p>
+    <h2 class="deck-h2">
+      Fund measured improvements: skills woven into the work, growing as they
+      <span class="deck-gradient">are measured — visible at graduation.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {shape.map((s, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.8rem, 3vw, 2.6rem);">{String(i + 1).padStart(2, '0')}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{s.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.98rem, 1.05vw, 1.18rem); line-height: 1.5; margin: 0;">
+          {s.d}
+          {s.cites && s.cites.map((c) => CITE.get(c) && <InlineCitation {...CITE.get(c)!} />)}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    A modest grant here doesn't run a literacy program — it makes Reach the
+    <strong style="color: var(--color-text);">first university whose
+    foundational-skills improvements are measured and real</strong> — and hands
+    the adult-literacy field its proof-of-improvement flagship.
+  </p>
+</section>

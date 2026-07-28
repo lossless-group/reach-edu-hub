@@ -1,0 +1,22 @@
+---
+/** Slide 02 · The hook — the skill, not the diploma. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+---
+
+<section data-slot="02" data-variant="aln-p1" class="deck-section deck-glow" style="align-items: center; text-align: center;">
+  <span class="deck-kicker">02 / 12</span>
+
+  <p class="deck-eyebrow">The hook</p>
+  <h2 class="deck-h1" style="max-width: 20ch;">
+    The labor market pays for the skill,
+    <span class="deck-gradient">not the diploma.</span>
+  </h2>
+  <p class="deck-lede" style="max-width: 66ch; margin-inline: auto;">
+    Across 23 countries of PIAAC data, a one-standard-deviation gain in
+    numeracy is associated with <strong style="color: var(--color-text);">~18%
+    higher wages for prime-age workers — and 28% in the United States, the
+    highest return in the study</strong>.<InlineCitation {...CITE.get('28f12b')!} /><InlineCitation {...CITE.get('2b7e6d')!} />
+    America has both the biggest skills penalty and the biggest skills payoff.
+  </p>
+</section>

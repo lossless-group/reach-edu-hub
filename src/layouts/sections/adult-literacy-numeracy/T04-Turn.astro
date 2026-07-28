@@ -1,0 +1,56 @@
+---
+/** Slide 04 · The turn — K-12 measured; postsecondary assumes; remediation diverts. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+---
+
+<section data-slot="04" data-variant="aln-p1" class="deck-section">
+  <span class="deck-kicker">04 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The turn</p>
+    <h2 class="deck-h2">
+      K-12 spent twenty years learning what works and how to measure it.
+      <span class="deck-gradient">Postsecondary never tried — because the degree assumes.</span>
+    </h2>
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 76ch;">
+    K-12 rebuilt reading around the science of reading — evidence-based
+    practice and <strong style="color: var(--color-text);">relentless
+    measurement</strong>: screeners, benchmarks, growth
+    tracking.<InlineCitation {...CITE.get('cd9feb')!} /> Higher ed adopted
+    none of it, because it assumes the basics arrived before the student did.
+    The diploma lands, the reading and math may not have moved — and no one
+    notices, because no one measured.
+  </p>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">WHAT POSTSECONDARY TRIES</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.55; margin: 0;">
+        Remediation is <strong>diversion, not development</strong>: rigorous
+        evidence finds pull-out developmental courses do little to build
+        skills — their primary effect is diverting students away from
+        college-level work.<InlineCitation {...CITE.get('f2068b')!} />
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">THE COUNTERPOINT</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.55; margin: 0;">
+        In a CUNY randomized trial, students placed directly into
+        college-level statistics with support passed at a
+        <strong>16-point higher rate</strong> and earned more
+        credits.<InlineCitation {...CITE.get('4a210e')!} />
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">THE BREAKTHROUGH</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.55; margin: 0;">
+        Applied, relevant, contextual practice has heretofore not been
+        deliverable to working adults at scale. <strong>We think we can create
+        a breakthrough.</strong> The next two slides are how.
+      </p>
+    </div>
+  </div>
+</section>

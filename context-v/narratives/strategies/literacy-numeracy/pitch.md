@@ -1,6 +1,6 @@
 ---
-title: "Pitch Narrative — Literacy & Numeracy: The Capability Guarantee"
-lede: "The funder-facing pitch arc for the literacy-numeracy strategy: the labor market pays for the skill, not the diploma — and most working adults are below the line on exactly the skills that pay. K-12 already proved what works and how to measure it; postsecondary never tried, because the degree assumes. What's next, with your gift: foundational-skills instruction woven into work and sized for the moments working adults actually have, measured continuously by audio-based AI — the first university where the literacy and numeracy gain is assured, shared onward through NCAD, and compounding into the next generation."
+title: "Pitch Narrative — Foundational Capabilities, Measured Improvements"
+lede: "The funder-facing pitch arc for the literacy-numeracy strategy: the labor market pays for the skill, not the diploma — and most working adults are below the line on exactly the skills that pay. K-12 already proved what works and how to measure it; postsecondary never tried, because the degree assumes. What's next, with your gift: foundational-skills instruction woven into work and sized for the moments working adults actually have, measured continuously by audio-based AI — the first university delivering measured improvements in foundational capabilities, shared onward through NCAD, and compounding into the next generation."
 date_authored_initial_draft: 2026-07-28
 date_authored_current_draft: 2026-07-28
 date_last_updated: 2026-07-28
@@ -11,19 +11,19 @@ category: Pitch Narrative
 strategy_slugs:
   - adult-literacy-numeracy
 audience: "Adult-education and foundational-skills funders — family-literacy funds, DGLF-adjacent, evidence-driven ed funders; grant-seeking (not campaign-scale) framing."
-tags: [Pitch, Adult-Literacy, Numeracy, Capability-Guarantee, Interstitial-Learning, Voice-AI, Two-Generation, Apprenticeship-Degree, Reach-University, Draft]
+tags: [Pitch, Adult-Literacy, Numeracy, Measured-Improvements, Foundational-Capabilities, Interstitial-Learning, Voice-AI, Two-Generation, Apprenticeship-Degree, Reach-University, Draft]
 authors:
   - Michael Staton
 date_created: 2026-07-28
 date_modified: 2026-07-28
 ---
 
-# The Capability Guarantee — Pitch Narrative
+# Foundational Capabilities, Measured Improvements — Pitch Narrative
 
 > CEO deck = "what is." [^57ce95] This arc = a focused, grant-sized "what's
 > next": fund the foundational-skills layer *inside* a degree that already
 > works. The door for this audience is **measurement** — adult-literacy funders
-> have spent decades funding programs whose gains were assumed, not assured.
+> have spent decades funding programs whose gains were assumed, never measured.
 > The vision in one line: *what K-12 learned, delivered in the moments working
 > adults actually have, measured as it goes, shared with the movement, and
 > compounding into the next generation.*
@@ -153,7 +153,7 @@ outcome the evidence promises. [^28f12b]
 ## Beat 7 — The funding landscape (OVERWHELM: the field slide)
 
 > **"Adult literacy is philanthropy's most under-capitalized lane — which
-> makes assurance the differentiator worth funding."**
+> makes measured improvement the differentiator worth funding."**
 
 The 2023 → mid-2026 scan of the lane:
 
@@ -166,17 +166,19 @@ The 2023 → mid-2026 scan of the lane:
 - **MacKenzie Scott's Open Call** put $1–2M unrestricted into community
   adult-literacy providers — the largest infusion those organizations have
   ever seen. [^b8a0cd]
-- Meanwhile the modal adult-literacy grant is four figures, and federal adult
-  education funding has collapsed — the lane needs a scalable, measured
-  flagship. [^b8a0cd]
+- Meanwhile the typical adult-literacy grant is four figures — the field's
+  own re-granting fund caps at $6,000 per grant, backfilling a federal
+  collapse from ~$1B (2005) to ~$190M (2024). No scalable, measured flagship
+  exists. That's the opening. [^e174dc]
 
 *(seek chart: lane-size comparison — adult literacy vs adjacent lanes, with
 the DGLF escalation inset)*
 
 ## Beat 8 — What your gift catalyzes (the ask)
 
-> **"Fund the capability guarantee: cognitive and foundational skills woven into the work, measured as
-> they grow, assured at graduation — and shared with the Apprenticeship Degree movement."**
+> **"Fund measured improvements: cognitive and foundational skills woven
+> into the work, growing as they are measured, visible at graduation — and
+> shared with the Apprenticeship Degree movement."**
 
 The grant shape (program-scale, not campaign-scale): fund the adaptation of
 science-of-reading and contextualized-numeracy curricula into Reach's tutorial
@@ -194,8 +196,9 @@ every member institution serving working adults inherits the playbook. One
 grant, one proof, a movement's worth of adoption.
 
 Catalytic frame: a modest grant here doesn't run a literacy program — it makes
-Reach the **first university where the foundational-skills gain is assured**,
-and hands the adult-literacy field its measurement flagship.
+Reach the **first university whose foundational-skills improvements are
+measured and real** — and hands the adult-literacy field its
+proof-of-improvement flagship.
 
 ## Beat 9 — The two-generation dividend (the payoff slide)
 
@@ -219,8 +222,8 @@ kitchen table — which makes this strategy a direct input to the
 ## Beat 10 — Close
 
 > **"Millions completed programs. Fewer gained the skills. We'll weave the
-> skills into the work, measure the difference, guarantee it — and watch it
-> show up in their children."**
+> skills into the work, measure the improvement — and watch it show up in
+> their children."**
 
 ---
 
@@ -240,6 +243,7 @@ kitchen table — which makes this strategy a direct input to the
 [^3f6fb6]: 2025, Aug 14. [Dollar General Literacy Foundation Awards More Than $3.5 Million in Youth Literacy Grants](https://www.businesswire.com/news/home/20250814972129/en/Dollar-General-Literacy-Foundation-Awards-More-Than-%243.5-Million-in-Youth-Literacy-Grants)
 [^69fa84]: [George & Barbara Bush Foundation Launches Barbara Bush Fund for Family Literacy](https://bush41.org/news/george-barbara-bush-foundation-launches-barbara-bush-fund-for-family-literacy)
 [^b8a0cd]: [Adult Literacy Programs Receive Millions through Yield Giving (ProLiteracy)](https://www.proliteracy.org/news/adult-literacy-programs-receive-millions-through-yield-giving/)
+[^e174dc]: [Literacy Opportunity Fund Spreads $148K Between 30 Nonprofits in Q1 (ProLiteracy)](https://www.proliteracy.org/news/literacy-opportunity-fund-spreads-148k-between-30-nonprofits-in-q1/)
 [^4aedc1]: [NCAD: Growing List of Partners Take Foundational Strides Towards 3 Million Apprenticeship Degree Completions by 2035 (Reach blog)](https://reach.edu/blog/ncad-growing-list-of-partners-take-foundational-strides-towards-achieving-3-million-apprenticeship-degree-completions-by-2035)
 [^a73ccd]: 2017, Feb 01. [National Skills Coalition / Bergson-Shilcock (2017), "Foundational Skills in the Service Sector" (62% below Level 3 literacy, 74% numeracy; with AIR, PIAAC data)](https://nationalskillscoalition.org/wp-content/uploads/2020/12/NSC-foundational-skills-FINAL.pdf)
 [^f2068b]: [Scott-Clayton & Rodriguez (2015), "Development, Discouragement, or Diversion?" (remediation's primary effect is diversionary; CCRC/EFP 10(1))](https://ccrc.tc.columbia.edu/publications/development-discouragement-diversion.html)

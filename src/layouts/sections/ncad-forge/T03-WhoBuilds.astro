@@ -1,0 +1,48 @@
+---
+/** Slide 03 · Who builds software just changed — the vibe-coding shift. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+---
+
+<section data-slot="03" data-variant="nf-p1" class="deck-section">
+  <span class="deck-kicker">03 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The shift</p>
+    <h2 class="deck-h2">
+      Vibe coding moved prototyping from the engineering backlog to
+      <span class="deck-gradient">the domain expert's desk.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">UNTIL ~2025</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        A domain insight became software only by hiring an engineering team —
+        the expensive gate that kept the apprenticeship stack unbuilt.
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">NOW</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        Agentic tools matured to where non-engineers ship working prototypes —
+        Cursor, v0, Lovable, Bolt, Replit Agent, Claude
+        Code.<InlineCitation {...CITE.get('b71a46')!} /><InlineCitation {...CITE.get('8cb194')!} /><InlineCitation {...CITE.get('e76b45')!} />
+      </p>
+    </div>
+    <div class="deck-card flex flex-col gap-2">
+      <span class="deck-chip">STILL TRUE</span>
+      <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.55; margin: 0;">
+        Engineers still own hardening, scale, and security — but they are no
+        longer the gate on <em>prototyping</em>.<InlineCitation {...CITE.get('3675cf')!} />
+      </p>
+    </div>
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 66ch;">
+    The people who actually know what the apprenticeship stack needs —
+    practitioners, industry-skills experts, adult educators — can now build
+    the first version of the thing they understand.
+  </p>
+</section>

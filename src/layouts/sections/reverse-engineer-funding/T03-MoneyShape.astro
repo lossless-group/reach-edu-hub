@@ -1,0 +1,38 @@
+---
+/** Slide 03 · The shape of the money — verified 2026-07-28. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const stats = [
+  { n: '$617.2B', d: 'U.S. charitable giving in 2025 — crossing $600B for the first time (+5.7% current dollars, +3.0% after inflation).', cites: ['4c940e'] },
+  { n: '0.1% → 40%', d: 'Grantmakers giving $50M+ are 0.1% of ~120,000 U.S. foundations — yet supply 40% of all grant dollars; the largest 1,000 (~1%) account for ~half to 60% of tracked giving.', cites: ['6fced1', 'b3229d'] },
+  { n: '$8.0B', d: 'Gates Foundation payout in 2024 — the largest U.S. private foundation; Mellon (~$540M) and RWJF (~$550M) each move over half a billion a year.', cites: ['1a2cb7', 'f4fc11', '5c3e27'] },
+  { n: '$124T', d: 'The Great Wealth Transfer through 2048 — with ~$18T destined for charity (Cerulli, updated Dec 2024).', cites: ['f4987b'] },
+  { n: '556,850', d: 'Global UHNW individuals ($30M+) holding $63.8T in 2025; the U.S. is home to ~37% — roughly 206,000 people.', cites: ['552e9e'] },
+  { n: '$98.3T', d: 'Record global HNWI wealth in 2025 (Capgemini — investable-assets basis; world figures labeled as such).', cites: ['56142e'] },
+];
+---
+
+<section data-slot="03" data-variant="ref-p1" class="deck-section">
+  <span class="deck-kicker">03 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The shape of the money</p>
+    <h2 class="deck-h2">
+      $617 billion a year, concentrated in a tenth of a percent of hands —
+      <span class="deck-gradient">with a $124 trillion wave behind it.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+    {stats.map((s) => (
+      <div class="deck-card flex flex-col gap-1" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-stat" style="font-size: clamp(1.5rem, 2.6vw, 2.2rem);">{s.n}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.45; margin: 0;">
+          {s.d}
+          {s.cites.map((c) => CITE.get(c) && <InlineCitation {...CITE.get(c)!} />)}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

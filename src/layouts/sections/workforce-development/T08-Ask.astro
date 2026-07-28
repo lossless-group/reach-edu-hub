@@ -1,0 +1,40 @@
+---
+/** Slide 08 · The ask — the campaign math a workforce funder can audit. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const math = [
+  { n: '$25M / 3yr', d: 'scales enrollment 3,400 → 7,500+ — proof point to tipping point.' },
+  { n: '$8,037', d: 'internal cost per FTE — below WGU ($8,961), a fraction of the $52,900 public 4-year average.' },
+  { n: '7,500', d: 'enrolled: braided revenue (Pell + $75/mo + employers) reaches permanent self-funding.' },
+  { n: '$6M', d: 'committed — Carnegie ($2M) + Schusterman ($1M) anchoring; August 2026 closes the founding cohort.' },
+];
+---
+
+<section data-slot="08" data-variant="wd-p1" class="deck-section">
+  <span class="deck-kicker">08 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">What your gift catalyzes</p>
+    <h2 class="deck-h2">
+      $25M turns the proof point into the tipping point — then the model
+      <span class="deck-gradient">never needs philanthropy again.</span>
+      <InlineCitation {...CITE.get('57ce95')!} />
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {math.map((m) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.7rem, 2.8vw, 2.4rem);">{m.n}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">{m.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 70ch;">
+    You've funded workforce programs that trained and prayed. This is the one
+    the evidence — and the auditor, and the field's own literature — says will
+    hold.
+  </p>
+</section>

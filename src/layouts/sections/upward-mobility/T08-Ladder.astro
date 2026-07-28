@@ -1,0 +1,75 @@
+---
+/**
+ * Slide 08 · The ladder is bigger than teaching — the expansion slide.
+ * Four sectors where a paraprofessional tier sits below a credentialed tier.
+ */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const rungs = [
+  {
+    chip: 'ELDERCARE · CLOSEST RUNG',
+    head: '~765,800 openings/yr',
+    body: 'Home health & personal care aides — the largest numeric job growth of any U.S. occupation, at a median of $34,900; nursing assistants add ~211,800 openings/yr. PHI counts 8.9M direct-care openings 2022–2032 at $25,015 median earnings, while the 65+ population climbs from 61.2M toward 82M.',
+    cites: ['c94ece', '20ec38', 'fecd96', 'ef6763'],
+    kicker: "Five million people already do this work. The credential ladder out of it doesn't exist yet. That's Arlie's story, waiting to happen in eldercare.",
+  },
+  {
+    chip: 'ADVANCED MANUFACTURING',
+    head: '3.8M needed · 1.9M at risk',
+    body: 'Net need of ~3.8M new manufacturing workers 2024–2033, roughly half at risk of going unfilled — against an apprenticeship base already 97,500 strong and growing 20% in five years.',
+    cites: ['757e16', 'ee9ca4'],
+  },
+  {
+    chip: 'DATA CENTER OPERATIONS',
+    head: '46% can’t find candidates',
+    body: 'The AI buildout needs people, not just power: global staffing needs near 2.3M roles, ~$6.7T projected global capex by 2030, ~1M direct U.S. jobs — and the industry’s own research says the winning strategy is removing degree requirements and training on the job.',
+    cites: ['6777be', 'cf95b7', 'e225f4', '3832d4'],
+  },
+  {
+    chip: 'REMOTE & DISTRIBUTED ADMIN',
+    head: 'The unseen workforce',
+    body: '1 in 4 U.S. adults has a disability; 22.8% are employed vs 65.2% without. Remote work is an accessibility technology — WFH explains 68–85% of the record rise in full-time disability employment — yet remote workers performed 13% better and were promoted about half as often. The craft of distributed work is teachable, and untaught.',
+    cites: ['23cb42', 'b75cb3', '272bb5', 'c7ebc7', 'c356ce'],
+  },
+];
+---
+
+<section data-slot="08" data-variant="um-p1" class="deck-section">
+  <span class="deck-kicker">08 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The expansion</p>
+    <h2 class="deck-h2">
+      Wherever a paraprofessional tier sits below a credentialed tier,
+      <span class="deck-gradient">the engine applies.</span>
+    </h2>
+    <p class="deck-lede mt-3" style="max-width: 68ch;">
+      Teachers were the proof — not the limit. Reach has already stepped into
+      health;<InlineCitation {...CITE.get('3f891a')!} /> the demand wall says
+      where the ladder goes next.
+    </p>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    {rungs.map((r) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-chip">{r.chip}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.3rem, 1.6vw, 1.6rem); font-weight: 700; color: var(--color-accent); margin: 0;">{r.head}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.98rem, 1.05vw, 1.18rem); line-height: 1.5; margin: 0;">
+          {r.body}
+          {r.cites.map((c) => CITE.get(c) && <InlineCitation {...CITE.get(c)!} />)}
+        </p>
+        {r.kicker && (
+          <p style="color: var(--color-text); font-size: clamp(0.98rem, 1.05vw, 1.18rem); line-height: 1.45; margin: 0; font-style: italic;">{r.kicker}</p>
+        )}
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 70ch; font-size: clamp(0.95rem, 1.3vw, 1.1rem);">
+    Of the 21M+ prime-age Americans out of the labor force,<InlineCitation {...CITE.get('2e54ee')!} />
+    the vast majority cite disability or caregiving<InlineCitation {...CITE.get('496b0f')!} />
+    — constraints these ladders are built to lower.
+  </p>
+</section>

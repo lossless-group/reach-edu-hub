@@ -1,0 +1,43 @@
+---
+/** Slide 07 · The ask — program-launch capital. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const playbook = [
+  { k: 'Co-design backward', d: 'Start from a hiring employer’s role: competencies → curriculum → credit mapping.' },
+  { k: 'Launch with the network', d: 'First cohorts stand up with NCAD-network employer partners.', cite: '4aedc1' },
+  { k: 'Hold the quality bar', d: '150:1 advising, job-embedded faculty — the discipline that made teaching work.', cite: '57ce95' },
+  { k: 'Employers fund the students', d: 'Candidates are employed from day one; braided revenue covers delivery at scale. Your gift is pure program-launch capital.', cite: '57ce95' },
+];
+---
+
+<section data-slot="07" data-variant="fjd-p1" class="deck-section">
+  <span class="deck-kicker">07 / 09</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">What your gift catalyzes</p>
+    <h2 class="deck-h2">
+      Fund the program design —
+      <span class="deck-gradient">and the employers fund the students.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+    {playbook.map((p, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.8rem, 3vw, 2.6rem);">{String(i + 1).padStart(2, '0')}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{p.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">
+          {p.d}
+          {p.cite && CITE.get(p.cite) && <InlineCitation {...CITE.get(p.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 72ch;">
+    The teaching college took five years to become the national proof point.
+    Each frontier program starts with that chassis, those systems — and a
+    funding wave already paying for everything around it.
+  </p>
+</section>

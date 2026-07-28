@@ -94,40 +94,46 @@ export const SCROLL_DECK_SEO: Record<string, SeoEntry> = {
     description:
       'What Lossless will boot up for Reach next. Boost-and-relief for the current fundraise team, then widening the aperture to new donors, new grants, and a map of the philanthropic landscape.',
   },
-  '/scroll/rural-income/v1': {
-    title: 'Rural Income Boosts through Apprenticeship Degrees',
+  /* Pitch-generation strategy decks (2026-07-28) — corpus-slug routes. */
+  '/scroll/upward-mobility/um-p1': {
+    title: 'Upward Mobility: The Mobility Engine',
     description:
-      'A strategic narrative: the Apprenticeship Degree as a rural economic-development engine — start with a paid job, end with a better one, debt-free and in place, so income rises and stays local.',
+      'America still has a mobility engine — the degree. What broke is the on-ramp. The Apprenticeship Degree rebuilds it: climb while working, without borrowing, without leaving — with verified evidence and the catalytic $25M ask.',
   },
-  '/scroll/literacy-numeracy/ln-v1': {
-    title: 'Improving Literacy & Numeracy in Working Adults',
+  '/scroll/workforce-development/wd-p1': {
+    title: 'Workforce Development: Stop Training and Praying',
     description:
-      'Fold validated foundational-skills pedagogy into the Apprenticeship Degree and measure the gain — durably lifting the literacy and numeracy most tightly linked to wages and promotions, even controlling for education.',
+      'The workforce system trains and prays; the evidence says exactly what works. The Apprenticeship Degree stacks every proven design feature — while the 2026 corporate wave funds everything around the degree except the degree.',
   },
-  '/scroll/agentic-product-lab/forge-v1': {
-    title: 'NCAD Forge — an agentic product lab for the apprenticeship stack',
+  '/scroll/rural-income-boosts/rib-p1': {
+    title: 'Rural Income Boosts: The Raise That Stays',
     description:
-      'The Apprenticeship Degree needs a different software stack. With agentic vibe-coding tools, apprenticeship and adult-education domain experts across NCAD can now prototype it themselves — engineers harden what proves out.',
+      'Rural America has an exit problem — every credential is a bus ticket out. The Apprenticeship Degree breaks the loop at the hinge of income, in place: Arkansas proved it with a ~2.4 effect size, and the Delta co-funding table is set.',
   },
-  '/scroll/agent-workflow-maxxing/awm-v1': {
+  '/scroll/adult-literacy-numeracy/aln-p1': {
+    title: 'Foundational Capabilities, Measured Improvements',
+    description:
+      'The labor market pays for the skill, not the diploma — and 28% of U.S. adults now read at Level 1 or below. Weave the skills into the work, size them for interstitial moments, measure with audio AI — improvement you can see, cohort by cohort.',
+  },
+  '/scroll/frontier-job-demand/fjd-p1': {
+    title: 'Frontier Job Demand: The Job Is the Curriculum',
+    description:
+      'Design apprenticeship degrees backward from where the jobs are going — advanced manufacturing, drones, applied AI, data center operations, and remote & distributed business administration. Every figure verified against primary sources.',
+  },
+  '/scroll/ncad-forge/nf-p1': {
+    title: 'NCAD Forge: Charter the Lab',
+    description:
+      'The Apprenticeship Degree runs on a technology stack nobody built — and the domain experts who understand it can now prototype it themselves. Charter the shared lab; the movement keeps the IP.',
+  },
+  '/scroll/agent-workflow-maxxing/awm-p1': {
     title: 'Agent Workflow Maxxing',
     description:
-      'How dedicated agents and agent workflows let a small team punch above its weight — across ABM, travel, events, grants, and social — reducing overwhelm and enabling work that was not possible at that size, with human-in-the-loop guardrails.',
+      'Internal operating doctrine: $19M to raise, dozens of funders, an August deadline, a team of three. Agents research, draft, and watch; humans approve and act.',
   },
-  '/scroll/reverse-engineer-funding/ref-v1': {
+  '/scroll/reverse-engineer-funding/ref-p1': {
     title: 'Reverse Engineer Available Funding',
     description:
-      'Grant funding follows a power law. Concentrate where the dollars are: study the biggest aligned funders and new-money UHNWIs, learn their strategy on a call, pattern-match their giving, and size the ask to the largest amount that fits.',
-  },
-  '/scroll/frontier-job-demand/fjd-v1': {
-    title: 'Opinionated Program Design: Frontier Job Demand',
-    description:
-      'Design apprenticeship-degree programs backward from where the jobs are going — Advanced Manufacturing Operations, Drone Sciences, and AI in Business Operations: fields with huge demand, employer pull, and work suited to a work-embedded degree.',
-  },
-  '/scroll/workforce-development/wd-v1': {
-    title: 'Workforce Development: The System Is Broken. The Model Is Here.',
-    description:
-      'The U.S. workforce system was built for employer demand, not worker mobility. Brookings/Child Trends research names the active ingredient: relationship-based work-based learning predicts job quality a decade later. The Apprenticeship Degree implements every evidence-based design feature at once.',
+      'Funding is a power law: 0.1% of grantmakers supply 40% of grant dollars, with a $124T wealth transfer underway. Study the whales, learn the pattern, size every ask to the largest amount that fits.',
   },
 };
 

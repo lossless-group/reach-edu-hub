@@ -1,0 +1,23 @@
+---
+/** Slide 10 · Sources — deck-wide citation list in appearance order. */
+import SourcesPager from '@components/citations/SourcesPager.astro';
+import { SOURCES } from './citations';
+---
+
+<section data-slot="10" data-variant="ref-p1" class="deck-section" style="justify-content: flex-start; height: var(--deck-height, 100vh);">
+  <span class="deck-kicker">10 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">Receipts</p>
+    <h2 class="deck-h2">Every number in this deck, <span class="deck-gradient">sourced.</span></h2>
+    <p class="deck-lede mt-3" style="max-width: 70ch; font-size: 1rem;">
+      Citations carry stable hex codes in the per-client registry; the [n]
+      numbering matches every inline marker, in order of first appearance. All
+      figures verified against primary sources 2026-07-28 — including
+      replacing decade-stale foundation figures and updating Giving USA,
+      Cerulli, and Altrata to their current editions.
+    </p>
+  </div>
+
+  <SourcesPager citations={SOURCES} title="Sources" />
+</section>

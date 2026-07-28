@@ -1,0 +1,45 @@
+---
+/** Slide 06 · The recipe — the delivery slide (interstitial + audio AI). */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const recipe = [
+  { k: 'Contextually relevant', d: 'The reading is the curriculum guide, the parent email, the medication chart; the math is the classroom count, the dosage, the paycheck.', cite: '95f776' },
+  { k: 'Aimed at the raise', d: 'Every gain advances a real credential toward a real raise — 65–110% at licensure — so motivation never has to be manufactured.', cite: '57ce95' },
+  { k: 'Interstitial', d: 'Working adults don’t have semesters; they have shift breaks, commutes, and in-between moments. Instruction sized for those moments is instruction that happens.' },
+  { k: 'Continuously measured', d: 'Ongoing mobile instruction produces ongoing measurement — assessment becomes exhaust from the instruction itself: a growth curve per candidate, per cohort, in real time.' },
+];
+---
+
+<section data-slot="06" data-variant="aln-p1" class="deck-section">
+  <span class="deck-kicker">06 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The recipe</p>
+    <h2 class="deck-h2">
+      Woven into the work, aimed at the raise, sized for the moments they have —
+      <span class="deck-gradient">measured as it goes.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+    {recipe.map((r) => (
+      <div class="deck-card flex flex-col gap-2">
+        <p style="font-family: var(--font-heading); font-size: clamp(1.25rem, 1.55vw, 1.55rem); font-weight: 700; color: var(--color-text); margin: 0;">{r.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">
+          {r.d}
+          {r.cite && CITE.get(r.cite) && <InlineCitation {...CITE.get(r.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 76ch; font-size: clamp(0.95rem, 1.3vw, 1.15rem);">
+    <strong style="color: var(--color-text);">Audio-based AI makes this
+    buildable now.</strong> A spoken micro-lesson on the commute; a voice
+    check-in after a shift; fluency, comprehension, and number sense evaluated
+    from natural speech. What used to be difficult and blunt becomes
+    API-implementable and precise — the same voice-first thesis as the NCAD
+    Forge, applied to foundational skills.
+  </p>
+</section>

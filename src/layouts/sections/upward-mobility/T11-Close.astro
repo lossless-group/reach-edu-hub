@@ -1,0 +1,24 @@
+---
+/**
+ * Slide 11 · Close.
+ */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+---
+
+<section data-slot="11" data-variant="um-p1" class="deck-section deck-glow" style="align-items: center; text-align: center;">
+  <span class="deck-kicker">11 / 12</span>
+
+  <p class="deck-eyebrow">Join the revolution</p>
+  <h2 class="deck-h1" style="max-width: 20ch;">
+    Make the workplace the learning place — and the American Dream
+    <span class="deck-gradient">reachable for all.</span>
+    <InlineCitation {...CITE.get('57ce95')!} />
+  </h2>
+  <p class="deck-lede" style="max-width: 60ch; margin-inline: auto;">
+    One person's climb is a two-generation event. Forty million people are
+    waiting at the on-ramp. The engine works, the evidence is in, the anchors
+    are in the boat. What's next is scale — and scale is what your gift
+    catalyzes.
+  </p>
+</section>

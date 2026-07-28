@@ -1,0 +1,37 @@
+---
+/** Slide 04 · The method — four steps. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const steps = [
+  { k: 'Study the public footprint', d: '990s reveal actual grantmaking history; Candid, press, and principals’ statements fill in strategy and values.', cites: ['a7d443', '4b538e'] },
+  { k: 'Get the intro call', d: 'The 990 tells you what they funded; the call tells you why — the thesis behind the checks. The highest-leverage step.' },
+  { k: 'Pattern-recognize', d: 'Across their giving, find the recurring shape: the cause, geography, stage, and outcome they keep paying for.' },
+  { k: 'Align to the sweet spot', d: 'Design the ask to the largest amount that still fits their pattern. Start from what they want to give; shape the program to match.' },
+];
+---
+
+<section data-slot="04" data-variant="ref-p1" class="deck-section">
+  <span class="deck-kicker">04 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The method</p>
+    <h2 class="deck-h2">
+      The 990 tells you what they funded. The call tells you why.
+      <span class="deck-gradient">The pattern tells you what to ask for — and how big.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+    {steps.map((s, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.8rem, 3vw, 2.6rem);">{String(i + 1).padStart(2, '0')}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{s.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">
+          {s.d}
+          {s.cites && s.cites.map((c) => CITE.get(c) && <InlineCitation {...CITE.get(c)!} />)}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,46 @@
+---
+/** Slide 03 · The cost of praying — three numbers plus the why. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const stats = [
+  { n: '21M+', d: 'Americans ages 25–54 not participating in the labor force.', cite: '2e54ee' },
+  { n: '44%', d: 'of Americans face at least one major barrier to upskilling — childcare, transportation, income disruption.', cite: 'b22ccf' },
+  { n: '1.5M', d: 'unfilled openings in teaching and healthcare alone — good jobs requiring degrees, empty in workers’ own communities.', cite: '57ce95' },
+];
+---
+
+<section data-slot="03" data-variant="wd-p1" class="deck-section">
+  <span class="deck-kicker">03 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The cost of praying</p>
+    <h2 class="deck-h2">
+      21 million prime-age Americans are out. The system built to reach them
+      <span class="deck-gradient">can't.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {stats.map((s) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(2.2rem, 4vw, 3.4rem);">{s.n}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.5; margin: 0;">
+          {s.d}
+          {CITE.get(s.cite) && <InlineCitation {...CITE.get(s.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 76ch; font-size: clamp(0.95rem, 1.3vw, 1.15rem);">
+    And look at <em>why</em>: the vast majority cite disability or caregiving —
+    for prime-age men, disability is the single largest
+    factor.<InlineCitation {...CITE.get('496b0f')!} /> A system built around
+    commuting to employer demand structurally cannot reach them. Remote work
+    can — it's the documented accessibility technology behind the record rise
+    in disabled employment<InlineCitation {...CITE.get('272bb5')!} /> — which
+    is why a remote & distributed business administration pathway belongs in
+    the rebuild.
+  </p>
+</section>

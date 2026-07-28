@@ -1,0 +1,47 @@
+---
+/**
+ * Slide 07 · OVERWHELM #2 — the evidence stack. The science already agrees.
+ */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const stack = [
+  { k: '+0.90', d: 'A completed postsecondary degree is the strongest predictor of lasting job quality — nearly a full index point vs no diploma (3,928 young adults followed to age 29).', cite: '679c9b' },
+  { k: '+0.18', d: 'Relationship-based work-based learning predicts job quality a decade later; job shadowing and classroom-only CTE do not.', cite: '679c9b' },
+  { k: '+0.37', d: 'Training between ages 24–27 — exactly Reach’s population — is the strongest training effect in the data.', cite: '679c9b' },
+  { k: 'GAO', d: 'The federal auditor on earn-and-learn: higher pay, little student debt, better retention.', cite: '16a15a' },
+];
+---
+
+<section data-slot="07" data-variant="um-p1" class="deck-section">
+  <span class="deck-kicker">07 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The science agrees</p>
+    <h2 class="deck-h2">
+      Not a hypothesis that needs proving — the implementation of
+      <span class="deck-gradient">what the evidence already proved.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+    {stack.map((item) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.8rem, 3vw, 2.6rem);">{item.k}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">
+          {item.d}
+          {CITE.get(item.cite) && <InlineCitation {...CITE.get(item.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 76ch; font-size: clamp(0.95rem, 1.3vw, 1.15rem);">
+    The field has certified the model: the Progressive Policy Institute wrote
+    the mobility case,<InlineCitation {...CITE.get('a94477')!} /><InlineCitation {...CITE.get('9ce917')!} />
+    the Urban Institute's scaling framework builds on Reach as its lead
+    case,<InlineCitation {...CITE.get('7d47c7')!} /> and Inside Higher Ed names
+    Reach the country's only accredited apprenticeship-degree
+    university.<InlineCitation {...CITE.get('28ded4')!} />
+  </p>
+</section>

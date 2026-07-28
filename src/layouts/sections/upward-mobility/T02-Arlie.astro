@@ -1,0 +1,41 @@
+---
+/**
+ * Slide 02 · Arlie — the cold open: one line, one face.
+ */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const arc = [
+  { year: '2001', d: 'Enrolls in college; leaves 18 months short when family obligations make full-time study impossible.' },
+  { year: '2003–22', d: 'Two decades as a library aide — a single mom of four, in classrooms every day, unable to afford going back.' },
+  { year: '2022', d: 'Enrolls at Reach. Keeps her full-time job and benefits; her daily work counts toward the degree.' },
+  { year: '2024', d: 'Teacher of record — at roughly double her aide salary, in the district she served for twenty years.' },
+];
+---
+
+<section data-slot="02" data-variant="um-p1" class="deck-section">
+  <span class="deck-kicker">02 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The hook</p>
+    <h2 class="deck-h2">
+      Arlie spent twenty years as a library aide. Her job became her degree —
+      <span class="deck-gradient">and her salary doubled.</span>
+      <InlineCitation {...CITE.get('57ce95')!} />
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+    {arc.map((step) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.6rem, 2.6vw, 2.2rem);">{step.year}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.5; margin: 0;">{step.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 68ch;">
+    This pitch is about rebuilding the on-ramp Arlie found — at scale, with
+    your help.
+  </p>
+</section>

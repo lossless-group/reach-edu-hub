@@ -1,0 +1,44 @@
+---
+/** Slide 06 · First builds — four stack gaps, one voice-first wedge. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const gaps = [
+  { k: 'Work ↔ credit mapping', d: 'Day-to-day work rendered accreditation-legible — time-based RA’s ~144 hrs/yr related instruction and competency-based pathways both.', cite: '36c77b' },
+  { k: 'Employer visibility', d: 'A supervisor dashboard to see and nudge apprentice progress.' },
+  { k: 'Chunked delivery + assessment', d: 'Sized for shifts, not semesters.' },
+  { k: 'Evidence capture', d: 'Messy work artifacts → auditable accreditation documentation.' },
+];
+---
+
+<section data-slot="06" data-variant="nf-p1" class="deck-section">
+  <span class="deck-kicker">06 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">First builds</p>
+    <h2 class="deck-h2">
+      Four stack gaps, <span class="deck-gradient">one distinctive wedge: voice.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {gaps.map((g) => (
+      <div class="deck-card flex flex-col gap-2">
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{g.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">
+          {g.d}
+          {g.cite && CITE.get(g.cite) && <InlineCitation {...CITE.get(g.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 78ch; font-size: clamp(0.95rem, 1.3vw, 1.15rem);">
+    <strong style="color: var(--color-text);">The wedge: voice-first evidence
+    capture.</strong> Teachers and nurses have no time to sit and write; their
+    learning windows are commutes and between-moments. Speech-to-text turns a
+    spoken post-lesson reflection into accreditation-ready evidence;
+    text-to-speech turns the commute into learning time. Only recently good
+    enough — and a genuine differentiator against text-first incumbents.
+  </p>
+</section>

@@ -1,0 +1,47 @@
+---
+/** Slide 07 · OVERWHELM — the AI-in-education funding wave wants shared infrastructure. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const rows = [
+  { funder: 'Microsoft Elevate', amt: '$4B', d: '20M AI credentials targeted', cite: '2d173e' },
+  { funder: 'Google', amt: '$1B', d: 'AI training across accredited nonprofit colleges', cite: '611b39' },
+  { funder: 'Humanity AI (10 foundations)', amt: '$500M', d: 'Labor + education pillars; $10M open call summer 2026', cite: '08f3c1' },
+  { funder: 'Microsoft · OpenAI · Anthropic', amt: '$23M', d: 'AFT National Academy for AI Instruction — teachers as flagship segment', cite: '8c0ca0' },
+  { funder: 'Gates via Digital Promise', amt: '$8M', d: 'AI tutoring public-goods RFP', cite: 'd2832d' },
+  { funder: 'OpenAI Foundation', amt: '$50M/yr', d: 'People-First AI Fund — unrestricted, no AI expertise required', cite: '1b000c' },
+  { funder: 'NextLadder Ventures', amt: '$1B', d: 'Economic-mobility tools; Anthropic inaugural AI partner', cite: '5f42a8' },
+];
+---
+
+<section data-slot="07" data-variant="nf-p1" class="deck-section">
+  <span class="deck-kicker">07 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The funding wave</p>
+    <h2 class="deck-h2">
+      AI-in-education money went from millions to billions in 18 months — and
+      the pooled funds want
+      <span class="deck-gradient">people-centered public goods, not one-off pilots.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {rows.map((r) => (
+      <div class="deck-card flex flex-col gap-1" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-stat" style="font-size: clamp(1.4rem, 2.4vw, 2rem);">{r.amt}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{r.funder}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.4; margin: 0;">
+          {r.d}
+          {CITE.get(r.cite) && <InlineCitation {...CITE.get(r.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 72ch;">
+    Every one of these favors exactly what the Forge is: a people-centered,
+    shared-good, education-workforce AI build — proposed by the network that
+    owns the problem.
+  </p>
+</section>

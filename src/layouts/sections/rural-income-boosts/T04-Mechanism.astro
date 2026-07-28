@@ -1,0 +1,49 @@
+---
+/** Slide 04 · The mechanism — the raise is the point, and it stays. Plus the remote second gear. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const steps = [
+  { k: 'Paid throughout', d: 'GAO: earn-and-learn means higher pay, little student debt, better retention.', cite: '16a15a' },
+  { k: 'The raise is kept', d: 'Debt-free means the wage jump at licensure is net income, not clawed back by loans — worth more where baseline incomes are lower.', cite: 'a94477' },
+  { k: 'Nobody relocates', d: 'The workplace is the campus: credential, raise, and household spending all land in the same county.' },
+  { k: 'Completers stay', d: 'Grow-your-own apprentices stay rooted — districts “no longer need job fairs.”', cite: 'a6412b' },
+];
+---
+
+<section data-slot="04" data-variant="rib-p1" class="deck-section">
+  <span class="deck-kicker">04 / 11</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The mechanism</p>
+    <h2 class="deck-h2">
+      Start with a job, end with a better one —
+      <span class="deck-gradient">and the raise stays.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {steps.map((s, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.8rem, 3vw, 2.6rem);">{String(i + 1).padStart(2, '0')}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.25rem, 1.55vw, 1.55rem); font-weight: 700; color: var(--color-text); margin: 0;">{s.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">
+          {s.d}
+          {s.cite && CITE.get(s.cite) && <InlineCitation {...CITE.get(s.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 78ch; font-size: clamp(0.95rem, 1.3vw, 1.1rem);">
+    And a second gear the school and hospital don't cap: <strong style="color: var(--color-text);">remote
+    & distributed business administration</strong> — income that lands in the
+    county without even requiring a local employer. Rural America works from
+    home at half the metro rate (8.1% vs 16.2%)<InlineCitation {...CITE.get('aabd55')!} />
+    — not for lack of demand (~25% of all U.S. paid workdays are now
+    remote<InlineCitation {...CITE.get('a057d7')!} />) but for lack of the
+    on-ramp; economic developers already treat remote work as rural
+    strategy.<InlineCitation {...CITE.get('ce4b4f')!} /><InlineCitation {...CITE.get('91c42b')!} />
+    The metro wage arrives without the moving truck.
+  </p>
+</section>

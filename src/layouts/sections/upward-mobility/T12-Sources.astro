@@ -1,0 +1,25 @@
+---
+/**
+ * Slide 12 · Sources — the full deck-wide citation list, in appearance order.
+ * Numbering matches every inline [n] marker (see ./citations.ts).
+ */
+import SourcesPager from '@components/citations/SourcesPager.astro';
+import { SOURCES } from './citations';
+---
+
+<section data-slot="12" data-variant="um-p1" class="deck-section" style="justify-content: flex-start; height: var(--deck-height, 100vh);">
+  <span class="deck-kicker">12 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">Receipts</p>
+    <h2 class="deck-h2">Every number in this deck, <span class="deck-gradient">sourced.</span></h2>
+    <p class="deck-lede mt-3" style="max-width: 70ch; font-size: 1rem;">
+      Citations carry stable hex codes in the per-client registry; the [n]
+      numbering below matches every inline marker in this deck, in order of
+      first appearance. All load-bearing figures verified against primary
+      sources on 2026-07-28.
+    </p>
+  </div>
+
+  <SourcesPager citations={SOURCES} title="Sources" />
+</section>

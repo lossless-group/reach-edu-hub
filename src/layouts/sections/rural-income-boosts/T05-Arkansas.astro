@@ -1,0 +1,39 @@
+---
+/** Slide 05 · Arkansas already proved it — the proof slide. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const proof = [
+  { n: '~2.4', d: 'effect size on post-program income (Education Analytics) — causal-analysis-ready at today’s cohort sizes.' },
+  { n: '$20M/yr', d: 'projected aggregate wage gains for current enrollees.' },
+  { n: '80%+', d: 'of the first Arkansas BA cohort stepped straight into full-time teaching at $50,000+ — roughly double prior wages.' },
+  { n: '½', d: 'Jefferson Parish, LA teacher vacancies — cut in half.' },
+];
+---
+
+<section data-slot="05" data-variant="rib-p1" class="deck-section">
+  <span class="deck-kicker">05 / 11</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The proof</p>
+    <h2 class="deck-h2">
+      This isn't a rural hypothesis. It's an Arkansas result:
+      <span class="deck-gradient">a ~2.4 effect size on income.</span>
+      <InlineCitation {...CITE.get('57ce95')!} />
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));">
+    {proof.map((p) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(2rem, 3.6vw, 3rem);">{p.n}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">{p.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 68ch;">
+    Cohort-wide, aide-to-teacher-of-record wage gains run
+    <strong style="color: var(--color-text);">65–110%</strong>.<InlineCitation {...CITE.get('57ce95')!} />
+  </p>
+</section>

@@ -1,0 +1,51 @@
+---
+/**
+ * Slide 10 · The gap is the opportunity — the catalytic ask.
+ */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const math = [
+  { n: '$25M', d: 'over 3 years carries Reach from proof point (3,400) to self-sustaining, evaluation-ready scale (7,500+).' },
+  { n: '~$2,000', d: 'per candidate per year — against an internal cost of $8,037/FTE, already below WGU and SNHU, a fraction of the $52,900 public 4-year average.' },
+  { n: '7,500', d: 'enrolled: braided revenue (Pell + $75/mo + employers) funds the model permanently. Philanthropy is then no longer required.' },
+  { n: '$6M', d: 'already committed — Carnegie ($2M) and Schusterman ($1M) anchoring. August 2026 closes the founding growth-partner cohort.' },
+];
+---
+
+<section data-slot="10" data-variant="um-p1" class="deck-section">
+  <span class="deck-kicker">10 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The catalytic ask</p>
+    <h2 class="deck-h2">
+      The model is validated. The field is under-capitalized.
+      <span class="deck-gradient">The flagship bet is still open.</span>
+    </h2>
+    <p class="deck-lede mt-3" style="max-width: 74ch;">
+      Mobility capital reaches apprenticeship degrees today as $1–2M program
+      grants — Carnegie's Delta expansion,<InlineCitation {...CITE.get('0a146a')!} />
+      Goodness Web's behavioral-health pathway<InlineCitation {...CITE.get('7d0be0')!} />
+      — while funders go 8–9 figures for this exact outcome when a credible
+      vehicle exists.<InlineCitation {...CITE.get('672e9a')!} /><InlineCitation {...CITE.get('63bbab')!} />
+    </p>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {math.map((m) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.8rem, 3vw, 2.6rem);">{m.n}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">{m.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch;">
+    Stated plainly: your gift is not charity for a program — it is
+    <strong style="color: var(--color-text);">the last philanthropic dollar
+    the mobility engine ever needs</strong>. Then: 10,000 working adults turn
+    jobs into degrees by 2030, and the 2035 moonshot — 3 million
+    apprenticeship-degree starts — has its proven
+    chassis.<InlineCitation {...CITE.get('4aedc1')!} /><InlineCitation {...CITE.get('57ce95')!} />
+  </p>
+</section>

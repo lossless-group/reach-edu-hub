@@ -1,0 +1,42 @@
+---
+/**
+ * Slide 05 · The model — the ABCs, plus the raise.
+ */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const abcs = [
+  { k: 'A — Affordability by design', d: 'No candidate pays more than $75/month. Zero student debt — engineered, not aspired to.' },
+  { k: 'B — Based in the workplace', d: 'From day one to graduation day, candidates keep their full-time job, income, and benefits. Employers recruit the students.' },
+  { k: 'C — Credit for work', d: 'Roughly half the degree comes from the job itself; half from live online tutorials taught by job-embedded Professors of Practice.' },
+];
+---
+
+<section data-slot="05" data-variant="um-p1" class="deck-section">
+  <span class="deck-kicker">05 / 12</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The model</p>
+    <h2 class="deck-h2">
+      The workplace becomes the learning place. The degree comes with
+      <span class="deck-gradient">a raise, not a loan.</span>
+      <InlineCitation {...CITE.get('57ce95')!} />
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {abcs.map((item) => (
+      <div class="deck-card flex flex-col gap-2">
+        <p style="font-family: var(--font-heading); font-size: clamp(1.3rem, 1.6vw, 1.6rem); font-weight: 700; color: var(--color-text); margin: 0;">{item.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(1.02rem, 1.15vw, 1.25rem); line-height: 1.5; margin: 0;">{item.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 70ch;">
+    Completing the credential from a paraprofessional role is close to a
+    guaranteed pay bump — Reach's aide-to-teacher-of-record cohorts realize
+    <strong style="color: var(--color-text);">65–110% wage gains</strong>.
+    <InlineCitation {...CITE.get('57ce95')!} />
+  </p>
+</section>

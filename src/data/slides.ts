@@ -53,101 +53,122 @@ export const SLOTS: SlotsByVariant = {
     { slot: "11", title: "Theme Mapping", slug: "theme-mapping" },
   ],
 
-  // Strategy deck: rural-income (variant v1). Eleven slots.
-  v1: [
-    { slot: "01", title: "Rural Income Boosts through Apprenticeship Degrees", slug: "cover" },
-    { slot: "02", title: "The Rural Bind", slug: "rural-bind" },
-    { slot: "03", title: "The Hinge Is Income", slug: "income-hinge" },
-    { slot: "04", title: "Start With a Job, End With a Better One", slug: "mechanism" },
-    { slot: "05", title: "The Raise", slug: "the-raise" },
-    { slot: "06", title: "Stays Local", slug: "stays-local" },
-    { slot: "07", title: "Debt-Free Matters More Here", slug: "debt-free" },
-    { slot: "08", title: "Beyond Teaching", slug: "beyond-teaching" },
-    { slot: "09", title: "The Evidence", slug: "evidence" },
-    { slot: "10", title: "Supporters & Funder Pipeline", slug: "funder-pipeline" },
-    { slot: "11", title: "Scale & The Ask", slug: "ask" },
+  /* ── Pitch-generation strategy decks (2026-07-28) ──────────────────────
+     Variant slugs are globally unique (shell keys SLOTS by variant alone).
+     Built from context-v/narratives/strategies/<dir>/pitch.md. */
+
+  // upward-mobility (um-p1). Twelve slots.
+  "um-p1": [
+    { slot: "01", title: "Upward Mobility: The Mobility Engine", slug: "cover" },
+    { slot: "02", title: "Arlie", slug: "arlie" },
+    { slot: "03", title: "The Problem, in Four Numbers", slug: "problem" },
+    { slot: "04", title: "The Insight", slug: "insight" },
+    { slot: "05", title: "The ABCs", slug: "abcs" },
+    { slot: "06", title: "The KPI Wall", slug: "kpi-wall" },
+    { slot: "07", title: "The Science Agrees", slug: "evidence-stack" },
+    { slot: "08", title: "The Ladder Is Bigger Than Teaching", slug: "ladder" },
+    { slot: "09", title: "The Moment", slug: "moment" },
+    { slot: "10", title: "The Gap Is the Opportunity", slug: "gap" },
+    { slot: "11", title: "Close", slug: "close" },
+    { slot: "12", title: "Sources", slug: "sources" },
   ],
 
-  // Strategy deck: literacy-numeracy (variant ln-v1). Ten slots.
-  "ln-v1": [
-    { slot: "01", title: "Improving Literacy & Numeracy in Working Adults", slug: "cover" },
-    { slot: "02", title: "The Quiet Ceiling", slug: "quiet-ceiling" },
-    { slot: "03", title: "The Skills Are Priced", slug: "skills-priced" },
-    { slot: "04", title: "Who's Below the Line", slug: "below-the-line" },
-    { slot: "05", title: "Credential ≠ Capability", slug: "credential-capability" },
-    { slot: "06", title: "The Pedagogy Is Ready", slug: "pedagogy-ready" },
-    { slot: "07", title: "Embed It in the Degree", slug: "embed" },
-    { slot: "08", title: "Assure the Gain", slug: "assure-gain" },
-    { slot: "09", title: "The Payoff", slug: "payoff" },
-    { slot: "10", title: "Supporters & The Ask", slug: "ask" },
+  // workforce-development (wd-p1). Ten slots.
+  "wd-p1": [
+    { slot: "01", title: "Stop Training and Praying", slug: "cover" },
+    { slot: "02", title: "Train and Pray", slug: "train-and-pray" },
+    { slot: "03", title: "The Cost of Praying", slug: "cost" },
+    { slot: "04", title: "The Evidence Turn", slug: "evidence" },
+    { slot: "05", title: "Proof, Not Pilot", slug: "kpi-wall" },
+    { slot: "06", title: "Follow the Money", slug: "money" },
+    { slot: "07", title: "The Federal Moment", slug: "federal" },
+    { slot: "08", title: "What Your Gift Catalyzes", slug: "ask" },
+    { slot: "09", title: "Close", slug: "close" },
+    { slot: "10", title: "Sources", slug: "sources" },
   ],
 
-  // Strategy deck: agentic-product-lab "NCAD Forge" (variant forge-v1). Ten slots.
-  "forge-v1": [
-    { slot: "01", title: "NCAD Forge", slug: "cover" },
-    { slot: "02", title: "A Different Stack", slug: "different-stack" },
-    { slot: "03", title: "The Gap Today", slug: "the-gap" },
-    { slot: "04", title: "Who Builds Has Changed", slug: "who-builds" },
-    { slot: "05", title: "Engineers Still Matter", slug: "engineers" },
-    { slot: "06", title: "The Right Builders", slug: "right-builders" },
-    { slot: "07", title: "The Lab", slug: "the-lab" },
-    { slot: "08", title: "How It Works", slug: "how-it-works" },
-    { slot: "09", title: "First Builds", slug: "first-builds" },
-    { slot: "10", title: "The Ask", slug: "ask" },
+  // rural-income-boosts (rib-p1). Eleven slots.
+  "rib-p1": [
+    { slot: "01", title: "The Raise That Stays", slug: "cover" },
+    { slot: "02", title: "The Exit Problem", slug: "exit-problem" },
+    { slot: "03", title: "The Map", slug: "map" },
+    { slot: "04", title: "The Mechanism", slug: "mechanism" },
+    { slot: "05", title: "Arkansas Already Proved It", slug: "arkansas" },
+    { slot: "06", title: "One Life: Arlie", slug: "arlie" },
+    { slot: "07", title: "The Rural Money Map", slug: "money-map" },
+    { slot: "08", title: "Why the Delta, Why Now", slug: "delta" },
+    { slot: "09", title: "What Your Gift Catalyzes", slug: "ask" },
+    { slot: "10", title: "Close", slug: "close" },
+    { slot: "11", title: "Sources", slug: "sources" },
   ],
 
-  // Strategy deck: agent-workflow-maxxing (variant awm-v1). Eleven slots.
-  "awm-v1": [
-    { slot: "01", title: "Agent Workflow Maxxing", slug: "cover" },
-    { slot: "02", title: "The Bottleneck", slug: "bottleneck" },
-    { slot: "03", title: "The Shift", slug: "shift" },
-    { slot: "04", title: "More Conversations at Once", slug: "abm" },
-    { slot: "05", title: "Travel", slug: "travel" },
-    { slot: "06", title: "Events & Conferences", slug: "events" },
-    { slot: "07", title: "Grants", slug: "grants" },
-    { slot: "08", title: "Social Presence", slug: "social" },
-    { slot: "09", title: "Best Practices", slug: "best-practices" },
-    { slot: "10", title: "The Tooling Map", slug: "tooling" },
-    { slot: "11", title: "The Payoff", slug: "payoff" },
+  // adult-literacy-numeracy (aln-p1). Twelve slots.
+  "aln-p1": [
+    { slot: "01", title: "Foundational Capabilities, Measured Improvements", slug: "cover" },
+    { slot: "02", title: "The Skill, Not the Diploma", slug: "hook" },
+    { slot: "03", title: "Who's Below the Line", slug: "below-the-line" },
+    { slot: "04", title: "The Turn", slug: "turn" },
+    { slot: "05", title: "The Pedagogy Caught Up", slug: "pedagogy" },
+    { slot: "06", title: "The Recipe", slug: "recipe" },
+    { slot: "07", title: "The Vehicle's Numbers", slug: "vehicle" },
+    { slot: "08", title: "The Funding Landscape", slug: "landscape" },
+    { slot: "09", title: "What Your Gift Catalyzes", slug: "ask" },
+    { slot: "10", title: "The Two-Generation Dividend", slug: "two-generation" },
+    { slot: "11", title: "Close", slug: "close" },
+    { slot: "12", title: "Sources", slug: "sources" },
   ],
 
-  // Strategy deck: reverse-engineer-funding (variant ref-v1). Nine slots.
-  "ref-v1": [
-    { slot: "01", title: "Reverse Engineer Available Funding", slug: "cover" },
-    { slot: "02", title: "Funding Follows a Power Law", slug: "power-law" },
-    { slot: "03", title: "Two Concentrated Pools", slug: "two-pools" },
-    { slot: "04", title: "Why New Money", slug: "new-money" },
-    { slot: "05", title: "The Method", slug: "method" },
-    { slot: "06", title: "Pattern Recognition", slug: "pattern" },
-    { slot: "07", title: "Size to the Sweet Spot", slug: "sweet-spot" },
-    { slot: "08", title: "Prioritize by Capacity × Alignment", slug: "prioritize" },
-    { slot: "09", title: "The Engine", slug: "engine" },
+  // frontier-job-demand (fjd-p1). Nine slots.
+  "fjd-p1": [
+    { slot: "01", title: "The Job Is the Curriculum", slug: "cover" },
+    { slot: "02", title: "The Lagging Indicator", slug: "hook" },
+    { slot: "03", title: "The Model Transfers", slug: "transfers" },
+    { slot: "04", title: "Five Opinionated Bets", slug: "bets" },
+    { slot: "05", title: "The Demand Wall", slug: "demand-wall" },
+    { slot: "06", title: "The Money Already Voted", slug: "money" },
+    { slot: "07", title: "What Your Gift Catalyzes", slug: "ask" },
+    { slot: "08", title: "Close", slug: "close" },
+    { slot: "09", title: "Sources", slug: "sources" },
   ],
 
-  // Strategy deck: frontier-job-demand (variant fjd-v1). Nine slots.
-  "fjd-v1": [
-    { slot: "01", title: "Opinionated Program Design: Frontier Job Demand", slug: "cover" },
-    { slot: "02", title: "Design Backward from the Job", slug: "thesis" },
-    { slot: "03", title: "Why Apprenticeship Fits Frontier", slug: "fit" },
-    { slot: "04", title: "Advanced Manufacturing Operations", slug: "manufacturing" },
-    { slot: "05", title: "Drone Sciences", slug: "drones" },
-    { slot: "06", title: "AI in Business Operations", slug: "ai-ops" },
-    { slot: "07", title: "The Design Principle", slug: "design-principle" },
-    { slot: "08", title: "What to Build First", slug: "build-first" },
-    { slot: "09", title: "Opinion Is the Product", slug: "close" },
+  // ncad-forge (nf-p1). Ten slots.
+  "nf-p1": [
+    { slot: "01", title: "Charter the Forge", slug: "cover" },
+    { slot: "02", title: "A Stack Nobody Built", slug: "hook" },
+    { slot: "03", title: "Who Builds Just Changed", slug: "who-builds" },
+    { slot: "04", title: "Five Counts for the Domain Expert", slug: "five-counts" },
+    { slot: "05", title: "Why NCAD", slug: "why-ncad" },
+    { slot: "06", title: "First Builds", slug: "first-builds" },
+    { slot: "07", title: "The Funding Wave", slug: "wave" },
+    { slot: "08", title: "What Your Gift Charters", slug: "charter" },
+    { slot: "09", title: "Close", slug: "close" },
+    { slot: "10", title: "Sources", slug: "sources" },
   ],
 
-  // Strategy deck: workforce-development (variant wd-v1). Ten slots.
-  "wd-v1": [
-    { slot: "01", title: "Workforce Development: The System Is Broken. The Model Is Here.", slug: "cover" },
-    { slot: "02", title: "The Broken Status Quo", slug: "broken-system" },
-    { slot: "03", title: "Automation Pressure", slug: "automation-pressure" },
-    { slot: "04", title: "The Evidence", slug: "evidence" },
-    { slot: "05", title: "The Active Ingredient", slug: "active-ingredient" },
-    { slot: "06", title: "The Degree Stack", slug: "degree-stack" },
-    { slot: "07", title: "The Federal Moment", slug: "federal-moment" },
-    { slot: "08", title: "The Equity Case", slug: "equity-case" },
-    { slot: "09", title: "Funders & the Philanthropic Landscape", slug: "funders" },
-    { slot: "10", title: "Scale & The Ask", slug: "ask" },
+  // agent-workflow-maxxing (awm-p1). Nine slots.
+  "awm-p1": [
+    { slot: "01", title: "A Team of Three, a Big Surface", slug: "cover" },
+    { slot: "02", title: "The Surface-Area Problem", slug: "hook" },
+    { slot: "03", title: "The Two Effects", slug: "two-effects" },
+    { slot: "04", title: "The Deadline Wall", slug: "windows" },
+    { slot: "05", title: "The Five Fronts", slug: "five-fronts" },
+    { slot: "06", title: "The Receipts", slug: "receipts" },
+    { slot: "07", title: "The Ask", slug: "ask" },
+    { slot: "08", title: "Close", slug: "close" },
+    { slot: "09", title: "Sources", slug: "sources" },
+  ],
+
+  // reverse-engineer-funding (ref-p1). Ten slots.
+  "ref-p1": [
+    { slot: "01", title: "Fish Where the Whales Are", slug: "cover" },
+    { slot: "02", title: "Funding Is a Power Law", slug: "hook" },
+    { slot: "03", title: "The Shape of the Money", slug: "money-shape" },
+    { slot: "04", title: "The Method", slug: "method" },
+    { slot: "05", title: "The Receipts", slug: "receipts" },
+    { slot: "06", title: "The Whale Map", slug: "whale-map" },
+    { slot: "07", title: "The Engine", slug: "engine" },
+    { slot: "08", title: "The Ask", slug: "ask" },
+    { slot: "09", title: "Close", slug: "close" },
+    { slot: "10", title: "Sources", slug: "sources" },
   ],
 };

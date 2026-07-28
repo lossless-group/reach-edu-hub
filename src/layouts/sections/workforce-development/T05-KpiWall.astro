@@ -1,0 +1,45 @@
+---
+/** Slide 05 · Proof, not pilot — the KPI wall. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const kpis = [
+  { n: '93%', d: 'retention post first term' },
+  { n: '70%', d: 'on-time completion vs ~50% nationally' },
+  { n: '65–110%', d: 'wage gains, aide → teacher-of-record' },
+  { n: '60+', d: 'candidate NPS vs sector benchmark 32' },
+  { n: '~2.4', d: 'measured effect size on post-program income (Education Analytics, Arkansas)' },
+  { n: '$20M/yr', d: 'projected aggregate wage gains for current enrollees' },
+  { n: '½', d: 'Jefferson Parish teacher vacancies cut in half' },
+  { n: '$75/mo', d: 'maximum out-of-pocket — zero student debt' },
+];
+---
+
+<section data-slot="05" data-variant="wd-p1" class="deck-section">
+  <span class="deck-kicker">05 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">Proof, not pilot</p>
+    <h2 class="deck-h2">
+      Five years, 3,400 candidates, 550 employers —
+      <span class="deck-gradient">outcomes that beat the benchmarks.</span>
+      <InlineCitation {...CITE.get('57ce95')!} />
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+    {kpis.map((k) => (
+      <div class="deck-card flex flex-col gap-1" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-stat" style="font-size: clamp(1.5rem, 2.6vw, 2.2rem);">{k.n}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.4; margin: 0;">{k.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 74ch; font-size: clamp(0.95rem, 1.3vw, 1.15rem);">
+    The field has noticed: the Urban Institute's scaling framework builds on
+    Reach as its lead case,<InlineCitation {...CITE.get('7d47c7')!} /> and
+    Inside Higher Ed calls Reach the nation's only accredited
+    apprenticeship-degree university.<InlineCitation {...CITE.get('28ded4')!} />
+  </p>
+</section>

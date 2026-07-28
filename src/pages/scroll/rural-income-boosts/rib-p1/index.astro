@@ -1,0 +1,85 @@
+---
+/**
+ * /scroll/rural-income-boosts/rib-p1/ — "The Raise That Stays"
+ *
+ * Pitch-generation strategy deck (2026-07-28). Narrative source:
+ * context-v/narratives/strategies (pitch.md), with canonical hex-code
+ * citations from context-v/narratives/citations/registry.csv rendered as
+ * sequential [n] markers ordered by first appearance (see the deck's
+ * citations.ts). Token-driven via deck-primitives.css — light / dark /
+ * vibrant with no per-element variant classes.
+ */
+import '../../../../styles/global.css';
+import '../../../../styles/theme.css';
+import '../../../../styles/deck-primitives.css';
+import Header from '../../../../components/basics/Header.astro';
+import MetaTags from '../../../../components/basics/MetaTags.astro';
+import PageAsDeckWrapper from '../../../../layouts/PageAsDeckWrapper.astro';
+import DeckOverlayScrollUI from '@dididecks/shell/components/DeckOverlay--Scroll-UI.astro';
+import { SCROLL_DECK_SEO } from '../../../../lib/seo';
+
+const seo = SCROLL_DECK_SEO['/scroll/rural-income-boosts/rib-p1']!;
+
+import T01Cover from '../../../../layouts/sections/rural-income-boosts/T01-Cover.astro';
+import T02ExitProblem from '../../../../layouts/sections/rural-income-boosts/T02-ExitProblem.astro';
+import T03Map from '../../../../layouts/sections/rural-income-boosts/T03-Map.astro';
+import T04Mechanism from '../../../../layouts/sections/rural-income-boosts/T04-Mechanism.astro';
+import T05Arkansas from '../../../../layouts/sections/rural-income-boosts/T05-Arkansas.astro';
+import T06Arlie from '../../../../layouts/sections/rural-income-boosts/T06-Arlie.astro';
+import T07MoneyMap from '../../../../layouts/sections/rural-income-boosts/T07-MoneyMap.astro';
+import T08Delta from '../../../../layouts/sections/rural-income-boosts/T08-Delta.astro';
+import T09Ask from '../../../../layouts/sections/rural-income-boosts/T09-Ask.astro';
+import T10Close from '../../../../layouts/sections/rural-income-boosts/T10-Close.astro';
+import T11Sources from '../../../../layouts/sections/rural-income-boosts/T11-Sources.astro';
+---
+
+<!doctype html>
+<html lang="en" class="theme-default" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/reach-favicon.png" />
+
+    <MetaTags title={seo.title} description={seo.description} ogImage={seo.ogImage} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mode');
+          var valid = ['light', 'dark', 'vibrant'];
+          var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          var mode = valid.indexOf(stored) !== -1 ? stored : (sysLight ? 'light' : 'dark');
+          var html = document.documentElement;
+          html.setAttribute('data-mode', mode);
+          if (mode === 'dark' || mode === 'vibrant') html.classList.add('dark');
+          else html.classList.remove('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="font-sans is-scroll-deck" style="--deck-height: 100vh;">
+    <Header />
+
+    <PageAsDeckWrapper enableScrollSnap={true} showNavigationHints={true}>
+      <T01Cover />
+      <T02ExitProblem />
+      <T03Map />
+      <T04Mechanism />
+      <T05Arkansas />
+      <T06Arlie />
+      <T07MoneyMap />
+      <T08Delta />
+      <T09Ask />
+      <T10Close />
+      <T11Sources />
+    </PageAsDeckWrapper>
+
+    <DeckOverlayScrollUI deckSlug="rural-income-boosts" variantSlug="rib-p1" />
+
+    <script>
+      import '../../../../utils/mode-switcher.js';
+      import '../../../../utils/deck-header-autohide.js';
+    </script>
+  </body>
+</html>

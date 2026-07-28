@@ -1,0 +1,46 @@
+---
+/** Slide 04 · OVERWHELM — the deadline wall of opportunity windows. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const windows = [
+  { k: 'OpenAI People-First AI Fund', amt: '$50M', d: 'Unrestricted, no AI expertise required — July 2026 deadline.', cite: '1b000c' },
+  { k: 'Humanity AI open call', amt: '$10M', d: 'From the $500M ten-foundation pool; labor + education pillars, summer 2026.', cite: '08f3c1' },
+  { k: 'BlackRock Future Builders', amt: '$25M', d: 'National RFP administered by JFF.', cite: 'a25592' },
+  { k: 'Gates via Digital Promise', amt: '$8M', d: 'AI tutoring public-goods RFP (opened May 2026).', cite: 'd2832d' },
+  { k: 'Dollar General Literacy Foundation', amt: '~$16M/yr', d: 'Escalating annual adult-literacy cycle.', cite: '90ad13' },
+  { k: 'The campaign drumbeat', amt: '$19M', d: 'Every prospective growth partner needs a tailored packet before August 2026.', cite: '57ce95' },
+];
+---
+
+<section data-slot="04" data-variant="awm-p1" class="deck-section">
+  <span class="deck-kicker">04 / 09</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The deadline wall</p>
+    <h2 class="deck-h2">
+      The funding landscape is a wall of dated windows. Every missed deadline
+      is a <span class="deck-gradient">five-, six-, or seven-figure pass.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+    {windows.map((w) => (
+      <div class="deck-card flex flex-col gap-1" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-stat" style="font-size: clamp(1.4rem, 2.4vw, 2rem);">{w.amt}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{w.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.4; margin: 0;">
+          {w.d}
+          {CITE.get(w.cite) && <InlineCitation {...CITE.get(w.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 70ch;">
+    Tracking, qualifying, drafting, and following up on all of these — while
+    running the existing pipeline — is precisely the work the team drops today.
+    And the windows keep opening: the question is whether we're ever standing
+    there when they do.
+  </p>
+</section>

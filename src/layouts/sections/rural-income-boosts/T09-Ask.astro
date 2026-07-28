@@ -1,0 +1,40 @@
+---
+/** Slide 09 · The ask — ignition, not the fuel bill. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const math = [
+  { n: '$25M / 3yr', d: 'scales 3,400 → 7,500+ enrolled: recurring district cohorts across LA, AR, AL, TN, CA plus the shovel-ready Mississippi launch.' },
+  { n: '~$2,000', d: 'per candidate per year of philanthropy, against a lean $8,037/FTE cost structure.' },
+  { n: '7,500', d: 'enrolled: braided revenue funds the model permanently.' },
+  { n: '$6M / $25M', d: 'already committed — a named stake in the Delta launch, next to Carnegie and Schusterman; founding cohort closes August 2026.' },
+];
+---
+
+<section data-slot="09" data-variant="rib-p1" class="deck-section">
+  <span class="deck-kicker">09 / 11</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">What your gift catalyzes</p>
+    <h2 class="deck-h2">
+      A place-based income engine that funds itself —
+      <span class="deck-gradient">your gift buys the ignition, not the fuel bill.</span>
+      <InlineCitation {...CITE.get('57ce95')!} />
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    {math.map((m) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.7rem, 2.8vw, 2.4rem);">{m.n}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">{m.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 70ch;">
+    Every dollar's outcome is Arlie's shape: twenty years an aide, two years a
+    candidate, then teacher-of-record at roughly double the salary — in the
+    district she never left.<InlineCitation {...CITE.get('57ce95')!} />
+  </p>
+</section>

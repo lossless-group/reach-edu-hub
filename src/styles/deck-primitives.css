@@ -33,15 +33,15 @@
   top: clamp(1.1rem, 3vh, 1.9rem);
   right: clamp(1.5rem, 6vw, 7rem);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   color: var(--color-text-muted);
 }
 
 .deck-eyebrow {
   font-family: var(--font-mono);
-  font-size: clamp(0.68rem, 0.9vw, 0.8rem);
-  letter-spacing: 0.28em;
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--color-accent);
   font-weight: 600;
@@ -54,7 +54,10 @@
   line-height: 1.04;
   letter-spacing: -0.02em;
   margin: 0;
-  max-width: 18ch;
+  /* Wide enough that wordy titles run 1–2 lines on 16:9 instead of stacking
+     into a tall block; still capped so ultra-wide monitors don't produce
+     unreadable line lengths. */
+  max-width: min(94%, 28ch);
 }
 
 .deck-h2 {
@@ -64,7 +67,7 @@
   line-height: 1.1;
   letter-spacing: -0.015em;
   margin: 0;
-  max-width: 24ch;
+  max-width: min(94%, 42ch);
 }
 
 /* Gradient-fill text using the mode-aware headline gradient. */
@@ -132,7 +135,7 @@
 }
 .deck-stat-label {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -146,13 +149,16 @@
 .deck-chip {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
+  /* Sized for funder-age eyes on 16:9 screens — was 0.7rem, a strain even
+     for good vision at presentation distance. */
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-secondary);
   border: 1px solid var(--color-border);
   border-radius: 999px;
-  padding: 0.2rem 0.65rem;
+  padding: 0.28rem 0.8rem;
   background: color-mix(in srgb, var(--color-secondary) 8%, transparent);
 }
 
@@ -191,6 +197,48 @@
   --ddd-chrome-border: color-mix(in srgb, var(--color-text) 14%, transparent);
   --ddd-chrome-fg: color-mix(in srgb, var(--color-text) 72%, transparent);
   --ddd-chrome-fg-muted: color-mix(in srgb, var(--color-text) 72%, transparent);
+}
+
+/* ----------------------------------------------------------------------------
+   Scroll-deck presentation mode (body.is-scroll-deck).
+
+   Deck pages set this class and --deck-height: 100vh. The site header stops
+   reserving 3rem of every slide: it becomes fixed and slides up out of view,
+   revealed only when the cursor reaches the top of the screen (see
+   src/utils/deck-header-autohide.js). With the header gone, the shell's
+   floating chrome no longer needs header clearance, so the paginator and
+   mode toggle move up to the true top-right — and the per-section
+   .deck-kicker (which duplicated the paginator's "NN / MM") is hidden to
+   keep that corner uncontested.
+   ---------------------------------------------------------------------------- */
+body.is-scroll-deck > header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  transition: transform 180ms ease;
+}
+body.is-scroll-deck.header-revealed > header {
+  transform: translateY(0);
+}
+body.is-scroll-deck {
+  --ddd-paginator-top: 0.75rem;
+  --ddd-mode-toggle-top: 0.75rem;
+}
+body.is-scroll-deck .deck-kicker {
+  display: none;
+}
+
+/* Chrome-off completeness: the shell's `c` keyboard toggle sets
+   body[data-chrome="off"] but only wires it to the paginator + nav hints —
+   the SlideRankPill (classifier) and ModeToggle don't subscribe. Hide them
+   too, so `c` clears ALL review chrome for clean walk-throughs and
+   screenshots. Press `c` again to bring everything back. */
+body[data-chrome="off"] .dididecks-slide-rank-pill,
+body[data-chrome="off"] .ddd-mode-toggle {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Soft brand glow — intensity scales with the per-mode --fx-glow-opacity. */

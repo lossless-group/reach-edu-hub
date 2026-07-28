@@ -1,0 +1,32 @@
+---
+/** Slide 04 · Five counts — why the expert-built version wins. */
+const counts = [
+  { k: 'More accurate product definition', d: 'Specified by someone who lives the problem — not a requirements doc translated twice.' },
+  { k: 'Closer understanding of the use case', d: 'Accreditation legibility, shift schedules, a supervisor’s real day — known up front, not discovered in month six.' },
+  { k: 'Faster to the end-user’s hands', d: 'The builder works beside the users; prototypes land in a real cohort in days, not after a procurement cycle.' },
+  { k: 'Richer stakeholder feedback', d: 'Apprentices, supervisors, registrars give candid feedback to a trusted colleague — a same-week loop, not next-contract.' },
+  { k: 'Authentic motivation', d: 'Not an engineer doing their job — a visionary realizing a vision. The builder has waited years for this tool to exist; that energy survives the tenth iteration.' },
+];
+---
+
+<section data-slot="04" data-variant="nf-p1" class="deck-section">
+  <span class="deck-kicker">04 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">Why experts win</p>
+    <h2 class="deck-h2">
+      The expert-built version wins
+      <span class="deck-gradient">on five counts.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));">
+    {counts.map((c, i) => (
+      <div class="deck-card flex flex-col gap-2">
+        <span class="deck-stat" style="font-size: clamp(1.6rem, 2.6vw, 2.2rem);">{String(i + 1).padStart(2, '0')}</span>
+        <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 1.5vw, 1.5rem); font-weight: 700; color: var(--color-text); margin: 0;">{c.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.45; margin: 0;">{c.d}</p>
+      </div>
+    ))}
+  </div>
+</section>

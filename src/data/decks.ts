@@ -88,9 +88,167 @@ export const DECKS: Deck[] = [
       },
     ],
   },
+  /* ── Pitch-generation strategy decks (2026-07-28) ────────────────────────
+     Built from the audited PITCH narratives (context-v/narratives/strategies/
+     <dir>/pitch.md), with verified hex-code citations from the per-client
+     registry (context-v/narratives/citations/registry.csv). Deck slugs now
+     match the reach-edu CORPUS strategy slugs. The June 2026 README-based
+     drafts are archived at src/layouts/sections/_archive/. */
   {
-    // First "strategy" deck (strategies collection). Narrative source:
-    // context-v/narratives/strategies/rural-income/README.md
+    // Narrative: context-v/narratives/strategies/upward-mobility/pitch.md
+    slug: "upward-mobility",
+    title: "Upward Mobility: The Mobility Engine",
+    lede: "America still has a mobility engine — the degree. What broke is the on-ramp. The Apprenticeship Degree rebuilds it: climb while working, without borrowing, without leaving — and the biggest new pools in philanthropy are chartered for exactly this outcome.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-07-28",
+    status: "draft",
+    variants: [
+      {
+        slug: "um-p1",
+        label: "Pitch · v1",
+        lede: "Funder pitch built from the verified pitch narrative — Arlie's story, the KPI wall, the evidence stack, the widened ladder, and the catalytic $25M ask.",
+        status: "draft",
+        lastUpdated: "2026-07-28",
+      },
+    ],
+  },
+  {
+    // Narrative: context-v/narratives/strategies/workforce-development/pitch.md
+    slug: "workforce-development",
+    title: "Workforce Development: Stop Training and Praying",
+    lede: "The system trains and prays; the evidence says exactly what works. The Apprenticeship Degree is the only model that stacks every proven design feature — while the 2026 corporate wave funds everything around the degree except the degree.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-07-28",
+    status: "draft",
+    variants: [
+      {
+        slug: "wd-p1",
+        label: "Pitch · v1",
+        lede: "Funder pitch from the verified narrative — the diagnosis, the Brookings evidence turn, the follow-the-money wall, the federal moment, and the campaign ask.",
+        status: "draft",
+        lastUpdated: "2026-07-28",
+      },
+    ],
+  },
+  {
+    // Narrative: context-v/narratives/strategies/rural-income/pitch.md
+    // (corpus slug rural-income-boosts; June draft archived)
+    slug: "rural-income-boosts",
+    title: "Rural Income Boosts: The Raise That Stays",
+    lede: "Rural America's bind is a loop — shortages, low incomes, brain drain. The Apprenticeship Degree breaks it at the hinge of income, in place: Arkansas proved it with a ~2.4 effect size, and Walton just aimed its decade at the same Delta map.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-07-28",
+    status: "draft",
+    variants: [
+      {
+        slug: "rib-p1",
+        label: "Pitch · v1",
+        lede: "Place-based funder pitch — the loop, Arlie in full, the Arkansas proof, the rural money map, and the Delta co-funding moment.",
+        status: "draft",
+        lastUpdated: "2026-07-28",
+      },
+    ],
+  },
+  {
+    // Narrative: context-v/narratives/strategies/literacy-numeracy/pitch.md
+    // (corpus slug adult-literacy-numeracy; June draft archived)
+    slug: "adult-literacy-numeracy",
+    title: "Foundational Capabilities, Measured Improvements",
+    lede: "The labor market pays for the skill, not the diploma — and 28% of U.S. adults now read at Level 1 or below. Weave the skills into the work, sized for interstitial moments, measured by audio AI — the first university delivering measured improvements in the foundational capabilities the labor market pays for.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-07-28",
+    status: "draft",
+    variants: [
+      {
+        slug: "aln-p1",
+        label: "Pitch · v1",
+        lede: "Grant-sized funder pitch — the skills premium, the decline, diversion-not-development, the delivery recipe, and the two-generation dividend.",
+        status: "draft",
+        lastUpdated: "2026-07-28",
+      },
+    ],
+  },
+  {
+    // Narrative: context-v/narratives/strategies/frontier-job-demand/pitch.md
+    slug: "frontier-job-demand",
+    title: "Frontier Job Demand: The Job Is the Curriculum",
+    lede: "Course catalogs are lagging indicators. Five frontier bets — advanced manufacturing, drones, applied AI, data center operations, and remote & distributed business administration — where demand, employer pull, and apprenticeship fit all score high.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-07-28",
+    status: "draft",
+    variants: [
+      {
+        slug: "fjd-p1",
+        label: "Pitch · v1",
+        lede: "Employer/funder pitch from the verified narrative — every figure checked against primary sources; the corporate funding wave that buys everything except the degree.",
+        status: "draft",
+        lastUpdated: "2026-07-28",
+      },
+    ],
+  },
+  {
+    // Narrative: context-v/narratives/strategies/agentic-product-lab/pitch.md
+    // (corpus slug ncad-forge; June draft archived)
+    slug: "ncad-forge",
+    title: "NCAD Forge: Charter the Lab",
+    lede: "The Apprenticeship Degree runs on a technology stack nobody built — and the people who understand it can now prototype it themselves. Charter the shared lab: a setup desk and coach up front, domain experts prototyping, engineers hardening, the movement keeping the IP.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-07-28",
+    status: "draft",
+    variants: [
+      {
+        slug: "nf-p1",
+        label: "Pitch · v1",
+        lede: "Infrastructure pitch — the stack gaps, the vibe-coding shift, the five-count case for domain-expert builders, and the AI-in-education funding wave.",
+        status: "draft",
+        lastUpdated: "2026-07-28",
+      },
+    ],
+  },
+  {
+    // Narrative: context-v/narratives/strategies/agent-workflow-maxxing/pitch.md
+    slug: "agent-workflow-maxxing",
+    title: "Agent Workflow Maxxing",
+    lede: "Internal operating doctrine: $19M to raise, dozens of funders, an August deadline, a team of three. Agents research, draft, and watch; humans approve and act — covering the opportunity windows a small team can't reach manually.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-07-28",
+    status: "draft",
+    variants: [
+      {
+        slug: "awm-p1",
+        label: "Pitch · v1",
+        lede: "Internal adoption pitch — the deadline wall, the five fronts, the guardrails, and the greenlight ask.",
+        status: "draft",
+        lastUpdated: "2026-07-28",
+      },
+    ],
+  },
+  {
+    // Narrative: context-v/narratives/strategies/reverse-engineer-funding/pitch.md
+    slug: "reverse-engineer-funding",
+    title: "Reverse Engineer Available Funding",
+    lede: "Funding is a power law: 0.1% of grantmakers supply 40% of grant dollars, and a $124T wealth transfer is underway. Study the whales, learn their pattern, size every ask to the largest amount that fits — the campaign's own anchors are the receipts.",
+    thumb: "/reach-favicon.png",
+    lastUpdated: "2026-07-28",
+    status: "draft",
+    variants: [
+      {
+        slug: "ref-p1",
+        label: "Pitch · v1",
+        lede: "Internal doctrine pitch — the verified shape of the money, the four-step method, the whale map, and the capacity × alignment ask.",
+        status: "draft",
+        lastUpdated: "2026-07-28",
+      },
+    ],
+  },
+];
+
+/* Archived June 2026 drafts (slugs rural-income, literacy-numeracy,
+   agentic-product-lab + old variants of the surviving slugs) were removed from
+   the registry 2026-07-28; their section components live under
+   src/layouts/sections/_archive/. */
+export const ARCHIVED_STRATEGY_DECKS: Deck[] = [
+  {
     slug: "rural-income",
     title: "Rural Income Boosts through Apprenticeship Degrees",
     lede: "The Apprenticeship Degree as a rural economic-development engine: start with a paid job, end with a better one — debt-free, in place — so income rises and stays local.",

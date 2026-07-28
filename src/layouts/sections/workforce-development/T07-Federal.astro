@@ -1,0 +1,42 @@
+---
+/** Slide 07 · The federal moment — Washington aligned; philanthropy picks who scales. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const signals = [
+  { k: '1M apprentices', d: 'A federal target for active Registered Apprentices — executive-order-level commitment, funding to match.', cite: '2e54ee' },
+  { k: 'Workforce Pell', d: 'Pell-eligible short-term credential programs tied to labor-market outcomes for the first time — new money that flows toward quality.', cite: '2e54ee' },
+  { k: '30 → 200+', d: 'Community-college apprenticeship sponsors, 2016 → 2023 — the delivery infrastructure is scaling.', cite: '6f1dc8' },
+  { k: 'WIOA drift', d: 'Reauthorization direction: pay-for-performance, integrated systems, apprenticeship as a primary pathway.', cite: '2e54ee' },
+];
+---
+
+<section data-slot="07" data-variant="wd-p1" class="deck-section">
+  <span class="deck-kicker">07 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The federal moment</p>
+    <h2 class="deck-h2">
+      Washington just aligned behind apprenticeship.
+      <span class="deck-gradient">Philanthropy picks who scales.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+    {signals.map((s) => (
+      <div class="deck-card flex flex-col gap-2">
+        <p style="font-family: var(--font-heading); font-size: clamp(1.35rem, 1.7vw, 1.7rem); font-weight: 700; color: var(--color-accent); margin: 0;">{s.k}</p>
+        <p style="color: var(--color-text-muted); font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.5; margin: 0;">
+          {s.d}
+          {CITE.get(s.cite) && <InlineCitation {...CITE.get(s.cite)!} />}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="deck-lede mt-2" style="max-width: 70ch;">
+    Public money follows quality vehicles; the catalytic role of philanthropy
+    is making sure the highest-evidence vehicle reaches self-sustaining scale
+    first.
+  </p>
+</section>

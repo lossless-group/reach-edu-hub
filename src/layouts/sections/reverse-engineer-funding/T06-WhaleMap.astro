@@ -1,0 +1,52 @@
+---
+/** Slide 06 · OVERWHELM — the whale map, by tier. */
+import InlineCitation from '@components/citations/InlineCitation.astro';
+import { CITE } from './citations';
+
+const tiers = [
+  {
+    chip: 'PATTERN-PROVEN · IN-MARKET NOW',
+    body: 'Ballmer Group (largest private funder of alternative teacher prep; $40M residency renewal) · Ascendium ($172M/yr, rural learner success) · Bloomberg ($570M cumulative CTE, granting directly to colleges) · Walton (Strategy 2030 aimed at the Delta) · Arnold Ventures (largest-ever Maricopa completion grant) · Lumina (Goal 2040 = Reach’s metric).',
+    cites: ['e7cbef', '63bbab', '65140c', 'a26016', '5e224c', '6aca82'],
+  },
+  {
+    chip: 'DATED WINDOWS',
+    body: 'Humanity AI $10M open call (summer 2026) · OpenAI $50M unrestricted (July 2026) · BlackRock’s $25M RFP via JFF — the windows keep opening; the question is whether we’re standing there.',
+    cites: ['08f3c1', '1b000c', 'a25592'],
+  },
+  {
+    chip: 'UNSOLICITABLE · SCREEN-MATCHED',
+    body: 'MacKenzie Scott — a $7.2B year, $1.1B+ to access institutions exactly like Reach. The play is public legibility and clean outcomes data, not an application.',
+    cites: ['f868ef', 'd1d74b'],
+  },
+  {
+    chip: 'THE WHALE THESIS',
+    body: 'Billion-dollar debt-free-degree checks exist (Gottesman, Bloomberg/Hopkins) — but only in medicine. The pattern-matched mega-ask for undergraduate working adults has never been made. Someone will make it first.',
+    cites: ['3bc2ca', '1a4b17'],
+  },
+];
+---
+
+<section data-slot="06" data-variant="ref-p1" class="deck-section">
+  <span class="deck-kicker">06 / 10</span>
+
+  <div>
+    <p class="deck-eyebrow mb-3">The whale map</p>
+    <h2 class="deck-h2">
+      84 verified gifts — every funder's revealed pattern,
+      <span class="deck-gradient">sized and dated.</span>
+    </h2>
+  </div>
+
+  <div class="deck-grid mt-2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+    {tiers.map((t) => (
+      <div class="deck-card flex flex-col gap-2" style="padding: clamp(0.9rem, 1.4vw, 1.2rem);">
+        <span class="deck-chip">{t.chip}</span>
+        <p style="color: var(--color-text-muted); font-size: clamp(0.95rem, 1vw, 1.15rem); line-height: 1.5; margin: 0;">
+          {t.body}
+          {t.cites.map((c) => CITE.get(c) && <InlineCitation {...CITE.get(c)!} />)}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
