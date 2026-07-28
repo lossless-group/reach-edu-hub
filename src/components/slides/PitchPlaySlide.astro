@@ -1,0 +1,194 @@
+---
+/**
+ * PitchPlaySlide — generic, data-driven Play-UI slide renderer for the
+ * pitch-generation decks (um-p1, wd-p1, rib-p1, aln-p1, fjd-p1, nf-p1,
+ * awm-p1, ref-p1).
+ *
+ * Play-UI discipline: rigid 1920×1080 design (play-primitives.css), static
+ * HTML/CSS only, no JS, no animations, no responsive units. One renderer +
+ * per-deck content modules (src/data/deck-content/<variant>.mjs) replaces
+ * hand-writing ~80 slide files; the PPTX exporter reads the SAME modules, so
+ * the 16:9 HTML variant and the PPT stay in lockstep by construction.
+ *
+ * Kinds: 'cover' | 'statement' | 'grid' | 'sources'.
+ * Citations: slide/item `cites` arrays hold canonical hex codes; [n] numbers
+ * derive from the deck CITATIONS array order (first-appearance discipline).
+ */
+import '../../styles/global.css';
+import '../../styles/theme.css';
+import '../../styles/play-primitives.css';
+
+interface Seg { t: string; accent?: boolean }
+interface Item {
+  chip?: string;
+  stat?: string;
+  head?: string;
+  body?: string;
+  cites?: string[];
+  kicker?: string;
+}
+export interface PitchSlide {
+  slot: string;
+  slug: string;
+  kind: 'cover' | 'statement' | 'grid' | 'sources';
+  eyebrow?: string;
+  eyebrowRight?: string;
+  title: Seg[];
+  lede?: string;
+  ledeCites?: string[];
+  items?: Item[];
+  cols?: number;
+  note?: string;
+  noteCites?: string[];
+  titleCites?: string[];
+}
+export interface Citation { hexCode: string; title: string; url: string; source?: string; publishedDate?: string }
+
+interface Props {
+  slide: PitchSlide;
+  citations: Citation[];
+  variant: string;
+  total: number;
+}
+
+const { slide, citations, variant, total } = Astro.props;
+
+const num = (hex: string) => {
+  const i = citations.findIndex((c) => c.hexCode === hex);
+  return i === -1 ? null : i + 1;
+};
+const nums = (hexes?: string[]) => (hexes ?? []).map(num).filter((n): n is number => n !== null);
+
+/* Per-slide footnote strip: every citation used on this slide, in [n] order. */
+const usedHexes = new Set<string>();
+(slide.titleCites ?? []).forEach((h) => usedHexes.add(h));
+(slide.ledeCites ?? []).forEach((h) => usedHexes.add(h));
+(slide.noteCites ?? []).forEach((h) => usedHexes.add(h));
+(slide.items ?? []).forEach((it) => (it.cites ?? []).forEach((h) => usedHexes.add(h)));
+const slideSources = citations
+  .map((c, i) => ({ ...c, n: i + 1 }))
+  .filter((c) => usedHexes.has(c.hexCode));
+
+const cols = slide.cols ?? Math.min(slide.items?.length ?? 1, 4);
+const isSources = slide.kind === 'sources';
+const sourceCols = citations.length > 24 ? 3 : 2;
+---
+
+<div class="play-canvas">
+  <section class="play-section" data-slot={slide.slot} data-variant={variant}>
+    {slide.kind !== 'cover' && <span class="play-kicker">{slide.slot} / {String(total).padStart(2, '0')}</span>}
+
+    {slide.kind === 'cover' && (
+      <>
+        <header style="display: flex; justify-content: space-between; align-items: baseline;">
+          <span class="play-eyebrow">{slide.eyebrow}</span>
+          <span class="play-eyebrow" style="color: var(--color-text-muted, #5c5578);">{slide.eyebrowRight}</span>
+        </header>
+        <div style="max-width: 1500px;">
+          <p class="play-eyebrow" style="color: var(--color-secondary, #218099); margin: 0 0 20px;">What's next, with your gift</p>
+          <h1 class="play-h1">
+            {slide.title.map((s) => (s.accent ? <span class="play-gradient">{s.t}</span> : s.t))}
+          </h1>
+          {slide.lede && (
+            <p class="play-lede" style="margin-top: 28px; max-width: 1250px;">
+              {slide.lede}
+              {nums(slide.ledeCites).map((n) => <sup class="play-cite">[{n}]</sup>)}
+            </p>
+          )}
+        </div>
+        <footer style="display: flex; justify-content: space-between; align-items: flex-end;">
+          <div class="play-accent-bar"></div>
+        </footer>
+      </>
+    )}
+
+    {slide.kind === 'statement' && (
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; flex: 1; gap: 24px;">
+        <p class="play-eyebrow">{slide.eyebrow}</p>
+        <h2 class="play-h1" style="max-width: 1450px; font-size: 64px; line-height: 1.08;">
+          {slide.title.map((s) => (s.accent ? <span class="play-gradient">{s.t}</span> : s.t))}
+          {nums(slide.titleCites).map((n) => <sup class="play-cite">[{n}]</sup>)}
+        </h2>
+        {slide.lede && (
+          <p class="play-lede" style="max-width: 1150px;">
+            {slide.lede}
+            {nums(slide.ledeCites).map((n) => <sup class="play-cite">[{n}]</sup>)}
+          </p>
+        )}
+      </div>
+    )}
+
+    {slide.kind === 'grid' && (
+      <>
+        <div>
+          <p class="play-eyebrow" style="margin: 0 0 12px;">{slide.eyebrow}</p>
+          <h2 class="play-h2">
+            {slide.title.map((s) => (s.accent ? <span class="play-gradient">{s.t}</span> : s.t))}
+            {nums(slide.titleCites).map((n) => <sup class="play-cite">[{n}]</sup>)}
+          </h2>
+          {slide.lede && (
+            <p class="play-lede" style="margin-top: 14px; max-width: 1350px; font-size: 19px;">
+              {slide.lede}
+              {nums(slide.ledeCites).map((n) => <sup class="play-cite">[{n}]</sup>)}
+            </p>
+          )}
+        </div>
+
+        <div class="play-grid" style={`grid-template-columns: repeat(${cols}, 1fr); margin-top: 8px;`}>
+          {(slide.items ?? []).map((it) => (
+            <div class="play-card" style="display: flex; flex-direction: column; gap: 10px;">
+              {it.chip && <span class="play-chip">{it.chip}</span>}
+              {it.stat && <span class="play-stat" style={`font-size: ${(slide.items?.length ?? 4) > 6 ? 34 : 44}px;`}>{it.stat}</span>}
+              {it.head && <p style="font-family: var(--font-heading, 'Playfair Display', serif); font-size: 21px; font-weight: 700; color: var(--color-text, #1f1646); margin: 0;">{it.head}</p>}
+              {it.body && (
+                <p style={`color: var(--color-text-muted, #5c5578); font-size: ${(slide.items?.length ?? 4) > 6 ? 14 : 16}px; line-height: 1.5; margin: 0;`}>
+                  {it.body}
+                  {nums(it.cites).map((n) => <sup class="play-cite">[{n}]</sup>)}
+                </p>
+              )}
+              {it.kicker && <p style="color: var(--color-text, #1f1646); font-size: 14px; font-style: italic; line-height: 1.45; margin: 0;">{it.kicker}</p>}
+            </div>
+          ))}
+        </div>
+
+        {slide.note && (
+          <p class="play-lede" style="margin-top: 8px; max-width: 1400px; font-size: 18px;">
+            {slide.note}
+            {nums(slide.noteCites).map((n) => <sup class="play-cite">[{n}]</sup>)}
+          </p>
+        )}
+
+        {slideSources.length > 0 && (
+          <div class="play-sources">
+            {slideSources.map((s) => (
+              <span class="play-sources__item"><b>[{s.n}]</b> {s.title} — {s.source ?? ''}</span>
+            ))}
+          </div>
+        )}
+      </>
+    )}
+
+    {isSources && (
+      <>
+        <div>
+          <p class="play-eyebrow" style="margin: 0 0 12px;">Receipts</p>
+          <h2 class="play-h2">
+            {slide.title.map((s) => (s.accent ? <span class="play-gradient">{s.t}</span> : s.t))}
+          </h2>
+          {slide.lede && <p class="play-lede" style="margin-top: 10px; max-width: 1400px; font-size: 16px;">{slide.lede}</p>}
+        </div>
+        <div style={`column-count: ${sourceCols}; column-gap: 40px; margin-top: 10px;`}>
+          {citations.map((c, i) => (
+            <p style="break-inside: avoid; margin: 0 0 10px; font-size: 12.5px; line-height: 1.4; color: var(--color-text-muted, #5c5578);">
+              <b style="color: var(--color-accent, #ff8300);">[{i + 1}]</b>{' '}
+              <span style="color: var(--color-text, #1f1646);">{c.title}</span>
+              {c.source && <> — {c.source}</>}
+              <br />
+              <span style="font-size: 10.5px; word-break: break-all; opacity: 0.75;">{c.url === '#' ? 'Internal document' : c.url}</span>
+            </p>
+          ))}
+        </div>
+      </>
+    )}
+  </section>
+</div>
