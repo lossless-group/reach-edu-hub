@@ -21,7 +21,8 @@ const onStrategies   = path.startsWith('/strategies') || (path.startsWith('/scro
 const onBrandKit     = path.startsWith('/brand-kit');
 const onDesignSystem = path.startsWith('/design-system');
 const onChangelog    = path.startsWith('/changelog');
-const onHome         = !onStory && !onAutomation && !onStrategies && !onBrandKit && !onDesignSystem && !onChangelog;
+const onCanonical    = path.startsWith('/canonical');
+const onHome         = !onStory && !onAutomation && !onStrategies && !onBrandKit && !onDesignSystem && !onChangelog && !onCanonical;
 
 const scrollCycle = getScrollDeckCycle(path);
 
@@ -80,6 +81,8 @@ const arrowBtn     = 'inline-flex h-5 w-5 items-center justify-center rounded-fu
     <a href="/strategies" class:list={[linkBase, onStrategies ? linkActive : linkInactive]}>Strategies</a>
     <span class={sep} aria-hidden="true">·</span>
     <a href="/scroll/automation/pipeline" class:list={[linkBase, onAutomation   ? linkActive : linkInactive]}>Automation</a>
+    <span class={sep} aria-hidden="true">·</span>
+    <a href="/canonical" class:list={[linkBase, onCanonical ? linkActive : linkInactive]}>Snapshots</a>
   </nav>
 
   <div class="justify-self-end flex items-center gap-2">
