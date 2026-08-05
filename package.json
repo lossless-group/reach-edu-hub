@@ -15,11 +15,11 @@
   "packageManager": "pnpm@10.15.0",
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/vercel": "^10.0.6",
-    "@dididecks/shell": "npm:@lossless-group/dididecks-shell@^0.1.0",
+    "@astrojs/vercel": "^11.0.4",
+    "@dididecks/shell": "npm:@lossless-group/dididecks-shell@^0.4.0",
     "@lossless-group/lfm": "npm:@jsr/lossless-group__lfm@^0.3.0",
     "@tailwindcss/vite": "^4.2.4",
-    "astro": "^6.2.2",
+    "astro": "^7.1.6",
     "mdast-util-to-string": "^4.0.0",
     "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3"
