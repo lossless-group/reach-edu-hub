@@ -16,6 +16,9 @@ authors:
   - Michael Staton
 date_created: 2026-07-28
 date_modified: 2026-07-28
+site_uuid: 4b846886-f7a4-4871-a116-0d3e107ae559
+hex_code: 59shyb
+publish: true
 ---
 
 # Foundational Capabilities, Measured Improvements — Pitch Narrative

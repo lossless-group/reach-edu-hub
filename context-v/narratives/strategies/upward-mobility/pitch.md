@@ -16,6 +16,9 @@ authors:
   - Michael Staton
 date_created: 2026-07-28
 date_modified: 2026-07-28
+site_uuid: 6f2758de-f66b-4f2e-b15c-e48fc003bacf
+hex_code: 48a2t4
+publish: true
 ---
 
 # The Mobility Engine — Pitch Narrative

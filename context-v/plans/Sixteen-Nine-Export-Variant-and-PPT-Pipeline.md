@@ -11,6 +11,9 @@ tags: [Play-UI, Export, PPT, PDF, Google-Slides, pptxgenjs, Deck-Iteration, reac
 authors:
   - Michael Staton
 augmented_with: "Claude Code (Fable 5)"
+site_uuid: 7dc22e5e-1384-421f-80e8-5fc65b8321b7
+hex_code: gfjv58
+publish: true
 ---
 
 # 16:9 Export Variant and the PPT/PDF Pipeline

@@ -13,6 +13,9 @@ authors:
   - Michael Staton
 date_created: 2026-06-18
 date_modified: 2026-06-18
+site_uuid: f4605140-82e5-45d1-85aa-c1f2b3190b04
+hex_code: ij03ls
+publish: true
 ---
 
 # Story 02 — Teaching Already Proved It

@@ -24,6 +24,9 @@ related:
   - "[[Integrate-Reach-Edu-Hub-into-Dididecks-Shell]]"
   - "../../../context-v/agent-skills/deck-iteration-workflow"
   - "../narratives/pipeline-building-automation"
+site_uuid: 4d61bf76-7439-4322-af53-8016acab6909
+hex_code: shvz3j
+publish: true
 ---
 
 # Deck Collections — a menu layer above single-deck convergence

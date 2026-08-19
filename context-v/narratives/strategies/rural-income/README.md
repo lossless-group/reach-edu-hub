@@ -24,6 +24,9 @@ authors:
   - Michael Staton
 date_created: 2026-06-29
 date_modified: 2026-07-28
+site_uuid: 73f860b2-633b-4802-a292-910d42e67e45
+hex_code: exco2g
+publish: true
 ---
 
 # Rural Income Boosts through Apprenticeship Degrees

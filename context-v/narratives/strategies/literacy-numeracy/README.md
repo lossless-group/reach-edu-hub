@@ -26,6 +26,9 @@ authors:
   - Michael Staton
 date_created: 2026-06-29
 date_modified: 2026-07-28
+site_uuid: 70f7ecee-8433-407f-b300-d171514da38a
+hex_code: 2krhr1
+publish: true
 ---
 
 # Improving Literacy & Numeracy in Working Adults

@@ -25,6 +25,9 @@ related:
   - "../../../calmstorm-decks/context-v/explorations/High-Resolution-High-Fidelity-Deck-Exports-from-Code-to-Images-&-PDFs.md"
   - "./Deck-Collections-A-Menu-Layer-Above-Single-Deck-Convergence.md"
   - "../../CLAUDE.md — Scroll-UI vs. Play-UI naming discipline"
+site_uuid: 5012a540-cae5-4de5-bdb5-776f0250f8e3
+hex_code: c2dei2
+publish: true
 ---
 
 # Exporting the Strategy Decks to Google Slides

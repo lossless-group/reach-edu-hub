@@ -13,6 +13,9 @@ authors:
   - Michael Staton
 date_created: 2026-05-04
 date_modified: 2026-05-04
+site_uuid: a2ef1598-6f63-44fa-8f5f-122ec13276a2
+hex_code: iogk9s
+publish: true
 ---
 
 # Reach Education Hub — `/` Index Page Brainstorm

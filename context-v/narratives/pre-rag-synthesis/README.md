@@ -13,6 +13,9 @@ authors:
   - Michael Staton
 date_created: 2026-06-18
 date_modified: 2026-06-18
+site_uuid: 6a137b25-7c37-4754-8f72-fdf38c48f09a
+hex_code: oi57yb
+publish: true
 ---
 
 # Pre-RAG Fundraising-Story Synthesis for Reach University

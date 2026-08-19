@@ -16,6 +16,9 @@ authors:
   - Michael Staton
 date_created: 2026-07-28
 date_modified: 2026-07-28
+site_uuid: ef7b6848-8ca9-4128-ae92-64348d44a1c6
+hex_code: am2da7
+publish: true
 ---
 
 # The Job Is the Curriculum — Pitch Narrative

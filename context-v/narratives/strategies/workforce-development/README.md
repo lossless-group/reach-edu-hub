@@ -24,6 +24,9 @@ authors:
   - Michael Staton
 date_created: 2026-07-06
 date_modified: 2026-07-28
+site_uuid: 834a3d98-402a-4f45-8fe6-ecfc3287a7e0
+hex_code: pmexi8
+publish: true
 ---
 
 # Workforce Development: The System Is Broken. The Model Is Here.

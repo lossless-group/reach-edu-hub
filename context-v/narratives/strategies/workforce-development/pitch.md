@@ -16,6 +16,9 @@ authors:
   - Michael Staton
 date_created: 2026-07-28
 date_modified: 2026-07-28
+site_uuid: 3bbcf102-2be5-49de-8dcc-e2338f535607
+hex_code: c421us
+publish: true
 ---
 
 # Stop Training and Praying — Pitch Narrative

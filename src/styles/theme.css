@@ -36,7 +36,7 @@
   --color__black-pure: #000000;
   
   /* Reach University fonts */
-  --font__soleil: 'Soleil', system-ui, -apple-system, sans-serif;
+  --font__soleil: 'Soleil', 'Open Sans', system-ui, -apple-system, sans-serif; /* Soleil is Adobe-licensed; Open Sans is the loaded web stand-in */
   --font__playfair: 'Playfair Display', serif;
   --font__cormorant: 'Cormorant Garamond', serif;
   --font__open-sans: 'Open Sans', system-ui, sans-serif;

@@ -127,21 +127,21 @@ const sourceCols = citations.length > 24 ? 3 : 2;
             {nums(slide.titleCites).map((n) => <sup class="play-cite">[{n}]</sup>)}
           </h2>
           {slide.lede && (
-            <p class="play-lede" style="margin-top: 14px; max-width: 1350px; font-size: 19px;">
+            <p class="play-lede" style="margin-top: 14px; max-width: 1350px; font-size: 22px;">
               {slide.lede}
               {nums(slide.ledeCites).map((n) => <sup class="play-cite">[{n}]</sup>)}
             </p>
           )}
         </div>
 
-        <div class="play-grid" style={`grid-template-columns: repeat(${cols}, 1fr); margin-top: 8px;`}>
+        <div class="play-grid" style={`grid-template-columns: repeat(${cols}, 1fr); align-items: start; margin-top: 8px;`}>
           {(slide.items ?? []).map((it) => (
             <div class="play-card" style="display: flex; flex-direction: column; gap: 10px;">
               {it.chip && <span class="play-chip">{it.chip}</span>}
               {it.stat && <span class="play-stat" style={`font-size: ${(slide.items?.length ?? 4) > 6 ? 34 : 44}px;`}>{it.stat}</span>}
-              {it.head && <p style="font-family: var(--font-heading, 'Playfair Display', serif); font-size: 21px; font-weight: 700; color: var(--color-text, #1f1646); margin: 0;">{it.head}</p>}
+              {it.head && <p style="font-family: var(--font-heading, 'Playfair Display', serif); font-size: 24px; font-weight: 700; color: var(--color-text, #1f1646); margin: 0;">{it.head}</p>}
               {it.body && (
-                <p style={`color: var(--color-text-muted, #5c5578); font-size: ${(slide.items?.length ?? 4) > 6 ? 14 : 16}px; line-height: 1.5; margin: 0;`}>
+                <p style={`color: var(--color-text-muted, #5c5578); font-size: ${(slide.items?.length ?? 4) > 6 ? 16 : 19}px; line-height: 1.5; margin: 0;`}>
                   {it.body}
                   {nums(it.cites).map((n) => <sup class="play-cite">[{n}]</sup>)}
                 </p>
@@ -152,7 +152,7 @@ const sourceCols = citations.length > 24 ? 3 : 2;
         </div>
 
         {slide.note && (
-          <p class="play-lede" style="margin-top: 8px; max-width: 1400px; font-size: 18px;">
+          <p class="play-lede" style="margin-top: 8px; max-width: 1400px; font-size: 20px;">
             {slide.note}
             {nums(slide.noteCites).map((n) => <sup class="play-cite">[{n}]</sup>)}
           </p>

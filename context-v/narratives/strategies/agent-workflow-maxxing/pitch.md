@@ -16,6 +16,9 @@ authors:
   - Michael Staton
 date_created: 2026-07-28
 date_modified: 2026-07-28
+site_uuid: 6d259830-4739-4506-93cc-f97055bb6831
+hex_code: behzfx
+publish: true
 ---
 
 # Operate Like a Team Five Times Your Size — Pitch Narrative (Internal)

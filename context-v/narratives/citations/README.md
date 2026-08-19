@@ -10,6 +10,11 @@ tags: [Citations, LFM, Hex-Codes, Registry, reach-edu]
 authors:
   - Michael Staton
 augmented_with: "Claude Code (Fable 5)"
+site_uuid: 71337fd7-a41e-4c28-91c9-4d00cc16544f
+hex_code: hsmr58
+date_authored_initial_draft: 2026-07-28
+date_authored_current_draft: 2026-07-28
+publish: true
 ---
 
 # Citation Registry — reach-edu-hub narratives

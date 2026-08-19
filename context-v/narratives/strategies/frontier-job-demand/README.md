@@ -26,6 +26,9 @@ authors:
   - Michael Staton
 date_created: 2026-06-29
 date_modified: 2026-07-28
+site_uuid: f5c6d0d4-9c02-46d7-8499-192517273f8b
+hex_code: 4jnerq
+publish: true
 ---
 
 # Opinionated Program Design: Frontier Job Demand

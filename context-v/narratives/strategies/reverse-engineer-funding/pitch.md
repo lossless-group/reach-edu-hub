@@ -15,6 +15,9 @@ authors:
   - Michael Staton
 date_created: 2026-07-28
 date_modified: 2026-07-28
+site_uuid: 263058f2-9c15-4c05-b437-6ad804925656
+hex_code: rwgyox
+publish: true
 ---
 
 # Fish Where the Whales Are — Pitch Narrative (Internal)

@@ -25,6 +25,9 @@ authors:
   - Michael Staton
 date_created: 2026-07-28
 date_modified: 2026-07-28
+site_uuid: 56b22caf-0063-4d78-a63c-ac7471b88ee0
+hex_code: 5a29pf
+publish: true
 ---
 
 # Upward Mobility: The Apprenticeship Degree as a Mobility Engine

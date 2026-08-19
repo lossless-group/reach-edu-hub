@@ -13,6 +13,9 @@ authors:
   - Michael Staton
 date_created: 2026-05-11
 date_modified: 2026-05-11
+site_uuid: cb7112f2-39a5-4460-8e85-2edab6ad8346
+hex_code: 2iqaev
+publish: true
 ---
 
 # Pipeline Building & Automation

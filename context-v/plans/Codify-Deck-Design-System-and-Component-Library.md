@@ -27,6 +27,9 @@ related:
   - "[[Integrate-Reach-Edu-Hub-into-Dididecks-Shell]]"
   - "maintain-design-md (skill)"
   - "theme-system (skill)"
+site_uuid: c7cee92e-4a5c-4cea-934b-4f6f7269a011
+hex_code: 3exgqk
+publish: true
 ---
 
 # Codify the deck design system & component library

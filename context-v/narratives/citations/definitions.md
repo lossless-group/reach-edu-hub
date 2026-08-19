@@ -1,3 +1,18 @@
+---
+site_uuid: fb526ce0-bf9d-492a-a539-86e78b366651
+hex_code: tokoj7
+title: Definitions
+date_created: 2026-07-28
+date_authored_initial_draft: 2026-07-28
+date_authored_current_draft: 2026-07-28
+authors:
+  - Michael Staton
+at_semantic_version: 0.0.1.0
+tags:
+  - Citation
+publish: false
+---
+
 [^8cb194]: ["An Opinionated Guide on the Best AI Coding Tools in 2025" (Bolt/v0/Lovable/Replit/Cursor/Windsurf)](https://creatoreconomy.so/p/opinionated-guide-on-the-best-ai-coding-prototyping-tools-in-2025)
 [^b71a46]: ["The Vibe Coding Bakeoff" (Bolt / Lovable / Replit / v0 for non-engineers)](https://medium.com/@usabilitycounts/the-vibe-coding-bakeoff-for-generative-ai-prototyping-tools-bolt-lovable-replit-and-v0-876bfc13fd2f)
 [^1a4b17]: 2024, Jul 08. [$1 billion gift to make Johns Hopkins medical school free for most](https://president.jhu.edu/media/2024/07/08/1-billion-gift-to-make-johns-hopkins-medical-school-free-for-most/)

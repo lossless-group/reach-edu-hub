@@ -142,7 +142,7 @@ function renderGrid(s, slide, P, numOf, citations) {
 
   let y = 1.75;
   if (slide.lede) {
-    const lruns = [{ text: slide.lede, options: { fontFace: BODY, fontSize: 11.5, color: P.muted } }];
+    const lruns = [{ text: slide.lede, options: { fontFace: BODY, fontSize: 12.5, color: P.muted } }];
     lruns.push(...supRuns((slide.ledeCites ?? []).map(numOf).filter(Boolean), P.secondary));
     s.addText(lruns, { x: MX, y, w: CW, h: 0.62, valign: 'top', lineSpacing: 15 });
     y += 0.72;
@@ -156,12 +156,38 @@ function renderGrid(s, slide, P, numOf, citations) {
   const gridH = H - y - noteH - stripH - 0.15;
   const gap = 0.16;
   const cw = (CW - gap * (cols - 1)) / cols;
-  const ch = (gridH - gap * (rows - 1)) / rows;
+  const avail = (gridH - gap * (rows - 1)) / rows;
   const dense = items.length > 6 || rows > 2;
+
+  /* Content-height cards (mirror of the Play-UI align-items:start fix):
+     estimate each card's needed height from its fields and rough line count,
+     use the row's tallest need — capped by the available share — instead of
+     stretching every card to fill the grid area. */
+  const bodyFs = dense ? 10 : 12;
+  const lineH = (bodyFs * 1.35) / 72; // inches per body line
+  const charsPerLine = Math.max(18, Math.floor((cw - 0.32) * 96 / (bodyFs * 0.52)));
+  const needFor = (it) => {
+    let h = 0.3;
+    if (it.chip) h += 0.34;
+    if (it.stat) h += dense ? 0.48 : 0.62;
+    if (it.head) h += dense ? 0.36 : 0.44;
+    if (it.body) h += Math.ceil(it.body.length / charsPerLine) * lineH + 0.06;
+    if (it.kicker) h += Math.ceil(it.kicker.length / charsPerLine) * (0.13) + 0.1;
+    return h;
+  };
+  const rowH = [];
+  for (let r = 0; r < rows; r++) {
+    const rowItems = items.slice(r * cols, (r + 1) * cols);
+    rowH.push(Math.min(avail, Math.max(1.0, ...rowItems.map(needFor))));
+  }
+  const rowY = [];
+  { let acc = y; for (let r = 0; r < rows; r++) { rowY.push(acc); acc += rowH[r] + gap; } }
 
   items.forEach((it, i) => {
     const cx = MX + (i % cols) * (cw + gap);
-    const cy = y + Math.floor(i / cols) * (ch + gap);
+    const r = Math.floor(i / cols);
+    const cy = rowY[r];
+    const ch = rowH[r];
     s.addShape('roundRect', {
       x: cx, y: cy, w: cw, h: ch, rectRadius: 0.06,
       fill: { color: P.cardBg }, line: { color: P.cardLine, width: 1 },
@@ -170,7 +196,7 @@ function renderGrid(s, slide, P, numOf, citations) {
     const tx = cx + 0.16;
     const tw = cw - 0.32;
     if (it.chip) {
-      s.addText(it.chip.toUpperCase(), { x: tx, y: ty, w: tw, h: 0.26, fontFace: BODY, fontSize: dense ? 8 : 9, bold: true, color: P.secondary, charSpacing: 2 });
+      s.addText(it.chip.toUpperCase(), { x: tx, y: ty, w: tw, h: 0.26, fontFace: BODY, fontSize: dense ? 9 : 10, bold: true, color: P.secondary, charSpacing: 2 });
       ty += 0.32;
     }
     if (it.stat) {
@@ -178,23 +204,23 @@ function renderGrid(s, slide, P, numOf, citations) {
       ty += dense ? 0.46 : 0.6;
     }
     if (it.head) {
-      s.addText(it.head, { x: tx, y: ty, w: tw, h: 0.34, fontFace: HEAD, fontSize: dense ? 11 : 13, bold: true, color: P.text, lineSpacing: dense ? 12 : 14 });
+      s.addText(it.head, { x: tx, y: ty, w: tw, h: 0.34, fontFace: HEAD, fontSize: dense ? 12 : 14.5, bold: true, color: P.text, lineSpacing: dense ? 12 : 14 });
       ty += dense ? 0.34 : 0.4;
     }
     if (it.body) {
-      const runs = [{ text: it.body, options: { fontFace: BODY, fontSize: dense ? 8.5 : 10.5, color: P.muted } }];
+      const runs = [{ text: it.body, options: { fontFace: BODY, fontSize: dense ? 10 : 12, color: P.muted } }];
       runs.push(...supRuns((it.cites ?? []).map(numOf).filter(Boolean), P.secondary));
       const bodyH = cy + ch - ty - (it.kicker ? 0.55 : 0.12);
-      s.addText(runs, { x: tx, y: ty, w: tw, h: Math.max(bodyH, 0.3), valign: 'top', lineSpacing: dense ? 11 : 13.5 });
+      s.addText(runs, { x: tx, y: ty, w: tw, h: Math.max(bodyH, 0.3), valign: 'top', lineSpacing: dense ? 12.5 : 15.5 });
     }
     if (it.kicker) {
       s.addText(it.kicker, { x: tx, y: cy + ch - 0.55, w: tw, h: 0.48, fontFace: BODY, italic: true, fontSize: 8, color: P.text, valign: 'bottom', lineSpacing: 10 });
     }
   });
 
-  let ny = y + gridH + 0.1;
+  let ny = Math.min(y + gridH, rowY[rows - 1] + rowH[rows - 1]) + 0.12;
   if (slide.note) {
-    const nruns = [{ text: slide.note, options: { fontFace: BODY, fontSize: 10.5, color: P.muted } }];
+    const nruns = [{ text: slide.note, options: { fontFace: BODY, fontSize: 11.5, color: P.muted } }];
     nruns.push(...supRuns((slide.noteCites ?? []).map(numOf).filter(Boolean), P.secondary));
     s.addText(nruns, { x: MX, y: ny, w: CW, h: noteH, valign: 'top', lineSpacing: 13.5 });
     ny += noteH;
