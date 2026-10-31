@@ -16,6 +16,7 @@ date_modified: 2026-06-18
 site_uuid: b26704ff-99aa-4004-89a2-8267bf87590b
 hex_code: 4mbp89
 publish: true
+type: Narratives
 ---
 
 # Story 01 — The Apprenticeship Degree Is a New Category

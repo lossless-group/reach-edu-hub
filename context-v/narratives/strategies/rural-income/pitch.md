@@ -19,6 +19,7 @@ date_modified: 2026-07-28
 site_uuid: 8e472261-8473-4ff4-a674-875225b45484
 hex_code: e5aaep
 publish: true
+type: Narratives
 ---
 
 # The Raise That Stays — Pitch Narrative

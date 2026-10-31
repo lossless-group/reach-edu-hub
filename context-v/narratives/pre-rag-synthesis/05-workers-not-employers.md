@@ -16,6 +16,7 @@ date_modified: 2026-06-18
 site_uuid: 1b5acd13-59c4-4e70-a046-7648e8437db3
 hex_code: 9i2hvq
 publish: true
+type: Narratives
 ---
 
 # Story 05 — Workers, Not Employers: Fixing the Broken Talent Marketplace

@@ -27,6 +27,7 @@ related:
 site_uuid: 4d61bf76-7439-4322-af53-8016acab6909
 hex_code: shvz3j
 publish: true
+type: Explorations
 ---
 
 # Deck Collections — a menu layer above single-deck convergence

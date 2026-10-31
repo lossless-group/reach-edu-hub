@@ -19,6 +19,7 @@ date_modified: 2026-07-28
 site_uuid: 4b846886-f7a4-4871-a116-0d3e107ae559
 hex_code: 59shyb
 publish: true
+type: Narratives
 ---
 
 # Foundational Capabilities, Measured Improvements — Pitch Narrative

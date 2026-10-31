@@ -28,6 +28,7 @@ related:
 site_uuid: 5012a540-cae5-4de5-bdb5-776f0250f8e3
 hex_code: c2dei2
 publish: true
+type: Explorations
 ---
 
 # Exporting the Strategy Decks to Google Slides

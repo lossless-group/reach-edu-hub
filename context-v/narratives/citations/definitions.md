@@ -11,6 +11,7 @@ at_semantic_version: 0.0.1.0
 tags:
   - Citation
 publish: false
+type: Narratives
 ---
 
 [^8cb194]: ["An Opinionated Guide on the Best AI Coding Tools in 2025" (Bolt/v0/Lovable/Replit/Cursor/Windsurf)](https://creatoreconomy.so/p/opinionated-guide-on-the-best-ai-coding-prototyping-tools-in-2025)

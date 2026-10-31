@@ -19,6 +19,7 @@ date_modified: 2026-07-28
 site_uuid: 71f9d81b-c6be-4a3f-bb75-6b3bec870b54
 hex_code: hiu2xn
 publish: true
+type: Narratives
 ---
 
 # Charter the Forge — Pitch Narrative

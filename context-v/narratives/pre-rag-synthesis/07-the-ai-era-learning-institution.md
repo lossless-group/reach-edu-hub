@@ -16,6 +16,7 @@ date_modified: 2026-06-18
 site_uuid: d3b17653-5abd-485b-97ba-d3b0f54059fa
 hex_code: yb6nid
 publish: true
+type: Narratives
 ---
 
 # Story 07 — The AI-Era Learning Institution

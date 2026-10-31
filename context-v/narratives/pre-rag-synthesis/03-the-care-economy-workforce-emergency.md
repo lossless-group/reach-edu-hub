@@ -16,6 +16,7 @@ date_modified: 2026-06-18
 site_uuid: e8fbd05a-2b09-49bc-94d3-45909b710c14
 hex_code: jz8cbw
 publish: true
+type: Narratives
 ---
 
 # Story 03 — The Care-Economy Workforce Emergency

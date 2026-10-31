@@ -16,6 +16,7 @@ date_modified: 2026-06-18
 site_uuid: 3a8b19e3-5d1e-4814-bc4c-04259f24ffa1
 hex_code: 1rqsfj
 publish: true
+type: Narratives
 ---
 
 # Story 06 — Talent Hidden in Plain Sight: Place-Based & Rural Pipelines

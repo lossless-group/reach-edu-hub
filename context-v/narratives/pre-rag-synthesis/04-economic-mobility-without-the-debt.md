@@ -16,6 +16,7 @@ date_modified: 2026-06-18
 site_uuid: ca923ad7-5414-483d-8149-0edf7f02c8e7
 hex_code: qqkoyw
 publish: true
+type: Narratives
 ---
 
 # Story 04 — Economic Mobility Without the Debt
