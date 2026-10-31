@@ -9,7 +9,7 @@ date_modified: 2026-08-18
 at_semantic_version: 0.0.1.0
 status: Draft
 category: Plan
-tags: [Play-UI, Export, PPT, PDF, Google-Slides, Pptxgenjs, Deck-Iteration, Reach-Edu]
+tags: [Play-UI, Export, PPT, PDF, Google-Slides, Deck-Iteration, Reach-Edu]
 authors:
   - Michael Staton
 augmented_with:
