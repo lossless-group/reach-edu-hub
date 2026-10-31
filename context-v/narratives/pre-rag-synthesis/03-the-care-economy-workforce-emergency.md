@@ -6,9 +6,10 @@ date_authored_current_draft: 2026-06-18
 date_last_updated: 2026-06-18
 at_semantic_version: 0.0.1.0
 status: Draft
-augmented_with: Claude Code (Opus 4.8, 1M context)
+augmented_with:
+  - Claude Code (Opus 4.8, 1M context)
 category: Narrative Synthesis
-tags: [Narrative, Fundraise, Behavioral-Health, Mental-Health, Healthcare-Workforce, Apprenticeship-College-of-Health, reach-edu]
+tags: [Narrative, Fundraise, Behavioral-Health, Mental-Health, Healthcare-Workforce, Apprenticeship-College-of-Health, Reach-Edu]
 authors:
   - Michael Staton
 date_created: 2026-06-18

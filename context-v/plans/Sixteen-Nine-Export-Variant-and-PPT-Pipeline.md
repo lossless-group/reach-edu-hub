@@ -4,13 +4,16 @@ lede: "Plan for the fixed-aspect, no-scroll, no-animation variant of each strate
 date_authored_initial_draft: 2026-07-28
 date_authored_current_draft: 2026-07-28
 date_last_updated: 2026-07-28
+date_created: 2026-07-28
+date_modified: 2026-08-18
 at_semantic_version: 0.0.1.0
 status: Draft
 category: Plan
-tags: [Play-UI, Export, PPT, PDF, Google-Slides, pptxgenjs, Deck-Iteration, reach-edu]
+tags: [Play-UI, Export, PPT, PDF, Google-Slides, Pptxgenjs, Deck-Iteration, Reach-Edu]
 authors:
   - Michael Staton
-augmented_with: "Claude Code (Fable 5)"
+augmented_with:
+  - "Claude Code (Fable 5)"
 site_uuid: 7dc22e5e-1384-421f-80e8-5fc65b8321b7
 hex_code: gfjv58
 publish: true

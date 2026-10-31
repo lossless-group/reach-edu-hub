@@ -4,9 +4,12 @@ lede: "The seven strategy decks live as code — Astro Scroll-UI sections, not s
 date_authored_initial_draft: 2026-07-07
 date_authored_current_draft: 2026-07-07
 date_last_updated: 2026-07-07
+date_created: 2026-07-07
+date_modified: 2026-08-18
 at_semantic_version: 0.0.1.0
 status: Seedling — recommendation pending sign-off
-augmented_with: Claude Code on Claude Sonnet 5
+augmented_with:
+  - Claude Code on Claude Sonnet 5
 category: Exploration
 tags:
   - Deck-Export

@@ -6,7 +6,8 @@ date_authored_current_draft: 2026-07-28
 date_last_updated: 2026-07-28
 at_semantic_version: 0.0.1.0
 status: Draft
-augmented_with: Claude Code (Fable 5) + Reach Campaign Deck (June 2026) + mega-gifts research
+augmented_with:
+  - Claude Code (Fable 5) + Reach Campaign Deck (June 2026) + mega-gifts research
 category: Pitch Narrative
 strategy_slugs:
   - ncad-forge

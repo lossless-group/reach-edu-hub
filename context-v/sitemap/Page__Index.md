@@ -6,7 +6,8 @@ date_authored_current_draft: 2026-05-04
 date_last_updated: 2026-05-04
 at_semantic_version: 0.0.0.1
 status: Brainstorm
-augmented_with: Claude Code (Opus 4.7)
+augmented_with:
+  - Claude Code (Opus 4.7)
 category: Sitemap
 tags: [Site-Map, Index-Page, Brainstorm, Reach-University, Lossless-Group]
 authors:

@@ -4,9 +4,12 @@ lede: "Everything dididecks has built so far (calmstorm, chroma) operates inside
 date_authored_initial_draft: 2026-06-29
 date_authored_current_draft: 2026-06-29
 date_last_updated: 2026-06-29
+date_created: 2026-06-29
+date_modified: 2026-08-18
 at_semantic_version: 0.0.1.0
 status: Seedling
-augmented_with: Claude Code (Opus 4.8, 1M context)
+augmented_with:
+  - Claude Code (Opus 4.8, 1M context)
 category: Exploration
 tags:
   - Deck-Collections

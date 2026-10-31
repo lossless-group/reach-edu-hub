@@ -6,9 +6,10 @@ date_authored_current_draft: 2026-06-18
 date_last_updated: 2026-06-18
 at_semantic_version: 0.0.1.0
 status: Draft
-augmented_with: Claude Code (Opus 4.8, 1M context)
+augmented_with:
+  - Claude Code (Opus 4.8, 1M context)
 category: Narrative Synthesis
-tags: [Narrative, Fundraise, Apprenticeship-Degree, Category-Creation, Lumina, JFF, Strada, reach-edu]
+tags: [Narrative, Fundraise, Apprenticeship-Degree, Category-Creation, Lumina, JFF, Strada, Reach-Edu]
 authors:
   - Michael Staton
 date_created: 2026-06-18

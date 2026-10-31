@@ -6,7 +6,8 @@ date_authored_current_draft: 2026-05-11
 date_last_updated: 2026-05-11
 at_semantic_version: 0.0.2.0
 status: Outline
-augmented_with: Claude Code (Opus 4.7)
+augmented_with:
+  - Claude Code (Opus 4.7)
 category: Scroll-Deck Outline
 tags: [Scroll-Deck, Pipeline, Automation, Fundraise, Philanthropy, Agentic-AI, Reach-University, Outline]
 authors:
