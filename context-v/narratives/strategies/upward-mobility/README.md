@@ -20,7 +20,6 @@ tags:
   - Apprenticeship-Degree
   - Two-Generation
   - Reach-University
-  - Draft
 authors:
   - Michael Staton
 date_created: 2026-07-28

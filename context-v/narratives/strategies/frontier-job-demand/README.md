@@ -21,7 +21,6 @@ tags:
   - Apprenticeship-Degree
   - Workforce-Demand
   - Reach-University
-  - Draft
 authors:
   - Michael Staton
 date_created: 2026-06-29

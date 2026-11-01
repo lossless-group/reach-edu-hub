@@ -18,7 +18,6 @@ tags:
   - Wealth-Transfer
   - Prospect-Research
   - Reach-University
-  - Draft
 authors:
   - Michael Staton
 date_created: 2026-06-29

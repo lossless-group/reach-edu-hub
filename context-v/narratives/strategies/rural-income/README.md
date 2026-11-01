@@ -19,7 +19,6 @@ tags:
   - Workforce
   - Teacher-Pipeline
   - Grow-Your-Own
-  - Draft
 authors:
   - Michael Staton
 date_created: 2026-06-29

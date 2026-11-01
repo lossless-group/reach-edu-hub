@@ -12,7 +12,7 @@ category: Pitch Narrative
 strategy_slugs:
   - adult-literacy-numeracy
 audience: "Adult-education and foundational-skills funders — family-literacy funds, DGLF-adjacent, evidence-driven ed funders; grant-seeking (not campaign-scale) framing."
-tags: [Pitch, Adult-Literacy, Numeracy, Measured-Improvements, Foundational-Capabilities, Interstitial-Learning, Voice-AI, Two-Generation, Apprenticeship-Degree, Reach-University, Draft]
+tags: [Pitch, Adult-Literacy, Numeracy, Measured-Improvements, Foundational-Capabilities, Interstitial-Learning, Voice-AI, Two-Generation, Apprenticeship-Degree, Reach-University]
 authors:
   - Michael Staton
 date_created: 2026-07-28

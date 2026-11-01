@@ -12,7 +12,7 @@ category: Pitch Narrative
 strategy_slugs:
   - upward-mobility
 audience: "Economic-mobility funders — foundation program officers (PhD/MBA-grade scrutiny) and HNWI principals. Catalytic-gift framing."
-tags: [Pitch, Upward-Mobility, Apprenticeship-Degree, Catalytic-Philanthropy, Reach-University, Draft]
+tags: [Pitch, Upward-Mobility, Apprenticeship-Degree, Catalytic-Philanthropy, Reach-University]
 authors:
   - Michael Staton
 date_created: 2026-07-28

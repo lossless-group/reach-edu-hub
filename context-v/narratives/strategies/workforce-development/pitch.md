@@ -12,7 +12,7 @@ category: Pitch Narrative
 strategy_slugs:
   - workforce-development
 audience: "Workforce-development funders — Strada, Lumina, JFF-adjacent, Ascendium, Arnold, Stand Together program officers; corporate foundations entering the trades. Evidence-first scrutiny."
-tags: [Pitch, Workforce-Development, Apprenticeship-Degree, Catalytic-Philanthropy, Reach-University, Draft]
+tags: [Pitch, Workforce-Development, Apprenticeship-Degree, Catalytic-Philanthropy, Reach-University]
 authors:
   - Michael Staton
 date_created: 2026-07-28

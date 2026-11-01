@@ -12,7 +12,7 @@ category: Pitch Narrative
 strategy_slugs:
   - ncad-forge
 audience: "AI-in-education funders (Humanity AI, Gates/Digital Promise-adjacent, lab philanthropies) + NCAD member institutions; charter/infrastructure framing."
-tags: [Pitch, NCAD-Forge, Agentic-Development, Field-Infrastructure, Apprenticeship-Degree, Reach-University, Draft]
+tags: [Pitch, NCAD-Forge, Agentic-Development, Field-Infrastructure, Apprenticeship-Degree, Reach-University]
 authors:
   - Michael Staton
 date_created: 2026-07-28

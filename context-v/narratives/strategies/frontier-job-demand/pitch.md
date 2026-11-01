@@ -12,7 +12,7 @@ category: Pitch Narrative
 strategy_slugs:
   - frontier-job-demand
 audience: "Workforce/tech funders and employer coalitions — corporate foundations funding trades and AI skilling; NCAD employer partners; program officers who think in demand signals."
-tags: [Pitch, Frontier-Jobs, Program-Design, Apprenticeship-Degree, Advanced-Manufacturing, Drones, AI-Operations, Reach-University, Draft]
+tags: [Pitch, Frontier-Jobs, Program-Design, Apprenticeship-Degree, Advanced-Manufacturing, Drones, AI-Operations, Reach-University]
 authors:
   - Michael Staton
 date_created: 2026-07-28

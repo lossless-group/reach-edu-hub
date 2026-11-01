@@ -19,7 +19,6 @@ tags:
   - Economic-Mobility
   - Equity
   - Reach-University
-  - Draft
 authors:
   - Michael Staton
 date_created: 2026-07-06

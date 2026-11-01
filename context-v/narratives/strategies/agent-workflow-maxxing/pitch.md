@@ -12,7 +12,7 @@ category: Pitch Narrative
 strategy_slugs:
   - agent-workflow-maxxing
 audience: "INTERNAL — Reach leadership + Lossless partnerships/grants ops. Operating-doctrine adoption pitch; doubles as a funder-credibility story."
-tags: [Pitch, Internal, Agent-Workflows, Operating-Doctrine, Grants-Ops, Reach-University, Draft]
+tags: [Pitch, Internal, Agent-Workflows, Operating-Doctrine, Grants-Ops, Reach-University]
 authors:
   - Michael Staton
 date_created: 2026-07-28

@@ -12,7 +12,7 @@ category: Pitch Narrative
 strategy_slugs:
   - rural-income-boosts
 audience: "Rural and place-based funders — Walton home region, Ascendium, health-conversion foundations, regional/community foundations in LA/AR/AL/MS, rural-focused HNWI."
-tags: [Pitch, Rural-Income, Apprenticeship-Degree, Place-Based, Catalytic-Philanthropy, Reach-University, Draft]
+tags: [Pitch, Rural-Income, Apprenticeship-Degree, Place-Based, Catalytic-Philanthropy, Reach-University]
 authors:
   - Michael Staton
 date_created: 2026-07-28

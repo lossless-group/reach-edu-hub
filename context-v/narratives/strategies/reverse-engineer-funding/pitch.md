@@ -11,7 +11,7 @@ augmented_with:
 category: Pitch Narrative
 strategy_slugs: []
 audience: "INTERNAL — Reach/NCAD leadership + development team. Operating-doctrine adoption pitch. (No corpus strategy slug yet — see README note.)"
-tags: [Pitch, Internal, Grant-Strategy, Power-Law, Prospect-Research, Reach-University, Draft]
+tags: [Pitch, Internal, Grant-Strategy, Power-Law, Prospect-Research, Reach-University]
 authors:
   - Michael Staton
 date_created: 2026-07-28
