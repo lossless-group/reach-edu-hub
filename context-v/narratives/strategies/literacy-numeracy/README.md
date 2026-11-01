@@ -29,6 +29,7 @@ date_modified: 2026-07-28
 site_uuid: 70f7ecee-8433-407f-b300-d171514da38a
 hex_code: 2krhr1
 publish: true
+type: Narratives
 ---
 
 # Improving Literacy & Numeracy in Working Adults

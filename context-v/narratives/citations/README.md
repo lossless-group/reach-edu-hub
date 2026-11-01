@@ -15,6 +15,7 @@ hex_code: hsmr58
 date_authored_initial_draft: 2026-07-28
 date_authored_current_draft: 2026-07-28
 publish: true
+type: Narratives
 ---
 
 # Citation Registry — reach-edu-hub narratives

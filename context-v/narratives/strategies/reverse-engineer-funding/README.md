@@ -26,6 +26,7 @@ date_modified: 2026-07-28
 site_uuid: 01031de5-0633-49e8-91b7-27174b8fa977
 hex_code: pt9ia4
 publish: true
+type: Narratives
 ---
 
 # Reverse Engineer Available Funding

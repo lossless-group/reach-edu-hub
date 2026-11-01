@@ -29,6 +29,7 @@ date_modified: 2026-07-28
 site_uuid: 7a1e2dd8-d98e-4bd6-a4e9-36643bdd0d33
 hex_code: phrsai
 publish: true
+type: Narratives
 ---
 
 # NCAD Agentic Product Development Lab

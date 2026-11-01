@@ -30,6 +30,7 @@ date_modified: 2026-07-28
 site_uuid: d4df4f23-cda8-4648-8930-9d18da618c20
 hex_code: lm8q3x
 publish: true
+type: Narratives
 ---
 
 # Agent Workflow Maxxing
