@@ -7,7 +7,8 @@ date_last_updated: 2026-07-07
 date_created: 2026-07-07
 date_modified: 2026-08-18
 at_semantic_version: 0.0.1.0
-status: In-Review
+status: Shipped
+date_first_published: 2026-07-07
 augmented_with:
   - Claude Code on Claude Sonnet 5
 category: Exploration
