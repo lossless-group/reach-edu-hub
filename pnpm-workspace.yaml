@@ -1,3 +1,27 @@
-onlyBuiltDependencies:
-  - esbuild
-  - sharp
+# Standalone install: this site keeps its own pnpm-lock.yaml (Vercel installs
+# from it with --frozen-lockfile), separate from the dididecks-ai workspace.
+#
+# pnpm 11+ reads settings from this file, not from .npmrc, and takes registry
+# auth only from the user-level ~/.npmrc. .npmrc still carries the same
+# settings for older pnpm and the registry mapping for every version.
+packages:
+  - '.'
+
+shamefullyHoist: true
+autoInstallPeers: true
+strictPeerDependencies: false
+enablePrePostScripts: true
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+# SECURITY overrides, mirrored in package.json "pnpm.overrides" for pnpm 10,
+# which ignores this file here because .npmrc sets ignore-workspace.
+# - image-size: pptxgenjs declares it but loads `sizeof` instead; 1.x has no
+#   fixed release (fixed in 2.0.3).
+# - path-to-regexp: @vercel/routing-utils pins 6.1.0 (backtracking regex,
+#   fixed in 6.3.0, same major).
+overrides:
+  image-size: ^2.0.3
+  '@vercel/routing-utils>path-to-regexp': 6.3.0
