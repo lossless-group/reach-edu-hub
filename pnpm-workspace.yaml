@@ -25,3 +25,6 @@ allowBuilds:
 overrides:
   image-size: ^2.0.3
   '@vercel/routing-utils>path-to-regexp': 6.3.0
+minimumReleaseAgeExclude:
+  - '@lossless-group/dididecks-player@0.1.0'
+  - '@lossless-group/dididecks-shell@0.4.1'
